@@ -572,6 +572,15 @@
       "internationalacademyofaviationindustry",
       "kmitlbusinessschool"
     ],
+    "bachelor_en:footer.by.by_position": [
+      "director"
+    ],
+    "bachelor_en:footer.by.by_reg": [
+      "kmitlregistrationandeducationserviceoffice"
+    ],
+    "bachelor_en:footer.by.by_signature": [
+      "asst.prof.dr.testsurname"
+    ],
     "bachelor_en:program": [
       "aeronauticalengineeringandcommercialpilot(internationalprogram)",
       "businessandmanagerialeconomics",
@@ -590,6 +599,15 @@
       "คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี",
       "คณะวิศวกรรมศาสตร์",
       "คณะสถาปัตยกรรมศิลปะและการออกแบบ"
+    ],
+    "bachelor_th:footer.by.by_position": [
+      "ผู้อำนวยการ"
+    ],
+    "bachelor_th:footer.by.by_reg": [
+      "สำนักทะเบียนและบริการการศึกษา"
+    ],
+    "bachelor_th:footer.by.by_signature": [
+      "ผู้ช่วยศาสตราจารย์ดร.ทดสอบนามสกุล"
     ],
     "bachelor_th:program": [
       "การจัดการวิศวกรรมและเทคโนโลยี(หลักสูตรนานาชาติ)",
@@ -613,6 +631,15 @@
       "kmitlbusinessschool",
       "schoolofliberalarts"
     ],
+    "graduate_en:footer.by.by_position": [
+      "director"
+    ],
+    "graduate_en:footer.by.by_reg": [
+      "kmitlregistrationandeducationserviceoffice"
+    ],
+    "graduate_en:footer.by.by_signature": [
+      "asst.prof.dr.testsurname"
+    ],
     "graduate_en:program": [
       "advancedmanufacturingsystemengineering(internationalprogram)",
       "appliedlinguistics-englishforprofessionalpurposes",
@@ -629,6 +656,15 @@
       "คณะวิทยาศาสตร์",
       "คณะอุตสาหกรรมอาหาร",
       "คณะเทคโนโลยีการเกษตร"
+    ],
+    "graduate_th:footer.by.by_position": [
+      "ผู้อำนวยการ"
+    ],
+    "graduate_th:footer.by.by_reg": [
+      "สำนักทะเบียนและบริการการศึกษา"
+    ],
+    "graduate_th:footer.by.by_signature": [
+      "ผู้ช่วยศาสตราจารย์ดร.ทดสอบนามสกุล"
     ],
     "graduate_th:program": [
       "การจัดการความปลอดภัยอาหาร",

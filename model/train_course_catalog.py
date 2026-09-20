@@ -27,6 +27,9 @@ def main() -> None:
             value = str(record.get("header_detail", {}).get(field) or "")
             if value:
                 entities[(format_id, field)].add(value)
+        for field, value in (record.get("footer_detail", {}).get("by") or {}).items():
+            if value:
+                entities[(format_id, f"footer.by.{field}")].add(str(value))
         for semester in record.get("transcript_detail", {}).get("semesters", []):
             for subject in semester.get("subject", []):
                 code = str(subject.get("subject_id") or "")

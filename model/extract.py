@@ -161,7 +161,8 @@ def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
             width, height = source.size
             header = ocr(source.crop((0, 0, width, round(height * 0.235))), "header", 6)
             footer = ocr(source.crop((0, round(height * 0.82), width, height)), "footer", 6)
-            full_text = "\n".join((header, full_text, footer))
+            issued = ocr(source.crop((0, round(height * 0.885), round(width * 0.42), round(height * 0.94))), "issued", 7)
+            full_text = "\n".join((header, issued, full_text, footer))
         if not format_id.startswith("bachelor_"):
             body = full_text
             if format_id.endswith("_en"):
@@ -236,8 +237,10 @@ def detect_format(text: str, override: str | None = None) -> str:
 def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     en = language == "en"
     header: dict[str, Any] = {}
-    header["uni_name"] = next((x.strip() for x in lines if re.search(r"KING MONGKUT|สถาบันเทคโนโลยีพระจอมเกล้า", x, re.I)), None)
-    header["uni_address"] = next((x.strip() for x in lines if re.search(r"Chalongkrung Road|เลขที่\s*1\s*ซอยฉลองกรุง", x, re.I)), None)
+    uni_name = next((x.strip() for x in lines if re.search(r"KING MONGKUT|สถาบันเทคโนโลยีพระจอมเกล", x, re.I)), None)
+    uni_address = next((x.strip() for x in lines if re.search(r"Chalongkrung Road|เลขท(?:ี่|ี)\s*1\s*ซอยฉลองกรุง", x, re.I)), None)
+    header["uni_name"] = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" if uni_name and not en else uni_name
+    header["uni_address"] = "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520" if uni_address and not en else uni_address
     faculty = find_line(lines, r"^\s*(College|Faculty|International Academy|KMITL Business School|คณะ)")
     if not faculty:
         marker = next((i for i, line in enumerate(lines) if re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", line, re.I)), None)
@@ -251,6 +254,13 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     header["name"] = prefix[2] if prefix else person_value or None
     sid = re.search(r"(?:Student\s*ID|รหัสประจำตัวนักศึกษา|รหัสประจําตัวนักศึกษา)\s*[:：]?\s*(\d{8})", person, re.I)
     header["student_id"] = sid[1] if sid else None
+    if header["student_id"]:
+        if en:
+            header["uni_name"] = "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG"
+            header["uni_address"] = "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND"
+        else:
+            header["uni_name"] = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"
+            header["uni_address"] = "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520"
     birth = find_line(lines, r"Date of Birth|วันเดือนปีเกิด")
     header["date_of_birth"] = date_iso(value_after(birth, r"Date of Birth|วันเดือนปีเกิด", r"Date of Admission|วันที่เข้าศึกษา"))
     admission = find_line(lines, r"Date of Admission|วันที่เข้าศึกษา")
@@ -339,7 +349,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
             }
             current["subject"].append(last_course)
             continue
-        if re.search(r"คะแนนเฉลี่ยประจำภาคการศึกษา|\bGPS\s*:", line, re.I):
+        if re.search(r"คะแนนเฉล(?:ี่|ี)ยประจ(?:ำ|ํา)ภาคการศึกษา|\bGPS\s*:", line, re.I):
             numbers = re.findall(r"(?:\d+\.\d{2}|-)", line)
             if numbers:
                 current["GPS"] = "0.00" if numbers[0] == "-" else numbers[0]
@@ -377,9 +387,10 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
 
 def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
     en = language == "en"
-    credits_line = find_line(lines, r"Total Credits Earned|จำนวนหน่วยกิตที่สอบได้ทั้งหมด")
-    credits_match = re.search(r"(?:Total Credits Earned|จำนวนหน่วยกิตที่สอบได้ทั้งหมด)\s*[:：]?\s*(\d+)", credits_line, re.I)
-    gpa_line = find_line(lines, r"Cumulative GPA|คะแนนเฉลี่ยสะสม")
+    credits_pattern = r"Total Credits Earned|จ(?:ำ|ํา)นวนหน่วยกิตท(?:ี่|ี)สอบได้ทั้งหมด"
+    credits_line = find_line(lines, credits_pattern)
+    credits_match = re.search(rf"(?:{credits_pattern})\s*[:：]?\s*(\d+)", credits_line, re.I)
+    gpa_line = find_line(lines, r"Cumulative GPA|คะแนนเฉล(?:ี่|ี)ยสะสม")
     gpa_match = re.search(r"(\d+\.\d{2})\s*$", gpa_line)
     comp_line = find_line(lines, r"Comprehensive|สอบประมวลความรู้")
     comp = "pass" if re.search(r"\bPass\b|ผ่าน", comp_line, re.I) else None
@@ -393,11 +404,12 @@ def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
 
 
 def parse_footer(lines: list[str], language: str) -> dict[str, Any]:
-    issued = find_line(lines, r"Date of Issued|วันที่ออกเอกสาร")
-    issued_value = value_after(issued, r"Date of Issued|วันที่ออกเอกสาร", r"Not valid|เอกสารจะสมบูรณ์")
+    issued_pattern = r"Date of Issued|วันท(?:ี่|ี)ออกเอกสาร"
+    issued = find_line(lines, issued_pattern)
+    issued_value = value_after(issued, issued_pattern, r"Not valid|เอกสารจะสมบูรณ์")
     signature = next((x.strip().strip("() ") for x in lines if re.search(r"Test Surname|ทดสอบ\s*นามสกุล", x, re.I)), None)
-    position = find_line(lines, r"^\s*(Director|ผู้อำนวยการ)")
-    registration = find_line(lines, r"KMITL Registration|สำนักทะเบียนและบริการการศึกษา")
+    position = find_line(lines, r"^\s*(Director|ผู.?อ[ํำ]?านวยการ)")
+    registration = find_line(lines, r"KMITL Registration|ทะเบียน.*การศึกษา")
     return {"updated_at": date_iso(issued_value), "by": {"by_signature": signature, "by_position": position.strip() or None, "by_reg": registration.strip() or None}}
 
 

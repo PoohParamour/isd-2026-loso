@@ -43,6 +43,11 @@ def apply_course_catalog(record: dict[str, Any], catalog: dict[str, Any] | None 
         candidate = _entity_candidate(str(header.get(field) or ""), entities.get(f"{format_id}:{field}", []))
         if candidate:
             header[field] = candidate
+    footer_by = record.get("footer_detail", {}).get("by", {})
+    for field in ("by_signature", "by_position", "by_reg"):
+        candidate = _entity_candidate(str(footer_by.get(field) or ""), entities.get(f"{format_id}:footer.by.{field}", []))
+        if candidate:
+            footer_by[field] = candidate
     for semester in record.get("transcript_detail", {}).get("semesters", []):
         for subject in semester.get("subject", []):
             code = str(subject.get("subject_id") or "")

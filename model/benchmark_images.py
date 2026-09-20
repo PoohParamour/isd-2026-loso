@@ -5,10 +5,11 @@ from __future__ import annotations
 import argparse
 import collections
 import json
+import re
 import statistics
 from pathlib import Path
 
-from evaluate import evaluate_one
+from evaluate import evaluate_one, flatten, norm
 from extract import ROOT, extract
 
 
@@ -33,6 +34,8 @@ def main() -> None:
 
     rows = []
     matrix = collections.defaultdict(lambda: {"correct": 0, "total": 0, "tp": 0, "fn": 0, "fp": 0})
+    field_errors = collections.Counter()
+    examples = collections.defaultdict(list)
     for doc in docs:
         image = images.get(doc["id"])
         if not image:
@@ -40,6 +43,17 @@ def main() -> None:
         result = extract(image)
         gt = json.loads((ROOT / doc["gt"]).read_text(encoding="utf-8"))
         score = evaluate_one(result["record"], gt)
+        reference_fields = flatten(gt)
+        predicted_fields = flatten(result["record"])
+        for field, reference in reference_fields.items():
+            expected = norm(reference, field)
+            actual = norm(predicted_fields.get(field), field)
+            if expected and expected != actual:
+                # Collapse array indices so recurring field types are visible.
+                field_type = re.sub(r"\[\d+\]", "[]", field)
+                field_errors[field_type] += 1
+                if len(examples[field_type]) < 3:
+                    examples[field_type].append({"id": doc["id"], "expected": expected, "actual": actual})
         correct = sum(values["correct"] for values in score["categories"].values())
         total = sum(values["total"] for values in score["categories"].values())
         for label in ("overall", doc["group"] + "_" + doc["language"]):
@@ -70,6 +84,10 @@ def main() -> None:
         "documents": len(rows),
         "mean_seconds": statistics.mean(row["seconds"] for row in rows),
         "matrix": dict(matrix),
+        "top_field_errors": [
+            {"field": field, "errors": count, "examples": examples[field]}
+            for field, count in field_errors.most_common()
+        ],
         "details": rows,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

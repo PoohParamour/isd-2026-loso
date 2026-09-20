@@ -14,6 +14,15 @@ class ValidateRecordTests(unittest.TestCase):
         self.assertEqual(rows[0]["year"], 2563)
         self.assertEqual(rows[0]["subject"][0]["subject_id"], "05208101")
 
+    def test_thai_gps_accepts_legacy_sara_am_and_missing_tone(self):
+        rows = parse_courses(
+            ["ภาคการศึกษาที 2 ปีการศึกษา 2563", "คะแนนเฉลียประจําภาคการศึกษา : 3.50 คะแนนเฉลี่ย : 3.25"],
+            "th",
+            True,
+        )
+        self.assertEqual(rows[0]["GPS"], "3.50")
+        self.assertEqual(rows[0]["GPA"], "3.25")
+
     def test_valid_minimal_record(self):
         record = {
             "header_detail": {"student_id": "71010001", "name": "Test", "faculty_name": "IT", "program": "IT"},
