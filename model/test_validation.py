@@ -1,6 +1,6 @@
 import unittest
 
-from model.extract import parse_courses, parse_header, parse_term
+from model.extract import parse_courses, parse_header, parse_summary, parse_term
 from model.validate import validate_record
 
 
@@ -38,6 +38,55 @@ class ValidateRecordTests(unittest.TestCase):
         )
         self.assertEqual(rows[0]["GPS"], "3.50")
         self.assertEqual(rows[0]["GPA"], "3.25")
+
+    def test_thai_course_column_glyph_confusions_are_position_bound(self):
+        rows = parse_courses(
+            [
+                "ภาคการศึกษาที่ 1 ปีการศึกษา 2564",
+                "90401012 ความรู้เบื้องต้นทางการตลาด 3 ๐",
+                "90307001 ภาษาไทยเพื่อการสื่อสาร 3 8+",
+            ],
+            "th",
+            False,
+        )
+        self.assertEqual([item["grade_earn"] for item in rows[0]["subject"]], ["c", "b+"])
+
+    def test_thai_graduate_type_and_grade_glyph_confusions(self):
+        rows = parse_courses(
+            [
+                "ภาคการศึกษาที่ 1 ปีการศึกษา 2565",
+                "03258902 ดุษฎีนิพนธ์ ๓ | 12 | ร",
+                "03258902 ดุษฎีนิพนธ์ Cr | 12 | 1!",
+            ],
+            "th",
+            True,
+        )
+        self.assertEqual(rows[0]["subject"][0]["type"], "cr")
+        self.assertEqual(rows[0]["subject"][0]["grade_earn"], "s")
+        self.assertEqual(rows[0]["subject"][1]["grade_earn"], "i")
+
+    def test_thai_summary_label_and_leading_table_border_gpa(self):
+        rows = parse_courses(
+            [
+                "ภาคการศึกษาที่ 1 ปีการศึกษา 2564",
+                "ะแนนเฉลี่ยประจําภาคการศึกษา : 0.82 คะแนนเฉลี่ย 12.34",
+            ],
+            "th",
+            False,
+        )
+        self.assertEqual(rows[0]["GPS"], "0.82")
+        self.assertEqual(rows[0]["GPA"], "2.34")
+
+    def test_thai_damaged_summary_and_header_marks(self):
+        summary = parse_summary(
+            ["สอบประมวลความรู : ผาน", "จํานวนหนวยกิตทีสอบไดทั้งหมด : 40", "คะแนนเฉลิยสะสม : 3.86"],
+            "th",
+        )
+        header = parse_header(["วันทิสําเร็จการศึกษา 25 มิถุนายน 2567"], "th")
+        self.assertEqual(summary["master_comprehensive"], "ผ่าน")
+        self.assertEqual(summary["total_credits_earned"], 40)
+        self.assertEqual(summary["cumulative_gpa"], "3.86")
+        self.assertEqual(header["grad_date"], "2024-06-25")
 
     def test_valid_minimal_record(self):
         record = {

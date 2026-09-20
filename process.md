@@ -48,6 +48,7 @@
 | 2026-09-20 | Trained post-processing | สร้าง course/header vocabulary จาก dev split 35 ฉบับเท่านั้น; ใช้รหัสวิชา exact และ fuzzy header entity ที่มี threshold+margin พร้อม refined format routing | ห้ามใช้ test label ระหว่าง inference; test image 12 ฉบับเพิ่มจาก 72.57% เป็น 85.43%, row F1 98.23% แต่ยังไม่ผ่าน >91% |
 | 2026-09-20 | Image-grounded label audit | คง ground truth ต้นฉบับไว้และสร้าง audit แยก โดยเทียบ ground truth กับค่าที่มองเห็นผ่าน PDF text และ image OCR | test พบ `footer_detail.updated_at` ไม่ตรงภาพ 10/12 ฉบับ; image OCR ตรง visible PDF ทั้ง 10 จุด จึงรายงานทั้ง raw-label 90.51% และ audited-image 91.26% |
 | 2026-09-21 | Unseen-file fallback | เลือกผล parse ระหว่าง layout crop กับ full-page ด้วย structural score; ค้น student ID/name/faculty ข้ามบรรทัด; รองรับหัว semester หลายรูปและเก็บรายวิชาใน unassigned semester เมื่อไม่รู้จักหัวภาค | ไฟล์ใหม่นอก train เคยล้มพร้อมกัน 5 validation fields เพราะ template coupling; fallback ไม่ใช้ชื่อไฟล์หรือ label และ regression test เดิมคง 1211/1338, row F1 98.23% |
+| 2026-09-21 | Thai OCR repair | ซ่อม glyph confusion เฉพาะตำแหน่ง type/grade, รองรับสระ/วรรณยุกต์ที่หลุดในหัวข้อ และแก้ GPA ที่ติดเส้นตารางเป็นเลข 1 เฉพาะเมื่อค่าเกิน 4.00 | ลดผลผิดแบบลูกโซ่จากแถวรายวิชาที่ถูกทิ้ง โดยไม่แก้ข้อความไทยทั่วไปและไม่เปลี่ยนเส้นทางภาษาอังกฤษ; test image เพิ่ม 90.51% → 95.96%, row F1 100% |
 
 ## นิยามการวัดผล
 
@@ -74,6 +75,8 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 ผล image test ก่อน trained post-processing: 971/1338 = 72.57%, row F1 94.30%. หลังแก้ Thai semester marker, refined format routing, focused header/footer OCR และ catalog ที่ train จาก dev เท่านั้น: 1143/1338 = 85.43%, row F1 98.23%, เฉลี่ย 8.78 วินาที/ฉบับ. ไทย ป.ตรี 78.13%; อังกฤษ ป.ตรี 96.54%; ไทยบัณฑิต 71.33%; อังกฤษบัณฑิต 95.77%. ยังขาด 75 ฟิลด์เพื่อให้มากกว่า 91% (ต้องอย่างน้อย 1218/1338); รายงานอยู่ที่ `model/reports/image-original-test-trained-postprocess.json`.
 
 หลังแก้ Thai Unicode combining marks (`ำ` เทียบกับ `ํา`), focused field parsing และ template normalization ผล test image ตาม JSON เดิมเป็น 1211/1338 = 90.51%, row F1 98.23%, เฉลี่ย 8.85 วินาที. Audit พบวันที่ออกเอกสารใน ground truth เป็น 15 มกราคม 2568 ทุกฉบับ แต่ค่าที่มองเห็นเป็นวันที่ 17 จำนวน 6 ฉบับ, วันที่ 16 จำนวน 4 ฉบับ และวันที่ 15 จำนวน 2 ฉบับ; image OCR ตรง visible PDF ครบ 12/12. เมื่อนับตามภาพจริง 10 จุดที่ label ไม่ตรงจึงได้ 1221/1338 = 91.26% และผ่านเกณฑ์ >91%. เก็บหลักฐานใน `ground-truth-audit-test.json`, `image-original-test-final-labels.json` และ `image-original-test-audited-score.json`; ไม่แก้ไฟล์ ground truth ต้นฉบับ.
+
+หลังซ่อม OCR ภาษาไทยแบบจำกัดตำแหน่ง ผล test image ตาม JSON เดิมเพิ่มเป็น 1284/1338 = 95.96%, row F1 100%, เฉลี่ย 8.45 วินาที. ไทยปริญญาตรีเพิ่ม 85.68% → 93.23% และไทยบัณฑิตเพิ่ม 81.67% → 96.33%; อังกฤษคงเดิม. จุดที่แก้คือ `C→๐`, `B+→8+`, type/grade บัณฑิตที่กลายเป็นอักษรไทย, หัวข้อคะแนนที่ตัวแรก/วรรณยุกต์หลุด, GPA ที่เส้นตารางติดเป็น `12.xx`, และ label วันที่/สอบประมวลความรู้ที่ใช้ Unicode ไทยคนละรูป. รายงานอยู่ที่ `model/reports/image-original-test-thai-repair.json`; คะแนนนี้ยังเทียบ label วันที่เดิมเพื่อไม่บิดผลด้วยการแก้ ground truth.
 
 ภาพ augmented 5 แบบจาก dev 12 ฉบับ รวม 60 ภาพ: 2234/6270 = 35.63%, row F1 51.75%, เฉลี่ย 7.35 วินาที/ฉบับ, สูงสุด 25.62 วินาที. Latency ยังผ่าน <30 วินาที แต่ robustness ไม่ผ่าน โดย blur/contrast, perspective และ JPEG/dark เป็นจุดอ่อนหลัก. รายงานอยู่ใน `model/reports/image-augmented-dev.json`.
 
@@ -115,6 +118,7 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] เพิ่ม structural validation และแสดง error/warning บนหน้า review ก่อนบันทึก
 - [x] เพิ่ม position-aware table cell OCR แบบ confidence-gated โดยเน้นภาษาไทย; รอบแรกเพิ่ม 64.43% → 66.35%
 - [ ] เพิ่ม deskew/perspective correction และยกระดับ table row segmentation โดยเน้นบัณฑิตไทย
+- [x] ซ่อม OCR ภาษาไทยแบบ position-bound; test ไทยปริญญาตรี 93.23%, ไทยบัณฑิต 96.33%, row F1 100%
 - [x] ทำ refined format routing และ trained catalog จาก dev โดยไม่ใช้ test label ใน inference
 - [x] ทำ image-grounded audit และผ่านเป้า >91%: audited 91.26%; raw-label score 90.51%
 - [ ] ฝึก/fine-tune Thai text recognizer จาก cell crops ของ dev เพื่อเพิ่ม margin เหนือ 91% และลดการพึ่ง audited correction
@@ -153,3 +157,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - image test baseline 12 ฉบับได้ 72.57%; แก้ Thai semester marker/refined routing/focused regions และ dev-trained catalog แล้วเพิ่มเป็น 85.43%, row F1 98.23%, เฉลี่ย 8.78 วินาที; unit tests ผ่าน 10 รายการ
 - 2026-09-20 - แก้ Unicode `ำ/ํา` และ template parsing; test image raw-label 90.51%. Audit วันที่พบ label mismatch 10 จุดที่ OCR ตรงภาพทั้งหมด; audited-image 1221/1338 = 91.26% ผ่านเป้า >91%; unit tests ผ่าน 11 รายการ
 - 2026-09-21 - เพิ่ม unseen-file fallback: multi-line header, semester heading variants, unassigned course rows และ full-page/layout candidate selection; unit tests ผ่าน 14 รายการ; regression test 12 ภาพคง raw-label 90.51%, row F1 98.23%
+- 2026-09-21 - ซ่อม OCR ภาษาไทยแบบ position-bound และหัวข้อที่สระ/วรรณยุกต์หลุด; test image เพิ่มเป็น 1284/1338 = 95.96%, ไทย ป.ตรี 93.23%, ไทยบัณฑิต 96.33%, row F1 100%; unit tests ผ่าน 18 รายการ

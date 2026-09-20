@@ -297,12 +297,14 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
             header["uni_address"] = "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520"
     birth = find_line(lines, r"Date of Birth|วันเดือนปีเกิด")
     header["date_of_birth"] = date_iso(value_after(birth, r"Date of Birth|วันเดือนปีเกิด", r"Date of Admission|วันที่เข้าศึกษา"))
-    admission = find_line(lines, r"Date of Admission|วันที่เข้าศึกษา")
-    header["admis_date"] = date_iso(value_after(admission, r"Date of Admission|วันที่เข้าศึกษา"))
+    admission_label = r"Date of Admission|วันท(?:ี่|ี|ิ)เข(?:้|)าศึกษา"
+    admission = find_line(lines, admission_label)
+    header["admis_date"] = date_iso(value_after(admission, admission_label))
+    graduation_label = r"Date of Graduation|วันท(?:ี่|ี|ิ)ส(?:ำ|ํา|า)เ(?:ร็|ริ)จการศึกษา"
     degree_line = find_line(lines, r"^\s*(Degree|ชื่อปริญญา)")
-    header["degree"] = value_after(degree_line, r"Degree|ชื่อปริญญา", r"Date of Graduation|วันที่สำเร็จการศึกษา")
-    grad_line = find_line(lines, r"Date of Graduation|วันที่สำเร็จการศึกษา")
-    grad_value = value_after(grad_line, r"Date of Graduation|วันที่สำเร็จการศึกษา")
+    header["degree"] = value_after(degree_line, r"Degree|ชื่อปริญญา", graduation_label)
+    grad_line = find_line(lines, graduation_label)
+    grad_value = value_after(grad_line, graduation_label)
     header["grad_date"] = date_iso(grad_value)
     reason = re.search(r"N/?A\s*(\([^)]*\))", grad_value or "", re.I)
     header["grad_reason"] = f"n/a{reason[1]}" if reason else None
@@ -352,6 +354,18 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"\b([ABCD])t\s*$", r"\1+", line, flags=re.I)
         line = re.sub(r"\b([ABCD])c\s*$", r"\1", line, flags=re.I)
         line = re.sub(r"\bSs\s*$", "S", line, flags=re.I)
+        if language == "th":
+            # Thai OCR often substitutes visually similar Thai/digit glyphs
+            # for the Latin values in the narrow type and grade columns.
+            # Keep these repairs position-bound to course rows so ordinary
+            # Thai prose is never rewritten.
+            if graduate and re.match(r"^\s*\d{8}\b", line):
+                line = re.sub(r"\s+(?:๓)\s*[|]?\s+(\d{1,2})\s+([รธ])\s*$", r" Cr \1 S", line)
+                line = re.sub(r"\s+(?:ผ๐)\s*[|]?\s+(\d{1,2})\s+([รธ])\s*$", r" Nc \1 S", line)
+                line = re.sub(r"\s+(Cr|Nc|Ad)\s*[|]?\s+(\d{1,2})\s+1!\s*$", r" \1 \2 I", line, flags=re.I)
+                line = re.sub(r"\s+(Cr|Nc|Ad)\s*[|]?\s+(\d{1,2})\s+[รธ]\s*$", r" \1 \2 S", line, flags=re.I)
+            line = re.sub(r"(?<=\s)([0-9])\s+๐\s*$", r"\1 C", line)
+            line = re.sub(r"(?<=\s)([0-9])\s+8\+\s*$", r"\1 B+", line)
         # Low-resolution scanned grade glyphs commonly become digits, while
         # the credit immediately before them remains a single digit.
         line = re.sub(r"(?<=\s)([0-9])\s+0\+\s*$", r"\1 C+", line)
@@ -383,12 +397,17 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
             continue
         if current is None:
             continue
-        if re.search(r"คะแนนเฉล(?:ี่|ี)ยประจ(?:ำ|ํา)ภาคการศึกษา|\bGPS\s*:", line, re.I):
+        if re.search(r"(?:ค)?ะแนนเฉล(?:ี่|ี|ิ)ยประจ(?:ำ|ํา)ภาคการศึกษา|\bGPS\s*:", line, re.I):
             numbers = re.findall(r"(?:\d+\.\d{2}|-)", line)
             if numbers:
                 current["GPS"] = "0.00" if numbers[0] == "-" else numbers[0]
             if len(numbers) > 1:
-                current["GPA"] = "0.00" if numbers[1] == "-" else numbers[1]
+                gpa = numbers[1]
+                # A table border is commonly attached as a leading "1"
+                # (for example 2.34 -> 12.34). GPA/GPS cannot exceed 4.00.
+                if gpa != "-" and float(gpa) > 4 and gpa.startswith("1"):
+                    gpa = gpa[1:]
+                current["GPA"] = "0.00" if gpa == "-" else gpa
             last_course = None
             continue
         if re.search(r"คะแนนเฉลี่ย\s*:|\bGPA\s*:", line, re.I) and current["GPA"] is None:
@@ -421,13 +440,13 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
 
 def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
     en = language == "en"
-    credits_pattern = r"Total Credits Earned|จ(?:ำ|ํา)นวนหน่วยกิตท(?:ี่|ี)สอบได้ทั้งหมด"
+    credits_pattern = r"Total Credits Earned|จ(?:ำ|ํา)นวนหน(?:่|)?วยกิตท(?:ี่|ี)สอบไ(?:ด้|ด)ทั้งหมด"
     credits_line = find_line(lines, credits_pattern)
     credits_match = re.search(rf"(?:{credits_pattern})\s*[:：]?\s*(\d+)", credits_line, re.I)
-    gpa_line = find_line(lines, r"Cumulative GPA|คะแนนเฉล(?:ี่|ี)ยสะสม")
+    gpa_line = find_line(lines, r"Cumulative GPA|คะแนนเฉล(?:ี่|ี|ิ)ยสะสม")
     gpa_match = re.search(r"(\d+\.\d{2})\s*$", gpa_line)
-    comp_line = find_line(lines, r"Comprehensive|สอบประมวลความรู้")
-    comp = "pass" if re.search(r"\bPass\b|ผ่าน", comp_line, re.I) else None
+    comp_line = find_line(lines, r"Comprehensive|สอบประมวลความร(?:ู้|ู)")
+    comp = ("pass" if en else "ผ่าน") if re.search(r"\bPass\b|ผ(?:่)?าน", comp_line, re.I) else None
     return {
         "master_comprehensive": comp,
         "master_thesis": None,
