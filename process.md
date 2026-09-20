@@ -41,6 +41,7 @@
 | 2026-09-20 | PDF text | ใช้ text layer เฉพาะเมื่อผ่านการตรวจคุณภาพข้อความ มิฉะนั้นส่งเข้า OCR | บาง PDF มี text layer แต่ได้อักขระเพี้ยนเมื่อถอดข้อความ |
 | 2026-09-20 | โครงระบบ | Next.js + Tailwind, FastAPI, Docker; local Ollama สำหรับ OCR ที่ต้องใช้ VLM | ผู้ใช้ยืนยัน stack; เครื่องมี Ollama และโมเดลที่ Lab ใช้ |
 | 2026-09-20 | ข้อมูลผิดคู่ | ไม่จับคู่ PDF `74176008` กับ JSON `74176005`; กันออกจาก scoring จนตรวจ label | รหัสภายใน PDF คือ `74176008`, ใน JSON คือ `74176005` และรายละเอียดไม่ตรงกัน |
+| 2026-09-20 | Local VLM | ไม่ใช้ Typhoon-OCR + Qwen3 เป็นเส้นทางหลัก; คง hybrid PDF text + Tesseract fallback | ทดสอบผ่าน Ollama local กับ PNG 150 DPI แบบสมดุล 4 กลุ่ม: สำเร็จ 1/4, อีก 3 timeout; ฉบับที่สำเร็จถูก 1/75 (1.33%) และใช้ 121.1 วินาที จึงด้อยกว่าทั้ง accuracy และ latency |
 
 ## นิยามการวัดผล
 
@@ -69,7 +70,11 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 | Hybrid PDF text + Tesseract fallback | 565/575 = 98.26% | 0.433 วินาที | 0 USD |
 | Tesseract OCR ทุก PDF | 241/575 = 41.91% | 3.227 วินาที | 0 USD |
 
-สองแถวนี้เป็นการเปรียบเทียบเส้นทาง OCR ไม่ใช่สองโมเดลที่ต่างกัน; กำลังทดสอบ local VLM เพิ่มบนเอกสารเดียวกัน. ใช้ hybrid เพราะแม่นกว่าและเร็วกว่าในไฟล์ที่มี text layer.
+สองแถวนี้เป็นการเปรียบเทียบเส้นทาง OCR ไม่ใช่สองโมเดลที่ต่างกัน. ใช้ hybrid เพราะแม่นกว่าและเร็วกว่าในไฟล์ที่มี text layer; ผล local VLM แยกไว้ด้านล่างเพราะรับภาพ PNG ไม่ใช่ digital PDF.
+
+### Local VLM ตาม Lab 7
+
+ทดสอบ `scb10x/typhoon-ocr1.5-3b -> qwen3:4b` ผ่าน Ollama local กับภาพ original 150 DPI จาก dev แบบสมดุล 4 กลุ่ม กลุ่มละ 1 ฉบับ. ปริญญาตรีไทยประมวลผลสำเร็จแต่ได้เพียง 1/75 = 1.33% และใช้ 121.1 วินาที; ปริญญาตรีอังกฤษ บัณฑิตไทย และบัณฑิตอังกฤษ timeout ที่ 120 วินาทีในขั้น OCR. ผลนี้ไม่ผ่านเป้า <30 วินาทีและไม่เหมาะเป็นเส้นทางหลัก. รายงานอยู่ที่ `model/reports/vlm-dev.json`; Markdown/JSON กลางทางอยู่ใน `model/reports/vlm-intermediate/`. ตัวเลขนี้เป็น image-input benchmark จึงไม่ปะปนกับคะแนน digital PDF.
 
 - Primary: exact match ของฟิลด์ที่มีค่าใน ground truth หลัง normalization ที่ประกาศไว้ล่วงหน้า; ฟิลด์หายถือว่าผิด
 - แถวรายวิชาที่หาย/เกินต้องรายงานแยก และไม่ทำให้คะแนนดูดีจากฟิลด์ว่างจำนวนมาก
@@ -91,8 +96,9 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] ทำ format configs + pipeline PDF/OCR
 - [x] ทำ FastAPI, DB และ Next.js
 - [x] ยืนยัน Docker end-to-end และวัด batch ผ่าน deployed API
-- [ ] วัดภาพ original/augmented แยกตาม noise; ปรับ OCR ภาพไทยต่อ
-- [ ] จัดทำ model comparison บนชุดเดียวกัน, docs และสไลด์ช่วงท้าย
+- [x] ทดลอง local VLM ตาม Lab 7 บนชุดสมดุล; บันทึก accuracy, latency และ timeout เพื่อใช้ตัดสินใจเลือกโมเดล
+- [ ] ขยาย image benchmark ไปยัง augmented/noise และปรับ OCR ภาพไทยต่อ
+- [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
 ## แผนปิดโปรเจกต์และเกณฑ์ผ่านแต่ละช่วง
 
@@ -118,3 +124,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - เพิ่ม API/SQLite, หน้าเว็บ Next.js และ Docker Compose; local API upload-save-search ผ่าน
 - 2026-09-20 - Docker web+backend healthy; proxy upload-save-search ผ่าน; deployed batch 12 ฉบับเฉลี่ย 1.754 วินาทีรวม comparison
 - 2026-09-20 - ภาพ PNG original dev 12 ฉบับได้ 54.31%; เป็นข้อจำกัดสำคัญที่ต้องแยกจากคะแนน PDF
+- 2026-09-20 - อ่าน `all/` ชุดอัปโหลดใหม่และยืนยัน Lab 7 pipeline; ทดสอบ local VLM 4 กลุ่มผ่าน Ollama ได้ 1/75 ในฉบับที่สำเร็จ (121.1 วินาที) และอีก 3 ฉบับ timeout ที่ 120 วินาที

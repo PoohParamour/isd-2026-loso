@@ -1,0 +1,29 @@
+{
+  "header_detail": {
+    "student_id": "null",
+    "faculty_name": "วิศวกรรมศาสตร์",
+    "prename": "นางสาววศินี",
+    "name": "วิศวกรรมศาสตร์",
+    "date_of_birth": "null",
+    "degree": "วิทยาศาสตรบัณฑิต",
+    "program": "null",
+    "honor": null
+  },
+  "transcript_detail": {
+    "semesters": [
+      {
+        "year": 2020,
+        "sem_num": 1,
+        "subject": [
+          {
+            "subject_id": "null",
+            "subject_name": "null",
+            "credit": null,
+            "grade_earn": "null",
+            "type": "null"
+          }
+        ]
+      }
+    ]
+  }
+}

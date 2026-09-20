@@ -1,0 +1,45 @@
+{
+  "split": "dev",
+  "input": "Lab5 original PNG, 150 DPI",
+  "pipeline": "scb10x/typhoon-ocr1.5-3b -> qwen3:4b",
+  "api_cost_usd": 0,
+  "documents_attempted": 4,
+  "documents_succeeded": 1,
+  "correct": 1,
+  "total": 75,
+  "exact_field_accuracy": 0.013333333333333334,
+  "mean_seconds": 121.1,
+  "details": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "seconds": 121.1,
+      "cached": true,
+      "correct": 1,
+      "total": 75,
+      "accuracy": 0.013333333333333334
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "seconds": 120,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "seconds": 120,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "seconds": 120,
+      "error": "The operation was aborted due to timeout"
+    }
+  ]
+}
