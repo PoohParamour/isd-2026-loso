@@ -31,6 +31,7 @@ TH_MONTHS = {"มกราคม": 1, "กุมภาพันธ์": 2, "ม�
 EN_MONTHS = {"january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6, "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12}
 COURSE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-)\s*$", re.I)
 COURSE_NO_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*$", re.I)
+COURSE_PENDING = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})\s*$", re.I)
 TH_TERM = re.compile(r"ภาคการศึกษา(?:ที่|ที)\s*([123])\s*ปีการศึกษา\s*(\d{4})")
 EN_TERM = re.compile(r"\b([123])(?:st|nd|rd|th)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 TH_SPECIAL = re.compile(r"ภาคการศึกษาพิเศษ\s*ปีการศึกษา\s*(\d{4})")
@@ -46,7 +47,7 @@ def parse_term(line: str, language: str) -> tuple[int, int] | None:
         )
         if language == "th"
         else (
-            r"\b([123])(?:st|nd|rd|th)?\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})",
+            r"\b([123])(?:st|nd|rd|th)?\s+Semester[,]?\s*(?:(?:Academic\s+)?Year[,]?\s*)?(\d{4})(?:\s*-\s*\d{4})?",
             r"\bSemester\s*([123])\D{0,30}(?:Academic\s+Year|Year)\s*(\d{4})",
             r"\b(?:Academic\s+Year|Year)\s*(\d{4})\D{0,30}Semester\s*([123])",
         )
@@ -76,7 +77,9 @@ def text_is_usable(text: str) -> bool:
     damaged = sum(char == "ÿ" or (ord(char) < 32 and char not in "\t\n\r\f") for char in text)
     if damaged / len(text) > 0.02:
         return False
-    return bool(re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", text, re.I))
+    transcript_marker = re.search(r"TRANSCRIPT OF RECORDS|Unofficial Transcript|ใบแสดงผลการศึกษา", text, re.I)
+    identity_marker = re.search(r"Student\s*(?:ID|No\.?|Number)|รหัส(?:ประจ[ำํา]ตัว)?นักศึกษา", text, re.I)
+    return bool(transcript_marker and identity_marker)
 
 
 def read_document(path: Path, force_ocr: bool = False) -> tuple[str, str]:
@@ -269,7 +272,15 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     uni_address = next((x.strip() for x in lines if re.search(r"Chalongkrung Road|เลขท(?:ี่|ี)\s*1\s*ซอยฉลองกรุง", x, re.I)), None)
     header["uni_name"] = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" if uni_name and not en else uni_name
     header["uni_address"] = "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520" if uni_address and not en else uni_address
-    faculty = find_line(lines, r"(?:^|\s)(College(?:\s+of)?|Faculty(?:\s+of)?|School(?:\s+of)?|International Academy|KMITL Business School|คณะ)")
+    faculty = next(
+        (
+            line
+            for line in lines
+            if re.search(r"(?:^|\s)(College(?:\s+of)?|Faculty(?:\s+of)?|School(?:\s+of)|International Academy|KMITL Business School|คณะ)", line, re.I)
+            and not re.match(r"\s*\d{8}\b", line)
+        ),
+        "",
+    )
     if not faculty:
         marker = next((i for i, line in enumerate(lines) if re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", line, re.I)), None)
         if marker is not None:
@@ -372,6 +383,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"(?<=\s)([0-9])\s+8\+\s*$", r"\1 B+", line)
         line = re.sub(r"(?<=\s)([0-9])\s+[\(（][๐0]\s*$", r"\1 C", line)
         row = COURSE.match(line) or COURSE_NO_GRADE.match(line)
+        pending = COURSE_PENDING.match(line) if language == "en" and not graduate else None
         if row is None and current is not None and current["sem_num"] == 0:
             transfer = re.match(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})[.\s|]+(T\(?[A-FS][+4]?\)?|T[+)]|TB\))\s*$", line, re.I)
             if transfer:
@@ -392,6 +404,19 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
                 "type": row[3].lower() if row[3] and graduate else None,
                 "credit": int(row[4]),
                 "grade_earn": row[5].lower() if row.lastindex == 5 else None,
+            }
+            current["subject"].append(last_course)
+            continue
+        if pending:
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
+            last_course = {
+                "subject_id": pending[1],
+                "subject_name": pending[2].strip(),
+                "type": None,
+                "credit": int(pending[3]),
+                "grade_earn": None,
             }
             current["subject"].append(last_course)
             continue
@@ -440,7 +465,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
 
 def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
     en = language == "en"
-    credits_pattern = r"Total Credits Earned|จ(?:ำ|ํา)นวนหน(?:่|)?วยกิตท(?:ี่|ี)สอบไ(?:ด้|ด)ทั้งหมด"
+    credits_pattern = r"Total (?:number of )?credit(?:s)? earned|จ(?:ำ|ํา)นวนหน(?:่|)?วยกิตท(?:ี่|ี)สอบไ(?:ด้|ด)ทั้งหมด"
     credits_line = find_line(lines, credits_pattern)
     credits_match = re.search(rf"(?:{credits_pattern})\s*[:：]?\s*(\d+)", credits_line, re.I)
     gpa_line = find_line(lines, r"Cumulative GPA|คะแนนเฉล(?:ี่|ี|ิ)ยสะสม")
@@ -457,7 +482,7 @@ def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
 
 
 def parse_footer(lines: list[str], language: str) -> dict[str, Any]:
-    issued_pattern = r"Date of Issued|วันท(?:ี่|ี)ออกเอกสาร"
+    issued_pattern = r"Date (?:of )?Issued|วันท(?:ี่|ี)ออกเอกสาร"
     issued = find_line(lines, issued_pattern)
     issued_value = value_after(issued, issued_pattern, r"Not valid|เอกสารจะสมบูรณ์")
     signature = next((x.strip().strip("() ") for x in lines if re.search(r"Test Surname|ทดสอบ\s*นามสกุล", x, re.I)), None)

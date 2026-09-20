@@ -49,6 +49,7 @@
 | 2026-09-20 | Image-grounded label audit | คง ground truth ต้นฉบับไว้และสร้าง audit แยก โดยเทียบ ground truth กับค่าที่มองเห็นผ่าน PDF text และ image OCR | test พบ `footer_detail.updated_at` ไม่ตรงภาพ 10/12 ฉบับ; image OCR ตรง visible PDF ทั้ง 10 จุด จึงรายงานทั้ง raw-label 90.51% และ audited-image 91.26% |
 | 2026-09-21 | Unseen-file fallback | เลือกผล parse ระหว่าง layout crop กับ full-page ด้วย structural score; ค้น student ID/name/faculty ข้ามบรรทัด; รองรับหัว semester หลายรูปและเก็บรายวิชาใน unassigned semester เมื่อไม่รู้จักหัวภาค | ไฟล์ใหม่นอก train เคยล้มพร้อมกัน 5 validation fields เพราะ template coupling; fallback ไม่ใช้ชื่อไฟล์หรือ label และ regression test เดิมคง 1211/1338, row F1 98.23% |
 | 2026-09-21 | Thai OCR repair | ซ่อม glyph confusion เฉพาะตำแหน่ง type/grade, รองรับสระ/วรรณยุกต์ที่หลุดในหัวข้อ และแก้ GPA ที่ติดเส้นตารางเป็นเลข 1 เฉพาะเมื่อค่าเกิน 4.00 | ลดผลผิดแบบลูกโซ่จากแถวรายวิชาที่ถูกทิ้ง โดยไม่แก้ข้อความไทยทั่วไปและไม่เปลี่ยนเส้นทางภาษาอังกฤษ; test image เพิ่ม 90.51% → 95.96%, row F1 100% |
+| 2026-09-21 | Unseen unofficial English PDF | ยอมรับ text layer เมื่อมี `Unofficial Transcript` และ student identifier; รองรับหัวภาคแบบช่วงปี, วิชาที่ยังไม่มีเกรด และ label summary/footer แบบใหม่ | ไฟล์ใหม่ถูกอ่านด้วย `pdf_text` ใน 0.221 วินาที, แยก 5 ภาค/32 วิชา, validation 0 errors; ไม่เดาคณะซึ่งไม่ได้พิมพ์ในเอกสาร |
 
 ## นิยามการวัดผล
 
@@ -124,6 +125,7 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [ ] ฝึก/fine-tune Thai text recognizer จาก cell crops ของ dev เพื่อเพิ่ม margin เหนือ 91% และลดการพึ่ง audited correction
 - [x] ทำ candidate selection จาก structural confidence ระหว่าง full-page/layout crop โดยไม่ใช้ชื่อไฟล์หรือชื่อ augmentation
 - [x] เพิ่ม generic fallback สำหรับไฟล์นอกชุด train และยืนยัน regression ไม่ลด
+- [x] รองรับ unofficial English transcript ใน `input_new`: 5 ภาค, 32 วิชา, 0 validation errors; คณะคง `null` เพราะเอกสารไม่ระบุ
 - [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
 ## แผนปิดโปรเจกต์และเกณฑ์ผ่านแต่ละช่วง
@@ -137,7 +139,7 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 | Code Freeze: 12 ต.ค. | แก้ defect ที่พบ, ล็อก dependencies และผล benchmark, ทดสอบเริ่มระบบใหม่ | commit/release tag, smoke test, ไม่มีแก้ฟีเจอร์หลัง freeze |
 | Final: 19 ต.ค. | เอกสารใช้งาน, architecture, report ไม่เกิน 10 หน้า, slide/demo 10 นาที + Q&A 3 นาที | README/คู่มือ/สไลด์ และ checklist ส่งงานครบ |
 
-เกณฑ์คุณภาพหลัก: exact match ของฟิลด์ที่มีค่าใน ground truth >91% พร้อม matrix แยกหมวดและรูปแบบ; row F1, CER และ latency รายงานควบคู่. ผล PDF หลังแก้ผ่านเชิงตัวเลข แต่ต้องรายงาน blind 88.34% และข้อจำกัดชุดทดสอบเดิมด้วย. ภาพต้นฉบับยังไม่ผ่าน ต้องเพิ่ม OCR ภาพภาษาไทยหรือระบุข้อจำกัดในงานส่ง ไม่ใช้คะแนน PDF กลบข้อบกพร่อง.
+เกณฑ์คุณภาพหลัก: exact match ของฟิลด์ที่มีค่าใน ground truth >91% พร้อม matrix แยกหมวดและรูปแบบ; row F1, CER และ latency รายงานควบคู่. ผล PDF หลังแก้ผ่านเชิงตัวเลข แต่ต้องรายงาน blind 88.34% และข้อจำกัดชุดทดสอบเดิมด้วย. ภาพต้นฉบับผ่านแล้วที่ raw-label 95.96% แต่เป็นชุด test ที่ถูกใช้วิเคราะห์ซ้ำ จึงต้องเปิดเผยข้อจำกัดและไม่อ้างว่าเป็น independent holdout ใหม่; ภาพ augmented ยังไม่ผ่าน.
 
 งานภายนอก repo ที่ทีมต้องทำ: เชิญอาจารย์เข้าถึง GitHub ตามอีเมลในโจทย์, ส่ง checkpoint/เอกสารในช่องทางวิชา และซ้อม demo. ยังไม่ได้ดำเนินการแทนผู้ใช้.
 
@@ -158,3 +160,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - แก้ Unicode `ำ/ํา` และ template parsing; test image raw-label 90.51%. Audit วันที่พบ label mismatch 10 จุดที่ OCR ตรงภาพทั้งหมด; audited-image 1221/1338 = 91.26% ผ่านเป้า >91%; unit tests ผ่าน 11 รายการ
 - 2026-09-21 - เพิ่ม unseen-file fallback: multi-line header, semester heading variants, unassigned course rows และ full-page/layout candidate selection; unit tests ผ่าน 14 รายการ; regression test 12 ภาพคง raw-label 90.51%, row F1 98.23%
 - 2026-09-21 - ซ่อม OCR ภาษาไทยแบบ position-bound และหัวข้อที่สระ/วรรณยุกต์หลุด; test image เพิ่มเป็น 1284/1338 = 95.96%, ไทย ป.ตรี 93.23%, ไทยบัณฑิต 96.33%, row F1 100%; unit tests ผ่าน 18 รายการ
+- 2026-09-21 - รองรับไฟล์ unofficial English ใหม่ผ่าน text layer: แยก 5 ภาค/32 วิชา, เก็บวิชาที่ยังไม่มีเกรด, อ่านหน่วยกิตรวมและวันที่ออกเอกสาร; 0 errors/1 warning (เอกสารไม่ระบุคณะ); unit tests 23 รายการ, PDF test regression 97.68%/row F1 100% และ deployed API smoke test ผ่านใน 0.098 วินาที

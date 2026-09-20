@@ -57,7 +57,13 @@ def validate_record(record: dict[str, Any]) -> dict[str, Any]:
             credit = subject.get("credit")
             if not isinstance(credit, int) or not 0 <= credit <= 30:
                 add(f"{row}.credit", "invalid_credit", "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30", "error")
-            grade = str(subject.get("grade_earn") or "").lower()
+            raw_grade = subject.get("grade_earn")
+            if raw_grade in {None, ""}:
+                # A current/in-progress semester legitimately has no grade.
+                # Preserve the row and the null rather than treating it as a
+                # malformed recognized grade.
+                continue
+            grade = str(raw_grade).lower()
             if grade.startswith("t(") and grade.endswith(")"):
                 grade = grade[2:-1]
             if grade not in VALID_GRADES:

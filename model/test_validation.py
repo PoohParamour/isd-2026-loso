@@ -1,6 +1,6 @@
 import unittest
 
-from model.extract import parse_courses, parse_header, parse_summary, parse_term
+from model.extract import parse_courses, parse_footer, parse_header, parse_summary, parse_term, text_is_usable
 from model.validate import validate_record
 
 
@@ -14,6 +14,31 @@ class ValidateRecordTests(unittest.TestCase):
     def test_alternate_semester_headings(self):
         self.assertEqual(parse_term("ปีการศึกษา 2567 ภาคเรียนที่ 2", "th"), (2, 2567))
         self.assertEqual(parse_term("Academic Year 2024 Semester 1", "en"), (1, 2567))
+        self.assertEqual(parse_term("1st Semester, Year, 2024-2025", "en"), (1, 2567))
+
+    def test_unofficial_transcript_text_layer_is_usable(self):
+        text = "( Unofficial Transcript )\nStudent ID: 67070124\n" + ("course text " * 40)
+        self.assertTrue(text_is_usable(text))
+
+    def test_pending_english_courses_are_preserved(self):
+        rows = parse_courses(
+            ["1st Semester, Year, 2024-2025", "06026211 DATA STRUCTURE 3"],
+            "en",
+            False,
+        )
+        self.assertEqual(rows[0]["year"], 2567)
+        self.assertEqual(rows[0]["subject"][0]["subject_id"], "06026211")
+        self.assertIsNone(rows[0]["subject"][0]["grade_earn"])
+
+    def test_unofficial_summary_and_issued_date_labels(self):
+        summary = parse_summary(["Total number of credit earned 78"], "en")
+        footer = parse_footer(["Date Issued: September 20, 2026"], "en")
+        self.assertEqual(summary["total_credits_earned"], 78)
+        self.assertEqual(footer["updated_at"], "2026-09-20")
+
+    def test_course_named_school_is_not_a_faculty(self):
+        header = parse_header(["90642999 CHARM SCHOOL 3 5", "Student ID: 67070124"], "en")
+        self.assertIsNone(header["faculty_name"])
 
     def test_courses_without_known_semester_are_preserved(self):
         rows = parse_courses(["06026240 Intelligent Systems 3 A"], "en", False)
@@ -105,6 +130,23 @@ class ValidateRecordTests(unittest.TestCase):
         result = validate_record(record)
         self.assertTrue(result["needs_review"])
         self.assertGreaterEqual(result["errors"], 4)
+
+    def test_pending_course_without_grade_is_valid(self):
+        record = {
+            "header_detail": {"student_id": "67070124", "name": "Test", "faculty_name": "IT", "program": "DSBA"},
+            "transcript_detail": {
+                "semesters": [
+                    {
+                        "year": 2569,
+                        "sem_num": 1,
+                        "subject": [{"subject_id": "06026211", "credit": 3, "grade_earn": None}],
+                    }
+                ]
+            },
+        }
+        result = validate_record(record)
+        self.assertFalse(result["needs_review"])
+        self.assertEqual(result["course_count"], 1)
 
 
 if __name__ == "__main__":
