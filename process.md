@@ -45,6 +45,7 @@
 | 2026-09-20 | Image OCR profiles | เลือก preprocessing และ PSM แยกตาม format จาก dev 12 ฉบับ; ไม่ใช้ parser heuristic ที่ทำให้ผลรวมลด | tuning 144 runs: bachelor_th original/PSM4, bachelor_en sharpen/PSM6, graduate_th sharpen/PSM4, graduate_en autocontrast/PSM4; accuracy original PNG เพิ่ม 54.31% → 64.43% |
 | 2026-09-20 | Validation | ตรวจโครงสร้างและช่วงค่าหลัง OCR พร้อมแสดง error/warning บนหน้า review; ไม่ใช้ GPA คำนวณย้อนหรือ ground truth | ลดความเสี่ยงบันทึก student ID, course ID, credit, grade, semester และ GPA ที่รูปแบบผิด โดยไม่เดาค่าที่อ่านไม่ออก |
 | 2026-09-20 | Image OCR architecture | เพิ่ม position-aware cell OCR สำหรับภาพ transcript ภาษาไทย โดยอ่านรหัส/ชื่อ/ประเภท/หน่วยกิต/เกรดแยกคอลัมน์ และใช้เฉพาะซ่อมแถวที่ whole-page OCR ยัง parse ไม่ได้ | รุ่นแทนทุกแถวทำให้ 64.43% ลดเป็น 63.80%; confidence gate + จำกัดภาษาไทยเพิ่มเป็น 66.35% จึงเก็บแบบ gated และไม่เปลี่ยนแถวที่ parse ได้แล้ว |
+| 2026-09-20 | Trained post-processing | สร้าง course/header vocabulary จาก dev split 35 ฉบับเท่านั้น; ใช้รหัสวิชา exact และ fuzzy header entity ที่มี threshold+margin พร้อม refined format routing | ห้ามใช้ test label ระหว่าง inference; test image 12 ฉบับเพิ่มจาก 72.57% เป็น 85.43%, row F1 98.23% แต่ยังไม่ผ่าน >91% |
 
 ## นิยามการวัดผล
 
@@ -67,6 +68,8 @@ Docker Compose บนเครื่อง M4 16 GB รัน batch PDF จา�
 PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 12 ฉบับ หลังเลือก image profile จาก dev: 808/1254 = 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที/ฉบับ. ไทย ป.ตรี 52.71%; อังกฤษ ป.ตรี 94.97%; ไทยบัณฑิต 27.24%; อังกฤษบัณฑิต 77.07%. ดีขึ้นจาก baseline 54.31% แต่ยังต่ำกว่าเกณฑ์รวม. ห้ามอ้างผล PDF เป็นผลภาพสแกน.
 
 หลังเพิ่ม position-aware cell OCR แบบ confidence-gated สำหรับภาพภาษาไทย: 832/1254 = 66.35%, row F1 83.33%, เฉลี่ย 6.73 วินาที/ฉบับ. ไทย ป.ตรี 57.41%; อังกฤษ ป.ตรี 94.97%; ไทยบัณฑิต 28.86%; อังกฤษบัณฑิต 77.07%. เพิ่มจาก profile baseline 1.91 จุดเปอร์เซ็นต์ แต่ยังไม่ผ่าน >91%; รายงานอยู่ที่ `model/reports/image-original-dev-cell-aware-gated.json`. รอบทดลองที่แทนทุกแถวได้ 63.80% อยู่ที่ `model/reports/image-original-dev-cell-aware.json` และถูกปฏิเสธ.
+
+ผล image test ก่อน trained post-processing: 971/1338 = 72.57%, row F1 94.30%. หลังแก้ Thai semester marker, refined format routing, focused header/footer OCR และ catalog ที่ train จาก dev เท่านั้น: 1143/1338 = 85.43%, row F1 98.23%, เฉลี่ย 8.78 วินาที/ฉบับ. ไทย ป.ตรี 78.13%; อังกฤษ ป.ตรี 96.54%; ไทยบัณฑิต 71.33%; อังกฤษบัณฑิต 95.77%. ยังขาด 75 ฟิลด์เพื่อให้มากกว่า 91% (ต้องอย่างน้อย 1218/1338); รายงานอยู่ที่ `model/reports/image-original-test-trained-postprocess.json`.
 
 ภาพ augmented 5 แบบจาก dev 12 ฉบับ รวม 60 ภาพ: 2234/6270 = 35.63%, row F1 51.75%, เฉลี่ย 7.35 วินาที/ฉบับ, สูงสุด 25.62 วินาที. Latency ยังผ่าน <30 วินาที แต่ robustness ไม่ผ่าน โดย blur/contrast, perspective และ JPEG/dark เป็นจุดอ่อนหลัก. รายงานอยู่ใน `model/reports/image-augmented-dev.json`.
 
@@ -108,7 +111,9 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] เพิ่ม structural validation และแสดง error/warning บนหน้า review ก่อนบันทึก
 - [x] เพิ่ม position-aware table cell OCR แบบ confidence-gated โดยเน้นภาษาไทย; รอบแรกเพิ่ม 64.43% → 66.35%
 - [ ] เพิ่ม deskew/perspective correction และยกระดับ table row segmentation โดยเน้นบัณฑิตไทย
-- [ ] ทำ candidate selection จาก structural confidence แล้ววัดซ้ำบน dev โดยห้ามเลือกจากชื่อ augmentation
+- [x] ทำ refined format routing และ trained catalog จาก dev โดยไม่ใช้ test label ใน inference
+- [ ] ฝึก/fine-tune Thai text recognizer จาก cell crops ของ dev แล้ววัดกับ test; เป้าหมายแก้เพิ่มอย่างน้อย 75 ฟิลด์
+- [ ] ทำ candidate selection จาก structural confidence แล้ววัดซ้ำโดยห้ามเลือกจากชื่อ augmentation
 - [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
 ## แผนปิดโปรเจกต์และเกณฑ์ผ่านแต่ละช่วง
@@ -139,3 +144,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - tune preprocessing × PSM 144 runs; เพิ่ม image profiles ทำให้ original PNG dev 12 ฉบับดีขึ้น 54.31% → 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที
 - 2026-09-20 - augmented benchmark 60 ภาพได้ 35.63%, row F1 51.75%, สูงสุด 25.62 วินาที; เพิ่ม validation ใน API/UI; PDF regression ยังผ่าน 96.62%
 - 2026-09-20 - เพิ่ม cell-aware OCR แยกคอลัมน์สำหรับภาพไทยพร้อม confidence gate; original PNG dev เพิ่ม 64.43% → 66.35%, row F1 83.33%, เฉลี่ย 6.73 วินาที; unit tests ผ่าน 5 รายการ
+- 2026-09-20 - image test baseline 12 ฉบับได้ 72.57%; แก้ Thai semester marker/refined routing/focused regions และ dev-trained catalog แล้วเพิ่มเป็น 85.43%, row F1 98.23%, เฉลี่ย 8.78 วินาที; unit tests ผ่าน 10 รายการ

@@ -20,8 +20,10 @@ from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
 try:
     from model.validate import validate_record
+    from model.course_catalog import apply_course_catalog
 except ModuleNotFoundError:  # Direct execution: python model/extract.py
     from validate import validate_record
+    from course_catalog import apply_course_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 FORMATS = json.loads((Path(__file__).parent / "formats.json").read_text(encoding="utf-8"))
@@ -29,7 +31,7 @@ TH_MONTHS = {"มกราคม": 1, "กุมภาพันธ์": 2, "ม�
 EN_MONTHS = {"january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6, "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12}
 COURSE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-)\s*$", re.I)
 COURSE_NO_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*$", re.I)
-TH_TERM = re.compile(r"ภาคการศึกษาที่\s*([123])\s*ปีการศึกษา\s*(\d{4})")
+TH_TERM = re.compile(r"ภาคการศึกษา(?:ที่|ที)\s*([123])\s*ปีการศึกษา\s*(\d{4})")
 EN_TERM = re.compile(r"\b([123])(?:st|nd|rd|th)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 TH_SPECIAL = re.compile(r"ภาคการศึกษาพิเศษ\s*ปีการศึกษา\s*(\d{4})")
 EN_SPECIAL = re.compile(r"(?:Summer|Special)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
@@ -146,12 +148,20 @@ def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
             raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
         work = Path(temp)
 
-        def ocr(image: Image.Image, name: str) -> str:
+        def ocr(image: Image.Image, name: str, selected_psm: int | None = None) -> str:
             target = work / f"{name}.png"
             preprocess_image(image, mode).save(target)
-            return run("tesseract", target.name, "stdout", "-l", language, "--psm", str(psm), cwd=work)
+            return run("tesseract", target.name, "stdout", "-l", language, "--psm", str(selected_psm or psm), cwd=work)
 
         full_text = ocr(source, "full")
+        if format_id.endswith("_th"):
+            # Dense table lines interfere with Tesseract's page segmentation.
+            # Re-read the sparse identity/footer regions independently and put
+            # their higher-resolution candidates first for the field parser.
+            width, height = source.size
+            header = ocr(source.crop((0, 0, width, round(height * 0.235))), "header", 6)
+            footer = ocr(source.crop((0, round(height * 0.82), width, height)), "footer", 6)
+            full_text = "\n".join((header, full_text, footer))
         if not format_id.startswith("bachelor_"):
             body = full_text
             if format_id.endswith("_en"):
@@ -412,9 +422,16 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False) -
     detected = detect_format(text, format_id)
     if path.suffix.lower() != ".pdf":
         text, body = read_image_profile(path, detected)
+        # The inexpensive first pass can miss the graduate course-type column
+        # on low-resolution Thai pages.  Re-route once using the clearer
+        # profile OCR; an explicit caller override always remains authoritative.
+        refined = detect_format(text, format_id)
+        if refined != detected:
+            detected = refined
+            text, body = read_image_profile(path, detected)
     else:
         body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
-    record = parse(text, detected, body)
+    record = apply_course_catalog(parse(text, detected, body))
     return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record, "validation": validate_record(record)}
 
 

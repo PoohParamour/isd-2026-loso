@@ -127,5 +127,14 @@ def repair_course_lines(body_text: str, cells: dict[str, str]) -> str:
             line,
             re.I,
         )
-        output.append(cells.get(match.group(1), line) if match and not already_structured else line)
+        replacement = cells.get(match.group(1)) if match and not already_structured else None
+        if replacement and match:
+            # Whole-row OCR often reads the wide title cell better, while the
+            # narrow cell pass is better for type/credit/grade.  Keep that
+            # title when it can be bounded by a graduate type marker.
+            title = re.search(r"^\s*\d{8}[.\s]+(.+?)\s+(?:Cr|Nc|Ad)\s+", line, re.I)
+            target = re.match(r"^(\d{8})\s+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s+(\S+)$", replacement, re.I)
+            if title and target and len(re.sub(r"\s+", "", title.group(1))) >= 3:
+                replacement = " ".join((target.group(1), title.group(1).strip(), target.group(3), target.group(4), target.group(5)))
+        output.append(replacement or line)
     return "\n".join(output)

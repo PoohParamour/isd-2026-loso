@@ -1,9 +1,19 @@
 import unittest
 
+from model.extract import parse_courses
 from model.validate import validate_record
 
 
 class ValidateRecordTests(unittest.TestCase):
+    def test_thai_semester_marker_tolerates_missing_tone_mark(self):
+        rows = parse_courses(
+            ["ภาคการศึกษาที 2 ปีการศึกษา 2563", "05208101 สัมมนาปริญญาเอก 1 Cr 1 S"],
+            "th",
+            True,
+        )
+        self.assertEqual(rows[0]["year"], 2563)
+        self.assertEqual(rows[0]["subject"][0]["subject_id"], "05208101")
+
     def test_valid_minimal_record(self):
         record = {
             "header_detail": {"student_id": "71010001", "name": "Test", "faculty_name": "IT", "program": "IT"},
