@@ -1,0 +1,505 @@
+{
+  "split": "dev",
+  "documents": 35,
+  "primary_exact_field_accuracy": 0.965502087453307,
+  "primary_correct": 4394,
+  "primary_total": 4551,
+  "target_met": true,
+  "matrix": [
+    {
+      "slice": "bachelor",
+      "category": "course",
+      "correct": 2290,
+      "total": 2345,
+      "accuracy": 0.976545842217484,
+      "cer": 0.03822309006590188,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "footer",
+      "correct": 45,
+      "total": 72,
+      "accuracy": 0.625,
+      "cer": 0.023668639053254437,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "header",
+      "correct": 192,
+      "total": 194,
+      "accuracy": 0.9896907216494846,
+      "cer": 0.0004462293618920125,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "rows",
+      "tp": 574,
+      "fn": 16,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9728813559322034,
+      "f1": 0.986254295532646
+    },
+    {
+      "slice": "bachelor",
+      "category": "semester",
+      "correct": 439,
+      "total": 457,
+      "accuracy": 0.9606126914660832,
+      "cer": 0.036774193548387096,
+      "hallucinated": 2
+    },
+    {
+      "slice": "bachelor",
+      "category": "summary",
+      "correct": 33,
+      "total": 36,
+      "accuracy": 0.9166666666666666,
+      "cer": 0.034782608695652174,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "course",
+      "correct": 1017,
+      "total": 1048,
+      "accuracy": 0.9704198473282443,
+      "cer": 0.050534283170080144,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "footer",
+      "correct": 18,
+      "total": 36,
+      "accuracy": 0.5,
+      "cer": 0.03571428571428571,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "header",
+      "correct": 95,
+      "total": 97,
+      "accuracy": 0.979381443298969,
+      "cer": 0.0008413967185527977,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "rows",
+      "tp": 255,
+      "fn": 9,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9659090909090909,
+      "f1": 0.9826589595375723
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "semester",
+      "correct": 174,
+      "total": 184,
+      "accuracy": 0.9456521739130435,
+      "cer": 0.050488599348534204,
+      "hallucinated": 2
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "summary",
+      "correct": 16,
+      "total": 18,
+      "accuracy": 0.8888888888888888,
+      "cer": 0.05357142857142857,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "course",
+      "correct": 1273,
+      "total": 1297,
+      "accuracy": 0.9814957594448728,
+      "cer": 0.028606208155812538,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "footer",
+      "correct": 27,
+      "total": 36,
+      "accuracy": 0.75,
+      "cer": 0.011764705882352941,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "header",
+      "correct": 97,
+      "total": 97,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "rows",
+      "tp": 319,
+      "fn": 7,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9785276073619632,
+      "f1": 0.9891472868217055
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "semester",
+      "correct": 265,
+      "total": 273,
+      "accuracy": 0.9706959706959707,
+      "cer": 0.027777777777777776,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "summary",
+      "correct": 17,
+      "total": 18,
+      "accuracy": 0.9444444444444444,
+      "cer": 0.01694915254237288,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "course",
+      "correct": 1426,
+      "total": 1465,
+      "accuracy": 0.9733788395904437,
+      "cer": 0.04201124710552431,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "footer",
+      "correct": 34,
+      "total": 68,
+      "accuracy": 0.5,
+      "cer": 0.03571428571428571,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "header",
+      "correct": 178,
+      "total": 180,
+      "accuracy": 0.9888888888888889,
+      "cer": 0.0004476275738585497,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "rows",
+      "tp": 337,
+      "fn": 11,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9683908045977011,
+      "f1": 0.983941605839416
+    },
+    {
+      "slice": "en",
+      "category": "semester",
+      "correct": 324,
+      "total": 338,
+      "accuracy": 0.9585798816568047,
+      "cer": 0.03859649122807018,
+      "hallucinated": 6
+    },
+    {
+      "slice": "en",
+      "category": "summary",
+      "correct": 30,
+      "total": 33,
+      "accuracy": 0.9090909090909091,
+      "cer": 0.05,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate",
+      "category": "course",
+      "correct": 820,
+      "total": 844,
+      "accuracy": 0.9715639810426541,
+      "cer": 0.03815556865055981,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "footer",
+      "correct": 52,
+      "total": 68,
+      "accuracy": 0.7647058823529411,
+      "cer": 0.016701461377870562,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "header",
+      "correct": 176,
+      "total": 176,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "rows",
+      "tp": 165,
+      "fn": 6,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9649122807017544,
+      "f1": 0.9821428571428572
+    },
+    {
+      "slice": "graduate",
+      "category": "semester",
+      "correct": 317,
+      "total": 325,
+      "accuracy": 0.9753846153846154,
+      "cer": 0.023276633840644583,
+      "hallucinated": 4
+    },
+    {
+      "slice": "graduate",
+      "category": "summary",
+      "correct": 30,
+      "total": 34,
+      "accuracy": 0.8823529411764706,
+      "cer": 0.09900990099009901,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate_en",
+      "category": "course",
+      "correct": 409,
+      "total": 417,
+      "accuracy": 0.9808153477218226,
+      "cer": 0.017374517374517374,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "footer",
+      "correct": 16,
+      "total": 32,
+      "accuracy": 0.5,
+      "cer": 0.03571428571428571,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "header",
+      "correct": 83,
+      "total": 83,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "rows",
+      "tp": 82,
+      "fn": 2,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9761904761904762,
+      "f1": 0.9879518072289156
+    },
+    {
+      "slice": "graduate_en",
+      "category": "semester",
+      "correct": 150,
+      "total": 154,
+      "accuracy": 0.974025974025974,
+      "cer": 0.024714828897338403,
+      "hallucinated": 4
+    },
+    {
+      "slice": "graduate_en",
+      "category": "summary",
+      "correct": 14,
+      "total": 15,
+      "accuracy": 0.9333333333333333,
+      "cer": 0.045454545454545456,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate_th",
+      "category": "course",
+      "correct": 411,
+      "total": 427,
+      "accuracy": 0.9625292740046838,
+      "cer": 0.05570652173913043,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "footer",
+      "correct": 36,
+      "total": 36,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "header",
+      "correct": 93,
+      "total": 93,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "rows",
+      "tp": 83,
+      "fn": 4,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9540229885057471,
+      "f1": 0.976470588235294
+    },
+    {
+      "slice": "graduate_th",
+      "category": "semester",
+      "correct": 167,
+      "total": 171,
+      "accuracy": 0.9766081871345029,
+      "cer": 0.021996615905245348,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "summary",
+      "correct": 16,
+      "total": 19,
+      "accuracy": 0.8421052631578947,
+      "cer": 0.14035087719298245,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "course",
+      "correct": 3110,
+      "total": 3189,
+      "accuracy": 0.9752273439949828,
+      "cer": 0.038206284603820626,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "footer",
+      "correct": 97,
+      "total": 140,
+      "accuracy": 0.6928571428571428,
+      "cer": 0.02028397565922921,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "header",
+      "correct": 368,
+      "total": 370,
+      "accuracy": 0.9945945945945946,
+      "cer": 0.00023191094619666049,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "rows",
+      "tp": 739,
+      "fn": 22,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9710906701708278,
+      "f1": 0.9853333333333333
+    },
+    {
+      "slice": "overall",
+      "category": "semester",
+      "correct": 756,
+      "total": 782,
+      "accuracy": 0.9667519181585678,
+      "cer": 0.031121109861267343,
+      "hallucinated": 6
+    },
+    {
+      "slice": "overall",
+      "category": "summary",
+      "correct": 63,
+      "total": 70,
+      "accuracy": 0.9,
+      "cer": 0.06481481481481481,
+      "hallucinated": 2
+    },
+    {
+      "slice": "th",
+      "category": "course",
+      "correct": 1684,
+      "total": 1724,
+      "accuracy": 0.9767981438515081,
+      "cer": 0.03517554838284698,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "footer",
+      "correct": 63,
+      "total": 72,
+      "accuracy": 0.875,
+      "cer": 0.0058823529411764705,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "header",
+      "correct": 190,
+      "total": 190,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "rows",
+      "tp": 402,
+      "fn": 11,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9733656174334141,
+      "f1": 0.9865030674846627
+    },
+    {
+      "slice": "th",
+      "category": "semester",
+      "correct": 432,
+      "total": 444,
+      "accuracy": 0.972972972972973,
+      "cer": 0.025540275049115914,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "summary",
+      "correct": 33,
+      "total": 37,
+      "accuracy": 0.8918918918918919,
+      "cer": 0.07758620689655173,
+      "hallucinated": 0
+    }
+  ]
+}

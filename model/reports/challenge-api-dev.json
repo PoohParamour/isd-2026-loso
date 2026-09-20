@@ -1,0 +1,109 @@
+{
+  "route": "http://127.0.0.1:3000/api/proxy/transcripts/extract",
+  "split": "dev",
+  "batch_size": 12,
+  "batch_total_seconds": 21.056,
+  "mean_seconds_per_document": 1.754,
+  "median_seconds_per_document": 0.078,
+  "max_seconds_per_document": 14.972,
+  "bonus_latency_target_met": true,
+  "exact_field_accuracy": 0.9649122807017544,
+  "documents": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "seconds_with_comparison": 0.363,
+      "correct": 72,
+      "total": 73
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "seconds_with_comparison": 0.113,
+      "correct": 44,
+      "total": 45
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "seconds_with_comparison": 0.085,
+      "correct": 287,
+      "total": 307
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "seconds_with_comparison": 2.907,
+      "correct": 54,
+      "total": 57
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "seconds_with_comparison": 2.276,
+      "correct": 47,
+      "total": 49
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "seconds_with_comparison": 14.972,
+      "correct": 262,
+      "total": 272
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "seconds_with_comparison": 0.07,
+      "correct": 106,
+      "total": 106
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "seconds_with_comparison": 0.064,
+      "correct": 104,
+      "total": 104
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "seconds_with_comparison": 0.049,
+      "correct": 35,
+      "total": 36
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "seconds_with_comparison": 0.039,
+      "correct": 77,
+      "total": 79
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "seconds_with_comparison": 0.059,
+      "correct": 60,
+      "total": 62
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "seconds_with_comparison": 0.046,
+      "correct": 62,
+      "total": 64
+    }
+  ]
+}

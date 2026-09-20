@@ -1,0 +1,393 @@
+{
+  "seed": "isd-p1-2026-09-20-v1",
+  "rule": "3 test PDFs per group/language; all augmentations inherit source PDF split",
+  "documents": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71010001.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71010001_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71010005.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71010005_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71010009.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71010009_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71010013",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71010013.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71010013_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71020001",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71020001.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71020001_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71020005",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71020005.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71020005_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "71020009",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71020009.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71020009_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71020013",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71020013.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71020013_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71030001",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71030001.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71030001_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "71030005",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71030005.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71030005_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "71030009",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71030009.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71030009_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "71030013",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/71030013.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_71030013_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72100002.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72100002_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72100006.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72100006_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72100009.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72100009_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72100013",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72100013.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72100013_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72110002",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72110002.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72110002_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72110006",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72110006.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72110006_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72110012",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72110012.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72110012_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72120002",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72120002.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72120002_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "72120006",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72120006.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72120006_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "72120010",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72120010.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72120010_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "72120014",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72120014.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72120014_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "72140002",
+      "group": "bachelor",
+      "pdf": "data_transcript/input_Bachelor_Degrees/72140002.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Bachelor_Degrees/Json_72140002_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73036003.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73036003_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73036007",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73036007.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73036007_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73036011.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73036011_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73046003.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73046003_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73046007",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73046007.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73046007_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73046011",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73046011.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73046011_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73056004",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73056004.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73056004_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73056008",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73056008.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73056008_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "73056012",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73056012.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73056012_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73066003",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73066003.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73066003_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73066006",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73066006.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73066006_th.json",
+      "language": "th",
+      "split": "dev"
+    },
+    {
+      "id": "73066010",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/73066010.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_73066010_th.json",
+      "language": "th",
+      "split": "test"
+    },
+    {
+      "id": "74106005",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74106005.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74106005_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "74106009",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74106009.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74106009_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74116006.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74116006_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74116010.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74116010_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74126003.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74126003_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74126007",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74126007.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74126007_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74126011",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74126011.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74126011_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74156004",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74156004.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74156004_en.json",
+      "language": "en",
+      "split": "test"
+    },
+    {
+      "id": "74156007",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74156007.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74156007_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74166001",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74166001.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74166001_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74176002",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74176002.pdf",
+      "gt": "ground_truth_transcript/ground_truth_Master/Json_74176002_en.json",
+      "language": "en",
+      "split": "dev"
+    },
+    {
+      "id": "74176008",
+      "group": "graduate",
+      "pdf": "data_transcript/input_Master/74176008.pdf",
+      "gt": null,
+      "language": null,
+      "split": "unlabeled"
+    }
+  ],
+  "orphan_labels": [
+    "ground_truth_transcript/ground_truth_Master/Json_74176005_en.json"
+  ]
+}
