@@ -44,6 +44,7 @@
 | 2026-09-20 | Local VLM | ไม่ใช้ Typhoon-OCR + Qwen3 เป็นเส้นทางหลัก; คง hybrid PDF text + Tesseract fallback | ทดสอบผ่าน Ollama local กับ PNG 150 DPI แบบสมดุล 4 กลุ่ม: สำเร็จ 1/4, อีก 3 timeout; ฉบับที่สำเร็จถูก 1/75 (1.33%) และใช้ 121.1 วินาที จึงด้อยกว่าทั้ง accuracy และ latency |
 | 2026-09-20 | Image OCR profiles | เลือก preprocessing และ PSM แยกตาม format จาก dev 12 ฉบับ; ไม่ใช้ parser heuristic ที่ทำให้ผลรวมลด | tuning 144 runs: bachelor_th original/PSM4, bachelor_en sharpen/PSM6, graduate_th sharpen/PSM4, graduate_en autocontrast/PSM4; accuracy original PNG เพิ่ม 54.31% → 64.43% |
 | 2026-09-20 | Validation | ตรวจโครงสร้างและช่วงค่าหลัง OCR พร้อมแสดง error/warning บนหน้า review; ไม่ใช้ GPA คำนวณย้อนหรือ ground truth | ลดความเสี่ยงบันทึก student ID, course ID, credit, grade, semester และ GPA ที่รูปแบบผิด โดยไม่เดาค่าที่อ่านไม่ออก |
+| 2026-09-20 | Image OCR architecture | เพิ่ม position-aware cell OCR สำหรับภาพ transcript ภาษาไทย โดยอ่านรหัส/ชื่อ/ประเภท/หน่วยกิต/เกรดแยกคอลัมน์ และใช้เฉพาะซ่อมแถวที่ whole-page OCR ยัง parse ไม่ได้ | รุ่นแทนทุกแถวทำให้ 64.43% ลดเป็น 63.80%; confidence gate + จำกัดภาษาไทยเพิ่มเป็น 66.35% จึงเก็บแบบ gated และไม่เปลี่ยนแถวที่ parse ได้แล้ว |
 
 ## นิยามการวัดผล
 
@@ -64,6 +65,8 @@ Docker Compose บนเครื่อง M4 16 GB รัน batch PDF จา�
 ### ขอบเขตภาพสแกน
 
 PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 12 ฉบับ หลังเลือก image profile จาก dev: 808/1254 = 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที/ฉบับ. ไทย ป.ตรี 52.71%; อังกฤษ ป.ตรี 94.97%; ไทยบัณฑิต 27.24%; อังกฤษบัณฑิต 77.07%. ดีขึ้นจาก baseline 54.31% แต่ยังต่ำกว่าเกณฑ์รวม. ห้ามอ้างผล PDF เป็นผลภาพสแกน.
+
+หลังเพิ่ม position-aware cell OCR แบบ confidence-gated สำหรับภาพภาษาไทย: 832/1254 = 66.35%, row F1 83.33%, เฉลี่ย 6.73 วินาที/ฉบับ. ไทย ป.ตรี 57.41%; อังกฤษ ป.ตรี 94.97%; ไทยบัณฑิต 28.86%; อังกฤษบัณฑิต 77.07%. เพิ่มจาก profile baseline 1.91 จุดเปอร์เซ็นต์ แต่ยังไม่ผ่าน >91%; รายงานอยู่ที่ `model/reports/image-original-dev-cell-aware-gated.json`. รอบทดลองที่แทนทุกแถวได้ 63.80% อยู่ที่ `model/reports/image-original-dev-cell-aware.json` และถูกปฏิเสธ.
 
 ภาพ augmented 5 แบบจาก dev 12 ฉบับ รวม 60 ภาพ: 2234/6270 = 35.63%, row F1 51.75%, เฉลี่ย 7.35 วินาที/ฉบับ, สูงสุด 25.62 วินาที. Latency ยังผ่าน <30 วินาที แต่ robustness ไม่ผ่าน โดย blur/contrast, perspective และ JPEG/dark เป็นจุดอ่อนหลัก. รายงานอยู่ใน `model/reports/image-augmented-dev.json`.
 
@@ -103,7 +106,8 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] ทดลอง local VLM ตาม Lab 7 บนชุดสมดุล; บันทึก accuracy, latency และ timeout เพื่อใช้ตัดสินใจเลือกโมเดล
 - [x] ขยาย image benchmark ไปยัง original/augmented และเลือก preprocessing/PSM แยกตาม 4 format
 - [x] เพิ่ม structural validation และแสดง error/warning บนหน้า review ก่อนบันทึก
-- [ ] เพิ่ม deskew/perspective correction และ table row/cell segmentation โดยเน้นบัณฑิตไทย
+- [x] เพิ่ม position-aware table cell OCR แบบ confidence-gated โดยเน้นภาษาไทย; รอบแรกเพิ่ม 64.43% → 66.35%
+- [ ] เพิ่ม deskew/perspective correction และยกระดับ table row segmentation โดยเน้นบัณฑิตไทย
 - [ ] ทำ candidate selection จาก structural confidence แล้ววัดซ้ำบน dev โดยห้ามเลือกจากชื่อ augmentation
 - [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
@@ -134,3 +138,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - อ่าน `all/` ชุดอัปโหลดใหม่และยืนยัน Lab 7 pipeline; ทดสอบ local VLM 4 กลุ่มผ่าน Ollama ได้ 1/75 ในฉบับที่สำเร็จ (121.1 วินาที) และอีก 3 ฉบับ timeout ที่ 120 วินาที
 - 2026-09-20 - tune preprocessing × PSM 144 runs; เพิ่ม image profiles ทำให้ original PNG dev 12 ฉบับดีขึ้น 54.31% → 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที
 - 2026-09-20 - augmented benchmark 60 ภาพได้ 35.63%, row F1 51.75%, สูงสุด 25.62 วินาที; เพิ่ม validation ใน API/UI; PDF regression ยังผ่าน 96.62%
+- 2026-09-20 - เพิ่ม cell-aware OCR แยกคอลัมน์สำหรับภาพไทยพร้อม confidence gate; original PNG dev เพิ่ม 64.43% → 66.35%, row F1 83.33%, เฉลี่ย 6.73 วินาที; unit tests ผ่าน 5 รายการ

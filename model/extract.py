@@ -153,7 +153,14 @@ def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
 
         full_text = ocr(source, "full")
         if not format_id.startswith("bachelor_"):
-            return full_text, None
+            body = full_text
+            if format_id.endswith("_en"):
+                return full_text, body
+            try:
+                from model.cell_ocr import read_course_cells, repair_course_lines
+            except ModuleNotFoundError:
+                from cell_ocr import read_course_cells, repair_course_lines
+            return full_text, repair_course_lines(body, read_course_cells(path, format_id, mode))
         width, height = source.size
         top, bottom = round(height * 0.185), round(height * 0.93)
         middle = width // 2
@@ -161,7 +168,13 @@ def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
             ocr(source.crop((0, top, middle, bottom)), "left"),
             ocr(source.crop((middle, top, width, bottom)), "right"),
         ))
-        return full_text, body
+        if format_id.endswith("_en"):
+            return full_text, body
+        try:
+            from model.cell_ocr import read_course_cells, repair_course_lines
+        except ModuleNotFoundError:
+            from cell_ocr import read_course_cells, repair_course_lines
+        return full_text, repair_course_lines(body, read_course_cells(path, format_id, mode))
 
 
 def value_after(line: str, label: str, stop: str | None = None) -> str | None:
