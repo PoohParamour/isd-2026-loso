@@ -16,7 +16,12 @@ import time
 from pathlib import Path
 from typing import Any
 
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps
+
+try:
+    from model.validate import validate_record
+except ModuleNotFoundError:  # Direct execution: python model/extract.py
+    from validate import validate_record
 
 ROOT = Path(__file__).resolve().parents[1]
 FORMATS = json.loads((Path(__file__).parent / "formats.json").read_text(encoding="utf-8"))
@@ -109,6 +114,54 @@ def read_bachelor_columns(path: Path, engine: str, language: str) -> str:
             subprocess.run(["pdftoppm", "-f", "1", "-singlefile", "-r", "250", "-x", str(x), "-y", "500", "-W", "1033", "-H", "2200", "-png", str(path), str(prefix)], check=True, capture_output=True)
             chunks.append(run("tesseract", f"{side}.png", "stdout", "-l", lang, "--psm", "6", cwd=work))
         return "\n".join(chunks)
+
+
+def preprocess_image(image: Image.Image, mode: str, scale: int = 2) -> Image.Image:
+    """Apply the dev-selected preprocessing without modifying source files."""
+    image = image.convert("RGB")
+    image = image.resize((image.width * scale, image.height * scale), Image.Resampling.LANCZOS)
+    if mode == "original":
+        return image
+    gray = ImageOps.grayscale(image)
+    if mode == "autocontrast":
+        return ImageOps.autocontrast(gray, cutoff=1)
+    if mode == "sharpen":
+        gray = ImageEnhance.Contrast(gray).enhance(1.5)
+        return gray.filter(ImageFilter.UnsharpMask(radius=2, percent=180, threshold=3))
+    raise ValueError(f"Unknown preprocessing mode: {mode}")
+
+
+def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
+    """Re-read a raster image with the configuration selected on dev data."""
+    profile = {
+        "bachelor_th": ("original", 4),
+        "bachelor_en": ("sharpen", 6),
+        "graduate_th": ("sharpen", 4),
+        "graduate_en": ("autocontrast", 4),
+    }[format_id]
+    mode, psm = profile
+    language = "eng" if format_id.endswith("_en") else "tha+eng"
+    with Image.open(path) as source, tempfile.TemporaryDirectory(prefix="isd_ocr_profile_") as temp:
+        if source.width * source.height > 30_000_000:
+            raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
+        work = Path(temp)
+
+        def ocr(image: Image.Image, name: str) -> str:
+            target = work / f"{name}.png"
+            preprocess_image(image, mode).save(target)
+            return run("tesseract", target.name, "stdout", "-l", language, "--psm", str(psm), cwd=work)
+
+        full_text = ocr(source, "full")
+        if not format_id.startswith("bachelor_"):
+            return full_text, None
+        width, height = source.size
+        top, bottom = round(height * 0.185), round(height * 0.93)
+        middle = width // 2
+        body = "\n".join((
+            ocr(source.crop((0, top, middle, bottom)), "left"),
+            ocr(source.crop((middle, top, width, bottom)), "right"),
+        ))
+        return full_text, body
 
 
 def value_after(line: str, label: str, stop: str | None = None) -> str | None:
@@ -344,9 +397,12 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False) -
     path = path.resolve()
     text, engine = read_document(path, force_ocr)
     detected = detect_format(text, format_id)
-    body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
+    if path.suffix.lower() != ".pdf":
+        text, body = read_image_profile(path, detected)
+    else:
+        body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
     record = parse(text, detected, body)
-    return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record}
+    return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record, "validation": validate_record(record)}
 
 
 def main() -> None:

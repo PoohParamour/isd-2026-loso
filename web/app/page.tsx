@@ -9,7 +9,9 @@ type RecordData = {
   header_detail?: { student_id?: string; prename?: string; name?: string; program?: string };
   transcript_detail?: { semesters?: Semester[]; total_credits_earned?: number; cumulative_gpa?: string };
 };
-type Extraction = { filename: string; engine: string; processing_seconds: number; record: RecordData; error?: string };
+type ValidationIssue = { path: string; code: string; message: string; severity: "error" | "warning" };
+type Validation = { needs_review: boolean; errors: number; warnings: number; course_count: number; issues: ValidationIssue[] };
+type Extraction = { filename: string; engine: string; processing_seconds: number; record: RecordData; validation?: Validation; error?: string };
 type Grade = { student_id: string; academic_year: string; semester_number: string; subject_id: string; subject_name: string; grade: string };
 
 async function api(path: string, init?: RequestInit) {
@@ -147,6 +149,8 @@ export default function Home() {
         {current && !current.error && <>
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-widest text-orange-600">ตรวจข้อมูลก่อนบันทึก</p><h2 className="mt-1 text-xl font-bold">{current.filename}</h2><p className="mt-1 text-sm text-slate-500">{current.engine} · {current.processing_seconds} วินาที · {record?.format_id}</p></div><button onClick={save} disabled={busy || !!jsonError} className="rounded-lg bg-slate-900 px-5 py-2.5 font-semibold text-white hover:bg-slate-700 disabled:opacity-50">บันทึกผลที่ตรวจแล้ว</button></div>
+            {current.validation?.needs_review && <div role="alert" className="mt-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950"><p className="font-semibold">ควรตรวจข้อมูลก่อนบันทึก · {current.validation.errors} ข้อผิดพลาด · {current.validation.warnings} คำเตือน</p><ul className="mt-2 list-disc space-y-1 pl-5">{current.validation.issues.slice(0, 8).map((issue, index) => <li key={index}><span className="font-mono text-xs">{issue.path}</span> — {issue.message}</li>)}</ul>{current.validation.issues.length > 8 && <p className="mt-2">และอีก {current.validation.issues.length - 8} รายการ</p>}</div>}
+            {current.validation && !current.validation.needs_review && <div role="status" className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">ผ่านการตรวจโครงสร้างอัตโนมัติ · พบ {current.validation.course_count} รายวิชา</div>}
             <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{[["รหัสนักศึกษา", record?.header_detail?.student_id], ["ชื่อ-สกุล", (record?.header_detail?.prename || "") + " " + (record?.header_detail?.name || "")], ["หลักสูตร", record?.header_detail?.program], ["GPA สะสม", record?.transcript_detail?.cumulative_gpa]].map(([label, value]) => <div className="rounded-xl bg-slate-50 p-4" key={label}><div className="text-xs text-slate-500">{label}</div><div className="mt-2 break-words font-semibold">{value || "—"}</div></div>)}</div>
             <p className="mt-4 text-sm text-slate-500">{semesters.length} ภาคการศึกษา · {courses} รายวิชา · {record?.transcript_detail?.total_credits_earned ?? "—"} หน่วยกิต</p>
           </section>

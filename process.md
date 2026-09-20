@@ -9,7 +9,7 @@
 | ตรวจโจทย์และข้อมูลเดิม | เสร็จ | อ่าน `P1_OCR_Prompt.md`, สไลด์ใน `all/`, Lab 4-10 และสำรวจ PDF/ground truth |
 | ชุดข้อมูลและ split | เสร็จ | 48 PDF, label จับคู่ได้ 47; dev 35/test 12/unlabeled 1; แยกตามเอกสารต้นทาง |
 | ตัววัดผลแบบ structured | เสร็จ | exact field, CER, row P/R/F1 และ matrix แยกกลุ่ม |
-| OCR และ format routing | เสร็จสำหรับ PDF; ภาพอยู่ระหว่างปรับ | PDF text + Tesseract fallback, 4 profiles ไทย/อังกฤษ ป.ตรี/บัณฑิต |
+| OCR และ format routing | เสร็จสำหรับ PDF; ภาพดีขึ้นแต่ยังไม่ผ่านทุกกลุ่ม | PDF text + Tesseract fallback; image preprocessing/PSM แยก 4 profiles |
 | Backend, DB, Web | เสร็จขั้น integration | FastAPI + SQLite + Next.js/Tailwind; ทดสอบ upload, save, query ผ่าน API แล้ว |
 | Docker และการทดสอบส่งท้าย | ผ่าน end-to-end ขั้นหลัก | Compose web+backend healthy; upload, save และ query ผ่านเว็บ proxy |
 
@@ -42,6 +42,8 @@
 | 2026-09-20 | โครงระบบ | Next.js + Tailwind, FastAPI, Docker; local Ollama สำหรับ OCR ที่ต้องใช้ VLM | ผู้ใช้ยืนยัน stack; เครื่องมี Ollama และโมเดลที่ Lab ใช้ |
 | 2026-09-20 | ข้อมูลผิดคู่ | ไม่จับคู่ PDF `74176008` กับ JSON `74176005`; กันออกจาก scoring จนตรวจ label | รหัสภายใน PDF คือ `74176008`, ใน JSON คือ `74176005` และรายละเอียดไม่ตรงกัน |
 | 2026-09-20 | Local VLM | ไม่ใช้ Typhoon-OCR + Qwen3 เป็นเส้นทางหลัก; คง hybrid PDF text + Tesseract fallback | ทดสอบผ่าน Ollama local กับ PNG 150 DPI แบบสมดุล 4 กลุ่ม: สำเร็จ 1/4, อีก 3 timeout; ฉบับที่สำเร็จถูก 1/75 (1.33%) และใช้ 121.1 วินาที จึงด้อยกว่าทั้ง accuracy และ latency |
+| 2026-09-20 | Image OCR profiles | เลือก preprocessing และ PSM แยกตาม format จาก dev 12 ฉบับ; ไม่ใช้ parser heuristic ที่ทำให้ผลรวมลด | tuning 144 runs: bachelor_th original/PSM4, bachelor_en sharpen/PSM6, graduate_th sharpen/PSM4, graduate_en autocontrast/PSM4; accuracy original PNG เพิ่ม 54.31% → 64.43% |
+| 2026-09-20 | Validation | ตรวจโครงสร้างและช่วงค่าหลัง OCR พร้อมแสดง error/warning บนหน้า review; ไม่ใช้ GPA คำนวณย้อนหรือ ground truth | ลดความเสี่ยงบันทึก student ID, course ID, credit, grade, semester และ GPA ที่รูปแบบผิด โดยไม่เดาค่าที่อ่านไม่ออก |
 
 ## นิยามการวัดผล
 
@@ -61,7 +63,9 @@ Docker Compose บนเครื่อง M4 16 GB รัน batch PDF จา�
 
 ### ขอบเขตภาพสแกน
 
-PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 12 ฉบับ: 681/1254 = 54.31%, row F1 81.16%, เฉลี่ย 4.52 วินาที/ฉบับ. ไทย ป.ตรี 34.59%; อังกฤษ ป.ตรี 85.19%; ไทยบัณฑิต 27.24%; อังกฤษบัณฑิต 70.73%. เป็นผลก่อนปรับ format detection ครั้งล่าสุด และยังต่ำกว่าเกณฑ์. ห้ามอ้างผล PDF เป็นผลภาพสแกน.
+PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 12 ฉบับ หลังเลือก image profile จาก dev: 808/1254 = 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที/ฉบับ. ไทย ป.ตรี 52.71%; อังกฤษ ป.ตรี 94.97%; ไทยบัณฑิต 27.24%; อังกฤษบัณฑิต 77.07%. ดีขึ้นจาก baseline 54.31% แต่ยังต่ำกว่าเกณฑ์รวม. ห้ามอ้างผล PDF เป็นผลภาพสแกน.
+
+ภาพ augmented 5 แบบจาก dev 12 ฉบับ รวม 60 ภาพ: 2234/6270 = 35.63%, row F1 51.75%, เฉลี่ย 7.35 วินาที/ฉบับ, สูงสุด 25.62 วินาที. Latency ยังผ่าน <30 วินาที แต่ robustness ไม่ผ่าน โดย blur/contrast, perspective และ JPEG/dark เป็นจุดอ่อนหลัก. รายงานอยู่ใน `model/reports/image-augmented-dev.json`.
 
 ### Cost-benefit ของเส้นทางที่ทดสอบบน PDF 8 ฉบับเดียวกัน
 
@@ -97,7 +101,10 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] ทำ FastAPI, DB และ Next.js
 - [x] ยืนยัน Docker end-to-end และวัด batch ผ่าน deployed API
 - [x] ทดลอง local VLM ตาม Lab 7 บนชุดสมดุล; บันทึก accuracy, latency และ timeout เพื่อใช้ตัดสินใจเลือกโมเดล
-- [ ] ขยาย image benchmark ไปยัง augmented/noise และปรับ OCR ภาพไทยต่อ
+- [x] ขยาย image benchmark ไปยัง original/augmented และเลือก preprocessing/PSM แยกตาม 4 format
+- [x] เพิ่ม structural validation และแสดง error/warning บนหน้า review ก่อนบันทึก
+- [ ] เพิ่ม deskew/perspective correction และ table row/cell segmentation โดยเน้นบัณฑิตไทย
+- [ ] ทำ candidate selection จาก structural confidence แล้ววัดซ้ำบน dev โดยห้ามเลือกจากชื่อ augmentation
 - [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
 ## แผนปิดโปรเจกต์และเกณฑ์ผ่านแต่ละช่วง
@@ -125,3 +132,5 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - Docker web+backend healthy; proxy upload-save-search ผ่าน; deployed batch 12 ฉบับเฉลี่ย 1.754 วินาทีรวม comparison
 - 2026-09-20 - ภาพ PNG original dev 12 ฉบับได้ 54.31%; เป็นข้อจำกัดสำคัญที่ต้องแยกจากคะแนน PDF
 - 2026-09-20 - อ่าน `all/` ชุดอัปโหลดใหม่และยืนยัน Lab 7 pipeline; ทดสอบ local VLM 4 กลุ่มผ่าน Ollama ได้ 1/75 ในฉบับที่สำเร็จ (121.1 วินาที) และอีก 3 ฉบับ timeout ที่ 120 วินาที
+- 2026-09-20 - tune preprocessing × PSM 144 runs; เพิ่ม image profiles ทำให้ original PNG dev 12 ฉบับดีขึ้น 54.31% → 64.43%, row F1 82.74%, เฉลี่ย 5.83 วินาที
+- 2026-09-20 - augmented benchmark 60 ภาพได้ 35.63%, row F1 51.75%, สูงสุด 25.62 วินาที; เพิ่ม validation ใน API/UI; PDF regression ยังผ่าน 96.62%
