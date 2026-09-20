@@ -1,6 +1,6 @@
 # Process Log - P1 OCR Transcript
 
-อัปเดต: 2026-09-20
+อัปเดต: 2026-09-21
 
 ## สถานะ
 
@@ -47,6 +47,7 @@
 | 2026-09-20 | Image OCR architecture | เพิ่ม position-aware cell OCR สำหรับภาพ transcript ภาษาไทย โดยอ่านรหัส/ชื่อ/ประเภท/หน่วยกิต/เกรดแยกคอลัมน์ และใช้เฉพาะซ่อมแถวที่ whole-page OCR ยัง parse ไม่ได้ | รุ่นแทนทุกแถวทำให้ 64.43% ลดเป็น 63.80%; confidence gate + จำกัดภาษาไทยเพิ่มเป็น 66.35% จึงเก็บแบบ gated และไม่เปลี่ยนแถวที่ parse ได้แล้ว |
 | 2026-09-20 | Trained post-processing | สร้าง course/header vocabulary จาก dev split 35 ฉบับเท่านั้น; ใช้รหัสวิชา exact และ fuzzy header entity ที่มี threshold+margin พร้อม refined format routing | ห้ามใช้ test label ระหว่าง inference; test image 12 ฉบับเพิ่มจาก 72.57% เป็น 85.43%, row F1 98.23% แต่ยังไม่ผ่าน >91% |
 | 2026-09-20 | Image-grounded label audit | คง ground truth ต้นฉบับไว้และสร้าง audit แยก โดยเทียบ ground truth กับค่าที่มองเห็นผ่าน PDF text และ image OCR | test พบ `footer_detail.updated_at` ไม่ตรงภาพ 10/12 ฉบับ; image OCR ตรง visible PDF ทั้ง 10 จุด จึงรายงานทั้ง raw-label 90.51% และ audited-image 91.26% |
+| 2026-09-21 | Unseen-file fallback | เลือกผล parse ระหว่าง layout crop กับ full-page ด้วย structural score; ค้น student ID/name/faculty ข้ามบรรทัด; รองรับหัว semester หลายรูปและเก็บรายวิชาใน unassigned semester เมื่อไม่รู้จักหัวภาค | ไฟล์ใหม่นอก train เคยล้มพร้อมกัน 5 validation fields เพราะ template coupling; fallback ไม่ใช้ชื่อไฟล์หรือ label และ regression test เดิมคง 1211/1338, row F1 98.23% |
 
 ## นิยามการวัดผล
 
@@ -117,7 +118,8 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - [x] ทำ refined format routing และ trained catalog จาก dev โดยไม่ใช้ test label ใน inference
 - [x] ทำ image-grounded audit และผ่านเป้า >91%: audited 91.26%; raw-label score 90.51%
 - [ ] ฝึก/fine-tune Thai text recognizer จาก cell crops ของ dev เพื่อเพิ่ม margin เหนือ 91% และลดการพึ่ง audited correction
-- [ ] ทำ candidate selection จาก structural confidence แล้ววัดซ้ำโดยห้ามเลือกจากชื่อ augmentation
+- [x] ทำ candidate selection จาก structural confidence ระหว่าง full-page/layout crop โดยไม่ใช้ชื่อไฟล์หรือชื่อ augmentation
+- [x] เพิ่ม generic fallback สำหรับไฟล์นอกชุด train และยืนยัน regression ไม่ลด
 - [ ] จัดทำ docs และสไลด์ช่วงท้าย
 
 ## แผนปิดโปรเจกต์และเกณฑ์ผ่านแต่ละช่วง
@@ -150,3 +152,4 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-20 - เพิ่ม cell-aware OCR แยกคอลัมน์สำหรับภาพไทยพร้อม confidence gate; original PNG dev เพิ่ม 64.43% → 66.35%, row F1 83.33%, เฉลี่ย 6.73 วินาที; unit tests ผ่าน 5 รายการ
 - 2026-09-20 - image test baseline 12 ฉบับได้ 72.57%; แก้ Thai semester marker/refined routing/focused regions และ dev-trained catalog แล้วเพิ่มเป็น 85.43%, row F1 98.23%, เฉลี่ย 8.78 วินาที; unit tests ผ่าน 10 รายการ
 - 2026-09-20 - แก้ Unicode `ำ/ํา` และ template parsing; test image raw-label 90.51%. Audit วันที่พบ label mismatch 10 จุดที่ OCR ตรงภาพทั้งหมด; audited-image 1221/1338 = 91.26% ผ่านเป้า >91%; unit tests ผ่าน 11 รายการ
+- 2026-09-21 - เพิ่ม unseen-file fallback: multi-line header, semester heading variants, unassigned course rows และ full-page/layout candidate selection; unit tests ผ่าน 14 รายการ; regression test 12 ภาพคง raw-label 90.51%, row F1 98.23%

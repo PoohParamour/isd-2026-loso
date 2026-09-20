@@ -37,6 +37,34 @@ TH_SPECIAL = re.compile(r"ภาคการศึกษาพิเศษ\s*ป
 EN_SPECIAL = re.compile(r"(?:Summer|Special)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 
 
+def parse_term(line: str, language: str) -> tuple[int, int] | None:
+    """Parse common semester headings without depending on one template."""
+    patterns = (
+        (
+            r"(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที)?\s*([123])\D{0,30}(?:ปีการศึกษา|ปี)\s*(\d{4})",
+            r"(?:ปีการศึกษา|ปี)\s*(\d{4})\D{0,30}(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที)?\s*([123])",
+        )
+        if language == "th"
+        else (
+            r"\b([123])(?:st|nd|rd|th)?\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})",
+            r"\bSemester\s*([123])\D{0,30}(?:Academic\s+Year|Year)\s*(\d{4})",
+            r"\b(?:Academic\s+Year|Year)\s*(\d{4})\D{0,30}Semester\s*([123])",
+        )
+    )
+    for index, pattern in enumerate(patterns):
+        match = re.search(pattern, line, re.I)
+        if not match:
+            continue
+        if index == 1 and language == "th" or index == 2 and language == "en":
+            year, semester = int(match[1]), int(match[2])
+        else:
+            semester, year = int(match[1]), int(match[2])
+        if language == "en" and year < 2400:
+            year += 543
+        return semester, year
+    return None
+
+
 def run(*args: str, cwd: Path | None = None) -> str:
     result = subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=True)
     return result.stdout
@@ -241,18 +269,24 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     uni_address = next((x.strip() for x in lines if re.search(r"Chalongkrung Road|เลขท(?:ี่|ี)\s*1\s*ซอยฉลองกรุง", x, re.I)), None)
     header["uni_name"] = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" if uni_name and not en else uni_name
     header["uni_address"] = "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520" if uni_address and not en else uni_address
-    faculty = find_line(lines, r"^\s*(College|Faculty|International Academy|KMITL Business School|คณะ)")
+    faculty = find_line(lines, r"(?:^|\s)(College(?:\s+of)?|Faculty(?:\s+of)?|School(?:\s+of)?|International Academy|KMITL Business School|คณะ)")
     if not faculty:
         marker = next((i for i, line in enumerate(lines) if re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", line, re.I)), None)
         if marker is not None:
             faculty = next((line for line in lines[marker + 1:] if line.strip()), "")
     header["faculty_name"] = faculty.strip() or None
-    person = find_line(lines, r"\bName\s*:|ชื่อ-สกุล")
-    person_value = value_after(person, r"Name|ชื่อ-สกุล", r"Student\s*ID|รหัสประจำตัวนักศึกษา|รหัสประจําตัวนักศึกษา") or ""
+    person_label = r"Name(?:\s+of\s+Student)?|Student\s+Name|ชื่อ(?:-สกุล|และนามสกุล|นักศึกษา)?"
+    id_label = r"Student\s*(?:ID|No\.?|Number)|Registration\s*(?:ID|No\.?)|รหัส(?:ประจ[ำํา]ตัว)?นักศึกษา"
+    person = find_line(lines, person_label)
+    person_value = value_after(person, person_label, id_label) or ""
     prefix = re.match(r"(นาย|นางสาว|นาง|Mr\.?|Mrs\.?|Miss)\s*(.*)", person_value, re.I)
     header["prename"] = prefix[1] if prefix else None
     header["name"] = prefix[2] if prefix else person_value or None
-    sid = re.search(r"(?:Student\s*ID|รหัสประจำตัวนักศึกษา|รหัสประจําตัวนักศึกษา)\s*[:：]?\s*(\d{8})", person, re.I)
+    joined = "\n".join(lines)
+    sid = re.search(rf"(?:{id_label})\s*[:：#-]?\s*(\d{{8}})", joined, re.I)
+    if not sid:
+        header_text = "\n".join(lines[: min(30, len(lines))])
+        sid = re.search(r"(?<!\d)(\d{8})(?!\d)", header_text)
     header["student_id"] = sid[1] if sid else None
     if header["student_id"]:
         if en:
@@ -284,7 +318,6 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
     semesters: list[dict] = []
     current: dict | None = None
     last_course: dict | None = None
-    term_pattern = EN_TERM if language == "en" else TH_TERM
     for raw in lines:
         line = raw.strip()
         line = re.sub(r"^(?:Ast|Ist)\s+Semester", "1st Semester", line, flags=re.I)
@@ -292,12 +325,10 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"\bNe\s+(\d{1,2})\s+", r"Nc \1 ", line, flags=re.I)
         if not line:
             continue
-        term = term_pattern.search(line)
+        term = parse_term(line, language)
         if term:
-            year = int(term[2])
-            if language == "en" and year < 2400:
-                year += 543
-            current = {"year": year, "sem_num": int(term[1]), "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+            semester, year = term
+            current = {"year": year, "sem_num": semester, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
             semesters.append(current)
             last_course = None
             continue
@@ -315,8 +346,6 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
             semesters.append(current)
             last_course = None
             continue
-        if current is None:
-            continue
         # OCR frequently renders grade suffixes as an extra t/c. Correct only
         # these observed glyph confusions, without consulting labels.
         line = re.sub(r"\b([ABCD])t\+\s*$", r"\1+", line, flags=re.I)
@@ -329,7 +358,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"(?<=\s)([0-9])\s+8\+\s*$", r"\1 B+", line)
         line = re.sub(r"(?<=\s)([0-9])\s+[\(（][๐0]\s*$", r"\1 C", line)
         row = COURSE.match(line) or COURSE_NO_GRADE.match(line)
-        if row is None and current["sem_num"] == 0:
+        if row is None and current is not None and current["sem_num"] == 0:
             transfer = re.match(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})[.\s|]+(T\(?[A-FS][+4]?\)?|T[+)]|TB\))\s*$", line, re.I)
             if transfer:
                 grade = transfer[4].upper().replace("4", "+")
@@ -340,6 +369,9 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
                 last_course = row_data
                 continue
         if row:
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
             last_course = {
                 "subject_id": row[1],
                 "subject_name": row[2].strip(),
@@ -348,6 +380,8 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
                 "grade_earn": row[5].lower() if row.lastindex == 5 else None,
             }
             current["subject"].append(last_course)
+            continue
+        if current is None:
             continue
         if re.search(r"คะแนนเฉล(?:ี่|ี)ยประจ(?:ำ|ํา)ภาคการศึกษา|\bGPS\s*:", line, re.I):
             numbers = re.findall(r"(?:\d+\.\d{2}|-)", line)
@@ -443,7 +477,19 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False) -
             text, body = read_image_profile(path, detected)
     else:
         body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
-    record = apply_course_catalog(parse(text, detected, body))
+    candidates = [parse(text, detected, body)]
+    if body and body != text:
+        candidates.append(parse(text, detected, None))
+
+    def structural_score(candidate: dict[str, Any]) -> tuple[int, int, int]:
+        header = candidate.get("header_detail") or {}
+        semesters = (candidate.get("transcript_detail") or {}).get("semesters") or []
+        courses = sum(len(semester.get("subject") or []) for semester in semesters)
+        header_fields = sum(bool(header.get(field)) for field in ("student_id", "name", "faculty_name", "program"))
+        dated_semesters = sum(semester.get("year") is not None for semester in semesters)
+        return courses, dated_semesters, header_fields
+
+    record = apply_course_catalog(max(candidates, key=structural_score))
     return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record, "validation": validate_record(record)}
 
 
