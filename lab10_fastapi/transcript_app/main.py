@@ -58,3 +58,35 @@ def health() -> dict:
         "ocr_source_dir": str(settings.ocr_source_dir),
         "lab8a_module": str(Path(lab8a.file).resolve()),
     }
+
+@app.post("/api/transcript/extract", response_model=TranscriptResponse)
+async def extract_transcript(
+    file: UploadFile = File(...),
+    preprocessing: str = Form(default="none"),
+    include_markdown: bool = Form(default=False),
+) -> dict:
+    suffix = Path(file.filename or "upload").suffix.lower()
+    if suffix not in ALLOWED_SUFFIXES:
+        raise HTTPException(status_code=415, detail="รองรับเฉพาะ PDF/PNG/JPG/TIFF")
+
+    limit = settings.max_upload_mb * 1024 * 1024
+    content = await file.read(limit + 1)
+    if len(content) > limit:
+        raise HTTPException(
+            status_code=413,
+            detail=f"ไฟล์ใหญ่เกิน {settings.max_upload_mb} MB",
+        )
+    if not content:
+        raise HTTPException(status_code=422, detail="ไฟล์ว่างเปล่า")
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="lab10transcript") as temp_dir:
+            path = Path(temp_dir) / f"upload{suffix}"
+            path.write_bytes(content)
+            result = await run_in_threadpool(
+                pipeline.extract, path, preprocessing, include_markdown
+            )
+            result["filename"] = file.filename or path.name
+            return result
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
