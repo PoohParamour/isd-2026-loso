@@ -139,8 +139,8 @@ export default function Home() {
             }`}
           >
             <span className="text-3xl text-orange-600">↑</span><span className="mt-2 font-medium">{isDragging ? "วางไฟล์ที่นี่ได้เลย!" : "เลือกไฟล์เพื่ออ่านแบบชุด หรือลากมาวาง"}</span>
-            <span className="mt-1 text-xs text-slate-500">PDF, PNG, JPG, TIFF · ไม่เกิน 20 MB ต่อไฟล์</span>
-            <input aria-label="เลือกไฟล์ Transcript" className="sr-only" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff" onChange={event => setFiles(Array.from(event.target.files || []))} />
+            <span className="mt-1 text-xs text-slate-500">PDF, PNG, JPG, TIFF, HEIC/HEIF · ไม่เกิน 20 MB ต่อไฟล์</span>
+            <input aria-label="เลือกไฟล์ Transcript" className="sr-only" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.heic,.heif,image/heic,image/heif" onChange={event => setFiles(Array.from(event.target.files || []))} />
           </label>
           {files.length > 0 && <div className="mt-3 max-h-32 overflow-auto rounded-lg bg-slate-50 p-3 text-xs text-slate-600">{files.map((file, index) => <div className="truncate py-0.5" key={index}>{file.name}</div>)}</div>}
           <label className="mt-4 block text-sm font-medium">รูปแบบเอกสาร</label>

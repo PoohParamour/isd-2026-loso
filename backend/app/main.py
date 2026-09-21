@@ -20,7 +20,19 @@ from .database import get_document, init_db, save_document, search_grades
 
 
 MAX_UPLOAD = 20 * 1024 * 1024
-ALLOWED = {".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff"}
+ALLOWED = {".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".heic", ".heif"}
+HEIF_BRANDS = {b"heic", b"heix", b"hevc", b"hevx", b"heim", b"heis", b"mif1", b"msf1"}
+
+
+def is_heif(content: bytes) -> bool:
+    """Check the ISO-BMFF file-type box used by HEIC/HEIF images."""
+    if len(content) < 16 or content[4:8] != b"ftyp":
+        return False
+    box_size = int.from_bytes(content[:4], "big")
+    if box_size < 16 or box_size > len(content):
+        return False
+    brands = {content[offset : offset + 4] for offset in range(8, box_size, 4)}
+    return bool(brands & HEIF_BRANDS)
 
 
 @asynccontextmanager
@@ -51,7 +63,7 @@ async def extract_transcript(file: UploadFile = File(...), format_id: str | None
     filename = Path(file.filename or "upload").name
     suffix = Path(filename).suffix.lower()
     if suffix not in ALLOWED:
-        raise HTTPException(415, "รองรับ PDF, PNG, JPG และ TIFF")
+        raise HTTPException(415, "รองรับ PDF, PNG, JPG, TIFF และ HEIC/HEIF")
     if format_id and format_id not in FORMATS:
         raise HTTPException(422, "ไม่รู้จักรูปแบบ transcript")
     content = await file.read(MAX_UPLOAD + 1)
@@ -63,6 +75,8 @@ async def extract_transcript(file: UploadFile = File(...), format_id: str | None
         raise HTTPException(415, "ไฟล์ PNG ไม่ถูกต้อง")
     if suffix in {".jpg", ".jpeg"} and not content.startswith(b"\xff\xd8"):
         raise HTTPException(415, "ไฟล์ JPEG ไม่ถูกต้อง")
+    if suffix in {".heic", ".heif"} and not is_heif(content):
+        raise HTTPException(415, "ไฟล์ HEIC/HEIF ไม่ถูกต้อง")
     try:
         with tempfile.TemporaryDirectory(prefix="isd_upload_") as temp:
             path = Path(temp) / f"input{suffix}"

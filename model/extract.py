@@ -17,6 +17,9 @@ from pathlib import Path
 from typing import Any
 
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps
+from pillow_heif import register_heif_opener
+
+register_heif_opener()
 
 try:
     from model.validate import validate_record
@@ -93,9 +96,11 @@ def read_document(path: Path, force_ocr: bool = False) -> tuple[str, str]:
             subprocess.run(["pdftoppm", "-r", "250", "-png", str(path), str(work / "page")], check=True, capture_output=True)
             images = sorted(work.glob("page-*.png"))
         else:
-            target = work / f"page-1{path.suffix.lower()}"
+            # Normalize every uploaded raster format (including HEIC/HEIF) so
+            # downstream OCR only has to consume a well-supported PNG.
+            target = work / "page-1.png"
             with Image.open(path) as source:
-                image = source.convert("RGB")
+                image = ImageOps.exif_transpose(source).convert("RGB")
                 if image.width * image.height > 30_000_000:
                     raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
                 if image.width < 2000:
@@ -121,7 +126,7 @@ def read_bachelor_columns(path: Path, engine: str, language: str) -> str:
             lang = "eng" if language == "en" else "tha+eng"
             chunks = []
             with Image.open(path) as source:
-                image = source.convert("RGB")
+                image = ImageOps.exif_transpose(source).convert("RGB")
                 width, height = image.size
                 if width * height > 30_000_000:
                     raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
@@ -174,7 +179,8 @@ def read_image_profile(path: Path, format_id: str) -> tuple[str, str | None]:
     }[format_id]
     mode, psm = profile
     language = "eng" if format_id.endswith("_en") else "tha+eng"
-    with Image.open(path) as source, tempfile.TemporaryDirectory(prefix="isd_ocr_profile_") as temp:
+    with Image.open(path) as opened_source, tempfile.TemporaryDirectory(prefix="isd_ocr_profile_") as temp:
+        source = ImageOps.exif_transpose(opened_source)
         if source.width * source.height > 30_000_000:
             raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
         work = Path(temp)
