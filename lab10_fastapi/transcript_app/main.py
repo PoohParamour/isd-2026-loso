@@ -48,4 +48,13 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 def index() -> FileResponse:
     return FileResponse(STATIC_DIR / "index.html")
 
-
+@app.get("/api/health")
+def health() -> dict:
+    return {
+        "status": "ok",
+        "ocr_model": settings.ocr_model,
+        "text_model": settings.text_model,
+        "max_upload_mb": settings.max_upload_mb,
+        "ocr_source_dir": str(settings.ocr_source_dir),
+        "lab8a_module": str(Path(lab8a.file).resolve()),
+    }
