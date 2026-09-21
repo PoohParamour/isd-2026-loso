@@ -2,7 +2,7 @@
   "input": "Lab5 original PNG, 150 DPI",
   "split": "dev",
   "documents": 12,
-  "mean_seconds": 4.518416666666667,
+  "mean_seconds": 33.97841666666667,
   "matrix": {
     "overall": {
       "correct": 681,
@@ -56,7 +56,7 @@
       "group": "bachelor",
       "language": "th",
       "predicted_format": "bachelor_th",
-      "seconds": 4.055,
+      "seconds": 98.892,
       "correct": 14,
       "total": 73,
       "accuracy": 0.1917808219178082
@@ -66,7 +66,7 @@
       "group": "bachelor",
       "language": "th",
       "predicted_format": "bachelor_th",
-      "seconds": 4.826,
+      "seconds": 46.78,
       "correct": 7,
       "total": 45,
       "accuracy": 0.15555555555555556
@@ -76,7 +76,7 @@
       "group": "bachelor",
       "language": "th",
       "predicted_format": "bachelor_th",
-      "seconds": 18.306,
+      "seconds": 91.691,
       "correct": 126,
       "total": 307,
       "accuracy": 0.41042345276872966
@@ -86,7 +86,7 @@
       "group": "bachelor",
       "language": "en",
       "predicted_format": "bachelor_en",
-      "seconds": 3.151,
+      "seconds": 8.517,
       "correct": 34,
       "total": 57,
       "accuracy": 0.5964912280701754
@@ -96,7 +96,7 @@
       "group": "bachelor",
       "language": "en",
       "predicted_format": "bachelor_en",
-      "seconds": 1.566,
+      "seconds": 6.89,
       "correct": 28,
       "total": 49,
       "accuracy": 0.5714285714285714
@@ -106,7 +106,7 @@
       "group": "bachelor",
       "language": "en",
       "predicted_format": "bachelor_en",
-      "seconds": 5.077,
+      "seconds": 28.347,
       "correct": 260,
       "total": 272,
       "accuracy": 0.9558823529411765
@@ -116,7 +116,7 @@
       "group": "graduate",
       "language": "th",
       "predicted_format": "graduate_th",
-      "seconds": 7.09,
+      "seconds": 45.83,
       "correct": 29,
       "total": 106,
       "accuracy": 0.27358490566037735
@@ -126,7 +126,7 @@
       "group": "graduate",
       "language": "th",
       "predicted_format": "graduate_th",
-      "seconds": 4.448,
+      "seconds": 16.8,
       "correct": 29,
       "total": 104,
       "accuracy": 0.27884615384615385
@@ -135,8 +135,8 @@
       "id": "73046003",
       "group": "graduate",
       "language": "th",
-      "predicted_format": "graduate_en",
-      "seconds": 2.676,
+      "predicted_format": "graduate_th",
+      "seconds": 12.877,
       "correct": 9,
       "total": 36,
       "accuracy": 0.25
@@ -146,7 +146,7 @@
       "group": "graduate",
       "language": "en",
       "predicted_format": "graduate_en",
-      "seconds": 1.007,
+      "seconds": 10.964,
       "correct": 70,
       "total": 79,
       "accuracy": 0.8860759493670886
@@ -156,7 +156,7 @@
       "group": "graduate",
       "language": "en",
       "predicted_format": "graduate_en",
-      "seconds": 0.97,
+      "seconds": 32.255,
       "correct": 52,
       "total": 62,
       "accuracy": 0.8387096774193549
@@ -166,7 +166,7 @@
       "group": "graduate",
       "language": "en",
       "predicted_format": "graduate_en",
-      "seconds": 1.049,
+      "seconds": 7.898,
       "correct": 23,
       "total": 64,
       "accuracy": 0.359375

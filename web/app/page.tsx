@@ -31,6 +31,7 @@ const formatOptions = [
 
 export default function Home() {
   const [files, setFiles] = useState<File[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
   const [format, setFormat] = useState("auto");
   const [forceOcr, setForceOcr] = useState(false);
   const [results, setResults] = useState<Extraction[]>([]);
@@ -123,8 +124,21 @@ export default function Home() {
       <aside className="space-y-6">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <h2 className="mb-4 text-lg font-semibold">1. นำเข้า Transcript</h2>
-          <label className="flex min-h-36 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-orange-300 bg-orange-50 px-4 text-center hover:bg-orange-100">
-            <span className="text-3xl text-orange-600">↑</span><span className="mt-2 font-medium">เลือกไฟล์เพื่ออ่านแบบชุด</span>
+          <label
+            onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
+            onDragLeave={e => { e.preventDefault(); setIsDragging(false); }}
+            onDrop={e => {
+              e.preventDefault();
+              setIsDragging(false);
+              if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                setFiles(Array.from(e.dataTransfer.files));
+              }
+            }}
+            className={`flex min-h-36 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed px-4 text-center transition-colors ${
+              isDragging ? "border-orange-500 bg-orange-100 scale-105" : "border-orange-300 bg-orange-50 hover:bg-orange-100"
+            }`}
+          >
+            <span className="text-3xl text-orange-600">↑</span><span className="mt-2 font-medium">{isDragging ? "วางไฟล์ที่นี่ได้เลย!" : "เลือกไฟล์เพื่ออ่านแบบชุด หรือลากมาวาง"}</span>
             <span className="mt-1 text-xs text-slate-500">PDF, PNG, JPG, TIFF · ไม่เกิน 20 MB ต่อไฟล์</span>
             <input aria-label="เลือกไฟล์ Transcript" className="sr-only" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff" onChange={event => setFiles(Array.from(event.target.files || []))} />
           </label>
