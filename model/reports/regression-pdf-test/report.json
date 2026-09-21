@@ -1,0 +1,505 @@
+{
+  "split": "test",
+  "documents": 12,
+  "primary_exact_field_accuracy": 0.976831091180867,
+  "primary_correct": 1307,
+  "primary_total": 1338,
+  "target_met": true,
+  "matrix": [
+    {
+      "slice": "bachelor",
+      "category": "course",
+      "correct": 523,
+      "total": 524,
+      "accuracy": 0.9980916030534351,
+      "cer": 0.006202924235711121,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "footer",
+      "correct": 15,
+      "total": 24,
+      "accuracy": 0.625,
+      "cer": 0.08284023668639054,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "header",
+      "correct": 65,
+      "total": 66,
+      "accuracy": 0.9848484848484849,
+      "cer": 0.005301524188204109,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor",
+      "category": "rows",
+      "tp": 131,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "bachelor",
+      "category": "semester",
+      "correct": 105,
+      "total": 105,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 1
+    },
+    {
+      "slice": "bachelor",
+      "category": "summary",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666,
+      "cer": 0.05714285714285714,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "course",
+      "correct": 247,
+      "total": 248,
+      "accuracy": 0.9959677419354839,
+      "cer": 0.012727272727272728,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "footer",
+      "correct": 9,
+      "total": 12,
+      "accuracy": 0.75,
+      "cer": 0.011904761904761904,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "header",
+      "correct": 34,
+      "total": 34,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "rows",
+      "tp": 62,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "semester",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 1
+    },
+    {
+      "slice": "bachelor_en",
+      "category": "summary",
+      "correct": 5,
+      "total": 6,
+      "accuracy": 0.8333333333333334,
+      "cer": 0.1111111111111111,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "course",
+      "correct": 276,
+      "total": 276,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "footer",
+      "correct": 6,
+      "total": 12,
+      "accuracy": 0.5,
+      "cer": 0.15294117647058825,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "header",
+      "correct": 31,
+      "total": 32,
+      "accuracy": 0.96875,
+      "cer": 0.011235955056179775,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "rows",
+      "tp": 69,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "semester",
+      "correct": 58,
+      "total": 58,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "bachelor_th",
+      "category": "summary",
+      "correct": 6,
+      "total": 6,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "course",
+      "correct": 437,
+      "total": 438,
+      "accuracy": 0.997716894977169,
+      "cer": 0.00783435926133184,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "footer",
+      "correct": 18,
+      "total": 24,
+      "accuracy": 0.75,
+      "cer": 0.011904761904761904,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "header",
+      "correct": 65,
+      "total": 65,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "en",
+      "category": "rows",
+      "tp": 100,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "en",
+      "category": "semester",
+      "correct": 110,
+      "total": 116,
+      "accuracy": 0.9482758620689655,
+      "cer": 0.06451612903225806,
+      "hallucinated": 3
+    },
+    {
+      "slice": "en",
+      "category": "summary",
+      "correct": 10,
+      "total": 11,
+      "accuracy": 0.9090909090909091,
+      "cer": 0.0625,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate",
+      "category": "course",
+      "correct": 350,
+      "total": 350,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "footer",
+      "correct": 17,
+      "total": 24,
+      "accuracy": 0.7083333333333334,
+      "cer": 0.07889546351084813,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "header",
+      "correct": 62,
+      "total": 62,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate",
+      "category": "rows",
+      "tp": 70,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "graduate",
+      "category": "semester",
+      "correct": 148,
+      "total": 160,
+      "accuracy": 0.925,
+      "cer": 0.09090909090909091,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate",
+      "category": "summary",
+      "correct": 11,
+      "total": 11,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 3
+    },
+    {
+      "slice": "graduate_en",
+      "category": "course",
+      "correct": 190,
+      "total": 190,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "footer",
+      "correct": 9,
+      "total": 12,
+      "accuracy": 0.75,
+      "cer": 0.011904761904761904,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "header",
+      "correct": 31,
+      "total": 31,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "rows",
+      "tp": 38,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "graduate_en",
+      "category": "semester",
+      "correct": 63,
+      "total": 69,
+      "accuracy": 0.9130434782608695,
+      "cer": 0.10526315789473684,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate_en",
+      "category": "summary",
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 2
+    },
+    {
+      "slice": "graduate_th",
+      "category": "course",
+      "correct": 160,
+      "total": 160,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "footer",
+      "correct": 8,
+      "total": 12,
+      "accuracy": 0.6666666666666666,
+      "cer": 0.1450980392156863,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "header",
+      "correct": 31,
+      "total": 31,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "rows",
+      "tp": 32,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "semester",
+      "correct": 85,
+      "total": 91,
+      "accuracy": 0.9340659340659341,
+      "cer": 0.08,
+      "hallucinated": 0
+    },
+    {
+      "slice": "graduate_th",
+      "category": "summary",
+      "correct": 6,
+      "total": 6,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 1
+    },
+    {
+      "slice": "overall",
+      "category": "course",
+      "correct": 873,
+      "total": 874,
+      "accuracy": 0.9988558352402745,
+      "cer": 0.003872752420470263,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "footer",
+      "correct": 32,
+      "total": 48,
+      "accuracy": 0.6666666666666666,
+      "cer": 0.08086785009861933,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "header",
+      "correct": 127,
+      "total": 128,
+      "accuracy": 0.9921875,
+      "cer": 0.0027183146449201497,
+      "hallucinated": 0
+    },
+    {
+      "slice": "overall",
+      "category": "rows",
+      "tp": 201,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "overall",
+      "category": "semester",
+      "correct": 253,
+      "total": 265,
+      "accuracy": 0.9547169811320755,
+      "cer": 0.05597416576964478,
+      "hallucinated": 3
+    },
+    {
+      "slice": "overall",
+      "category": "summary",
+      "correct": 22,
+      "total": 23,
+      "accuracy": 0.9565217391304348,
+      "cer": 0.029850746268656716,
+      "hallucinated": 3
+    },
+    {
+      "slice": "th",
+      "category": "course",
+      "correct": 436,
+      "total": 436,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "footer",
+      "correct": 14,
+      "total": 24,
+      "accuracy": 0.5833333333333334,
+      "cer": 0.14901960784313725,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "header",
+      "correct": 62,
+      "total": 63,
+      "accuracy": 0.9841269841269841,
+      "cer": 0.005710206995003569,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "rows",
+      "tp": 101,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "slice": "th",
+      "category": "semester",
+      "correct": 143,
+      "total": 149,
+      "accuracy": 0.959731543624161,
+      "cer": 0.049429657794676805,
+      "hallucinated": 0
+    },
+    {
+      "slice": "th",
+      "category": "summary",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0,
+      "cer": 0.0,
+      "hallucinated": 1
+    }
+  ]
+}

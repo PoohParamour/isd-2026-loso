@@ -15,6 +15,17 @@ class ValidateRecordTests(unittest.TestCase):
         self.assertEqual(parse_term("ปีการศึกษา 2567 ภาคเรียนที่ 2", "th"), (2, 2567))
         self.assertEqual(parse_term("Academic Year 2024 Semester 1", "en"), (1, 2567))
         self.assertEqual(parse_term("1st Semester, Year, 2024-2025", "en"), (1, 2567))
+        self.assertEqual(parse_term("2nd Semester , 2022", "en"), (2, 2565))
+        self.assertEqual(parse_term("1st Semester , 2024", "en"), (1, 2567))
+
+    def test_english_graduate_ocr_type_and_credit_glyphs(self):
+        rows = parse_courses(
+            ["1st Semester , 2022", "10017081 SEMINAR 1 Ne I S", "10017100 RESEARCH METHODS Ne 3 S"],
+            "en",
+            True,
+        )
+        self.assertEqual([(item["subject_id"], item["type"], item["credit"]) for item in rows[0]["subject"]],
+                         [("10017081", "nc", 1), ("10017100", "nc", 3)])
 
     def test_unofficial_transcript_text_layer_is_usable(self):
         text = "( Unofficial Transcript )\nStudent ID: 67070124\n" + ("course text " * 40)
@@ -82,6 +93,8 @@ class ValidateRecordTests(unittest.TestCase):
                 "ภาคการศึกษาที่ 1 ปีการศึกษา 2565",
                 "03258902 ดุษฎีนิพนธ์ ๓ | 12 | ร",
                 "03258902 ดุษฎีนิพนธ์ Cr | 12 | 1!",
+                "03258902 ดุษฎีนิพนธ์ Cr 12 8",
+                "03258902 ดุษฎีนิพนธ์ Cr 12 |",
             ],
             "th",
             True,
@@ -89,6 +102,21 @@ class ValidateRecordTests(unittest.TestCase):
         self.assertEqual(rows[0]["subject"][0]["type"], "cr")
         self.assertEqual(rows[0]["subject"][0]["grade_earn"], "s")
         self.assertEqual(rows[0]["subject"][1]["grade_earn"], "i")
+        self.assertEqual(rows[0]["subject"][2]["grade_earn"], "s")
+        self.assertEqual(rows[0]["subject"][3]["grade_earn"], "i")
+
+    def test_footer_is_not_appended_to_wrapped_course_name(self):
+        rows = parse_courses(
+            ["1st Semester, 2024", "06026240 INTELLIGENT SYSTEM 3 A", "Date of Issued: January 17, 2025"],
+            "en",
+            False,
+        )
+        self.assertEqual(rows[0]["subject"][0]["subject_name"], "INTELLIGENT SYSTEM")
+
+    def test_missing_decimal_in_labeled_gps_is_repaired(self):
+        rows = parse_courses(["1st Semester, 2022", "GPS : 338 GPA : 3.34"], "en", False)
+        self.assertEqual(rows[0]["GPS"], "3.38")
+        self.assertEqual(rows[0]["GPA"], "3.34")
 
     def test_thai_summary_label_and_leading_table_border_gpa(self):
         rows = parse_courses(

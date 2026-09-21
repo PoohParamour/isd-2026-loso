@@ -47,7 +47,7 @@ def parse_term(line: str, language: str) -> tuple[int, int] | None:
         )
         if language == "th"
         else (
-            r"\b([123])(?:st|nd|rd|th)?\s+Semester[,]?\s*(?:(?:Academic\s+)?Year[,]?\s*)?(\d{4})(?:\s*-\s*\d{4})?",
+            r"\b([123])(?:st|nd|rd|th)?\s+Semester\s*,?\s*(?:(?:Academic\s+)?Year\s*,?\s*)?(\d{4})(?:\s*-\s*\d{4})?",
             r"\bSemester\s*([123])\D{0,30}(?:Academic\s+Year|Year)\s*(\d{4})",
             r"\b(?:Academic\s+Year|Year)\s*(\d{4})\D{0,30}Semester\s*([123])",
         )
@@ -334,6 +334,8 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
     for raw in lines:
         line = raw.strip()
         line = re.sub(r"^(?:Ast|Ist)\s+Semester", "1st Semester", line, flags=re.I)
+        if language == "th" and graduate and re.match(r"^\s*\d{8}\b", line):
+            line = re.sub(r"(?i)(Cr|Nc|Ad)\s*[|]?\s*(\d{1,2})(?:\s*[|])+\s*$", r"\1 \2 I", line)
         line = re.sub(r"\s*[|]\s*", " ", line)
         line = re.sub(r"\bNe\s+(\d{1,2})\s+", r"Nc \1 ", line, flags=re.I)
         if not line:
@@ -365,6 +367,14 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"\b([ABCD])t\s*$", r"\1+", line, flags=re.I)
         line = re.sub(r"\b([ABCD])c\s*$", r"\1", line, flags=re.I)
         line = re.sub(r"\bSs\s*$", "S", line, flags=re.I)
+        # Decimal points can disappear in compact summary cells (338 means
+        # 3.38). Restrict the repair to a labeled GPS value before GPA.
+        line = re.sub(r"(\bGPS\s*:\s*)([0-4])(\d{2})(?=\s+GPA\b)", r"\1\2.\3", line, flags=re.I)
+        if language == "en" and graduate and re.match(r"^\s*\d{8}\b", line):
+            # On small English graduate scans, OCR reads the narrow Nc
+            # column as Ne and a one-credit cell as capital I.
+            line = re.sub(r"\bNe\b", "Nc", line, flags=re.I)
+            line = re.sub(r"\b(Cr|Nc|Ad)\s+[Il]\s+([A-FS][+]?|I|W|P|U|-)$", r"\1 1 \2", line, flags=re.I)
         if language == "th":
             # Thai OCR often substitutes visually similar Thai/digit glyphs
             # for the Latin values in the narrow type and grade columns.
@@ -375,6 +385,8 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
                 line = re.sub(r"\s+(?:ผ๐)\s*[|]?\s+(\d{1,2})\s+([รธ])\s*$", r" Nc \1 S", line)
                 line = re.sub(r"\s+(Cr|Nc|Ad)\s*[|]?\s+(\d{1,2})\s+1!\s*$", r" \1 \2 I", line, flags=re.I)
                 line = re.sub(r"\s+(Cr|Nc|Ad)\s*[|]?\s+(\d{1,2})\s+[รธ]\s*$", r" \1 \2 S", line, flags=re.I)
+                line = re.sub(r"\s+(Cr|Nc|Ad)\s+(\d{1,2})\s+8\s*$", r" \1 \2 S", line, flags=re.I)
+                line = re.sub(r"\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*[|]\s*$", r" \1 \2 I", line, flags=re.I)
             line = re.sub(r"(?<=\s)([0-9])\s+๐\s*$", r"\1 C", line)
             line = re.sub(r"(?<=\s)([0-9])\s+8\+\s*$", r"\1 B+", line)
         # Low-resolution scanned grade glyphs commonly become digits, while
@@ -451,7 +463,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
             continue
         # A wrapped course title occupies a line without code/grade. Keep it
         # only directly after a course, before the next semester/summary.
-        if last_course and not re.search(r"Total Credits|จำนวนหน่วยกิต|Cumulative GPA|คะแนนเฉลี่ยสะสม|End of Transcript|สิ้นสุดการแสดงผล", line, re.I):
+        if last_course and not re.search(r"Total Credits|จำนวนหน่วยกิต|Cumulative GPA|คะแนนเฉลี่ยสะสม|End of Transcript|สิ้นสุดการแสดงผล|Date (?:of )?Issued|วันที่ออกเอกสาร|Not valid without seal", line, re.I):
             if not re.match(r"[-=]{3,}|\d{8}", line) and len(line) < 100:
                 last_course["subject_name"] += " " + line
         else:

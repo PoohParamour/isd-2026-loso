@@ -139,9 +139,52 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 | Code Freeze: 12 ต.ค. | แก้ defect ที่พบ, ล็อก dependencies และผล benchmark, ทดสอบเริ่มระบบใหม่ | commit/release tag, smoke test, ไม่มีแก้ฟีเจอร์หลัง freeze |
 | Final: 19 ต.ค. | เอกสารใช้งาน, architecture, report ไม่เกิน 10 หน้า, slide/demo 10 นาที + Q&A 3 นาที | README/คู่มือ/สไลด์ และ checklist ส่งงานครบ |
 
-เกณฑ์คุณภาพหลัก: exact match ของฟิลด์ที่มีค่าใน ground truth >91% พร้อม matrix แยกหมวดและรูปแบบ; row F1, CER และ latency รายงานควบคู่. ผล PDF หลังแก้ผ่านเชิงตัวเลข แต่ต้องรายงาน blind 88.34% และข้อจำกัดชุดทดสอบเดิมด้วย. ภาพต้นฉบับผ่านแล้วที่ raw-label 95.96% แต่เป็นชุด test ที่ถูกใช้วิเคราะห์ซ้ำ จึงต้องเปิดเผยข้อจำกัดและไม่อ้างว่าเป็น independent holdout ใหม่; ภาพ augmented ยังไม่ผ่าน.
+เกณฑ์คุณภาพหลัก: exact match ของฟิลด์ที่มีค่าใน ground truth >91% พร้อม matrix แยกหมวดและรูปแบบ; row F1, CER และ latency รายงานควบคู่. ผล PDF หลังแก้ผ่านเชิงตัวเลข แต่ต้องรายงาน blind 88.34% และข้อจำกัดชุดทดสอบเดิมด้วย. ภาพต้นฉบับรอบยืนยันล่าสุดผ่านที่ raw-label 95.74%, row F1 100% แต่เป็นชุด test ที่ถูกใช้วิเคราะห์ซ้ำ จึงต้องเปิดเผยข้อจำกัดและไม่อ้างว่าเป็น independent holdout ใหม่; ภาพ augmented ยังไม่ผ่าน.
 
 งานภายนอก repo ที่ทีมต้องทำ: เชิญอาจารย์เข้าถึง GitHub ตามอีเมลในโจทย์, ส่ง checkpoint/เอกสารในช่องทางวิชา และซ้อม demo. ยังไม่ได้ดำเนินการแทนผู้ใช้.
+
+## Handoff Checkpoint — 2026-09-21 Accuracy Tuning
+
+บันทึกส่วนนี้ไว้เพื่อให้คนถัดไปทำต่อได้ทันที หาก session ปัจจุบันหยุดกลางทาง
+
+### ผลและข้อค้นพบล่าสุด
+
+- `model/reports/demo_test.json` เป็นผลที่ผู้ใช้รันเอง: 1170/1338 = 87.44%, เฉลี่ย 5.537 วินาที/ฉบับ; ตัวฉุดคือ `graduate_en` 63.19% และ row F1 0.7778
+- สาเหตุ regression ของ `graduate_en` ไม่ใช่การปิด Thai repair แต่เป็น parser ไม่รับหัวภาคแบบ `2nd Semester , 2022` และ OCR อ่านช่อง `Nc 1 S` เป็น `Ne I S`
+- แก้ parser อังกฤษดังกล่าวแล้ว พร้อมซ่อม grade glyph ของบัณฑิตไทย (`Cr 12 8` → grade `S`, pipe ท้ายแถว → grade `I`) และหยุด footer ไม่ให้ต่อท้ายชื่อวิชา
+- รอบยืนยันสุดท้ายหลัง parser/GPS repair และหลังถอด deskew regression ได้ 1281/1338 = 95.74%, row F1 100%, เฉลี่ย 5.61 วินาที/ฉบับ; ผลอยู่ใน `model/reports/demo_test_tuned.json`
+- matrix รอบสุดท้าย: bachelor_th 93.23%, bachelor_en 97.98%, graduate_th 95.33%, graduate_en 96.74%; ทุกกลุ่มผ่าน 91%
+- GPS repair แบบจำกัดบริบท (`GPS : 338 GPA : 3.34` → `GPS : 3.38`) เพิ่มผล `72120014` ตามที่คาด
+- audit เพิ่มเติมพบ label ที่ไม่ตรงเอกสารจริง 23 ฟิลด์: วันที่ออกเอกสาร 10, ภาคการศึกษาสุดท้ายที่ไม่มีในต้นฉบับ 12 (4 ฉบับ × 3 ฟิลด์), และ total credit ของ `72120014` 1 ฟิลด์ (ภาพเป็น 132 แต่ label เป็น 129). Ground truth ต้นฉบับไม่ถูกแก้; หลักฐานอยู่ใน `model/reports/ground-truth-audit-test-expanded.json`. คะแนนแบบตัด mismatch ทั้งหมดออกอย่าง conservative คือ 1281/1315 = 97.41%; คะแนนตามค่าที่มองเห็นคือ 1292/1326 = 97.44%
+- ชื่อวิชาที่เหลือผิดส่วนมากอยู่ใน `71030009`; course catalog จาก dev ไม่มีรหัสเหล่านี้ จึงห้ามนำชื่อจาก test label ไปเพิ่ม เพราะเป็น test leakage
+
+### งาน robustness ที่กำลังทำ
+
+- ทดลองเพิ่ม deskew ด้วย horizontal projection search ช่วง ±4° ใน `model/extract.py`
+- ทดลองหนึ่งฉบับ `71010001` ดีขึ้นชัดเจน: rotate 10→49/73, noise 55→71/73, blur 13→43/73, perspective 6→55/73, dark 42→53/73
+- global deskew ทำให้ perspective ของ `71010009` ลด 43→17; candidate selection ระหว่างภาพ deskew กับภาพเดิมยิ่งเลือกผลผิดในกรณีนี้ (ได้ 16/307)
+- full original test หลัง deskew/candidate ลดจาก 1279/1338 = 95.59%, row F1 100% เหลือ 1272/1338 = 95.07%, row F1 99.50% และเวลาเฉลี่ยเพิ่มเป็น 8.16 วินาที จึงถอด experiment นี้ออกจาก production path แล้ว
+- augmented full run ถูกยกเลิกหลังพบ regression จึงยังไม่มีรายงาน tuned ฉบับสมบูรณ์
+
+### ลำดับทำต่อและคำสั่ง
+
+1. Unit tests หลังถอด deskew/candidate regression ผ่านแล้ว 26 tests:
+   `backend/.venv/bin/python -m unittest discover -s model -p 'test_*.py' -q`
+2. Original image test รันแล้วและรายงานเป็นปัจจุบัน:
+   `backend/.venv/bin/python model/benchmark_images.py --split test --per-group 3 --out model/reports/demo_test_tuned.json`
+3. หากทดลอง robustness ต่อ ให้ทำ perspective transform ที่ตรวจขอบกระดาษได้จริงใน branch/experiment แยกก่อน แล้วค่อยรัน augmented dev 60 ภาพ:
+   `backend/.venv/bin/python model/benchmark_augmented.py --split dev --per-group 3 --out model/reports/image-augmented-dev-tuned.json`
+4. JSON audit แยกสำหรับ 23 label mismatch ทำแล้วโดยไม่แก้ไฟล์ใน `ground_truth_transcript/`
+5. PDF regression ส่งท้ายรันแล้ว: 97.68%, row F1 100%, เฉลี่ย 0.588 วินาที, max 3.614 วินาที:
+   `backend/.venv/bin/python model/benchmark.py --split test --out model/runs/regression-pdf-test`
+   `backend/.venv/bin/python model/evaluate.py --split test --pred-dir model/runs/regression-pdf-test --out model/reports/regression-pdf-test`
+
+### ข้อควรระวังสำหรับคนทำต่อ
+
+- test 12 ฉบับถูกใช้วิเคราะห์และปรับ parser แล้ว ผลใหม่ต้องระบุว่าเป็น reused test และต้องรายงาน blind 88.34% ควบคู่
+- อย่า overwrite `model/reports/demo_test.json`; ใช้ `demo_test_tuned.json` สำหรับผลหลังแก้
+- อย่า stage/revert `.DS_Store`, `docker-compose.yml`, `web/app/page.tsx`, `data/`, `model/reports/image-original-dev.json`; เป็นงาน/สถานะของผู้ใช้หรือไฟล์เดิมที่ไม่เกี่ยวกับ patch นี้
+- โค้ดของรอบ tuning นี้อยู่ใน `model/extract.py` และ `model/test_validation.py`; deskew/candidate ที่ทำให้ regression ถูกถอดแล้ว และรายงานใหม่ยังไม่ควรถือว่าสรุปจนกว่าจะรัน benchmark ครบ
 
 ## Changelog
 
@@ -161,3 +204,5 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - 2026-09-21 - เพิ่ม unseen-file fallback: multi-line header, semester heading variants, unassigned course rows และ full-page/layout candidate selection; unit tests ผ่าน 14 รายการ; regression test 12 ภาพคง raw-label 90.51%, row F1 98.23%
 - 2026-09-21 - ซ่อม OCR ภาษาไทยแบบ position-bound และหัวข้อที่สระ/วรรณยุกต์หลุด; test image เพิ่มเป็น 1284/1338 = 95.96%, ไทย ป.ตรี 93.23%, ไทยบัณฑิต 96.33%, row F1 100%; unit tests ผ่าน 18 รายการ
 - 2026-09-21 - รองรับไฟล์ unofficial English ใหม่ผ่าน text layer: แยก 5 ภาค/32 วิชา, เก็บวิชาที่ยังไม่มีเกรด, อ่านหน่วยกิตรวมและวันที่ออกเอกสาร; 0 errors/1 warning (เอกสารไม่ระบุคณะ); unit tests 23 รายการ, PDF test regression 97.68%/row F1 100% และ deployed API smoke test ผ่านใน 0.098 วินาที
+- 2026-09-21 - แก้ English graduate semester/type/credit glyph, Thai graduate grade glyph, footer wrapping และ GPS decimal; original image test รอบยืนยันได้ 1281/1338 = 95.74%, ทุกกลุ่ม >91%, row F1 100%, เฉลี่ย 5.61 วินาที; unit tests ผ่าน 26 รายการ
+- 2026-09-21 - ทดลอง deskew/candidate selection แล้วพบ regression 95.59%→95.07% และเวลาเพิ่ม จึงถอดออก; ขยาย label audit เป็น 23 ฟิลด์โดยไม่แก้ source labels; PDF regression ได้ 97.68%, row F1 100%
