@@ -1,0 +1,722 @@
+[
+  {
+    "id": "71010001",
+    "group": "bachelor",
+    "language": "th",
+    "original": {
+      "correct": 71,
+      "total": 73,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 11,
+          "edits": 1,
+          "chars": 240,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 8,
+          "total": 8,
+          "edits": 0,
+          "chars": 26,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 48,
+          "total": 48,
+          "edits": 0,
+          "chars": 334,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 70,
+      "total": 73,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "71010005",
+    "group": "bachelor",
+    "language": "th",
+    "original": {
+      "correct": 43,
+      "total": 45,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 11,
+          "edits": 5,
+          "chars": 238,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 13,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 24,
+          "total": 24,
+          "edits": 0,
+          "chars": 168,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 40,
+      "total": 45,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "71010009",
+    "group": "bachelor",
+    "language": "th",
+    "original": {
+      "correct": 278,
+      "total": 307,
+      "rows": {
+        "tp": 54,
+        "fn": 6,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 192,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 7,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 47,
+          "total": 56,
+          "edits": 40,
+          "chars": 209,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 216,
+          "total": 235,
+          "edits": 202,
+          "chars": 1930,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 230,
+      "total": 307,
+      "rows": {
+        "tp": 48,
+        "fn": 12,
+        "fp": 7
+      }
+    }
+  },
+  {
+    "id": "72100002",
+    "group": "bachelor",
+    "language": "en",
+    "original": {
+      "correct": 56,
+      "total": 57,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 11,
+          "total": 11,
+          "edits": 0,
+          "chars": 257,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 13,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 36,
+          "total": 36,
+          "edits": 0,
+          "chars": 291,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 55,
+      "total": 57,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "72100006",
+    "group": "bachelor",
+    "language": "en",
+    "original": {
+      "correct": 47,
+      "total": 49,
+      "rows": {
+        "tp": 7,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 11,
+          "edits": 1,
+          "chars": 257,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 5,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 13,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 28,
+          "total": 28,
+          "edits": 0,
+          "chars": 210,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 46,
+      "total": 49,
+      "rows": {
+        "tp": 7,
+        "fn": 0,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "72100009",
+    "group": "bachelor",
+    "language": "en",
+    "original": {
+      "correct": 264,
+      "total": 272,
+      "rows": {
+        "tp": 52,
+        "fn": 1,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 247,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 7,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 41,
+          "total": 45,
+          "edits": 13,
+          "chars": 162,
+          "hallucinated": 1
+        },
+        "course": {
+          "correct": 208,
+          "total": 211,
+          "edits": 24,
+          "chars": 1819,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 264,
+      "total": 272,
+      "rows": {
+        "tp": 52,
+        "fn": 1,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "73036003",
+    "group": "graduate",
+    "language": "th",
+    "original": {
+      "correct": 105,
+      "total": 106,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 267,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 30,
+          "total": 30,
+          "edits": 0,
+          "chars": 104,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 59,
+          "total": 60,
+          "edits": 2,
+          "chars": 536,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 75,
+      "total": 106,
+      "rows": {
+        "tp": 9,
+        "fn": 3,
+        "fp": 1
+      }
+    }
+  },
+  {
+    "id": "73036011",
+    "group": "graduate",
+    "language": "th",
+    "original": {
+      "correct": 104,
+      "total": 104,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 11,
+          "total": 11,
+          "edits": 0,
+          "chars": 279,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 27,
+          "total": 27,
+          "edits": 0,
+          "chars": 91,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 60,
+          "total": 60,
+          "edits": 0,
+          "chars": 538,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 85,
+      "total": 104,
+      "rows": {
+        "tp": 10,
+        "fn": 2,
+        "fp": 1
+      }
+    }
+  },
+  {
+    "id": "73046003",
+    "group": "graduate",
+    "language": "th",
+    "original": {
+      "correct": 35,
+      "total": 36,
+      "rows": {
+        "tp": 4,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 220,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 85,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 1,
+          "total": 2,
+          "edits": 2,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 4,
+          "total": 4,
+          "edits": 0,
+          "chars": 13,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 16,
+          "total": 16,
+          "edits": 0,
+          "chars": 179,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 26,
+      "total": 36,
+      "rows": {
+        "tp": 3,
+        "fn": 1,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "74116006",
+    "group": "graduate",
+    "language": "en",
+    "original": {
+      "correct": 57,
+      "total": 79,
+      "rows": {
+        "tp": 6,
+        "fn": 2,
+        "fp": 2
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 287,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 1,
+          "total": 1,
+          "edits": 0,
+          "chars": 2,
+          "hallucinated": 1
+        },
+        "semester": {
+          "correct": 13,
+          "total": 24,
+          "edits": 29,
+          "chars": 78,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 30,
+          "total": 40,
+          "edits": 36,
+          "chars": 182,
+          "hallucinated": 10
+        }
+      }
+    },
+    "noise": {
+      "correct": 62,
+      "total": 79,
+      "rows": {
+        "tp": 6,
+        "fn": 2,
+        "fp": 1
+      }
+    }
+  },
+  {
+    "id": "74116010",
+    "group": "graduate",
+    "language": "en",
+    "original": {
+      "correct": 49,
+      "total": 62,
+      "rows": {
+        "tp": 5,
+        "fn": 1,
+        "fp": 1
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 11,
+          "edits": 1,
+          "chars": 299,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 1,
+          "total": 1,
+          "edits": 0,
+          "chars": 2,
+          "hallucinated": 1
+        },
+        "semester": {
+          "correct": 10,
+          "total": 16,
+          "edits": 15,
+          "chars": 52,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 25,
+          "total": 30,
+          "edits": 18,
+          "chars": 145,
+          "hallucinated": 5
+        }
+      }
+    },
+    "noise": {
+      "correct": 60,
+      "total": 62,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      }
+    }
+  },
+  {
+    "id": "74126003",
+    "group": "graduate",
+    "language": "en",
+    "original": {
+      "correct": 63,
+      "total": 64,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "categories": {
+        "header": {
+          "correct": 10,
+          "total": 10,
+          "edits": 0,
+          "chars": 259,
+          "hallucinated": 0
+        },
+        "footer": {
+          "correct": 3,
+          "total": 4,
+          "edits": 1,
+          "chars": 84,
+          "hallucinated": 0
+        },
+        "summary": {
+          "correct": 2,
+          "total": 2,
+          "edits": 0,
+          "chars": 6,
+          "hallucinated": 0
+        },
+        "semester": {
+          "correct": 8,
+          "total": 8,
+          "edits": 0,
+          "chars": 26,
+          "hallucinated": 0
+        },
+        "course": {
+          "correct": 40,
+          "total": 40,
+          "edits": 0,
+          "chars": 392,
+          "hallucinated": 0
+        }
+      }
+    },
+    "noise": {
+      "correct": 31,
+      "total": 64,
+      "rows": {
+        "tp": 3,
+        "fn": 5,
+        "fp": 4
+      }
+    }
+  }
+]

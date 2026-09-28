@@ -12,16 +12,16 @@ MANIFEST = ROOT / "model/data/manifest.json"
 OUTPUT = ROOT / "model/data/course_catalog.json"
 
 
-def main() -> None:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+def build_catalog(manifest: dict, *, exclude_ids: frozenset[str] = frozenset(), root: Path = ROOT) -> dict:
+    """Build dev vocabulary, optionally leaving whole source documents out."""
     values: dict[tuple[str, str, str], collections.Counter[str]] = collections.defaultdict(collections.Counter)
     entities: dict[tuple[str, str], set[str]] = collections.defaultdict(set)
     source_documents = 0
     for document in manifest["documents"]:
-        if document["split"] != "dev" or not document.get("gt"):
+        if document["split"] != "dev" or not document.get("gt") or document["id"] in exclude_ids:
             continue
         source_documents += 1
-        record = json.loads((ROOT / document["gt"]).read_text(encoding="utf-8"))
+        record = json.loads((root / document["gt"]).read_text(encoding="utf-8"))
         format_id = f"{document['group']}_{document['language']}"
         for field in ("faculty_name", "degree", "program"):
             value = str(record.get("header_detail", {}).get(field) or "")
@@ -50,8 +50,14 @@ def main() -> None:
         "entities": {f"{format_id}:{field}": sorted(options) for (format_id, field), options in sorted(entities.items())},
         "ambiguous_excluded": ambiguous,
     }
+    return payload
+
+
+def main() -> None:
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload = build_catalog(manifest)
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUTPUT.relative_to(ROOT)} with {len(courses)} courses from {source_documents} dev documents")
+    print(f"Wrote {OUTPUT.relative_to(ROOT)} with {len(payload['courses'])} courses from {payload['source_documents']} dev documents")
 
 
 if __name__ == "__main__":

@@ -4,3 +4,4 @@ python-multipart==0.0.32
 pydantic==2.13.5
 pillow==12.3.0
 pillow-heif==1.1.1
+opencv-python-headless==4.12.0.88

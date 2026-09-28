@@ -35,8 +35,10 @@ EN_MONTHS = {"january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "jun
 COURSE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-)\s*$", re.I)
 COURSE_NO_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*$", re.I)
 COURSE_PENDING = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})\s*$", re.I)
-TH_TERM = re.compile(r"ภาคการศึกษา(?:ที่|ที)\s*([123])\s*ปีการศึกษา\s*(\d{4})")
-EN_TERM = re.compile(r"\b([123])(?:st|nd|rd|th)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
+COURSE_UNREADABLE_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.{3,}?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([^\s]{1,4})\s*$", re.I)
+COURSE_UNREADABLE_CREDIT = re.compile(r"^\s*(\d{8})[.\s]+(.{3,}?)\s+(Cr|Nc|Ad)\s+([^\d\s]{1,3})\s+([A-F][+]?|S|I|W|P|NP|U|G|-)\s*$", re.I)
+TH_TERM = re.compile(r"ภาคการศึกษา(?:ที่|ที|ทิ)\s*([123])\s*ปีการศึกษา\s*(\d{4})")
+EN_TERM = re.compile(r"\b([123])(?:st|nd|rd|th)\s+Semester[,.]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 TH_SPECIAL = re.compile(r"ภาคการศึกษาพิเศษ\s*ปีการศึกษา\s*(\d{4})")
 EN_SPECIAL = re.compile(r"(?:Summer|Special)\s+Semester[,]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 
@@ -45,12 +47,12 @@ def parse_term(line: str, language: str) -> tuple[int, int] | None:
     """Parse common semester headings without depending on one template."""
     patterns = (
         (
-            r"(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที)?\s*([123])\D{0,30}(?:ปีการศึกษา|ปี)\s*(\d{4})",
-            r"(?:ปีการศึกษา|ปี)\s*(\d{4})\D{0,30}(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที)?\s*([123])",
+            r"(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที|ทิ)?\s*([123])\D{0,30}(?:ปีการศึกษา|ปี)\s*(\d{4})",
+            r"(?:ปีการศึกษา|ปี)\s*(\d{4})\D{0,30}(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที|ทิ)?\s*([123])",
         )
         if language == "th"
         else (
-            r"\b([123])(?:st|nd|rd|th)?\s+Semester\s*,?\s*(?:(?:Academic\s+)?Year\s*,?\s*)?(\d{4})(?:\s*-\s*\d{4})?",
+            r"\b([123])(?:st|nd|rd|th)?\s+Semester\s*[,.]?\s*(?:(?:Academic\s+)?[Y¥]\s*ear\s*[,.]?\s*)?(\d{4})(?:\s*-\s*\d{4})?",
             r"\bSemester\s*([123])\D{0,30}(?:Academic\s+Year|Year)\s*(\d{4})",
             r"\b(?:Academic\s+Year|Year)\s*(\d{4})\D{0,30}Semester\s*([123])",
         )
@@ -70,7 +72,8 @@ def parse_term(line: str, language: str) -> tuple[int, int] | None:
 
 
 def run(*args: str, cwd: Path | None = None) -> str:
-    result = subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=True)
+    result = subprocess.run(args, cwd=cwd, capture_output=True, text=True,
+                            encoding="utf-8", errors="replace", check=True)
     return result.stdout
 
 
@@ -112,7 +115,7 @@ def read_document(path: Path, force_ocr: bool = False) -> tuple[str, str]:
         # absent, which also covers Thai image uploads.
         pages = [run("tesseract", image.name, "stdout", "-l", "eng", "--psm", "6", cwd=work) for image in images]
         combined = "\n".join(pages)
-        if not re.search(r"TRANSCRIPT OF RECORDS", combined, re.I):
+        if not re.search(r"TRANSCRIPT OF RECORDS|Unofficial Transcript", combined, re.I):
             pages = [run("tesseract", image.name, "stdout", "-l", "tha+eng", "--psm", "6", cwd=work) for image in images]
             combined = "\n".join(pages)
         return combined, "tesseract"
@@ -265,7 +268,10 @@ def detect_format(text: str, override: str | None = None) -> str:
             raise ValueError(f"Unknown format: {override}")
         return override
     thai_letters = sum("\u0e00" <= char <= "\u0e7f" for char in text)
-    language = "th" if thai_letters > 30 or "ใบแสดงผลการศึกษา" in text or "ภาคการศึกษาที่" in text else "en"
+    english_header_cues = sum(bool(re.search(rf"(?mi)^\s*{label}\b", text))
+                              for label in ("Name", "Date of Birth", "Degree", "Program"))
+    language = ("en" if english_header_cues >= 3 else
+                "th" if thai_letters > 30 or "ใบแสดงผลการศึกษา" in text or "ภาคการศึกษาที่" in text else "en")
     # Graduate forms have a course-type column (Cr/Nc/Ad), unlike bachelor.
     graduate = bool(re.search(r"\b(?:Cr|Nc|Ad)\s+\d{1,2}\s+[A-FSIBCDU+-]", text, re.I) or re.search(r"ประเภท\s*หน่วยกิต|Type\s+Credit", text, re.I) or re.search(r"Degree\s*:\s*(?:Master|Doctor)|ชื่อปริญญา.*(?:มหาบัณฑิต|ดุษฎีบัณฑิต)", text, re.I))
     return f"{'graduate' if graduate else 'bachelor'}_{language}"
@@ -305,7 +311,9 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
         header_text = "\n".join(lines[: min(30, len(lines))])
         sid = re.search(r"(?<!\d)(\d{8})(?!\d)", header_text)
     header["student_id"] = sid[1] if sid else None
-    if header["student_id"]:
+    unofficial = any(re.search(r"Unofficial\s+Transcript", line, re.I) for line in lines)
+    official = any(re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", line, re.I) for line in lines)
+    if header["student_id"] and not unofficial and (official or uni_name or uni_address):
         if en:
             header["uni_name"] = "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG"
             header["uni_address"] = "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND"
@@ -339,7 +347,8 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
     last_course: dict | None = None
     for raw in lines:
         line = raw.strip()
-        line = re.sub(r"^(?:Ast|Ist)\s+Semester", "1st Semester", line, flags=re.I)
+        line = re.sub(r"^(?:Ast|Ist|151|1S1)\s+Semester", "1st Semester", line, flags=re.I)
+        line = re.sub(r"^2ad\s+Semester", "2nd Semester", line, flags=re.I)
         if language == "th" and graduate and re.match(r"^\s*\d{8}\b", line):
             line = re.sub(r"(?i)(Cr|Nc|Ad)\s*[|]?\s*(\d{1,2})(?:\s*[|])+\s*$", r"\1 \2 I", line)
         line = re.sub(r"\s*[|]\s*", " ", line)
@@ -402,6 +411,11 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"(?<=\s)([0-9])\s+[\(（][๐0]\s*$", r"\1 C", line)
         row = COURSE.match(line) or COURSE_NO_GRADE.match(line)
         pending = COURSE_PENDING.match(line) if language == "en" and not graduate else None
+        uncertain = COURSE_UNREADABLE_GRADE.match(line) if row is None and pending is None else None
+        if uncertain and re.fullmatch(r"[A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-", uncertain[5], re.I):
+            uncertain = None
+        uncertain_credit = (COURSE_UNREADABLE_CREDIT.match(line)
+                            if graduate and row is None and uncertain is None else None)
         if row is None and current is not None and current["sem_num"] == 0:
             transfer = re.match(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})[.\s|]+(T\(?[A-FS][+4]?\)?|T[+)]|TB\))\s*$", line, re.I)
             if transfer:
@@ -436,6 +450,50 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
                 "credit": int(pending[3]),
                 "grade_earn": None,
             }
+            current["subject"].append(last_course)
+            continue
+        if uncertain:
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
+            last_course = {
+                "subject_id": uncertain[1],
+                "subject_name": uncertain[2].strip(),
+                "type": uncertain[3].lower() if uncertain[3] and graduate else None,
+                "credit": int(uncertain[4]),
+                # Keep the visible row, but never turn an unreadable glyph into a grade.
+                "grade_earn": None,
+            }
+            current["subject"].append(last_course)
+            continue
+        if uncertain_credit:
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
+            last_course = {
+                "subject_id": uncertain_credit[1],
+                "subject_name": uncertain_credit[2].strip(),
+                "type": uncertain_credit[3].lower(),
+                "credit": None,
+                "grade_earn": uncertain_credit[5].lower(),
+            }
+            current["subject"].append(last_course)
+            continue
+        # A photographed screen can preserve the eight-digit course code and
+        # title while the thin credit/grade cells dissolve into table noise.
+        # Retain only what was visibly read; never infer a grade from context.
+        visible = re.match(r"^\s*(\d{8})[.\s]+([A-Za-z][A-Za-z0-9/&() .,+'-]{3,})", line) if language == "en" else None
+        if visible and sum(char.isalpha() for char in visible[2]) >= 4:
+            title = visible[2].strip(" .|-")
+            tail = re.search(r"\s+([1-9])\s+[^\s]{1,4}\s*$", title)
+            credit = int(tail[1]) if tail else None
+            if tail:
+                title = title[:tail.start()].strip(" .|-")
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
+            last_course = {"subject_id": visible[1], "subject_name": title,
+                           "type": None, "credit": credit, "grade_earn": None}
             current["subject"].append(last_course)
             continue
         if current is None:
@@ -523,20 +581,83 @@ def parse(text: str, format_id: str | None = None, body_text: str | None = None)
     }
 
 
-def extract(path: Path, format_id: str | None = None, force_ocr: bool = False) -> dict[str, Any]:
+def _orient_photo(page: Image.Image, work: Path) -> Image.Image:
+    """Choose the quarter-turn whose quick OCR contains transcript cues."""
+    best = page
+    best_score = -1
+    for degrees in (0, 90, 180, 270):
+        candidate = page.rotate(degrees, expand=True)
+        preview = candidate.copy()
+        preview.thumbnail((1200, 1600), Image.Resampling.LANCZOS)
+        name = f"orientation-{degrees}.png"
+        preview.save(work / name)
+        sample = run("tesseract", name, "stdout", "-l", "eng", "--psm", "11", cwd=work)
+        score = (4 * bool(re.search(r"\b(?:Name|Student\s*ID|Unofficial\s+Transcript)\b", sample, re.I))
+                 + 3 * len(re.findall(r"\b(?:Semester|Course|Program|Degree)\b", sample, re.I))
+                 + len(re.findall(r"(?<!\d)\d{8}(?!\d)", sample)))
+        if score > best_score:
+            best, best_score = candidate, score
+    return best
+
+
+def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
+            image_layout: str = "auto", _rectified: bool = False) -> dict[str, Any]:
+    if image_layout not in {"auto", "profile", "detected"}:
+        raise ValueError(f"Unknown image layout: {image_layout}")
     started = time.monotonic()
     path = path.resolve()
+    if path.suffix.lower() != ".pdf" and not _rectified and path.exists():
+        try:
+            from model.photo_geometry import straighten_photo
+        except ModuleNotFoundError:
+            from photo_geometry import straighten_photo
+        with Image.open(path) as source:
+            if source.width * source.height > 30_000_000:
+                raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
+            page = straighten_photo(source)
+        if page is not None:
+            with tempfile.TemporaryDirectory(prefix="isd_photo_") as temp:
+                work = Path(temp)
+                upright = _orient_photo(page, work)
+                corrected = work / "page.png"
+                upright.save(corrected)
+                result = extract(corrected, format_id, force_ocr, image_layout, _rectified=True)
+                if min(page.size) < 900:
+                    result["validation"]["issues"].append({
+                        "path": "input.image", "code": "low_resolution_photo",
+                        "message": "ภาพเอกสารเล็กเกินกว่าจะอ่านตารางได้ชัด กรุณาอัปโหลด PDF ต้นฉบับหรือภาพคมชัดที่หน้ากระดาษกว้างอย่างน้อย 1500 พิกเซล",
+                        "severity": "warning",
+                    })
+                    result["validation"]["warnings"] += 1
+                    result["validation"]["needs_review"] = True
+                result["processing_seconds"] = round(time.monotonic() - started, 3)
+                return result
     text, engine = read_document(path, force_ocr)
     detected = detect_format(text, format_id)
+    initial_text = text
+    selected_layout = image_layout
     if path.suffix.lower() != ".pdf":
-        text, body = read_image_profile(path, detected)
-        # The inexpensive first pass can miss the graduate course-type column
-        # on low-resolution Thai pages.  Re-route once using the clearer
-        # profile OCR; an explicit caller override always remains authoritative.
-        refined = detect_format(text, format_id)
-        if refined != detected:
-            detected = refined
+        # An unfamiliar transcript heading is a textual signal to use the
+        # layout discovered from this image, not the legacy page crops.
+        if image_layout == "auto":
+            selected_layout = ("detected" if re.search(r"\bUnofficial\s+Transcript\b", initial_text, re.I)
+                               else "profile")
+        if selected_layout == "detected":
+            try:
+                from model.layout_ocr import read_layout_body
+            except ModuleNotFoundError:
+                from layout_ocr import read_layout_body
+            mode = {"bachelor_th": "original", "bachelor_en": "sharpen",
+                    "graduate_th": "sharpen", "graduate_en": "autocontrast"}[detected]
+            body = read_layout_body(path, FORMATS[detected]["language"], mode)
+        else:
             text, body = read_image_profile(path, detected)
+            # The inexpensive first pass can miss the graduate course-type
+            # column. An explicit caller override stays authoritative.
+            refined = detect_format(text, format_id)
+            if refined != detected:
+                detected = refined
+                text, body = read_image_profile(path, detected)
     else:
         body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
     candidates = [parse(text, detected, body)]
@@ -551,7 +672,34 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False) -
         dated_semesters = sum(semester.get("year") is not None for semester in semesters)
         return courses, dated_semesters, header_fields
 
+    if path.suffix.lower() != ".pdf" and image_layout == "auto" and selected_layout == "profile":
+        profile_score = max(structural_score(candidate) for candidate in candidates)
+        if profile_score[0] < 2 or profile_score[1] == 0:
+            try:
+                from model.layout_ocr import read_layout_body
+            except ModuleNotFoundError:
+                from layout_ocr import read_layout_body
+            mode = {"bachelor_th": "original", "bachelor_en": "sharpen",
+                    "graduate_th": "sharpen", "graduate_en": "autocontrast"}[detected]
+            detected_body = read_layout_body(path, FORMATS[detected]["language"], mode)
+            candidates.append(parse(text, detected, detected_body))
+            if initial_text != text:
+                candidates.append(parse(initial_text, detected, detected_body))
+    if (path.suffix.lower() != ".pdf" and _rectified and image_layout == "auto"
+            and detected == "bachelor_en"
+            and re.search(r"Unofficial\s+Transcript", initial_text, re.I)):
+        try:
+            from model.photo_unofficial import read_unofficial_photo
+        except ModuleNotFoundError:
+            from photo_unofficial import read_unofficial_photo
+        isolated = read_unofficial_photo(path)
+        if isolated:
+            candidates.append(parse(isolated[0], detected, isolated[1]))
     record = apply_course_catalog(max(candidates, key=structural_score))
+    if (_rectified and not record["transcript_detail"]["semesters"] and
+            not re.search(r"Student\s*ID\s*[:#-]?\s*\d{8}", text, re.I)):
+        # A free-standing eight-digit course code is not evidence of an ID.
+        record["header_detail"]["student_id"] = None
     return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record, "validation": validate_record(record)}
 
 
@@ -560,9 +708,10 @@ def main() -> None:
     arg.add_argument("input", type=Path)
     arg.add_argument("--format", choices=sorted(FORMATS))
     arg.add_argument("--force-ocr", action="store_true")
+    arg.add_argument("--image-layout", choices=("auto", "profile", "detected"), default="auto")
     arg.add_argument("--out", type=Path)
     args = arg.parse_args()
-    result = extract(args.input, args.format, args.force_ocr)
+    result = extract(args.input, args.format, args.force_ocr, args.image_layout)
     content = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)

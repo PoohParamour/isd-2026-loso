@@ -1,0 +1,116 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.046,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "College of Materials Innovation and Technology",
+      "prename": "Miss",
+      "name": "Graduatemit9 Materials Innovation and Technology9",
+      "student_id": "74106009",
+      "date_of_birth": "1998-05-27",
+      "admis_date": "2021-08-02",
+      "degree": "masterofscience",
+      "grad_date": "2023-06-09",
+      "grad_reason": null,
+      "program": "Nanoscience and Nanotechnology",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 36,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017001",
+              "subject_name": "THESIS",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017100",
+              "subject_name": "RESEARCH METHODOLOGY AND ETHICS IN NANOTECHNOLOGY                                                     Nc 3 S",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017410",
+              "subject_name": "MATERIALS CHARACTERIZATION AND TESTING                                                            Nc 1 S Nc 3 S",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017081",
+              "subject_name": "SEMINAR 1",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017102",
+              "subject_name": "MATERIALS SCIENCE AND NANOMATERIALS NANOSCIENCE                                                        Cr 9 S",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": []
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "asst.prof.dr.testsurname",
+        "by_position": "director",
+        "by_reg": "kmitlregistrationandeducationserviceoffice"
+      }
+    }
+  },
+  "validation": {
+    "needs_review": false,
+    "errors": 0,
+    "warnings": 0,
+    "course_count": 5,
+    "issues": []
+  }
+}

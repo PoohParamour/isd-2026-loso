@@ -1,10 +1,33 @@
 import unittest
 
-from model.extract import parse_courses, parse_footer, parse_header, parse_summary, parse_term, text_is_usable
+from model.extract import detect_format, parse_courses, parse_footer, parse_header, parse_summary, parse_term, text_is_usable
 from model.validate import validate_record
 
 
 class ValidateRecordTests(unittest.TestCase):
+    def test_unofficial_photo_heading_preserves_new_semester(self):
+        rows = parse_courses(["3rd Semester, Year, 2025-2026",
+                              "90643023 TECHNOPRENEURS 3 B+",
+                              "151 Semester, Year, 2026-2027",
+                              "06026240 INTELLIGENT SYSTEM DEVELOPMENT 3"], "en", False)
+        self.assertEqual([(item["year"], item["sem_num"]) for item in rows],
+                         [(2568, 3), (2569, 1)])
+
+    def test_english_header_outweighs_thai_ocr_noise(self):
+        text = "Name Mr. Example\nDate of Birth January 9, 2005\nDegree Bachelor of Science\nProgram Data Science\n" + "ก" * 35
+        self.assertEqual(detect_format(text), "bachelor_en")
+
+    def test_unofficial_header_does_not_invent_university(self):
+        header = parse_header(["( Unofficial Transcript )", "Name Mr. Example Student ID 67070127"], "en")
+        self.assertIsNone(header["uni_name"])
+        self.assertIsNone(header["uni_address"])
+
+    def test_visible_photo_row_keeps_only_readable_fields(self):
+        rows = parse_courses(["1st Semester, Year, 2024-2025",
+                              "06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 Cc &"], "en", False)
+        self.assertEqual(rows[0]["subject"][0]["subject_id"], "06066303")
+        self.assertIsNone(rows[0]["subject"][0]["grade_earn"])
+
     def test_student_id_can_be_on_separate_line(self):
         header = parse_header(["Student Name: Jane Example", "Registration No: 12345678", "Faculty of Engineering"], "en")
         self.assertEqual(header["student_id"], "12345678")
@@ -13,9 +36,13 @@ class ValidateRecordTests(unittest.TestCase):
 
     def test_alternate_semester_headings(self):
         self.assertEqual(parse_term("ปีการศึกษา 2567 ภาคเรียนที่ 2", "th"), (2, 2567))
+        self.assertEqual(parse_term("ภาคการศึกษาทิ 2 ปีการศึกษา 2565", "th"), (2, 2565))
         self.assertEqual(parse_term("Academic Year 2024 Semester 1", "en"), (1, 2567))
         self.assertEqual(parse_term("1st Semester, Year, 2024-2025", "en"), (1, 2567))
+        self.assertEqual(parse_term("1st Semester, Y ear, 2024-2025", "en"), (1, 2567))
+        self.assertEqual(parse_term("1st Semester, ¥ ear, 2025-2026", "en"), (1, 2568))
         self.assertEqual(parse_term("2nd Semester , 2022", "en"), (2, 2565))
+        self.assertEqual(parse_term("2nd Semester. 2021", "en"), (2, 2564))
         self.assertEqual(parse_term("1st Semester , 2024", "en"), (1, 2567))
 
     def test_english_graduate_ocr_type_and_credit_glyphs(self):
@@ -40,6 +67,32 @@ class ValidateRecordTests(unittest.TestCase):
         self.assertEqual(rows[0]["year"], 2567)
         self.assertEqual(rows[0]["subject"][0]["subject_id"], "06026211")
         self.assertIsNone(rows[0]["subject"][0]["grade_earn"])
+
+    def test_unreadable_grade_keeps_visible_course_without_guessing(self):
+        rows = parse_courses(
+            [
+                "ภาคการศึกษาที่ 1 ปีการศึกษา 2561",
+                "02366051 ประวัติศาสตร์ศิลปะและการออกแบบ 3 =",
+                "90591002 กีฬาและนันทนาการ 1 Z",
+            ],
+            "th",
+            False,
+        )
+        subjects = rows[0]["subject"]
+        self.assertEqual([item["subject_id"] for item in subjects], ["02366051", "90591002"])
+        self.assertEqual([item["credit"] for item in subjects], [3, 1])
+        self.assertEqual([item["grade_earn"] for item in subjects], [None, None])
+
+    def test_unreadable_credit_keeps_visible_graduate_course(self):
+        rows = parse_courses(
+            ["2nd Semester. 2021", "14097102 STRATEGIC OPERATIONS MANAGEMENT Cr al B+"],
+            "en",
+            True,
+        )
+        subject = rows[0]["subject"][0]
+        self.assertEqual((subject["subject_id"], subject["type"], subject["grade_earn"]),
+                         ("14097102", "cr", "b+"))
+        self.assertIsNone(subject["credit"])
 
     def test_unofficial_summary_and_issued_date_labels(self):
         summary = parse_summary(["Total number of credit earned 78"], "en")

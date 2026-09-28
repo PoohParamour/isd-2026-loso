@@ -1,0 +1,9 @@
+{
+  "image": "tmp/pdfs/input-new/page.png",
+  "reference": "model/reports/input-new-after-fix.json (digital-PDF extraction)",
+  "reference_is_independent_ground_truth": false,
+  "metric": "exact agreement on nonempty reference fields",
+  "profile": {"correct": 152, "total": 153, "matched_rows": 32, "reference_rows": 32},
+  "detected": {"correct": 153, "total": 153, "matched_rows": 32, "reference_rows": 32},
+  "auto": {"correct": 153, "total": 153, "matched_rows": 32, "reference_rows": 32}
+}

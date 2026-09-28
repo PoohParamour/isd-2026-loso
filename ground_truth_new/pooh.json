@@ -1,0 +1,119 @@
+{
+  "header_detail": {
+    "uni_name": null,
+    "uni_address": null,
+    "student_id": "67070127",
+    "faculty_name": null,
+    "prename": "Mr.",
+    "name": "Pattarapol Petcharat",
+    "date_of_birth": "2005-01-09",
+    "admis_date": null,
+    "grad_date": null,
+    "grad_reason": null,
+    "degree": "Bachelor of Science",
+    "major": null,
+    "program": "Data Science and Business Analytics",
+    "honor": null
+  },
+  "transcript_detail": {
+    "semesters": [
+      {
+        "year": 2567,
+        "sem_num": 1,
+        "GPA": "2.17",
+        "GPS": "2.17",
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "06026200", "subject_name": "CALCULUS 1", "type": null, "credit": 3, "grade_earn": "C"},
+          {"subject_id": "06066101", "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION", "type": null, "credit": 3, "grade_earn": "C+"},
+          {"subject_id": "06066303", "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING", "type": null, "credit": 3, "grade_earn": "C"},
+          {"subject_id": "90642999", "subject_name": "CHARM SCHOOL", "type": null, "credit": 3, "grade_earn": "S"},
+          {"subject_id": "90644007", "subject_name": "FOUNDATION ENGLISH 1", "type": null, "credit": 3, "grade_earn": "S"}
+        ]
+      },
+      {
+        "year": 2567,
+        "sem_num": 2,
+        "GPA": "1.88",
+        "GPS": "1.70",
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "06026201", "subject_name": "CALCULUS 2", "type": null, "credit": 3, "grade_earn": "D"},
+          {"subject_id": "06026203", "subject_name": "COMPUTER PROGRAMMING", "type": null, "credit": 3, "grade_earn": "D+"},
+          {"subject_id": "06026205", "subject_name": "INTRODUCTION TO MARKETING", "type": null, "credit": 3, "grade_earn": "D+"},
+          {"subject_id": "06066001", "subject_name": "PROBABILITY AND STATISTICS", "type": null, "credit": 3, "grade_earn": "D"},
+          {"subject_id": "90641007", "subject_name": "DIGITAL CITIZEN", "type": null, "credit": 3, "grade_earn": "S"},
+          {"subject_id": "90642033", "subject_name": "LAW FOR NEW GENERATION", "type": null, "credit": 3, "grade_earn": "B+"},
+          {"subject_id": "90644008", "subject_name": "FOUNDATION ENGLISH 2", "type": null, "credit": 3, "grade_earn": "S"}
+        ]
+      },
+      {
+        "year": 2568,
+        "sem_num": 1,
+        "GPA": "1.95",
+        "GPS": "2.17",
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "06066300", "subject_name": "DATABASE SYSTEM CONCEPTS", "type": null, "credit": 3, "grade_earn": "C"},
+          {"subject_id": "06066302", "subject_name": "FUNDAMENTAL WEB PROGRAMMING", "type": null, "credit": 3, "grade_earn": "C+"},
+          {"subject_id": "06066304", "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN", "type": null, "credit": 3, "grade_earn": "C"}
+        ]
+      },
+      {
+        "year": 2568,
+        "sem_num": 2,
+        "GPA": "2.35",
+        "GPS": "3.08",
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "06026204", "subject_name": "INTRODUCTION TO NETWORKS AND CYBERSECURITY", "type": null, "credit": 3, "grade_earn": "C+"},
+          {"subject_id": "06026207", "subject_name": "NOSQL DATABASE SYSTEMS", "type": null, "credit": 3, "grade_earn": "C+"},
+          {"subject_id": "06026208", "subject_name": "FUNDAMENTALS OF DATA SCIENCE", "type": null, "credit": 3, "grade_earn": "A"},
+          {"subject_id": "06026209", "subject_name": "DATA VISUALIZATION", "type": null, "credit": 3, "grade_earn": "B+"},
+          {"subject_id": "06066102", "subject_name": "MANAGEMENT INFORMATION SYSTEMS", "type": null, "credit": 3, "grade_earn": "A"},
+          {"subject_id": "06066301", "subject_name": "DATA STRUCTURES AND ALGORITHMS", "type": null, "credit": 3, "grade_earn": "C"}
+        ]
+      },
+      {
+        "year": 2568,
+        "sem_num": 3,
+        "GPA": "2.42",
+        "GPS": "3.50",
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "90642888", "subject_name": "IN LOVE & IN LIFE", "type": null, "credit": 3, "grade_earn": "S"},
+          {"subject_id": "90643023", "subject_name": "TECHNOPRENEURS", "type": null, "credit": 3, "grade_earn": "B+"}
+        ]
+      },
+      {
+        "year": 2569,
+        "sem_num": 1,
+        "GPA": "2.42",
+        "GPS": null,
+        "pass_reason": null,
+        "subject": [
+          {"subject_id": "06026211", "subject_name": "APPLIED MACHINE LEARNING", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "06026212", "subject_name": "DATA WAREHOUSING", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "06026240", "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "06026242", "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "06026261", "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND BUSINESS ANALYTICS 1", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "06066000", "subject_name": "DISCRETE MATHEMATICS", "type": null, "credit": 3, "grade_earn": null},
+          {"subject_id": "90644042", "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION", "type": null, "credit": 3, "grade_earn": null}
+        ]
+      }
+    ],
+    "master_comprehensive": null,
+    "master_thesis": null,
+    "master_qualify": null,
+    "total_credits_earned": 69,
+    "cumulative_gpa": "2.42"
+  },
+  "footer_detail": {
+    "updated_at": "2026-09-21",
+    "by": {
+      "by_signature": null,
+      "by_position": null,
+      "by_reg": null
+    }
+  }
+}
