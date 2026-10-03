@@ -8,6 +8,7 @@ otherwise pages are rendered and read by Tesseract.
 from __future__ import annotations
 
 import argparse
+from collections import deque
 import json
 import re
 import subprocess
@@ -32,11 +33,12 @@ ROOT = Path(__file__).resolve().parents[1]
 FORMATS = json.loads((Path(__file__).parent / "formats.json").read_text(encoding="utf-8"))
 TH_MONTHS = {"มกราคม": 1, "กุมภาพันธ์": 2, "มีนาคม": 3, "เมษายน": 4, "พฤษภาคม": 5, "มิถุนายน": 6, "กรกฎาคม": 7, "สิงหาคม": 8, "กันยายน": 9, "ตุลาคม": 10, "พฤศจิกายน": 11, "ธันวาคม": 12}
 EN_MONTHS = {"january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6, "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12}
-COURSE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-)\s*$", re.I)
-COURSE_NO_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*$", re.I)
-COURSE_PENDING = re.compile(r"^\s*(\d{8})[.\s]+(.+?)\s+(\d{1,2})\s*$", re.I)
-COURSE_UNREADABLE_GRADE = re.compile(r"^\s*(\d{8})[.\s]+(.{3,}?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([^\s]{1,4})\s*$", re.I)
-COURSE_UNREADABLE_CREDIT = re.compile(r"^\s*(\d{8})[.\s]+(.{3,}?)\s+(Cr|Nc|Ad)\s+([^\d\s]{1,3})\s+([A-F][+]?|S|I|W|P|NP|U|G|-)\s*$", re.I)
+# Preserve damaged course identifiers for validation instead of merging rows.
+COURSE = re.compile(r"^\s*(\d{7,9})[.\s]+(.+?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-)\s*$", re.I)
+COURSE_NO_GRADE = re.compile(r"^\s*(\d{7,9})[.\s]+(.+?)\s+(Cr|Nc|Ad)\s+(\d{1,2})\s*$", re.I)
+COURSE_PENDING = re.compile(r"^\s*(\d{7,9})[.\s]+(.+?)\s+(\d{1,2})\s*$", re.I)
+COURSE_UNREADABLE_GRADE = re.compile(r"^\s*(\d{7,9})[.\s]+(.{3,}?)\s+(?:(Cr|Nc|Ad)\s+)?(\d{1,2})\s+([^\s]{1,4})\s*$", re.I)
+COURSE_UNREADABLE_CREDIT = re.compile(r"^\s*(\d{7,9})[.\s]+(.{3,}?)\s+(Cr|Nc|Ad)\s+([^\d\s]{1,3})\s+([A-F][+]?|S|I|W|P|NP|U|G|-)\s*$", re.I)
 TH_TERM = re.compile(r"ภาคการศึกษา(?:ที่|ที|ทิ)\s*([123])\s*ปีการศึกษา\s*(\d{4})")
 EN_TERM = re.compile(r"\b([123])(?:st|nd|rd|th)\s+Semester[,.]?(?:\s+Academic\s+Year)?\s*(\d{4})", re.I)
 TH_SPECIAL = re.compile(r"ภาคการศึกษาพิเศษ\s*ปีการศึกษา\s*(\d{4})")
@@ -341,11 +343,30 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     return header
 
 
+def separate_course_lines(lines: list[str]):
+    """Keep OCR-joined course rows from donating their cells to each other.
+
+    Seven/nine-digit damaged identifiers are boundaries too, but are not
+    repaired: validation must ask the reviewer to check the original image.
+    Only split lines starting with a course identifier, never header prose.
+    """
+    start = r"\d{7,9}[.\s]+(?=[A-Za-z\u0e01-\u0e5b])"
+    for raw in lines:
+        line = raw.strip()
+        line = re.sub(r"^[|.:;\[\]\s]+(?=" + start + r")", "", line)
+        if re.match(start, line):
+            yield from re.split(r"\s*[|.:;]?\s+(?=" + start + r")", line)
+        else:
+            yield line
+
+
 def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]:
     semesters: list[dict] = []
     current: dict | None = None
     last_course: dict | None = None
-    for raw in lines:
+    pending_lines = deque(separate_course_lines(lines))
+    while pending_lines:
+        raw = pending_lines.popleft()
         line = raw.strip()
         line = re.sub(r"^(?:Ast|Ist|151|1S1)\s+Semester", "1st Semester", line, flags=re.I)
         line = re.sub(r"^2ad\s+Semester", "2nd Semester", line, flags=re.I)
@@ -411,6 +432,14 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"(?<=\s)([0-9])\s+[\(（][๐0]\s*$", r"\1 C", line)
         row = COURSE.match(line) or COURSE_NO_GRADE.match(line)
         pending = COURSE_PENDING.match(line) if language == "en" and not graduate else None
+        # A numeric OCR grade (e.g. "CHARM SCHOOL 3 7") can otherwise be
+        # consumed as pending credit, leaving the actual credit in the title.
+        # Restrict this fallback to a high terminal value after a credit-like
+        # token; ordinary numbered titles such as "CALCULUS 1 3" stay intact.
+        if pending and int(pending[3]) > 6:
+            numeric_grade = COURSE_UNREADABLE_GRADE.match(line)
+            if numeric_grade and int(numeric_grade[4]) <= 6 and numeric_grade[5].isdigit():
+                pending = None
         uncertain = COURSE_UNREADABLE_GRADE.match(line) if row is None and pending is None else None
         if uncertain and re.fullmatch(r"[A-F][+]?|S|I|W|P|NP|U|G|T\([A-FS][+]?\)|-", uncertain[5], re.I):
             uncertain = None
@@ -482,7 +511,7 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         # A photographed screen can preserve the eight-digit course code and
         # title while the thin credit/grade cells dissolve into table noise.
         # Retain only what was visibly read; never infer a grade from context.
-        visible = re.match(r"^\s*(\d{8})[.\s]+([A-Za-z][A-Za-z0-9/&() .,+'-]{3,})", line) if language == "en" else None
+        visible = re.match(r"^\s*(\d{7,9})[.\s]+([A-Za-z][A-Za-z0-9/&() .,+'-]{3,})", line) if language == "en" else None
         if visible and sum(char.isalpha() for char in visible[2]) >= 4:
             title = visible[2].strip(" .|-")
             tail = re.search(r"\s+([1-9])\s+[^\s]{1,4}\s*$", title)
@@ -527,8 +556,31 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
             continue
         # A wrapped course title occupies a line without code/grade. Keep it
         # only directly after a course, before the next semester/summary.
+        if re.fullmatch(r"\d{1,2}(?:\s+(?:[A-F][+]?|S|I|W|P|NP|U|G|-|\d{1,2}))?", line, re.I):
+            # Detached cells have no reliable row association. Never append
+            # them to a title or overwrite the preceding course's grade.
+            continue
         if last_course and not re.search(r"Total Credits|จำนวนหน่วยกิต|Cumulative GPA|คะแนนเฉลี่ยสะสม|End of Transcript|สิ้นสุดการแสดงผล|Date (?:of )?Issued|วันที่ออกเอกสาร|Not valid without seal", line, re.I):
-            if not re.match(r"[-=]{3,}|\d{8}", line) and len(line) < 100:
+            # OCR can put the next row after a stray cell or a wrapped title
+            # ("7 90644007 FOUNDATION ENGLISH 1 3 S"). Require a complete
+            # row-shaped suffix before splitting a continuation; a numeric
+            # reference in ordinary prose is not sufficient evidence.
+            for boundary in re.finditer(r"(?<!\w)\d{7,9}[.\s]+(?=[A-Za-z\u0e01-\u0e5b])", line):
+                suffix = list(separate_course_lines([line[boundary.start():]]))
+                first = suffix[0]
+                if (COURSE.match(first) or COURSE_NO_GRADE.match(first)
+                        or COURSE_UNREADABLE_GRADE.match(first)
+                        or (language == "en" and not graduate and COURSE_PENDING.match(first))):
+                    pending_lines.extendleft(reversed(suffix))
+                    line = line[:boundary.start()].strip(" .|:;[]")
+                    # Detached numeric cells cannot be assigned to either
+                    # course safely. Preserve actual wrapped title words.
+                    if not re.search(r"[A-Za-z\u0e01-\u0e5b]", line):
+                        line = ""
+                    break
+            if not line:
+                continue
+            if not re.match(r"[-=]{3,}|\d{7,9}\b", line) and len(line) < 100:
                 last_course["subject_name"] += " " + line
         else:
             last_course = None
@@ -555,6 +607,79 @@ def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
         "total_credits_earned": int(credits_match[1]) if credits_match else None,
         "cumulative_gpa": gpa_match[1] if gpa_match else None,
     }
+
+
+def recover_semester_headings(primary: str, sources: list[str], language: str) -> str:
+    """Insert a missing heading only with two title anchors and matching neighbors.
+
+    Use other OCR passes on the same image; never infer years from course IDs
+    or replace the better pass's course cells. Ambiguous insertions are ignored.
+    """
+    if language != "en":
+        return primary
+
+    def heading(line):
+        line = re.sub(r"^[|.:\s]+", "", line)
+        line = re.sub(r"^(?:Ast|Ist|151|1S1)\s+Semester", "1st Semester", line, flags=re.I)
+        return parse_term(line, language)
+
+    def title(line):
+        line = line.strip(" |.:[]")
+        if re.match(r"\d{7,9}[.\s]", line):
+            line = re.sub(r"^\d{7,9}[.\s]+", "", line)
+            line = re.sub(r"\s+(?:(?:Cr|Nc|Ad)\s+)?\d{1,2}(?:\s+[|]?\s*\S{1,4})?\s*$", "", line)
+        return re.sub(r"[^a-z]", "", line.lower())
+
+    lines = primary.splitlines()
+    known = [(i, heading(line)) for i, line in enumerate(lines) if heading(line)]
+    existing = {term for _, term in known}
+    proposals: dict[int, set[tuple[int, int]]] = {}
+    for source in sources:
+        reference = [line.strip() for line in source.splitlines() if line.strip()]
+        heads = [(i, heading(line)) for i, line in enumerate(reference) if heading(line)]
+        for h in range(1, len(heads) - 1):
+            index, term = heads[h]
+            if term in existing or index + 2 >= heads[h + 1][0]:
+                continue
+            anchors = [title(reference[index + offset]) for offset in (1, 2)]
+            if any(len(anchor) < 12 for anchor in anchors):
+                continue
+            matches = []
+            for i in range(len(lines) - 1):
+                if not re.match(r"^[|.:\s]*\d{7,9}[.\s]", lines[i]):
+                    continue
+                if [title(lines[i]), title(lines[i + 1])] != anchors:
+                    continue
+                previous = next((t for pos, t in reversed(known) if pos < i), None)
+                following = next((t for pos, t in known if pos > i), None)
+                if previous == heads[h - 1][1] and following == heads[h + 1][1]:
+                    matches.append(i)
+            if len(matches) == 1:
+                proposals.setdefault(matches[0], set()).add(term)
+    # The same heading at multiple positions is also ambiguous.
+    terms = [next(iter(values)) for values in proposals.values() if len(values) == 1]
+    for index, values in sorted(proposals.items(), reverse=True):
+        if len(values) == 1:
+            term = next(iter(values))
+            if terms.count(term) == 1:
+                semester, year = term
+                lines.insert(index, f"Semester {semester} Year {year}")
+    return "\n".join(lines)
+
+
+def cumulative_gpa_from_sources(sources: list[str], language: str) -> str | None:
+    """Recover only an explicit, unambiguous cumulative GPA from existing OCR.
+
+    Do not infer decimal points, reuse semester GPA, or compute from grades.
+    Multiple distinct readable values require review instead of a guess.
+    """
+    values = set()
+    for source in sources:
+        for line in source.splitlines():
+            value = parse_summary([line], language)["cumulative_gpa"]
+            if value is not None and 0 <= float(value) <= 4:
+                values.add(f"{float(value):.2f}")
+    return next(iter(values)) if len(values) == 1 else None
 
 
 def parse_footer(lines: list[str], language: str) -> dict[str, Any]:
@@ -661,13 +786,17 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
     else:
         body = read_bachelor_columns(path, engine, FORMATS[detected]["language"]) if detected.startswith("bachelor_") else None
     candidates = [parse(text, detected, body)]
+    course_sources = [body or text]
+    gpa_sources = [initial_text, text, body or ""]
     if body and body != text:
         candidates.append(parse(text, detected, None))
+        course_sources.append(text)
 
     def structural_score(candidate: dict[str, Any]) -> tuple[int, int, int]:
         header = candidate.get("header_detail") or {}
         semesters = (candidate.get("transcript_detail") or {}).get("semesters") or []
-        courses = sum(len(semester.get("subject") or []) for semester in semesters)
+        courses = sum(bool(re.fullmatch(r"\d{8}", str(subject.get("subject_id") or "")))
+                      for semester in semesters for subject in semester.get("subject") or [])
         header_fields = sum(bool(header.get(field)) for field in ("student_id", "name", "faculty_name", "program"))
         dated_semesters = sum(semester.get("year") is not None for semester in semesters)
         return courses, dated_semesters, header_fields
@@ -682,9 +811,12 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
             mode = {"bachelor_th": "original", "bachelor_en": "sharpen",
                     "graduate_th": "sharpen", "graduate_en": "autocontrast"}[detected]
             detected_body = read_layout_body(path, FORMATS[detected]["language"], mode)
+            gpa_sources.append(detected_body)
             candidates.append(parse(text, detected, detected_body))
+            course_sources.append(detected_body or text)
             if initial_text != text:
                 candidates.append(parse(initial_text, detected, detected_body))
+                course_sources.append(detected_body or initial_text)
     if (path.suffix.lower() != ".pdf" and _rectified and image_layout == "auto"
             and detected == "bachelor_en"
             and re.search(r"Unofficial\s+Transcript", initial_text, re.I)):
@@ -695,7 +827,19 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
         isolated = read_unofficial_photo(path)
         if isolated:
             candidates.append(parse(isolated[0], detected, isolated[1]))
-    record = apply_course_catalog(max(candidates, key=structural_score))
+            course_sources.append(isolated[1] or isolated[0])
+            gpa_sources.extend(isolated)
+    selected = max(range(len(candidates)), key=lambda index: structural_score(candidates[index]))
+    record = candidates[selected]
+    if path.suffix.lower() != ".pdf":
+        recovered = recover_semester_headings(course_sources[selected], gpa_sources, FORMATS[detected]["language"])
+        if recovered != course_sources[selected]:
+            record["transcript_detail"]["semesters"] = parse_courses(
+                recovered.splitlines(), FORMATS[detected]["language"], FORMATS[detected]["course_type_column"])
+    record = apply_course_catalog(record)
+    if path.suffix.lower() != ".pdf" and record["transcript_detail"]["cumulative_gpa"] is None:
+        record["transcript_detail"]["cumulative_gpa"] = cumulative_gpa_from_sources(
+            gpa_sources, FORMATS[detected]["language"])
     if (_rectified and not record["transcript_detail"]["semesters"] and
             not re.search(r"Student\s*ID\s*[:#-]?\s*\d{8}", text, re.I)):
         # A free-standing eight-digit course code is not evidence of an ID.

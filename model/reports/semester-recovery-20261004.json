@@ -1,0 +1,100 @@
+{
+  "scope": "Full extract on both user JPEGs, no stubs, no deployment or independent holdout",
+  "unit_tests_passed": 62,
+  "results": [
+    {
+      "file": "pooh_angle_left - Copy - Copy.jpg",
+      "before_semesters": 5,
+      "after": [
+        {
+          "year": 2567,
+          "semester": 1,
+          "courses": 5,
+          "gpa": "2.17"
+        },
+        {
+          "year": 2567,
+          "semester": 2,
+          "courses": 7,
+          "gpa": "1.88"
+        },
+        {
+          "year": 2568,
+          "semester": 1,
+          "courses": 3,
+          "gpa": "1.95"
+        },
+        {
+          "year": 2568,
+          "semester": 2,
+          "courses": 6,
+          "gpa": "2.35"
+        },
+        {
+          "year": 2568,
+          "semester": 3,
+          "courses": 2,
+          "gpa": null
+        },
+        {
+          "year": 2569,
+          "semester": 1,
+          "courses": 7,
+          "gpa": null
+        }
+      ],
+      "course_fields_unchanged": true,
+      "cumulative_gpa": "2.42",
+      "ocr_calls_before": 10,
+      "ocr_calls_after": 10,
+      "seconds_after": 15.875
+    },
+    {
+      "file": "pooh_angle_left - Copy.jpg",
+      "before_semesters": 5,
+      "after": [
+        {
+          "year": 2567,
+          "semester": 1,
+          "courses": 5,
+          "gpa": "2.17"
+        },
+        {
+          "year": 2567,
+          "semester": 2,
+          "courses": 7,
+          "gpa": "1.88"
+        },
+        {
+          "year": 2568,
+          "semester": 1,
+          "courses": 3,
+          "gpa": "1.95"
+        },
+        {
+          "year": 2568,
+          "semester": 2,
+          "courses": 6,
+          "gpa": "2.35"
+        },
+        {
+          "year": 2568,
+          "semester": 3,
+          "courses": 2,
+          "gpa": null
+        },
+        {
+          "year": 2569,
+          "semester": 1,
+          "courses": 7,
+          "gpa": null
+        }
+      ],
+      "course_fields_unchanged": true,
+      "cumulative_gpa": "2.42",
+      "ocr_calls_before": 10,
+      "ocr_calls_after": 10,
+      "seconds_after": 14.359
+    }
+  ]
+}

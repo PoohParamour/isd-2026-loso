@@ -5,6 +5,90 @@ from model.validate import validate_record
 
 
 class ValidateRecordTests(unittest.TestCase):
+    def test_course_after_detached_digit_on_continuation_line(self):
+        rows = parse_courses([
+            "90642999 CHARM SCHOOL 3 s",
+            "7 90644007 FOUNDATION ENGLISH 1 3 s",
+        ], "en", False)[0]["subject"]
+        self.assertEqual([(r["subject_id"], r["subject_name"], r["credit"], r["grade_earn"]) for r in rows], [
+            ("90642999", "CHARM SCHOOL", 3, "s"),
+            ("90644007", "FOUNDATION ENGLISH 1", 3, "s"),
+        ])
+
+    def test_wrapped_title_before_next_course_on_same_line(self):
+        rows = parse_courses([
+            "06026204 INTRODUCTION TO NETWORKS AND 3 B+",
+            "CYBERSECURITY 90644007 FOUNDATION ENGLISH 1 3 S",
+        ], "en", False)[0]["subject"]
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["subject_name"], "INTRODUCTION TO NETWORKS AND CYBERSECURITY")
+        self.assertEqual(rows[0]["grade_earn"], "b+")
+        self.assertEqual(rows[1]["grade_earn"], "s")
+
+    def test_continuation_reference_without_cells_is_not_new_course(self):
+        rows = parse_courses(["06026204 NETWORKS 3 B+", "REFERENCE 12345678 STANDARD"], "en", False)[0]["subject"]
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["subject_name"], "NETWORKS REFERENCE 12345678 STANDARD")
+
+    def test_continuation_can_contain_two_following_courses(self):
+        rows = parse_courses([
+            "90642999 CHARM SCHOOL 3 S",
+            "7 90644007 FOUNDATION ENGLISH 1 3 S 90644008 FOUNDATION ENGLISH 2 3 A",
+        ], "en", False)[0]["subject"]
+        self.assertEqual([r["subject_id"] for r in rows], ["90642999", "90644007", "90644008"])
+        self.assertEqual([r["grade_earn"] for r in rows], ["s", "s", "a"])
+
+    def test_joined_photo_rows_keep_their_own_grades(self):
+        rows = parse_courses([
+            "1st Semester, 2024",
+            "06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 C . "
+            "9064299 CHARM SCHOOL 3 7 90644007 FOUNDATION ENGLISH 1 3 s",
+        ], "en", False)[0]["subject"]
+        self.assertEqual([(r["subject_id"], r["subject_name"], r["credit"], r["grade_earn"]) for r in rows], [
+            ("06066303", "PROBLEM SOLVING AND COMPUTER PROGRAMMING", 3, "c"),
+            ("9064299", "CHARM SCHOOL", 3, None),
+            ("90644007", "FOUNDATION ENGLISH 1", 3, "s"),
+        ])
+        validation = validate_record({"transcript_detail": {"semesters": [{"sem_num": 1, "subject": rows}]}})
+        self.assertTrue(any(i["code"] == "invalid_subject_id" for i in validation["issues"]))
+
+    def test_joined_row_does_not_borrow_next_course_grade(self):
+        rows = parse_courses([
+            "06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING . 90644007 FOUNDATION ENGLISH 1 3 S",
+        ], "en", False)[0]["subject"]
+        self.assertEqual(len(rows), 2)
+        self.assertIsNone(rows[0]["credit"])
+        self.assertIsNone(rows[0]["grade_earn"])
+        self.assertEqual(rows[1]["grade_earn"], "s")
+
+    def test_prefixed_damaged_row_is_not_title_continuation(self):
+        rows = parse_courses([
+            "06066303 PROBLEM SOLVING 3 C",
+            ". 9064299 CHARM SCHOOL 3 7",
+            "| 90644007 FOUNDATION ENGLISH 1 3 S",
+        ], "en", False)[0]["subject"]
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["subject_name"], "PROBLEM SOLVING")
+        self.assertEqual(rows[1]["subject_name"], "CHARM SCHOOL")
+
+    def test_joined_thai_graduate_rows_keep_type_credit_grade(self):
+        rows = parse_courses(["10017081 สัมมนา Nc 1 S 10017100 วิธีวิจัย Cr 3 A"], "th", True)[0]["subject"]
+        self.assertEqual([(r["subject_name"], r["type"], r["credit"], r["grade_earn"]) for r in rows],
+                         [("สัมมนา", "nc", 1, "s"), ("วิธีวิจัย", "cr", 3, "a")])
+
+    def test_wrapped_course_name_still_preserved(self):
+        rows = parse_courses(["06026204 INTRODUCTION TO NETWORKS AND 3 B+", "CYBERSECURITY"], "en", False)[0]["subject"]
+        self.assertEqual(rows[0]["subject_name"], "INTRODUCTION TO NETWORKS AND CYBERSECURITY")
+
+    def test_detached_cells_do_not_pollute_title_or_overwrite_grade(self):
+        rows = parse_courses(["06026204 NETWORKS 3 B+", "3 C", "3"], "en", False)[0]["subject"]
+        self.assertEqual(rows[0]["subject_name"], "NETWORKS")
+        self.assertEqual(rows[0]["grade_earn"], "b+")
+
+    def test_numbered_pending_course_keeps_title_number(self):
+        rows = parse_courses(["06026200 CALCULUS 1 3"], "en", False)[0]["subject"]
+        self.assertEqual((rows[0]["subject_name"], rows[0]["credit"], rows[0]["grade_earn"]), ("CALCULUS 1", 3, None))
+
     def test_unofficial_photo_heading_preserves_new_semester(self):
         rows = parse_courses(["3rd Semester, Year, 2025-2026",
                               "90643023 TECHNOPRENEURS 3 B+",

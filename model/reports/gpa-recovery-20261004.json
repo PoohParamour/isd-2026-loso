@@ -1,0 +1,26 @@
+{
+  "scope": "Real supplied rotated JPEGs through extract including geometry and orientation; no stubs; not a blind benchmark or API deployment check",
+  "unit_tests_passed": 56,
+  "results": [
+    {
+      "file": "pooh_angle_left - Copy - Copy.jpg",
+      "before_gpa": null,
+      "after_gpa": "2.42",
+      "all_other_record_fields_unchanged": true,
+      "ocr_calls_before": 10,
+      "ocr_calls_after": 10,
+      "before_seconds": 17.75,
+      "after_seconds": 18.062
+    },
+    {
+      "file": "pooh_angle_left - Copy.jpg",
+      "before_gpa": null,
+      "after_gpa": "2.42",
+      "all_other_record_fields_unchanged": true,
+      "ocr_calls_before": 10,
+      "ocr_calls_after": 10,
+      "before_seconds": 14.859,
+      "after_seconds": 15.125
+    }
+  ]
+}

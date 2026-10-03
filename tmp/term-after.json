@@ -1,0 +1,1038 @@
+[
+  {
+    "file": "pooh_angle_left - Copy - Copy.jpg",
+    "result": {
+      "engine": "tesseract",
+      "processing_seconds": 15.875,
+      "record": {
+        "format_id": "bachelor_en",
+        "header_detail": {
+          "uni_name": null,
+          "uni_address": null,
+          "faculty_name": null,
+          "prename": null,
+          "name": "_ Mt. Pattarapol Petcharat",
+          "student_id": "67070127",
+          "date_of_birth": "2005-01-09",
+          "admis_date": null,
+          "degree": null,
+          "grad_date": null,
+          "grad_reason": null,
+          "program": null,
+          "major": null,
+          "honor": 0
+        },
+        "transcript_detail": {
+          "master_comprehensive": null,
+          "master_thesis": null,
+          "master_qualify": null,
+          "total_credits_earned": 69,
+          "cumulative_gpa": "2.42",
+          "semesters": [
+            {
+              "year": 2567,
+              "sem_num": 1,
+              "GPA": "2.17",
+              "GPS": "2.17",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026200",
+                  "subject_name": "CALCULUS 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                },
+                {
+                  "subject_id": "06066101",
+                  "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06066303",
+                  "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                },
+                {
+                  "subject_id": "90642999",
+                  "subject_name": "CHARM SCHOOL",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90644007",
+                  "subject_name": "FOUNDATION ENGLISH 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                }
+              ]
+            },
+            {
+              "year": 2567,
+              "sem_num": 2,
+              "GPA": "1.88",
+              "GPS": "1.70",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026201",
+                  "subject_name": "CALCULUS 2",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d"
+                },
+                {
+                  "subject_id": "06026203",
+                  "subject_name": "COMPUTER PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d+"
+                },
+                {
+                  "subject_id": "06026205",
+                  "subject_name": "INTRODUCTION TO MARKETING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d+"
+                },
+                {
+                  "subject_id": "06066001",
+                  "subject_name": "PROBABILITY AND STATISTICS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d"
+                },
+                {
+                  "subject_id": "90641007",
+                  "subject_name": "DIGITAL CITIZEN",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90642033",
+                  "subject_name": "LAW FOR NEW GENERATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                },
+                {
+                  "subject_id": "90644008",
+                  "subject_name": "FOUNDATION ENGLISH 2",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 1,
+              "GPA": "1.95",
+              "GPS": "2.17",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06066300",
+                  "subject_name": "DATABASE SYSTEM CONCEPTS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06066302",
+                  "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06066304",
+                  "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 2,
+              "GPA": "2.35",
+              "GPS": "3.08",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026204",
+                  "subject_name": "INTRODUCTION TO NETWORKS AND  CYBERSECURITY",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06026207",
+                  "subject_name": "NOSQL DATABASE SYSTEMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06026208",
+                  "subject_name": "FUNDAMENTALS OF DATA SCIENCE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "a"
+                },
+                {
+                  "subject_id": "06026209",
+                  "subject_name": "DATA VISUALIZATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                },
+                {
+                  "subject_id": "06066102",
+                  "subject_name": "MANAGEMENT INFORMATION SYSTEMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "a"
+                },
+                {
+                  "subject_id": "06066301",
+                  "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 3,
+              "GPA": null,
+              "GPS": "3.50",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "90642888",
+                  "subject_name": "IN LOVE & IN LIFE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90643023",
+                  "subject_name": "TECHNOPRENEURS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                }
+              ]
+            },
+            {
+              "year": 2569,
+              "sem_num": 1,
+              "GPA": null,
+              "GPS": "0.00",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026211",
+                  "subject_name": "APPLIED MACHINE LEARNING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026212",
+                  "subject_name": "DATA WAREHOUSING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026240",
+                  "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026242",
+                  "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026261",
+                  "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND BUSINESS ANALYTICS 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06066000",
+                  "subject_name": "DISCRETE MATHEMATICS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "90644042",
+                  "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                }
+              ]
+            }
+          ]
+        },
+        "footer_detail": {
+          "updated_at": "2026-09-21",
+          "by": {
+            "by_signature": null,
+            "by_position": null,
+            "by_reg": null
+          }
+        }
+      },
+      "validation": {
+        "needs_review": true,
+        "errors": 0,
+        "warnings": 2,
+        "course_count": 30,
+        "issues": [
+          {
+            "path": "header_detail.faculty_name",
+            "code": "missing_field",
+            "message": "ไม่พบคณะ",
+            "severity": "warning"
+          },
+          {
+            "path": "header_detail.program",
+            "code": "missing_field",
+            "message": "ไม่พบหลักสูตร",
+            "severity": "warning"
+          }
+        ]
+      }
+    },
+    "ocr": [
+      {
+        "args": [
+          "tesseract",
+          "orientation-0.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "“ydqaasue jepyjoun sy usums0p sty,\n\nBee Te AUNTS\n\nsponssy a7eq\n\n(Qaon8RaRAATNX MOHHHHKK EK)\n\n£4 poyooua,\n\nSe\n\nWT tVad aapeawng,\n\n(69 :pousea yyp919 Jo 19quiNU [e)03,\n\nwei vao\n\n-#$d9\n\nNOLLVINASYd\n\nANY NOLLVOINAIWNOD TYNOISSAIOUd\n\nzvorr906\n\nSOLLVNGHLVIN ALAYOSIA\n\n(00099090\n\nI SOLLATVNY SSANISOG\n\n‘ANY AONIDS VLVG NI SO1dOL TVIDadS\n\n19797090\n\nFANLONALSVAANI ADOTONHOAL GNOTD\n\n2ve97090\n\nINSWdOTIAIG WALSAS LNSOVTTALNT\n\novz9z090\n\nONISNOHAAVA VLG.\n\nz1792090\n\n‘NINUVT ANIHOVW Gar Tddv\n\n11797090\n\nLROT-ITOT TEAK “TOSTUITS 1ST\n\nwe: Vdd\n\nose: $49\n\n+0\n\nSUMANAYONHOAL\n\n€2087906\n\n‘aI NIP TACT NI\n\n88821906\n\nJEOTSTOT TEIX “TSHUIIS PIE\n\nSET: Vdd\n\n80°: Sd\n\nSWHLRIODTY GNV SHUMIONALS VLVA\n\n10¢99090\n\nSWALSAS NOLLVUOANI INTWIOVNVIN\n\n20199090\n\n+0\n\nNOLLVZITVASIA VLV\n\n60792090\n\nAONSIOS VLVG dO STVINAWVONN\n\n80292090\n\n”\n\nSWAISAS ESVAV.LY TOSON\n\n40292090\n\nALRINOASYAGAD\n\non)\n\n‘NY SYYOMIAN OL NOLLONGOMLNI\n\n0797090\n\nSEOTSTOT “FIX “ToySIUTIE PUT\n\nS61! Vd\n\n“07: Sd\n\nNOISA GNV SISATVNY WALSAS NOLLVWYOANT\n\n70299090\n\nSr)\n\nONINNVADOUd FM TYLNAWWOND\n\n20£99090\n\nSL4HONOD WALSAS ISVEVLV\n\n00£99090\n\nVOTSWHT MCIX ASIII TST\n\n881: Vdd\n\nOL 1? Sd\n\n7 HSTIONA NOLLVANNOd\n\n800P+906\n\n+0\n\nNOLLVANAD MAN YO MVT\n\n€€074906\n\nNAZLLID TVLIOIG\n\n40014906\n\nSOLISLLVLS GNV ALITIAVEOUd\n\n10099090\n\n+a\n\nONLLDRAVIN OL NOLLONGOMLNT\n\n0792090\n\n+a\n\nONINWVUDONd YALLNAWOD\n\n£0792090,\n\nzsninowo\n\n10797090\n\nOC-FEOT %\n\nuz\n\n“rts Vd\n\nart Sd\n\nT HSTTONA NOLLVANNO\n\nLO0Pr906\n\nIOOHOS WAVHD\n\n66674906\n\nONINWVADOd YALAANOD GNV ONIATOS WATSON\n\n£0£99090\n\n#3)\n\nNOLLVWYOANI YOI STVLNAWVGNNA SSANISAS,\n\n10199090\n\nsain 1vo\n\n00792090\n\nSTOT-PEOT TOOK “THSIUTG ST\n\n‘aavay | ararao|\n\n‘WLLL asan0o\n\ngave | sarw9|\n\nALLL asun0o\n\nSonf[ouy ssoulsng pur sousIog vIequamsTog\n\nVIN wouDnposy fo aq\n\ngouatog Jo sojayovg aas8acq\n\n$207 worsspupy fo amq\n\n$007 ‘6 Arenuep ysig fo aq\n\nLZIOLOL9\n\nasap\n\nqereypieg jodeseneg “3\n\naun\n\n100d\n\n(adizosuery, feyyouy )\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-90.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "ul\n\ng\n\n:\n\nPF\n\nUL\n\nBe\n\nH\n\ni\n\nHed\n\n5\n\nHE Hn\n\nelel\n\na\n\nZEEE\n\nga\n\nEEE\n\ngazQ\n\nar\n\ngag\n\nAl\n\nas\n\n58\n\n23\n\na3\n\n4\n\nLé\n\nLe\n\n:\n\nGgecees\n\n52\n\nSeece\n\ngee\n\n2\n\nBe\n\nga:\n\ngis\n\neg\n\nge\n\ng\n\na\n\n2225\n\nge\n\nof\n\nLee\n\nBS\n\nages\n\nEz\n\nge\n\ngE?\n\nEs\n\nas\n\na35\n\n9283\n\nEE\n\ngg-\n\naps\n\nFis\n\nate\n\nAla\n\na3\n\nbea\n\nae\n\ngee\n\na8\n\nga\n\nbe\n\ng|8\n\ngle\n\nPaes\n\n238\n\nSy\n\nagi\n\nBS\n\nage\n\na\n\n28\n\nEe\n\nzee\n\n2290\n\na6\n\nE:8\n\nse\n\nBz\n\nuF\n\nae\n\nge\n\n53\n\n52\n\nZB 9\n\ngna\n\nas\n\n36\n\n53\n\nBee\n\n2a\n\nss\n\ngG\n\nRE\n\nae\n\n-\n\na3\n\n3/8\n\nBl>\n\na2\n\ni.\n\nBER\n\nge\n\nza\n\nga8\n\nan\n\nBe\n\n53\n\ngs\n\ng2\n\now\n\nelelulore\n\nore\n\nee ules\n\nele\n\nCuieelelew\n\neorelete\n\nB\n\neo\n\na>Ee>9\n\n290\n\nopoogge\n\nnvage\n\n5\n\nssa\n\nSES\n\nae\n\nres\n\nzee\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-180.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "( Unofficial Transcript )\n\nPhoto\n\nName\n\nMr. Pattarapol Petcharat\n\nStudent ID\n\n67070127\n\nDate of Birth January 9, 2005\n\nDate of Admission 2024\n\nDegree Bachelor of Science\n\nDate of Graduation NIA\n\nProgramData Science and Business Analytics\n\nCOURSE TITLE\n\n[creprr] crave]\n\n‘COURSE TITLE\n\nlcreprr] crave.\n\nAst Semester, Year, 2024-2025\n\n06026200\n\nCALCULUS 1\n\nic)\n\n06066101\n\nBUSINESS FUNDAMENTALS FOR INFORMATION,\n\nCc\n\n06066303,\n\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\n\nc\n\n90642999\n\nCHARM SCHOOL\n\ns\n\n90644007\n\nFOUNDATION ENGLISH 1\n\ns\n\nGPS :2.17\n\nGPA :2.17\n\n2ni\n\nr, 2024-20;\n\n06026201\n\nCALCULUS 2\n\n06026203\n\n‘COMPUTER PROGRAMMING\n\nD+\n\n06026205\n\nINTRODUCTION TO MARKETING\n\nD+\n\n06066001\n\nPROBABILITY AND STATISTICS\n\n90641007\n\nDIGITAL CITIZEN\n\n90642033,\n\nLAW FOR NEW GENERATION\n\nBe\n\n90644008,\n\nFOUNDATION ENGLISH 2\n\nGPS :1.70\n\nGPA : 188\n\nAst Semester, Year, 2025-2026\n\n(06066300\n\nDATABASE SYSTEM CONCEPTS\n\n06066302\n\nFUNDAMENTAL WEB PROGRAMMING\n\nc+\n\n06066304\n\nINFORMATION SYSTEM ANALYSIS AND DESIGN\n\nGPS :2.17\n\nGPA :195\n\n2nd Semester, Year, 2025-2026\n\n06026204\n\nINTRODUCTION TO NETWORKS AND\n\nc+\n\nCYBERSECURITY\n\n06026207\n\nfo\n\nNOSQL DATABASE SYSTEMS\n\n06026208\n\nFUNDAMENTALS OF DATA SCIENCE\n\n06026209\n\nDATA VISUALIZATION\n\nBe\n\n06066102,\n\nMANAGEMENT INFORMATION SYSTEMS\n\n(06066301\n\nDATA STRUCTURES AND ALGORITHMS\n\nGPS :3.08\n\nGPA :235\n\nter, Year, 2025-\n\n2888\n\nIN LOVE & IN LIFE\n\n90643023\n\nTECHNOPRENEURS\n\nBe\n\nGPS :3.50\n\nGPA :242\n\nIst Semester, Year, 2026-2027\n\n06026211\n\nAPPLIED MACHINE LEARNING\n\n06026212\n\nDATA WAREHOUSING\n\n06026240\n\nINTELLIGENT SYSTEM DEVELOPMENT.\n\n06026242\n\nCLOUD TECHNOLOGY INFRASTRUCTURE\n\n06026261\n\nSPECIAL TOPICS IN DATA SCIENCE AND\n\nBUSINESS ANALYTICS 1\n\n(06066000\n\nDISCRETE MATHEMATICS\n\n90644042\n\nPROFESSIONAL COMMUNICATION AND.\n\nPRESENTATION\n\nGPS :-\n\nGPA :242\n\nTotal number of credit earned: 69\n\nCumulative GPA: 242\n\nseeeeneneenerneeenernnenn Transcript C10S0d mrnceeneeneennereeennene\n\nChecked by\n\n(Xx X00 XIGAAKAKKAR)\n\nDate Issued:\n\n‘September 21, 2024\n\n‘This document is unofficial transcript.\n",
+        "lines": [
+          "Ast Semester, Year, 2024-2025",
+          "Ast Semester, Year, 2025-2026",
+          "(06066300",
+          "DATABASE SYSTEM CONCEPTS",
+          "2nd Semester, Year, 2025-2026",
+          "NOSQL DATABASE SYSTEMS",
+          "ter, Year, 2025-",
+          "Ist Semester, Year, 2026-2027"
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-270.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "Ra <\n\nsaz\n\ngit\n\n825\n\nES>\n\nSs\n\nvdvve\n\nadtdavdo\n\nvse\n\né<d<o\n\nod\n\nSaanaan\n\nare\n\neels\n\nen\n\nanene\n\nao\n\nLI\n\n23\n\nes\n\n338\n\n29\n\nge\n\ng2\n\na\n\n663\n\nSs\n\ncary\n\n2s\n\nbso\n\nag\n\n2%\n\naes\n\ngs\n\nii\n\n98\n\nZ3\n\ngg\n\nA:\n\n23\n\ngs\n\n$6\n\nE26\n\n2\n\ngba _g\n\ng8\n\nas\n\ncf\n\nale\n\nB24\n\nae\n\na\n\nBae\n\nges\n\nbe\n\n28\n\n2k\n\nae\n\ngs\n\nHers\n\nBis\n\na\\é\n\n22\n\ngs\n\n8\n\ngee\n\nZ26\n\nZeer\n\n22\n\nBE\n\n23\n\ngSEES\n\n32\n\ngs:\n\ngeo\n\ngee\n\nof\n\nBess\n\nBg:\n\ngees\n\naf\n\nges88\n\nda\n\nsie\n\nas\n\no2e2\n\na4\n\n32\n\nge\n\nae\n\nb2e\n\n2265\n\nBe\n\n24\n\nbee\n\nShea\n\nZe\n\nae\n\n28\n\n825028\n\ngb2325\n\nas\n\nZzead\n\n2%\n\nSBE\n\n2223\n\n68\n\nE\n\nBaik\n\nshes\n\ne8\n\nae2\n\nge\n\nGZeE4d\n\nZ6\n\ng@\n\ngé\n\npoe\n\nBe\n\n2222\n\nane\n\ng\n\nHu TY\n\ni\n\noil\n\n3\n\n;\n\ni\n\n3\n\nEt\n\nTE\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "page-1.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "6"
+        ],
+        "text": "|\n: ( Unofficial Transcript ) |\n| |\n| Photo |\n: |\n| Name _ Mt. Pattarapol Petcharat StudentID 67070127\n| Date of Birth January 9, 2005 Date of Admission 2024\n| Degree Bachelor of Science Date of Graduation N/A\n| ProgramData Science and Business Analytics\n [counserme immonium ‘emf ome\n1st Semester, Year, 2024-2025\n| 06026200 CALCULUS 1 3 c\n| 06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 C+ |\n| 06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 c\n| 90642999 CHARM SCHOOL 3 | s |\n| 90644007 FOUNDATION ENGLISH 1 3 | s\n| GPS : 2.17 GPA : 2.17\n2nd Semester, Year, 2024-2025\n| 06026201 CALCULUS 2 3 D\n| 06026203 COMPUTER PROGRAMMING 3 D+\n| 06026205 INTRODUCTION TO MARKETING 3 D+\n| 06066001 PROBABILITY AND STATISTICS 3 D\n| 90641007 DIGITAL CITIZEN 3 Ss\n| 90642033 LAW FOR NEW GENERATION 3 B+\n| 90644008 FOUNDATION ENGLISH 2 3 Ss\n| GPS:1.70 GPA: 1.88\n| 06066300 DATABASE SYSTEM CONCEPTS 3 @\n| 06066302 FUNDAMENTAL WEB PROGRAMMING 3 C+\n| 06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 Cc\n: GPS : 2.17 GPA : 1.95\n| 2nd Semester, Year, 2025-2026\n| 06026204 INTRODUCTION TO NETWORKS AND 3 C+\n| CYBERSECURITY\n| 06026207 NOSQL DATABASE SYSTEMS 3 C+\n| 06026208 FUNDAMENTALS OF DATA SCIENCE 3 A\n| 06026209 DATA VISUALIZATION 3 | B+\n: 06066102 MANAGEMENT INFORMATION SYSTEMS 3 A\n| 06066301 DATA STRUCTURES AND ALGORITHMS 3 Cc\n: GPS : 3.08 GPA : 2.35\n| 3rd Semester, Year, 2025-2026\n| 90642888 IN LOVE & IN LIFE 3 Ss\n| 90643023 TECHNOPRENEURS 3 B+\nGPS : 3.50 GPA : 242\n1st Semester, Year, 2026-2027\n06026211 APPLIED MACHINE LEARNING 3\n06026212 DATA WAREHOUSING 3\n: 06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n| 06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n06026261 SPECIAL TOPICS IN DATA SCIENCE AND 3\nBUSINESS ANALYTICS 1\n06066000 DISCRETE MATHEMATICS 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS : - GPA : 242\nTotal number of credit earned: 69\nCumulative GPA: 242\nsrceenaennnnnnancnennvenerennwee TFANSCTipt ClOS€d ~--------anennnennnannnannananann\nChecked by\n(XX XXXXXXXXX XXXXXXXXXXXXX)\nDate Issued: September 21, 2026 This document is unofficial transcript.\n",
+        "lines": [
+          "1st Semester, Year, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "| 06066300 DATABASE SYSTEM CONCEPTS 3 @",
+          "| 2nd Semester, Year, 2025-2026",
+          "| 06026207 NOSQL DATABASE SYSTEMS 3 C+",
+          "| 3rd Semester, Year, 2025-2026",
+          "1st Semester, Year, 2026-2027",
+          "Date Issued: September 21, 2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "full.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "4",
+          "tsv"
+        ],
+        "text": "",
+        "lines": [
+          "5\t1\t5\t1\t1\t4\t646\t737\t141\t23\t96.337692\t2024-2025",
+          "5\t1\t5\t1\t8\t2\t423\t1043\t137\t31\t95.212273\tSemester,",
+          "5\t1\t5\t1\t8\t4\t652\t1044\t142\t24\t96.688866\t2024-2025",
+          "5\t1\t5\t1\t17\t2\t368\t1441\t420\t31\t94.252029\tSemester,",
+          "5\t1\t5\t1\t17\t4\t653\t1441\t135\t31\t96.142197\t2025-2026",
+          "5\t1\t5\t1\t18\t1\t265\t1486\t154\t22\t96.622154\tDATABASE",
+          "5\t1\t5\t1\t25\t2\t368\t1794\t153\t22\t96.297020\tDATABASE",
+          "5\t1\t5\t1\t31\t2\t421\t2056\t137\t31\t96.344376\tSemester,",
+          "5\t1\t5\t1\t31\t4\t650\t2057\t142\t25\t96.667099\t2025-2026",
+          "5\t1\t5\t1\t35\t2\t417\t2232\t135\t31\t96.082321\tSemester,",
+          "5\t1\t5\t1\t35\t4\t645\t2233\t142\t24\t96.516945\t2026-2027",
+          "5\t1\t9\t1\t1\t4\t477\t3040\t100\t26\t80.045410\t21,2026"
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "full.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "4"
+        ],
+        "text": "( Unofficial Transcript )\n\nPhoto\nName Mr. Pattarapol Petcharat StudentID 67070127\nDate of Birth January 9, 2005 Date of Admission 2024\nDegree Bachelor of Science Date of Graduation N/A\n\nProgramData Science and Business Analytics\n\n[comserms SS emfems] SC ommsee—mfo\n\nIst Semest ear, 2024-2025\nCALCULUS 1\nBUSINESS FUNDAMENTALS FOR INFORMATION\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\nCHARM SCHOOL\nFOUNDATION ENGLISH 1\nGPS : 2.17 GPA :2.17\n2nd Semester, Year, 2024-2025\nCALCULUS 2\nCOMPUTER PROGRAMMING\nINTRODUCTION TO MARKETING\nPROBABILITY AND STATISTICS\nDIGITAL CITIZEN\nLAW FOR NEW GENERATION\nFOUNDATION ENGLISH 2\nGPS : 1.70 GPA : 188\n1st Semester, Year, 2025-2026\nDATABASE SYSTEM CONCEPTS\nFUNDAMENTAL WEB PROGRAMMING\nINFORMATION SYSTEM ANALYSIS AND DESIGN\nGPS ::2.17 GPA 31.95\n2ni r, ¥ 25-202\nINTRODUCTION TO NETWORKS AND\nCYBERSECURITY\nNOSQL DATABASE SYSTEMS\nFUNDAMENTALS OF DATA SCIENCE\nDATA VISUALIZATION\nMANAGEMENT INFORMATION SYSTEMS\nDATA STRUCTURES AND ALGORITHMS\nGPS : 3.08 GPA : 2.35\n3rd Semester, Year, 2025-2026\nIN LOVE & IN LIFE\nTECHNOPRENEURS\nGPS : 3.50 GPA : 2.42\nAst Semester, Year, 2026-2027\nAPPLIED MACHINE LEARNING\nDATA WAREHOUSING\nINTELLIGENT SYSTEM DEVELOPMENT\nCLOUD TECHNOLOGY INFRASTRUCTURE\nSPECIAL TOPICS IN DATA SCIENCE AND\nBUSINESS ANALYTICS 1\nDISCRETE MATHEMATICS\nPROFESSIONAL COMMUNICATION AND\nPRESENTATION\nGPS: - GPA : 242\n\nTotal number of credit earned: 69\nCumulative GPA: 2.42\n\necererenseencssereceerersecoeeee Transcript Closed\n\nChecked by\n(KX XXXXXXXXX KAXXXXXXXXXXX)\n\nDate Issued: September 21,2026 This document is unofficial transcript.\n\n",
+        "lines": [
+          "Ist Semest ear, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "1st Semester, Year, 2025-2026",
+          "DATABASE SYSTEM CONCEPTS",
+          "NOSQL DATABASE SYSTEMS",
+          "3rd Semester, Year, 2025-2026",
+          "Ast Semester, Year, 2026-2027",
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "header.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "6"
+        ],
+        "text": "| ( Unofficial Transcript ) |\n| Photo |\nName Mr. Pattarapol Petcharat Student ID 67070127\n\n| Date of Birth January 9, 2005 Date of Admission 2024\n\n| Degree Bachelor of Science Date of Graduation N/A\n\n| ProgramData Science and Business Analytics\n\nCS i\n\ni 1<f Semecter Year 004.2005\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "footer.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "6"
+        ],
+        "text": "Total number of credit earned: 69\nCumulative GPA: 242\nBE mene Ey 1 07 4 7\nChecked by\n2% XXXXXXXXX XXXXXXXXXXXXX)\nDate Issued: September 21,2026 This document is unofficial transcript.\n",
+        "lines": [
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "table.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "4"
+        ],
+        "text": "frogrambaia SCICNCE and Business Analytics\n\nCS\n1st Semester, Year, 2024-2025\nCALCULUS 1\nBUSINESS FUNDAMENTALS FOR INFORMATION\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\nCHARM SCHOOL\nFOUNDATION ENGLISH 1\nGPS :2.17 GPA : 2.17\n2nd Semester, Year, 2024-2025\nCALCULUS 2\nCOMPUTER PROGRAMMING\nINTRODUCTION TO MARKETING\nPROBABILITY AND STATISTICS\nDIGITAL CITIZEN\nLAW FOR NEW GENERATION\nFOUNDATION ENGLISH 2\nGPS:170 GPA : 188\n1st Semester, Year, 2025-2026\nDATABASE SYSTEM CONCEPTS\nFUNDAMENTAL WEB PROGRAMMING\nINFORMATION SYSTEM ANALYSIS AND DESIGN\nGPS :2.17 GPA : 195\n2nd Semester, Year, 2025-2026\nINTRODUCTION TO NETWORKS AND\nCYBERSECURITY\nNOSQL DATABASE SYSTEMS\nFUNDAMENTALS OF DATA SCIENCE\nDATA VISUALIZATION\nMANAGEMENT INFORMATION SYSTEMS\nDATA STRUCTURES AND ALGORITHMS\nGPS :3.08 GPA :235\n3rd Semester, Year, 2025-2026\nIN LOVE & IN LIFE\nTECHNOPRENEURS\nGPS :3.50 GPA :242\n1st Semester, Year, 2026-2027\nAPPLIED MACHINE LEARNING\nDATA WAREHOUSING\nINTELLIGENT SYSTEM DEVELOPMENT\nCLOUD TECHNOLOGY INFRASTRUCTURE\nSPECIAL TOPICS IN DATA SCIENCE AND\nBUSINESS ANALYTICS 1\nDISCRETE MATHEMATICS\nPROFESSIONAL COMMUNICATION AND\nPRESENTATION\nGPS : - GPA :242\n\nTotal number of credit earned: 69\nCumulative GPA: 242\nTranscript Closed -------==s=snsvensmsmsnanansnane\n\nChecked by\n\nXX XXXXXXXXX XXXXXXXXXXXXX)\n\nDate Issued: September 21,2026 This document is unofficial transcript.\n",
+        "lines": [
+          "1st Semester, Year, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "1st Semester, Year, 2025-2026",
+          "DATABASE SYSTEM CONCEPTS",
+          "2nd Semester, Year, 2025-2026",
+          "NOSQL DATABASE SYSTEMS",
+          "3rd Semester, Year, 2025-2026",
+          "1st Semester, Year, 2026-2027",
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      }
+    ]
+  },
+  {
+    "file": "pooh_angle_left - Copy.jpg",
+    "result": {
+      "engine": "tesseract",
+      "processing_seconds": 14.359,
+      "record": {
+        "format_id": "bachelor_en",
+        "header_detail": {
+          "uni_name": null,
+          "uni_address": null,
+          "faculty_name": null,
+          "prename": null,
+          "name": "_ Mtr. Pattarapol Petcharat",
+          "student_id": "67070127",
+          "date_of_birth": "2005-01-09",
+          "admis_date": null,
+          "degree": null,
+          "grad_date": null,
+          "grad_reason": null,
+          "program": null,
+          "major": null,
+          "honor": 0
+        },
+        "transcript_detail": {
+          "master_comprehensive": null,
+          "master_thesis": null,
+          "master_qualify": null,
+          "total_credits_earned": 69,
+          "cumulative_gpa": "2.42",
+          "semesters": [
+            {
+              "year": 2567,
+              "sem_num": 1,
+              "GPA": "2.17",
+              "GPS": "2.17",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026200",
+                  "subject_name": "CALCULUS 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                },
+                {
+                  "subject_id": "06066101",
+                  "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06066303",
+                  "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                },
+                {
+                  "subject_id": "90642999",
+                  "subject_name": "CHARM SCHOOL",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90644007",
+                  "subject_name": "FOUNDATION ENGLISH 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                }
+              ]
+            },
+            {
+              "year": 2567,
+              "sem_num": 2,
+              "GPA": "1.88",
+              "GPS": "1.70",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026201",
+                  "subject_name": "CALCULUS 2",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d"
+                },
+                {
+                  "subject_id": "06026203",
+                  "subject_name": "COMPUTER PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d+"
+                },
+                {
+                  "subject_id": "06026205",
+                  "subject_name": "INTRODUCTION TO MARKETING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d+"
+                },
+                {
+                  "subject_id": "06066001",
+                  "subject_name": "PROBABILITY AND STATISTICS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "d"
+                },
+                {
+                  "subject_id": "90641007",
+                  "subject_name": "DIGITAL CITIZEN",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90642033",
+                  "subject_name": "LAW FOR NEW GENERATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                },
+                {
+                  "subject_id": "90644008",
+                  "subject_name": "FOUNDATION ENGLISH 2",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 1,
+              "GPA": "1.95",
+              "GPS": "2.17",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06066300",
+                  "subject_name": "DATABASE SYSTEM CONCEPTS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06066302",
+                  "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06066304",
+                  "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 2,
+              "GPA": "2.35",
+              "GPS": "3.08",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026204",
+                  "subject_name": "INTRODUCTION TO NETWORKS AND  CYBERSECURITY",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06026207",
+                  "subject_name": "NOSQL DATABASE SYSTEMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c+"
+                },
+                {
+                  "subject_id": "06026208",
+                  "subject_name": "FUNDAMENTALS OF DATA SCIENCE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "a"
+                },
+                {
+                  "subject_id": "06026209",
+                  "subject_name": "DATA VISUALIZATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                },
+                {
+                  "subject_id": "06066102",
+                  "subject_name": "MANAGEMENT INFORMATION SYSTEMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "a"
+                },
+                {
+                  "subject_id": "06066301",
+                  "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "c"
+                }
+              ]
+            },
+            {
+              "year": 2568,
+              "sem_num": 3,
+              "GPA": null,
+              "GPS": "3.50",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "90642888",
+                  "subject_name": "IN LOVE & IN LIFE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "s"
+                },
+                {
+                  "subject_id": "90643023",
+                  "subject_name": "TECHNOPRENEURS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": "b+"
+                }
+              ]
+            },
+            {
+              "year": 2569,
+              "sem_num": 1,
+              "GPA": null,
+              "GPS": "0.00",
+              "pass_reason": null,
+              "subject": [
+                {
+                  "subject_id": "06026211",
+                  "subject_name": "APPLIED MACHINE LEARNING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026212",
+                  "subject_name": "DATA WAREHOUSING",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026240",
+                  "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026242",
+                  "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06026261",
+                  "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND BUSINESS ANALYTICS 1",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "06066000",
+                  "subject_name": "DISCRETE MATHEMATICS",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                },
+                {
+                  "subject_id": "90644042",
+                  "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                  "type": null,
+                  "credit": 3,
+                  "grade_earn": null
+                }
+              ]
+            }
+          ]
+        },
+        "footer_detail": {
+          "updated_at": "2026-09-21",
+          "by": {
+            "by_signature": null,
+            "by_position": null,
+            "by_reg": null
+          }
+        }
+      },
+      "validation": {
+        "needs_review": true,
+        "errors": 0,
+        "warnings": 2,
+        "course_count": 30,
+        "issues": [
+          {
+            "path": "header_detail.faculty_name",
+            "code": "missing_field",
+            "message": "ไม่พบคณะ",
+            "severity": "warning"
+          },
+          {
+            "path": "header_detail.program",
+            "code": "missing_field",
+            "message": "ไม่พบหลักสูตร",
+            "severity": "warning"
+          }
+        ]
+      }
+    },
+    "ocr": [
+      {
+        "args": [
+          "tesseract",
+          "orientation-0.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "ul\n\ng\n\n:\n\nPF\n\nTE\n\nBe\n\nH\n\ni\n\nHed\n\n5\n\nHE Hn\n\nele\n\na\n\nBREE\n\noa\n\nEEE\n\ngazQ\n\nBes\n\ngag\n\nAl\n\ngs\n\n58\n\n23\n\na3\n\n4\n\nLé\n\nLe\n\n:\n\nGgecees\n\n52\n\nBAe\n\ngee\n\nS23\n\nBe\n\nga:\n\nZis8\n\nae\n\nge\n\ng\n\na\n\n2225\n\nge\n\nof\n\nLee\n\nBS\n\nages\n\nEz\n\nge\n\ngE?\n\nEs\n\naS\n\na36\n\n9283\n\nEE\n\ngg-\n\naps\n\nFis\n\nFEL\n\nAla\n\na3\n\nbea\n\nae\n\ngee\n\na8\n\nga\n\nbe\n\ng|8\n\ngle\n\nPare ies\n\nis8\n\ngy\n\nagi\n\n25\n\nage\n\na\n\nzB\n\nEe\n\nzee\n\n2290\n\na6\n\nE:8\n\n2\n\nBz\n\nuF\n\nae\n\nge\n\n53\n\n52\n\nZB 9\n\ngna\n\nas\n\n36\n\n5 3\n\nBee\n\n2a\n\nss\n\ngG\n\nRE\n\nae\n\na3\n\n5/8\n\nBl>\n\na2\n\ni.\n\nBER\n\nge\n\n26\n\nZa8\n\nan\n\nBe\n\n53\n\ngs\n\ng2\n\now\n\nelelulore\n\nore\n\nee ule\n\nele\n\nCuieelelew\n\neorelete!\n\nB\n\neo\n\na>Ee>9\n\n290\n\nopoogge\n\nnvage\n\n5\n\nssa\n\nSES\n\nae\n\nPes\n\nzee\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-90.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "( Unofficial Transcript )\n\nPhoto\n\nName\n\nMr. Pattarapol Petcharat\n\nStudent ID\n\n67070127\n\nDate of Birth January 9, 2005\n\nDate of Admission 2024\n\nDegree Bachelor of Science\n\nDate of Graduation NIA\n\nProgramData Science and Business Analytics\n\nCOURSE TITLE\n\n[creprr] crave]\n\n‘COURSE TITLE\n\nlcreprr] crave,\n\nAst Semester, Year, 2024-2025\n\n06026200\n\nCALCULUS 1\n\nic)\n\n06066101\n\nBUSINESS FUNDAMENTALS FOR INFORMATION,\n\nCc\n\n0606303,\n\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\n\nc\n\n90642999\n\nCHARM SCHOOL\n\ns\n\n90644007\n\nFOUNDATION ENGLISH 1\n\ns\n\nGPS :2.17\n\nGPA :2.17\n\n2ni\n\nr, 2024-20;\n\n06026201\n\nCALCULUS 2\n\n06026203\n\n‘COMPUTER PROGRAMMING\n\nD+\n\n06026205,\n\nINTRODUCTION TO MARKETING\n\nD+\n\n06066001\n\nPROBABILITY AND STATISTICS\n\n90641007\n\nDIGITAL CITIZEN\n\n90642033,\n\nLAW FOR NEW GENERATION\n\nBe\n\n90644008,\n\nFOUNDATION ENGLISH 2\n\nGPS :1.70\n\nGPA : 188\n\nAst Semester, Year, 2025-2026\n\n(06066300\n\nDATABASE SYSTEM CONCEPTS\n\n06066302\n\nFUNDAMENTAL WEB PROGRAMMING\n\nc+\n\n06066304\n\nINFORMATION SYSTEM ANALYSIS AND DESIGN\n\nGPS :2.17\n\nGPA :195\n\n2nd Semester, Year, 2025-2026\n\n06026204\n\nINTRODUCTION TO NETWORKS AND\n\nc+\n\nCYBERSECURITY\n\n06026207\n\nfo\n\nNOSQL DATABASE SYSTEMS\n\n06026208\n\nFUNDAMENTALS OF DATA SCIENCE\n\n06026209\n\nDATA VISUALIZATION\n\nBe\n\n06066102\n\nMANAGEMENT INFORMATION SYSTEMS\n\n(06066301\n\nDATA STRUCTURES AND ALGORITHMS\n\nGPS :3.08\n\nGPA :235\n\nter, Year, 2025~\n\n2888\n\nIN LOVE & IN LIFE\n\n90643023\n\nTECHNOPRENEURS\n\nBe\n\nGPS :3.50\n\nGPA :242\n\nIst Semester, Year, 2026-2027\n\n06026211\n\nAPPLIED MACHINE LEARNING\n\n06026212\n\nDATA WAREHOUSING\n\n06026240\n\nINTELLIGENT SYSTEM DEVELOPMENT.\n\n06026242\n\nCLOUD TECHNOLOGY INFRASTRUCTURE\n\n06026261\n\nSPECIAL TOPICS IN DATA SCIENCE AND\n\nBUSINESS ANALYTICS 1\n\n(06066000\n\nDISCRETE MATHEMATICS\n\n90644042,\n\nPROFESSIONAL COMMUNICATION AND.\n\nPRESENTATION\n\nGPS :-\n\nGPA :242\n\nTotal number of credit earned: 69\n\nCumulative GPA: 242\n\nseeeenenennerneeenernnene Transcript C1050 mrnceeneeneennerneennenne\n\nChecked by\n\n(Xx Xx 000K XIGOAAKAKKA)\n\nDate Issued:\n\n‘September 21, 2024\n\n‘This document is unofficial transcript.\n",
+        "lines": [
+          "Ast Semester, Year, 2024-2025",
+          "Ast Semester, Year, 2025-2026",
+          "(06066300",
+          "DATABASE SYSTEM CONCEPTS",
+          "2nd Semester, Year, 2025-2026",
+          "NOSQL DATABASE SYSTEMS",
+          "ter, Year, 2025~",
+          "Ist Semester, Year, 2026-2027"
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-180.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "Ra <\n\nsaz\n\ngit\n\n825\n\nES>\n\n8\n\nvdvve\n\nadtdavdo\n\nvse\n\né<d<0\n\nod\n\nSaanaan\n\nare\n\neels\n\nen\n\nenone\n\nao\n\nLI\n\n23\n\nes\n\n338\n\nZu\n\nge\n\ng2\n\nZea\n\n663\n\nSs\n\n2a\n\n2s\n\nbso\n\nag\n\n2%\n\naes\n\ngs\n\nii\n\n98\n\nZ3\n\ngg\n\nA:\n\n23\n\ngs\n\n$6\n\nE26\n\n2\n\ngba_g\n\ng8\n\nas\n\ncf\n\nale\n\nB24\n\nae\n\na\n\nBae\n\ngia\n\na\n\n8\n\n2k\n\nae\n\ngs\n\nHers\n\nBis\n\na\\é\n\n22\n\ngs\n\n38\n\ngee\n\nZ26\n\nZeer\n\n22\n\nBE\n\n23\n\ngSEES\n\na2\n\nes:\n\ngeo\n\ngee\n\nof\n\nBess\n\nBg:\n\ngees\n\naf\n\ngea88\n\nha\n\nsie\n\nas\n\no2e8\n\na4\n\n32\n\nge\n\nae\n\nb2e\n\n2265\n\nBe\n\n24\n\nbee\n\nShea\n\nZz\n\nae\n\n28\n\n825028\n\ngb2325\n\na8\n\nZzead\n\n2%\n\nSRE\n\n2228\n\n68\n\nE\n\nEaik\n\ngbe6\n\n8\n\na2\n\nge\n\nCZEd\n\nZ6\n\ng@\n\ngé\n\npoe\n\nBa\n\n2222\n\nane\n\ng\n\nHu TY\n\ni\n\noil\n\n3\n\n;\n\ni\n\n3\n\nES\n\nTE\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "orientation-270.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "11"
+        ],
+        "text": "“ydqaasue jepyjoun sy uoumsop sy,\n\nBee Te AUNTS\n\nsponssy ae\n\n((apsRaRNATTX MOHHHHRK OK)\n\n£4 poyooua,\n\na\n\nWT tVad aapenung,\n\n69 :pouea yyp919 Jo 9quinU [e}03,\n\nwei vao\n\n-#$d9\n\nNOLLVINASHYd\n\nANY NOLLVOINAIWNOD TYNOISSAIOUd\n\nzvorr906\n\nSOLLVNGHLVIN ALAYOSIA\n\n00099090\n\nI SOLLATVNY SSANISOG\n\n‘ANY AONIDS VLVG NI SOIL TVIDadS\n\n19797090\n\nFANLONULSVAANI ADOTONHOAL GND\n\n‘2ve97090\n\nINSWdOTIATG WALSAS LNSOVTTALNI\n\novz9z090\n\nONISNOHAAVA VLG.\n\nz1792090\n\n‘NINUVAT ANIHOVW Car Tddv\n\n11797090\n\nLROT-ITOT TEAK “TSSHUITS 1ST\n\nwe: Vdd\n\nose: $49\n\n+0\n\nSUMANAYONHOAL\n\n€2087906\n\n‘SaIT NIP SAOTNI\n\n88821906\n\nSCOTSTOT TEIX “TISHUIS PIE\n\nSET: Vdd\n\n80°: Sd.\n\nSWHLRIODTY GNV SHUALONALS VLVA\n\n10¢99090\n\nSWALSAS NOLLVINUOANI INTWIOVNVIN\n\n20199090\n\n+0\n\nNOLLVZITVASIA VLVG\n\n60792090\n\nAONIOS VLG JO STVINAWVONN\n\n80292090\n\noe)\n\nSWAISAS ESVAVLY TOSON\n\n40292090\n\nALRINOASAGAD\n\na)\n\n‘NY SYYOMAN OL NOLLONGOULNI\n\n0792090\n\nSOTSTOT “FEI “ToySIUTIE PUT\n\nS61! Vd\n\n“0%: Sd\n\nNOISA GNV SISATVNY WALSAS NOLLVWYOANT\n\n70299090\n\nSr)\n\nONINNVADONd FAM TYLNAWVONN\n\n20£99090\n\nS14HONOD WALSAS ASVEVLV\n\n00£99090\n\nJOT SHE MCIX ASIII TST\n\n8815 Vdd\n\nOL 1? S49\n\n7 HSTIONA NOLLVANNOd\n\n800P+906\n\n+0\n\nNOLLVYANED MAN YO MVT\n\n€€074906\n\nNAZLLID TV.LIOIG\n\n40014906\n\nSOLISLLVLS GNV ALITIAVEOUd\n\n10099090\n\n+a\n\nONLLDRAVIN OL NOLLONGOMLNT\n\n0792090\n\n+a\n\nONINWVYDONd YALLNAWOD\n\n£0792090\n\nzsninowo\n\n10797090\n\nOC FEOT %\n\nuz\n\n“rts Vd\n\nart Sd\n\nT HSTTONA NOLLVANNOs\n\nLO0PE906\n\n“IOOHOS WAVHD\n\n66674906\n\nONINWVYADOAd YILAANOD GNV ONIATOS WATSON\n\n£0£99090\n\n#3)\n\nNOLLVWYOANI YOI STV.LNAWVGNNA SSANISAS,\n\n10199090\n\n1samno1vo\n\n00792090\n\nSTOT-PEOT TOOK “THSIUTG ST\n\n‘gaya | ararao|\n\nWLLL asan0o\n\n-aavap | sar49|\n\nALLL asun0o\n\nSonf[ouy ssoulsng pur sousIog vIequamsTor\n\nVIN wouDnpiy fo aq\n\ngouatog Jo s0jayovg aasSaqq\n\n$207 worsspupy fo aq\n\n$007 ‘6 Arenuep ysig fo amq\n\nLZIOLOL9\n\na1 suepms\n\nyereypiag jodeseneg “3\n\naun\n\n100d\n\n(adizosuery, feryyjouy )\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "page-1.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "6"
+        ],
+        "text": "|\n: ( Unofficial Transcript ) |\n| |\n| Photo |\n: |\n| Name _ Mtr. Pattarapol Petcharat StudentID 67070127\n| Date of Birth January 9, 2005 Date of Admission 2024\n| Degree Bachelor of Science Date of Graduation N/A\n| ProgramData Science and Business Analytics\n [counserme ismfemam—CCums ‘emf ome\n1st Semester, Year, 2024-2025\n| 06026200 CALCULUS 1 3 c\n| 06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 C+ |\n| 06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 c\n| 90642999 CHARM SCHOOL 3 | s |\n| 90644007 FOUNDATION ENGLISH 1 3 | s\n| GPS : 2.17 GPA : 2.17\n2nd Semester, Year, 2024-2025\n| 06026201 CALCULUS 2 3 D\n| 06026203 COMPUTER PROGRAMMING 3 D+\n| 06026205 INTRODUCTION TO MARKETING 3 D+\n| 06066001 PROBABILITY AND STATISTICS 3 D\n| 90641007 DIGITAL CITIZEN 3 Ss\n| 90642033 LAW FOR NEW GENERATION 3 B+\n| 90644008 FOUNDATION ENGLISH 2 3 Ss\n| GPS:1.70 GPA: 1.88\n| 06066300 DATABASE SYSTEM CONCEPTS 3 @\n| 06066302 FUNDAMENTAL WEB PROGRAMMING 3 C+\n| 06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 Cc\n: GPS : 2.17 GPA : 1.95\n| 2nd Semester, Year, 2025-2026\n| 06026204 INTRODUCTION TO NETWORKS AND 3 C+\n| CYBERSECURITY\n| 06026207 NOSQL DATABASE SYSTEMS 3 C+\n| 06026208 FUNDAMENTALS OF DATA SCIENCE 3 A\n| 06026209 DATA VISUALIZATION 3 | B+\n: 06066102 MANAGEMENT INFORMATION SYSTEMS 3 A\n| 06066301 DATA STRUCTURES AND ALGORITHMS 3 Cc\n: GPS : 3.08 GPA : 2.35\n| 3rd Semester, Year, 2025-2026\n| 90642888 IN LOVE & IN LIFE 3 Ss\n| 90643023 TECHNOPRENEURS 3 B+\nGPS : 3.50 GPA : 242\n1st Semester, Year, 2026-2027\n06026211 APPLIED MACHINE LEARNING 3\n06026212 DATA WAREHOUSING 3\n: 06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n| 06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n06026261 SPECIAL TOPICS IN DATA SCIENCE AND 3\nBUSINESS ANALYTICS 1\n06066000 DISCRETE MATHEMATICS 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS : - GPA : 242\nTotal number of credit earned: 69\nCumulative GPA: 242\narceencennnnnnannnennvenarennwee TFANSCTipt ClOS€d ~---n----anennnennnananannananann\nChecked by\n(XX XXXXXXXXX XXXXXXXXXXXXX)\nDate Issued: September 21, 2026 This document is unofficial transcript.\n",
+        "lines": [
+          "1st Semester, Year, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "| 06066300 DATABASE SYSTEM CONCEPTS 3 @",
+          "| 2nd Semester, Year, 2025-2026",
+          "| 06026207 NOSQL DATABASE SYSTEMS 3 C+",
+          "| 3rd Semester, Year, 2025-2026",
+          "1st Semester, Year, 2026-2027",
+          "Date Issued: September 21, 2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "full.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "4",
+          "tsv"
+        ],
+        "text": "",
+        "lines": [
+          "5\t1\t5\t1\t1\t4\t646\t737\t141\t23\t96.369644\t2024-2025",
+          "5\t1\t5\t1\t8\t2\t423\t1043\t137\t31\t94.994438\tSemester,",
+          "5\t1\t5\t1\t8\t4\t652\t1044\t142\t24\t96.740807\t2024-2025",
+          "5\t1\t5\t1\t17\t2\t368\t1441\t420\t31\t94.390152\tSemester,",
+          "5\t1\t5\t1\t17\t4\t653\t1441\t135\t31\t96.202354\t2025-2026",
+          "5\t1\t5\t1\t18\t1\t265\t1486\t154\t22\t96.656067\tDATABASE",
+          "5\t1\t5\t1\t25\t2\t368\t1794\t153\t22\t96.323303\tDATABASE",
+          "5\t1\t5\t1\t31\t2\t421\t2056\t137\t31\t96.392189\tSemester,",
+          "5\t1\t5\t1\t31\t4\t650\t2057\t142\t25\t96.774231\t2025-2026",
+          "5\t1\t5\t1\t35\t2\t417\t2232\t135\t31\t96.294044\tSemester,",
+          "5\t1\t5\t1\t35\t4\t645\t2233\t142\t24\t96.546135\t2026-2027",
+          "5\t1\t9\t1\t1\t4\t477\t3040\t100\t26\t81.173546\t21,2026"
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "full.png",
+          "stdout",
+          "-l",
+          "eng",
+          "--psm",
+          "4"
+        ],
+        "text": "( Unofficial Transcript )\n\nPhoto\nName Mr. Pattarapol Petcharat StudentID 67070127\nDate of Birth January 9, 2005 Date of Admission 2024\nDegree Bachelor of Science Date of Graduation N/A\n\nProgramData Science and Business Analytics\n\n[comserms emf]\n\n1st Semest ear, 2024-2025\nCALCULUS 1\nBUSINESS FUNDAMENTALS FOR INFORMATION\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\nCHARM SCHOOL\nFOUNDATION ENGLISH 1\nGPS : 2.17 GPA :2.17\n2nd Semester, Year, 2024-2025\nCALCULUS 2\nCOMPUTER PROGRAMMING\nINTRODUCTION TO MARKETING\nPROBABILITY AND STATISTICS\nDIGITAL CITIZEN\nLAW FOR NEW GENERATION\nFOUNDATION ENGLISH 2\nGPS : 1.70 GPA : 188\n1st Semester, Year, 2025-2026\nDATABASE SYSTEM CONCEPTS\nFUNDAMENTAL WEB PROGRAMMING\nINFORMATION SYSTEM ANALYSIS AND DESIGN\nGPS ::2.17 GPA 31.95\n2ni r, ¥ 25-202\nINTRODUCTION TO NETWORKS AND\nCYBERSECURITY\nNOSQL DATABASE SYSTEMS\nFUNDAMENTALS OF DATA SCIENCE\nDATA VISUALIZATION\nMANAGEMENT INFORMATION SYSTEMS\nDATA STRUCTURES AND ALGORITHMS\nGPS : 3.08 GPA : 2.35\n3rd Semester, Year, 2025-2026\nIN LOVE & IN LIFE\nTECHNOPRENEURS\nGPS : 3.50 GPA : 2.42\nAst Semester, Year, 2026-2027\nAPPLIED MACHINE LEARNING\nDATA WAREHOUSING\nINTELLIGENT SYSTEM DEVELOPMENT\nCLOUD TECHNOLOGY INFRASTRUCTURE\nSPECIAL TOPICS IN DATA SCIENCE AND\nBUSINESS ANALYTICS 1\nDISCRETE MATHEMATICS\nPROFESSIONAL COMMUNICATION AND\nPRESENTATION\nGPS: - GPA : 242\n\nTotal number of credit earned: 69\nCumulative GPA: 2.42\n\neccrerenceenessereceerersccoeeee Transcript Closed\n\nChecked by\n(KX XXXXXXXXX KAXXXXXXXXXXX)\n\nDate Issued: September 21,2026 This document is unofficial transcript.\n\n",
+        "lines": [
+          "1st Semest ear, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "1st Semester, Year, 2025-2026",
+          "DATABASE SYSTEM CONCEPTS",
+          "NOSQL DATABASE SYSTEMS",
+          "3rd Semester, Year, 2025-2026",
+          "Ast Semester, Year, 2026-2027",
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "header.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "6"
+        ],
+        "text": "| ( Unofficial Transcript ) |\n| Photo |\nName Mr. Pattarapol Petcharat Student ID 67070127\n\n| Date of Birth January 9, 2005 Date of Admission 2024\n\n| Degree Bachelor of Science Date of Graduation N/A\n\n| ProgramData Science and Business Analytics\n\nCS i\n\ni 1<f Semecter Year 004.2005\n",
+        "lines": []
+      },
+      {
+        "args": [
+          "tesseract",
+          "footer.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "6"
+        ],
+        "text": "Total number of credit earned: 69\nCumulative GPA: 242\nBE mene Ey 1 07 4 7\nChecked by\n2% XXXXXXXXX XXXXXXXXXXXXX)\nDate Issued: September 21,2026 This document is unofficial transcript.\n",
+        "lines": [
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      },
+      {
+        "args": [
+          "tesseract",
+          "table.png",
+          "stdout",
+          "-l",
+          "eng_photo",
+          "--tessdata-dir",
+          "C:\\isd-2026-loso\\model\\data\\photo_ocr",
+          "--psm",
+          "4"
+        ],
+        "text": "frogrambaia SCICNCE and Business Analytics\n\nCS\n1st Semester, Year, 2024-2025\nCALCULUS 1\nBUSINESS FUNDAMENTALS FOR INFORMATION\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\nCHARM SCHOOL\nFOUNDATION ENGLISH 1\nGPS :2.17 GPA : 2.17\n2nd Semester, Year, 2024-2025\nCALCULUS 2\nCOMPUTER PROGRAMMING\nINTRODUCTION TO MARKETING\nPROBABILITY AND STATISTICS\nDIGITAL CITIZEN\nLAW FOR NEW GENERATION\nFOUNDATION ENGLISH 2\nGPS:170 GPA : 188\n1st Semester, Year, 2025-2026\nDATABASE SYSTEM CONCEPTS\nFUNDAMENTAL WEB PROGRAMMING\nINFORMATION SYSTEM ANALYSIS AND DESIGN\nGPS :2.17 GPA : 195\n2nd Semester, Year, 2025-2026\nINTRODUCTION TO NETWORKS AND\nCYBERSECURITY\nNOSQL DATABASE SYSTEMS\nFUNDAMENTALS OF DATA SCIENCE\nDATA VISUALIZATION\nMANAGEMENT INFORMATION SYSTEMS\nDATA STRUCTURES AND ALGORITHMS\nGPS :3.08 GPA :235\n3rd Semester, Year, 2025-2026\nIN LOVE & IN LIFE\nTECHNOPRENEURS\nGPS :3.50 GPA :242\n1st Semester, Year, 2026-2027\nAPPLIED MACHINE LEARNING\nDATA WAREHOUSING\nINTELLIGENT SYSTEM DEVELOPMENT\nCLOUD TECHNOLOGY INFRASTRUCTURE\nSPECIAL TOPICS IN DATA SCIENCE AND\nBUSINESS ANALYTICS 1\nDISCRETE MATHEMATICS\nPROFESSIONAL COMMUNICATION AND\nPRESENTATION\nGPS : - GPA :242\n\nTotal number of credit earned: 69\nCumulative GPA: 242\nTranscript Closed -------==s=snsvensmsmsnanansnane\n\nChecked by\n\nXX XXXXXXXXX XXXXXXXXXXXXX)\n\nDate Issued: September 21,2026 This document is unofficial transcript.\n",
+        "lines": [
+          "1st Semester, Year, 2024-2025",
+          "2nd Semester, Year, 2024-2025",
+          "1st Semester, Year, 2025-2026",
+          "DATABASE SYSTEM CONCEPTS",
+          "2nd Semester, Year, 2025-2026",
+          "NOSQL DATABASE SYSTEMS",
+          "3rd Semester, Year, 2025-2026",
+          "1st Semester, Year, 2026-2027",
+          "Date Issued: September 21,2026 This document is unofficial transcript."
+        ]
+      }
+    ]
+  }
+]

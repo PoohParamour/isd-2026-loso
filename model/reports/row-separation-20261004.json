@@ -1,0 +1,340 @@
+{
+  "scope": "Cached English photo OCR parser regression; no fresh OCR or holdout benchmark",
+  "files": 48,
+  "changed": [
+    {
+      "file": "doc-0.52-autocontrast-6.txt",
+      "before_rows": 20,
+      "after_rows": 23
+    },
+    {
+      "file": "doc-0.52-original-6.txt",
+      "before_rows": 14,
+      "after_rows": 19
+    },
+    {
+      "file": "doc-0.52-sharpen-6.txt",
+      "before_rows": 16,
+      "after_rows": 20
+    },
+    {
+      "file": "doc-0.55-autocontrast-6.txt",
+      "before_rows": 20,
+      "after_rows": 23
+    },
+    {
+      "file": "doc-0.55-original-6.txt",
+      "before_rows": 16,
+      "after_rows": 22
+    },
+    {
+      "file": "doc-0.55-sharpen-6.txt",
+      "before_rows": 21,
+      "after_rows": 23
+    },
+    {
+      "file": "doc-0.58-autocontrast-6.txt",
+      "before_rows": 19,
+      "after_rows": 23
+    },
+    {
+      "file": "doc-0.58-original-4.txt",
+      "before_rows": 16,
+      "after_rows": 19
+    },
+    {
+      "file": "doc-0.58-original-6.txt",
+      "before_rows": 17,
+      "after_rows": 24
+    },
+    {
+      "file": "doc-0.58-sharpen-6.txt",
+      "before_rows": 21,
+      "after_rows": 22
+    },
+    {
+      "file": "doc-rows.txt",
+      "before_rows": 5,
+      "after_rows": 10
+    },
+    {
+      "file": "doc-title-autocontrast-4.txt",
+      "before_rows": 10,
+      "after_rows": 15
+    },
+    {
+      "file": "doc-title-autocontrast-6.txt",
+      "before_rows": 15,
+      "after_rows": 21
+    },
+    {
+      "file": "doc-title-original-4.txt",
+      "before_rows": 10,
+      "after_rows": 13
+    },
+    {
+      "file": "doc-title-original-6.txt",
+      "before_rows": 17,
+      "after_rows": 24
+    },
+    {
+      "file": "doc-tsvrows.txt",
+      "before_rows": 7,
+      "after_rows": 9
+    },
+    {
+      "file": "pooh-0.52-autocontrast-4.txt",
+      "before_rows": 29,
+      "after_rows": 29
+    },
+    {
+      "file": "pooh-0.52-original-4.txt",
+      "before_rows": 29,
+      "after_rows": 29
+    },
+    {
+      "file": "pooh-0.52-sharpen-4.txt",
+      "before_rows": 20,
+      "after_rows": 24
+    },
+    {
+      "file": "pooh-0.52-sharpen-6.txt",
+      "before_rows": 16,
+      "after_rows": 21
+    },
+    {
+      "file": "pooh-0.55-autocontrast-4.txt",
+      "before_rows": 29,
+      "after_rows": 29
+    },
+    {
+      "file": "pooh-0.55-original-4.txt",
+      "before_rows": 30,
+      "after_rows": 30
+    },
+    {
+      "file": "pooh-0.55-original-6.txt",
+      "before_rows": 29,
+      "after_rows": 29
+    },
+    {
+      "file": "pooh-0.55-sharpen-4.txt",
+      "before_rows": 22,
+      "after_rows": 24
+    },
+    {
+      "file": "pooh-0.55-sharpen-6.txt",
+      "before_rows": 19,
+      "after_rows": 23
+    },
+    {
+      "file": "pooh-0.58-autocontrast-4.txt",
+      "before_rows": 30,
+      "after_rows": 30
+    },
+    {
+      "file": "pooh-0.58-original-4.txt",
+      "before_rows": 30,
+      "after_rows": 30
+    },
+    {
+      "file": "pooh-0.58-sharpen-4.txt",
+      "before_rows": 21,
+      "after_rows": 24
+    },
+    {
+      "file": "pooh-0.58-sharpen-6.txt",
+      "before_rows": 12,
+      "after_rows": 16
+    },
+    {
+      "file": "pooh-title-autocontrast-6.txt",
+      "before_rows": 29,
+      "after_rows": 30
+    },
+    {
+      "file": "pooh-title-original-6.txt",
+      "before_rows": 29,
+      "after_rows": 30
+    }
+  ],
+  "heif": "stubbed for parser-only tests",
+  "original_image_profile_smoke": [
+    {
+      "id": "71010001",
+      "format": "bachelor_th",
+      "before": {
+        "correct": 71,
+        "total": 73,
+        "rows": {
+          "tp": 12,
+          "fn": 0,
+          "fp": 0
+        }
+      },
+      "after": {
+        "correct": 71,
+        "total": 73,
+        "rows": {
+          "tp": 12,
+          "fn": 0,
+          "fp": 0
+        }
+      }
+    },
+    {
+      "id": "72100002",
+      "format": "bachelor_en",
+      "before": {
+        "correct": 56,
+        "total": 57,
+        "rows": {
+          "tp": 9,
+          "fn": 0,
+          "fp": 0
+        }
+      },
+      "after": {
+        "correct": 56,
+        "total": 57,
+        "rows": {
+          "tp": 9,
+          "fn": 0,
+          "fp": 0
+        }
+      }
+    },
+    {
+      "id": "73036003",
+      "format": "graduate_th",
+      "before": {
+        "correct": 105,
+        "total": 106,
+        "rows": {
+          "tp": 12,
+          "fn": 0,
+          "fp": 0
+        }
+      },
+      "after": {
+        "correct": 105,
+        "total": 106,
+        "rows": {
+          "tp": 12,
+          "fn": 0,
+          "fp": 0
+        }
+      }
+    },
+    {
+      "id": "74116006",
+      "format": "graduate_en",
+      "before": {
+        "correct": 64,
+        "total": 79,
+        "rows": {
+          "tp": 7,
+          "fn": 1,
+          "fp": 1
+        }
+      },
+      "after": {
+        "correct": 64,
+        "total": 79,
+        "rows": {
+          "tp": 7,
+          "fn": 1,
+          "fp": 1
+        }
+      }
+    }
+  ],
+  "smoke_scope": "Fresh Tesseract profile OCR on 4 dev PNGs; old/new parsers use identical OCR; HEIF registration stubbed; geometry, API, deployment not tested",
+  "continuation_followup": {
+    "tests_passed": 49,
+    "reproduced_input": [
+      "90642999 CHARM SCHOOL 3 s",
+      "7 90644007 FOUNDATION ENGLISH 1 3 s"
+    ],
+    "output": [
+      {
+        "year": null,
+        "sem_num": 0,
+        "GPA": null,
+        "GPS": null,
+        "pass_reason": null,
+        "subject": [
+          {
+            "subject_id": "90642999",
+            "subject_name": "CHARM SCHOOL",
+            "type": null,
+            "credit": 3,
+            "grade_earn": "s"
+          },
+          {
+            "subject_id": "90644007",
+            "subject_name": "FOUNDATION ENGLISH 1",
+            "type": null,
+            "credit": 3,
+            "grade_earn": "s"
+          }
+        ]
+      }
+    ],
+    "original_image_profile_smoke": [
+      {
+        "id": "71010001",
+        "result": {
+          "correct": 71,
+          "total": 73,
+          "rows": {
+            "tp": 12,
+            "fn": 0,
+            "fp": 0
+          }
+        },
+        "unchanged": true
+      },
+      {
+        "id": "72100002",
+        "result": {
+          "correct": 56,
+          "total": 57,
+          "rows": {
+            "tp": 9,
+            "fn": 0,
+            "fp": 0
+          }
+        },
+        "unchanged": true
+      },
+      {
+        "id": "73036003",
+        "result": {
+          "correct": 105,
+          "total": 106,
+          "rows": {
+            "tp": 12,
+            "fn": 0,
+            "fp": 0
+          }
+        },
+        "unchanged": true
+      },
+      {
+        "id": "74116006",
+        "result": {
+          "correct": 64,
+          "total": 79,
+          "rows": {
+            "tp": 7,
+            "fn": 1,
+            "fp": 1
+          }
+        },
+        "unchanged": true
+      }
+    ],
+    "limitations": "HEIF registration stubbed; no original uploaded photo, API or deployment verification"
+  }
+}
