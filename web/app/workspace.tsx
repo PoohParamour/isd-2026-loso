@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 
-type Course = { subject_id?: string; subject_name?: string; credit?: number; grade_earn?: string };
-type Semester = { year?: number; sem_num?: number; GPA?: string; subject?: Course[] };
+type Course = { subject_id?: string | null; subject_name?: string | null; credit?: number | null; grade_earn?: string | null };
+type Semester = { year?: number | null; sem_num?: number | null; GPA?: string | null; subject?: Course[] };
+type Header = { student_id?: string | null; prename?: string | null; name?: string | null; faculty_name?: string | null; program?: string | null };
 type RecordData = {
   format_id?: string;
-  header_detail?: { student_id?: string; prename?: string; name?: string; program?: string };
-  transcript_detail?: { semesters?: Semester[]; total_credits_earned?: number; cumulative_gpa?: string };
+  header_detail?: Header;
+  transcript_detail?: { semesters?: Semester[]; total_credits_earned?: number | null; cumulative_gpa?: string | null };
 };
 type ValidationIssue = { path: string; code: string; message: string; severity: "error" | "warning" };
 type Validation = { needs_review: boolean; errors: number; warnings: number; course_count: number; issues: ValidationIssue[] };
@@ -79,6 +80,20 @@ function describePath(path: string, semesters: Semester[]) {
   if (match[2] === undefined) return term;
   const course = semester?.subject?.[Number(match[2])];
   return term + " · " + (course?.subject_id || "แถวที่ " + (Number(match[2]) + 1));
+}
+
+function EditInput({ label, value, onChange, flagged, disabled, className = "", ...rest }: {
+  label: string; value: string | number | null | undefined; onChange: (value: string) => void;
+  flagged?: boolean; disabled?: boolean; className?: string;
+  placeholder?: string; inputMode?: "numeric" | "decimal" | "text"; maxLength?: number;
+}) {
+  return (
+    <input
+      aria-label={label} value={value ?? ""} disabled={disabled} onChange={e => onChange(e.target.value)} autoComplete="off"
+      className={`w-full h-[36px] px-2 border rounded-[10px] text-[13px] bg-white focus:outline-none focus:border-[#F47721] disabled:bg-slate-50 ${flagged ? "border-amber-400 bg-amber-50" : "border-[#E7E4DE]"} ${className}`}
+      {...rest}
+    />
+  );
 }
 
 type Suggestion = { value: string; label: string };
@@ -181,6 +196,7 @@ export default function Workspace() {
   const [searched, setSearched] = useState(false);
   const [students, setStudents] = useState<Student[] | null>(null);
   const [studentsError, setStudentsError] = useState("");
+  const [live, setLive] = useState<{ text: string; validation: Validation } | null>(null);
   const [loadedDoc, setLoadedDoc] = useState<SavedDocument | null>(null);
 
   const [showJsonEditor, setShowJsonEditor] = useState(false);
@@ -216,8 +232,12 @@ export default function Workspace() {
   }
   const semesters = record?.transcript_detail?.semesters || [];
   const courses = semesters.reduce((count, semester) => count + (semester.subject?.length || 0), 0);
-  const issues = current?.validation?.issues || [];
   const edited = !!current && !current.error && !jsonError && editor !== JSON.stringify(current.record, null, 2);
+  // After an edit, show the backend's fresh validation once it arrives (the OCR-time result is shown meanwhile).
+  const rechecking = edited && live?.text !== editor;
+  const validation = edited && live?.text === editor ? live.validation : current?.validation;
+  const issues = validation?.issues || [];
+  const flagged = (path: string) => issues.some(issue => issue.path === path);
 
   function courseIssues(semIndex: number, rowIndex: number) {
     const prefix = "transcript_detail.semesters[" + semIndex + "].subject[" + rowIndex + "]";
@@ -226,6 +246,18 @@ export default function Workspace() {
   const flaggedCourses = semesters.reduce((count, semester, s) =>
     count + (semester.subject || []).filter((_, r) => courseIssues(s, r).length > 0).length, 0);
   const passRate = courses ? Math.round(((courses - flaggedCourses) / courses) * 100) : 0;
+
+  useEffect(() => {
+    if (!edited) return;
+    const text = editor;
+    let stale = false;
+    const timer = setTimeout(() => {
+      api("validate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ record: JSON.parse(text) }) })
+        .then(result => { if (!stale) setLive({ text, validation: result as Validation }); })
+        .catch(() => {});
+    }, 500);
+    return () => { stale = true; clearTimeout(timer); };
+  }, [edited, editor]);
 
   const [studentsReload, setStudentsReload] = useState(0);
 
@@ -322,6 +354,70 @@ export default function Workspace() {
     setEditor(value);
     // Edits after saving mean the stored copy is outdated.
     setSaved(previous => { const next = { ...previous }; delete next[selected]; return next; });
+  }
+
+  function updateRecord(mutate: (draft: RecordData) => void) {
+    const draft = JSON.parse(editor) as RecordData;
+    mutate(draft);
+    updateEditor(JSON.stringify(draft, null, 2));
+  }
+
+  function setHeader(key: keyof Header, value: string) {
+    updateRecord(draft => {
+      draft.header_detail = draft.header_detail || {};
+      draft.header_detail[key] = key === "student_id" ? value.replace(/\D/g, "").slice(0, 8) : value || null;
+    });
+  }
+
+  function setCumulativeGpa(value: string) {
+    updateRecord(draft => {
+      draft.transcript_detail = draft.transcript_detail || {};
+      draft.transcript_detail.cumulative_gpa = value.replace(/[^\d.]/g, "") || null;
+    });
+  }
+
+  function setSemester(s: number, key: "year" | "sem_num" | "GPA", value: string) {
+    updateRecord(draft => {
+      const semester = draft.transcript_detail?.semesters?.[s];
+      if (!semester) return;
+      if (key === "GPA") semester.GPA = value.replace(/[^\d.]/g, "") || null;
+      else semester[key] = value.replace(/\D/g, "") ? Number(value.replace(/\D/g, "")) : null;
+    });
+  }
+
+  function setCourse(s: number, r: number, key: keyof Course, value: string) {
+    updateRecord(draft => {
+      const course = draft.transcript_detail?.semesters?.[s]?.subject?.[r];
+      if (!course) return;
+      if (key === "credit") course.credit = value.replace(/\D/g, "") ? Number(value.replace(/\D/g, "")) : null;
+      else if (key === "subject_id") course.subject_id = value.replace(/\D/g, "").slice(0, 8) || null;
+      else if (key === "grade_earn") course.grade_earn = value.trim().toLowerCase() || null;
+      else course[key] = value || null;
+    });
+  }
+
+  function addCourse(s: number) {
+    updateRecord(draft => {
+      const semester = draft.transcript_detail?.semesters?.[s];
+      if (semester) semester.subject = [...(semester.subject || []), { subject_id: null, subject_name: null, credit: 3, grade_earn: null }];
+    });
+  }
+
+  function removeCourse(s: number, r: number) {
+    updateRecord(draft => { draft.transcript_detail?.semesters?.[s]?.subject?.splice(r, 1); });
+  }
+
+  function addSemester() {
+    updateRecord(draft => {
+      draft.transcript_detail = draft.transcript_detail || {};
+      const list = draft.transcript_detail.semesters = draft.transcript_detail.semesters || [];
+      const last = list[list.length - 1];
+      list.push({ year: last?.year ?? null, sem_num: last?.sem_num != null ? Math.min(3, last.sem_num + 1) : 1, GPA: null, subject: [] });
+    });
+  }
+
+  function removeSemester(s: number) {
+    updateRecord(draft => { draft.transcript_detail?.semesters?.splice(s, 1); });
   }
 
   function formatJson() {
@@ -542,26 +638,34 @@ export default function Workspace() {
                 <div className="bg-white border border-[#E7E4DE] rounded-[22px] p-6 mb-6 shadow-sm">
                   <div className="flex justify-between items-start gap-3 mb-6">
                     <div className="text-[15px] font-semibold">ข้อมูลนักศึกษา</div>
-                    {current.validation && (
+                    {validation && (
                       <div className="border border-[#E7E4DE] h-[30px] px-3 rounded-[15px] flex items-center gap-2 flex-shrink-0">
-                        <div className={`w-1.5 h-1.5 rounded-full ${current.validation.needs_review ? "bg-[#F47721]" : "bg-[#3E8D67]"}`}></div>
-                        <div className="text-[11px]">{current.validation.needs_review ? "ควรตรวจสอบ" : "ผ่านการตรวจอัตโนมัติ"}</div>
+                        <div className={`w-1.5 h-1.5 rounded-full ${rechecking ? "bg-slate-400" : validation.needs_review ? "bg-[#F47721]" : "bg-[#3E8D67]"}`}></div>
+                        <div className="text-[11px]">{rechecking ? "กำลังตรวจใหม่..." : validation.needs_review ? "ควรตรวจสอบ" : "ผ่านการตรวจอัตโนมัติ"}</div>
                       </div>
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-5">
-                    {[
-                      ["รหัสนักศึกษา", record?.header_detail?.student_id],
-                      ["ชื่อ - นามสกุล", [record?.header_detail?.prename, record?.header_detail?.name].filter(Boolean).join(" ")],
-                      ["หลักสูตร", record?.header_detail?.program],
-                      ["เกรดเฉลี่ยสะสม", record?.transcript_detail?.cumulative_gpa],
-                    ].map(([label, value]) => (
-                      <div key={label} className="min-w-0">
-                        <div className="text-[11px] text-[#716F6A] mb-1">{label}</div>
-                        <div className="text-[16px] font-semibold [overflow-wrap:anywhere]">{value || "—"}</div>
-                      </div>
+                  <div className="text-[12px] text-[#716F6A] mb-4">คลิกที่ช่องเพื่อแก้ไขได้ทันที ช่องสีเหลืองคือจุดที่ระบบสงสัยว่าอ่านผิดหรือไม่ครบ</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-4">
+                    {([
+                      ["รหัสนักศึกษา (8 หลัก)", "student_id", "เช่น 67070127", "numeric"],
+                      ["คำนำหน้า", "prename", "เช่น นาย / Mr.", "text"],
+                      ["ชื่อ - นามสกุล", "name", "ชื่อและนามสกุล", "text"],
+                      ["คณะ", "faculty_name", "ไม่พบคณะ", "text"],
+                      ["หลักสูตร", "program", "ไม่พบหลักสูตร", "text"],
+                    ] as const).map(([label, key, placeholder, mode]) => (
+                      <label key={key} className="block min-w-0 text-[11px] text-[#716F6A]">
+                        {label}
+                        <EditInput label={label} value={record?.header_detail?.[key]} placeholder={placeholder} inputMode={mode} disabled={!!jsonError}
+                          flagged={flagged("header_detail." + key)} onChange={value => setHeader(key, value)} className="mt-1 h-[40px]! text-[14px] font-semibold" />
+                      </label>
                     ))}
+                    <label className="block min-w-0 text-[11px] text-[#716F6A]">
+                      เกรดเฉลี่ยสะสม
+                      <EditInput label="เกรดเฉลี่ยสะสม" value={record?.transcript_detail?.cumulative_gpa} placeholder="เช่น 3.59" inputMode="decimal" disabled={!!jsonError}
+                        flagged={flagged("transcript_detail.cumulative_gpa")} onChange={setCumulativeGpa} className="mt-1 h-[40px]! text-[14px] font-semibold" />
+                    </label>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-[#E7E4DE] text-[12px] text-[#716F6A]">
@@ -575,48 +679,70 @@ export default function Workspace() {
                     <div className="text-[12px] text-[#716F6A]">{courses} รายวิชา</div>
                   </div>
                   {jsonError ? (
-                    <div className="p-6 text-[13px] text-red-600">{jsonError} · แก้ไขใน JSON editor เพื่อแสดงตาราง</div>
-                  ) : courses === 0 ? (
-                    <div className="p-6 text-[13px] text-[#716F6A]">ไม่พบรายวิชาในเอกสารนี้ ลองเลือกรูปแบบเอกสารเอง หรือเปิด “บังคับอ่านด้วย OCR” แล้วอ่านใหม่</div>
+                    <div className="p-6 text-[13px] text-red-600">{jsonError} · แก้ไขใน JSON editor ให้ถูกต้องก่อน จึงจะแก้ในตารางได้</div>
                   ) : (
                     <div className="overflow-x-auto">
-                      <table className="w-full min-w-[640px] text-left">
-                        <thead className="text-[11px] text-[#716F6A]">
-                          <tr>
-                            <th className="px-6 py-4 font-normal">รหัสวิชา</th>
-                            <th className="px-6 py-4 font-normal">ชื่อรายวิชา</th>
-                            <th className="px-6 py-4 font-normal">หน่วยกิต</th>
-                            <th className="px-6 py-4 font-normal">เกรด</th>
-                            <th className="px-6 py-4 font-normal">สถานะ</th>
-                          </tr>
-                        </thead>
-                        {semesters.map((semester, s) => (
-                          <tbody key={s} className="text-[13px]">
-                            <tr className="bg-[#F8F7F5] border-t border-[#E7E4DE]">
-                              <td colSpan={5} className="px-6 py-2 text-[12px] font-semibold">
-                                ภาค {semester.sem_num ?? "—"} / ปีการศึกษา {semester.year ?? "—"}
-                                <span className="font-normal text-[#716F6A]"> · GPA {semester.GPA || "—"} · {semester.subject?.length || 0} วิชา</span>
-                              </td>
+                      {semesters.length === 0 && (
+                        <div className="p-6 text-[13px] text-[#716F6A]">ไม่พบภาคการศึกษาในเอกสารนี้ เพิ่มเองได้ด้านล่าง หรือลองเลือกรูปแบบเอกสาร / เปิด “บังคับอ่านด้วย OCR” แล้วอ่านใหม่</div>
+                      )}
+                      <table className="w-full min-w-[780px] text-left">
+                        {semesters.length > 0 && (
+                          <thead className="text-[11px] text-[#716F6A]">
+                            <tr>
+                              <th className="px-6 py-4 font-normal w-[150px]">รหัสวิชา</th>
+                              <th className="px-3 py-4 font-normal">ชื่อรายวิชา</th>
+                              <th className="px-3 py-4 font-normal w-[90px]">หน่วยกิต</th>
+                              <th className="px-3 py-4 font-normal w-[80px]">เกรด</th>
+                              <th className="px-3 py-4 font-normal w-[90px]">สถานะ</th>
+                              <th className="px-3 py-4 font-normal w-[44px]"><span className="sr-only">ลบ</span></th>
                             </tr>
-                            {(semester.subject || []).map((course, r) => {
-                              const rowIssues = courseIssues(s, r);
-                              return (
-                                <tr key={r} className="border-t border-[#E7E4DE]">
-                                  <td className="px-6 py-4 font-mono">{course.subject_id || "—"}</td>
-                                  <td className="px-6 py-4">{course.subject_name || "—"}</td>
-                                  <td className="px-6 py-4">{course.credit ?? "—"}</td>
-                                  <td className="px-6 py-4 font-semibold">{course.grade_earn?.toUpperCase() || "—"}</td>
-                                  <td className="px-6 py-3">
-                                    <span title={rowIssues.map(issue => issue.message).join("\n") || undefined} className={`inline-flex items-center h-[26px] px-3 border rounded-[13px] text-[10px] ${rowIssues.length ? "border-amber-200 bg-amber-50 text-[#A96519]" : "border-[#E7E4DE] text-[#3E8D67]"}`}>
-                                      {rowIssues.length ? "ตรวจสอบ" : "ผ่าน"}
-                                    </span>
-                                  </td>
-                                </tr>
-                              );
-                            })}
-                          </tbody>
-                        ))}
+                          </thead>
+                        )}
+                        {semesters.map((semester, s) => {
+                          const sp = "transcript_detail.semesters[" + s + "]";
+                          return (
+                            <tbody key={s} className="text-[13px]">
+                              <tr className="bg-[#F8F7F5] border-t border-[#E7E4DE]">
+                                <td colSpan={6} className="px-6 py-2">
+                                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[12px] font-semibold">
+                                    <span>ภาค</span>
+                                    <EditInput label="ภาคการศึกษา" value={semester.sem_num} inputMode="numeric" maxLength={1} flagged={flagged(sp + ".sem_num")} onChange={v => setSemester(s, "sem_num", v)} className="w-[52px]! text-center" />
+                                    <span>ปีการศึกษา</span>
+                                    <EditInput label="ปีการศึกษา" value={semester.year} inputMode="numeric" maxLength={4} placeholder="2567" flagged={flagged(sp + ".year")} onChange={v => setSemester(s, "year", v)} className="w-[78px]! text-center" />
+                                    <span>GPA</span>
+                                    <EditInput label="GPA ของภาค" value={semester.GPA} inputMode="decimal" maxLength={4} flagged={flagged(sp + ".GPA")} onChange={v => setSemester(s, "GPA", v)} className="w-[64px]! text-center" />
+                                    <button onClick={() => removeSemester(s)} className="ml-auto text-[11px] font-normal text-[#716F6A] hover:text-red-600">ลบภาคนี้</button>
+                                  </div>
+                                </td>
+                              </tr>
+                              {(semester.subject || []).map((course, r) => {
+                                const rowIssues = courseIssues(s, r);
+                                const cp = sp + ".subject[" + r + "]";
+                                return (
+                                  <tr key={r} className="border-t border-[#E7E4DE]">
+                                    <td className="pl-6 pr-2 py-2"><EditInput label="รหัสวิชา" value={course.subject_id} inputMode="numeric" maxLength={8} placeholder="8 หลัก" flagged={flagged(cp + ".subject_id")} onChange={v => setCourse(s, r, "subject_id", v)} className="font-mono" /></td>
+                                    <td className="px-1 py-2"><EditInput label="ชื่อรายวิชา" value={course.subject_name} placeholder="ชื่อรายวิชา" flagged={flagged(cp + ".subject_name")} onChange={v => setCourse(s, r, "subject_name", v)} /></td>
+                                    <td className="px-1 py-2"><EditInput label="หน่วยกิต" value={course.credit} inputMode="numeric" maxLength={2} flagged={flagged(cp + ".credit")} onChange={v => setCourse(s, r, "credit", v)} className="text-center" /></td>
+                                    <td className="px-1 py-2"><EditInput label="เกรด" value={course.grade_earn} maxLength={2} placeholder="—" flagged={flagged(cp + ".grade_earn")} onChange={v => setCourse(s, r, "grade_earn", v)} className="text-center font-semibold uppercase" /></td>
+                                    <td className="px-3 py-2">
+                                      <span title={rowIssues.map(issue => issue.message).join("\n") || undefined} className={`inline-flex items-center h-[26px] px-3 border rounded-[13px] text-[10px] ${rowIssues.length ? "border-amber-200 bg-amber-50 text-[#A96519]" : "border-[#E7E4DE] text-[#3E8D67]"}`}>
+                                        {rowIssues.length ? "ตรวจสอบ" : "ผ่าน"}
+                                      </span>
+                                    </td>
+                                    <td className="px-2 py-2"><button onClick={() => removeCourse(s, r)} aria-label="ลบรายวิชานี้" title="ลบรายวิชานี้" className="w-8 h-8 rounded-lg text-[#716F6A] hover:bg-red-50 hover:text-red-600">✕</button></td>
+                                  </tr>
+                                );
+                              })}
+                              <tr className="border-t border-[#E7E4DE]">
+                                <td colSpan={6} className="px-6 py-2"><button onClick={() => addCourse(s)} className="text-[12px] font-semibold text-[#F47721] hover:underline">+ เพิ่มรายวิชา</button></td>
+                              </tr>
+                            </tbody>
+                          );
+                        })}
                       </table>
+                      <div className="px-6 py-4 border-t border-[#E7E4DE]">
+                        <button onClick={addSemester} className="text-[12px] font-semibold text-[#F47721] hover:underline">+ เพิ่มภาคการศึกษา</button>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -637,7 +763,7 @@ export default function Workspace() {
                         </li>
                       ))}
                     </ul>
-                    <button className="text-[12px] text-[#F47721] font-semibold hover:underline" onClick={() => setShowJsonEditor(true)}>แก้ไขใน JSON editor →</button>
+                    <button className="text-[12px] text-[#F47721] font-semibold hover:underline" onClick={() => setShowJsonEditor(true)}>แก้ไขแบบ JSON (ขั้นสูง) →</button>
                   </div>
                 )}
 
@@ -651,23 +777,23 @@ export default function Workspace() {
                   </div>
                   <dl className="text-[12px] text-[#716F6A] grid grid-cols-2 gap-y-1">
                     <dt>ผ่าน / ทั้งหมด</dt><dd className="text-right text-[#292825]">{courses - flaggedCourses} / {courses}</dd>
-                    <dt>ข้อผิดพลาด</dt><dd className="text-right text-[#292825]">{current.validation?.errors ?? 0}</dd>
-                    <dt>คำเตือน</dt><dd className="text-right text-[#292825]">{current.validation?.warnings ?? 0}</dd>
+                    <dt>ข้อผิดพลาด</dt><dd className="text-right text-[#292825]">{validation?.errors ?? 0}</dd>
+                    <dt>คำเตือน</dt><dd className="text-right text-[#292825]">{validation?.warnings ?? 0}</dd>
                     <dt>วิธีอ่าน</dt><dd className="text-right text-[#292825]">{current.engine || "—"}</dd>
                     <dt>ชนิดไฟล์</dt><dd className="text-right text-[#292825]">{fileExtension(current.filename).slice(1).toUpperCase() || "—"}</dd>
                     <dt>เวลาประมวลผล</dt><dd className="text-right text-[#292825]">{current.processing_seconds.toFixed(2)} วินาที</dd>
                   </dl>
-                  {edited && <div className="mt-4 text-[11px] text-[#A96519]">ผลตรวจนี้อ้างอิงข้อมูลตอนอ่าน OCR ยังไม่รวมการแก้ไขใน JSON editor</div>}
+                  {rechecking && <div className="mt-4 text-[11px] text-[#716F6A]">กำลังตรวจข้อมูลที่แก้ไขใหม่...</div>}
                 </div>
 
                 <div className="bg-white border border-[#E7E4DE] rounded-[18px] p-6 shadow-sm">
                   <div className="flex justify-between items-center mb-3">
-                    <div className="text-[16px] font-semibold">{"{ }"} JSON editor</div>
+                    <div className="text-[16px] font-semibold">{"{ }"} JSON (ขั้นสูง)</div>
                     {edited && <span className="text-[10px] px-2 py-1 rounded-full bg-amber-50 text-[#A96519] border border-amber-200">แก้ไขแล้ว</span>}
                   </div>
-                  <div className="text-[12px] text-[#716F6A] mb-4 leading-relaxed">แก้ไขข้อมูลดิบได้ทุกฟิลด์ ตารางด้านซ้ายจะเปลี่ยนตามทันที</div>
+                  <div className="text-[12px] text-[#716F6A] mb-4 leading-relaxed">โดยปกติแก้ในช่องและตารางด้านซ้ายได้เลย ส่วนนี้สำหรับผู้ที่คุ้นเคยกับ JSON เพื่อดูหรือแก้ข้อมูลดิบทุกฟิลด์</div>
                   <button onClick={() => setShowJsonEditor(!showJsonEditor)} className="text-[12px] font-semibold text-[#F47721] hover:underline">
-                    {showJsonEditor ? "ซ่อน JSON editor" : "เปิด JSON editor →"}
+                    {showJsonEditor ? "ซ่อนข้อมูล JSON" : "ดู / แก้ไขข้อมูล JSON →"}
                   </button>
                   {showJsonEditor && (
                     <div className="mt-4">
@@ -708,10 +834,11 @@ export default function Workspace() {
               <div className="max-w-[960px]">
                 <Link href="/search" className="inline-block text-[13px] font-semibold text-[#F47721] hover:underline mb-4">← กลับไปรายชื่อนักศึกษา</Link>
                 <div className="bg-white border border-[#E7E4DE] rounded-[22px] p-6 mb-6 shadow-sm">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-5">
                     {[
                       ["รหัสนักศึกษา", header?.student_id],
                       ["ชื่อ - นามสกุล", [header?.prename, header?.name].filter(Boolean).join(" ")],
+                      ["คณะ", header?.faculty_name],
                       ["หลักสูตร", header?.program],
                       ["เกรดเฉลี่ยสะสม", detail.record.transcript_detail?.cumulative_gpa],
                     ].map(([label, value]) => (
@@ -822,11 +949,12 @@ export default function Workspace() {
                 ) : (
                   <div className="bg-white border border-[#E7E4DE] rounded-[22px] shadow-sm overflow-hidden">
                     <div className="overflow-x-auto">
-                      <table className="w-full min-w-[760px] text-left text-[13px]">
+                      <table className="w-full min-w-[900px] text-left text-[13px]">
                         <thead className="bg-[#F8F7F5] text-[11px] text-[#716F6A] border-b border-[#E7E4DE]">
                           <tr>
                             <th className="px-6 py-4 font-normal">รหัสนักศึกษา</th>
                             <th className="px-6 py-4 font-normal">ชื่อ - นามสกุล</th>
+                            <th className="px-6 py-4 font-normal">คณะ</th>
                             <th className="px-6 py-4 font-normal">หลักสูตร</th>
                             <th className="px-6 py-4 font-normal">รายวิชา</th>
                             <th className="px-6 py-4 font-normal">GPA สะสม</th>
@@ -841,6 +969,7 @@ export default function Workspace() {
                               className="border-b border-[#E7E4DE] last:border-0 cursor-pointer hover:bg-orange-50 focus:bg-orange-50 focus:outline-none">
                               <td className="px-6 py-4 font-mono font-semibold"><Link href={"/search/" + item.student_id} onClick={e => e.stopPropagation()} className="hover:text-[#F47721] hover:underline">{item.student_id}</Link></td>
                               <td className="px-6 py-4">{[item.prename, item.name].filter(Boolean).join(" ") || "—"}</td>
+                              <td className="px-6 py-4 max-w-[200px] truncate" title={item.faculty_name}>{item.faculty_name || "—"}</td>
                               <td className="px-6 py-4 max-w-[240px] truncate" title={item.program}>{item.program || "—"}</td>
                               <td className="px-6 py-4">{item.course_count}</td>
                               <td className="px-6 py-4 font-semibold">{item.cumulative_gpa || "—"}</td>
