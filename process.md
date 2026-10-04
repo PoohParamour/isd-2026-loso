@@ -2,7 +2,26 @@
 
 อัปเดต: 2026-10-04
 
+## Server startup — 2026-10-04
+
+- ผู้ใช้ขอเปิดเซิร์ฟเวอร์: เปิด Docker Compose แบบ dev. Backend healthy; เว็บเดิมหยุดด้วย `next: not found` จึง build เฉพาะ web และ renew anonymous volumes ของ node_modules/.next แล้วเปิดใหม่ โดยคง data bind mount เดิม
+- ตรวจ `http://localhost:3000/upload` ได้ HTTP 200 และ `/api/proxy/health` ได้ status ok, Tesseract/Poppler พร้อมและมี 4 formats. เว็บพอร์ต 3000, API พอร์ต 8000; รอบนี้ยังไม่ได้อัปโหลดภาพหรือทดสอบความแม่นยำใหม่
+
+## Context review — 2026-10-04
+
+- ตามคำขอผู้ใช้ อ่าน `P1_OCR_Prompt.md` และทบทวนสถานะ/Decision Log/Checkpoint ในไฟล์นี้ก่อนเริ่มงานต่อ; สำรวจโครงสร้างข้อมูล โค้ดหลักใน `model/`, `backend/`, `web/`, entry point `Code.py`, Docker และบทบาทของ Lab 4–10
+- ตรวจสไลด์ PDF บท 1–10 ใน `all/` โดยถอดข้อความและสำรวจหัวข้อรายหน้า; ตรวจภาพสไลด์ GAN/RL ที่ถอดข้อความได้ไม่ครบเพิ่มเติม. ยืนยัน rubric P1 15/35/40/10 และโบนัสรวมสูงสุด +10 จาก Chapter 1; Chapter 8 จริงเป็น noise/denoise และ structured data/text-to-SQL ไม่ใช่หัวข้อ fine-tune ตามแผนเบื้องต้น. ไม่ได้ตรวจประกาศ LMS
+- อ่าน pipeline extraction, geometry/orientation/deskew, layout/cell OCR, catalog, validation, evaluator และไฟล์ benchmark/audit ที่เปิดใน IDE พร้อมหลักฐานรายงานล่าสุด. Original reused test 1281/1338 = 95.74%, row F1 100%; augmented dev 4373/6270 = 69.74%, เฉลี่ย 14.22 วินาที สูงสุด 44.33 วินาที. เป็นผลจากรายงานเดิม ไม่ได้รันใหม่ใน session นี้
+- ใช้ข้อยืนยันภายหลังใน Decision Log ประกอบ prompt: อาจารย์อนุญาต real dataset อย่างเดียว, แยก PDF text กับ raster OCR, แยก blind/reused test และ catalog held-out, คง source labels และไม่ใช้ test labels ใน inference
+- รอบนี้เป็นการทำความเข้าใจ: ไม่แก้โค้ด/ข้อมูล/ground truth, ไม่ train, ไม่ benchmark, ไม่ deploy และไม่ commit. มีไฟล์ถอดข้อความ/ภาพย่อสำหรับอ่านใน `tmp/context-read/`; ไม่ได้ตรวจภาพ dataset และไฟล์ผลกลางทางทุกชิ้นทีละใบ
+
 ## สถานะ
+
+### Metrics review — 2026-10-04
+
+- ผู้ใช้ต้องการตัวเลขความแม่นยำ/คุณภาพใน matrix: รวบรวมรายงานที่มีอยู่ แยก original PNG reused test, augmented PNG dev ตาม format × noise และ PDF dev ตามหมวดฟิลด์. ไม่รัน benchmark ใหม่และไม่แก้โมเดล
+- `model/runs/pdf-regression-eval/report.json` ระบุ PDF dev 35 ฉบับ 4397/4551 = 96.62%, row precision 100%, recall 97.24%, F1 98.60%; เป็นผล hybrid (26 PDF text/9 Tesseract ตาม benchmark) จึงไม่ใช้แทนคุณภาพ raster OCR
+- Original reused test 12 ฉบับ 95.74%/row F1 100%; augmented dev 60 ภาพ 69.74%/row F1 82.55%, noise 94.58% แต่ blur/contrast 57.18%, perspective 60.37%. ข้อสรุป: ภาพต้นฉบับผ่านเชิงตัวเลข แต่ robustness รวมยังไม่ถึง >91% และยังไม่มี independent document holdout ใหม่
 
 | งาน | สถานะ | หลักฐาน/หมายเหตุ |
 |---|---|---|
@@ -344,3 +363,15 @@ PNG original 150 DPI ที่สุ่มแบบสมดุลจาก dev 
 - ภาพ original test 12 ฉบับเทียบปิด/เปิดได้เท่ากัน 1,281/1,338 = 95.74% และ row F1 100% ทั้งคู่. ผลนี้ต่างจากรายงานเก่าที่ใช้โค้ดคนละช่วง; ไม่อ้างว่าความต่างนั้นเกิดจาก deskew. Unit tests ผ่าน 76 รายการ; `git diff --check` ผ่าน
 - ข้อแลกเปลี่ยน: augmented dev เวลาสูงสุดเพิ่มจาก 28.86 เป็น 44.33 วินาทีต่อภาพ แม้เฉลี่ยยังต่ำกว่า 30 วินาที. ชุด augmented นี้เป็น dev ที่ใช้ปรับเกณฑ์ ไม่ใช่ independent holdout ใหม่; ต้องทดสอบภาพหมุน/เบลอ/มืดจริงเพิ่มเติมก่อนอ้างความแม่นยำทั่วไป. ยังไม่ได้ deploy/restart เว็บหรือ API
 - หลักฐาน: `model/reports/augmented-dev-no-deskew-full-20261004.json`, `model/reports/augmented-dev-deskew-full-20261004.json`, `model/reports/image-original-test-no-deskew-20261004.json`, `model/reports/image-original-test-deskew-regression-20261004.json`
+
+## Checkpoint — 2026-10-04 แก้ภาพถ่ายจอ input_new_noise 4 มุม
+
+- อ่าน `P1_OCR_Prompt.md`, process และเส้นทางเว็บ/API/OCR; ภาพทั้ง 4 เป็นเอกสารเดียวกัน มี 32 วิชา ใช้ `ground_truth_new/peam.json` ตรวจคำตอบหลัง inference เท่านั้น ไม่ใช้ชื่อไฟล์หรือ GT ระหว่างอ่าน ไม่แก้ภาพ/GT และคงการลบ `doc.json` ของผู้ใช้ไว้
+- ก่อนแก้ได้ 2/600 ฟิลด์ = 0.33%, รายวิชาที่รหัสและภาคถูกต้อง 0/128. สาเหตุ: threshold ขอบกระดาษตัดส่วนที่มีเงา, ปฏิเสธหน้าที่เกือบตรง, มุมขอบภาพที่หลุดเฟรมถูกใช้แทนขอบกระดาษ, ขยาย moiré จน OCR อ่านเป็นตัวอักษรและเลือกภาษาไทย, เส้นตาราง/ช่องเครดิต-เกรดปนกับชื่อวิชา, หัวภาคเรียนที่เสียทำให้จัดภาคผิด และ fallback นำรหัสวิชาไปเป็นรหัสนักศึกษา
+- แก้ geometry ให้หาจุดตัดขอบจริงและคงเส้นทางเดิมสำหรับภาพหมุนมาก; เพิ่ม `model/screen_table.py` ลดลายจอ/ปรับแสงแบบ grayscale ก่อนขยาย, หาเส้นคอลัมน์, อ่านเครดิต/เกรดตาม y ของแต่ละแถว, อ่านหัวภาคและเลขนักศึกษาซ้ำ. ช่องอ่านไม่ได้เก็บ null โดยรักษาแถวและชื่อที่ขึ้นบรรทัดใหม่; ภาพถ่ายจอมีคำเตือนต้องตรวจทาน. เกณฑ์เลือกเฉพาะ unofficial English และเคารพ format override
+- หลังแก้ได้ 423/600 = **70.50%**; แยกภาพตาม prefix: `19b631b5` 105/150, `26e37977` 82/150, `6cca1647` 120/150, `f77ae849` 116/150. พบแถว 32,31,32,32 ตามลำดับ แต่แถวที่รหัส+ภาคถูกต้องคือ 25,16,29,22; precision 80.70%, recall 71.88%, F1 76.03%. Header 83.33%, semester 69.74%, course fields 71.72%; footer/summary ยัง 0%. ค่า GPA สะสม/ท้ายเอกสารยังเชื่อถือไม่ได้ ไม่อ้างว่าอ่านถูกทั้งหมด
+- เป็น development regression ของเอกสารเดียว 4 มุม ไม่ใช่ holdout อิสระ. เวลาเฉลี่ย 30.90 วินาที (ทดสอบพร้อม regression จึงได้รับผลจากโหลดเครื่อง); API จริงภาพแรกใช้ 27.032 วินาที ได้ 32 แถวและรหัสนักศึกษาถูกต้อง ผล record ตรงกับ CLI ทุกฟิลด์
+- Regression original 12 ฉบับไม่ลดคะแนนทุกฉบับ: 1,281→1,284/1,338 = 95.96%, 201 แถวถูกต้องครบ. ภาพหมุนเดิม `1.jpg` เทียบ baseline โค้ดปัจจุบันได้ 58/145 และ 27/30 แถวเท่ากัน; ไม่ใช้รายงานเดือนกันยายนคนละ code state เป็นฐานเทียบ. Unit tests 83 รายการผ่าน และ diff check ผ่าน
+- ทดลอง tessdata_best/RapidOCR แล้วไม่ได้ใช้ในเส้นทางสุดท้าย; ลบ weights และ packages ทดลองที่เพิ่มมาแล้ว ไม่มี dependency ใหม่หรือการ train weights ด้วย peam. รีสตาร์ท backend เดิมที่ mount โค้ดใหม่; ยกเลิก rebuild ที่จะเปลี่ยน base image/runtime โดยไม่จำเป็น. เว็บ `http://localhost:3000/upload`, proxy health `ok`, อัปโหลดผ่าน `/api/proxy/transcripts/extract` สำเร็จ
+- ระหว่าง cleanup ลบ tmp scripts ที่ tracked ติดไป 5 ไฟล์ จึงกู้คืนจาก HEAD ครบและตรวจ status แล้ว ไม่มีการเปลี่ยนไฟล์เหล่านั้นหลงเหลือ
+- หลักฐาน: `model/reports/peam-angles-matrix-20261004.md`, `peam-angles-before-20261004.json`, `peam-angles-after-20261004.json`, `peam-angle-api-20261004.json`, `image-original-test-screen-regression-20261004.json`, `old-photo-baseline-20261004.json`, `old-photo-screen-regression-20261004.json`. ไม่มี commit

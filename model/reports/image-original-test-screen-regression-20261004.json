@@ -1,0 +1,150 @@
+{
+  "details": [
+    {
+      "id": "71020005",
+      "before": 49,
+      "correct": 49,
+      "total": 53,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 11.601
+    },
+    {
+      "id": "71030005",
+      "before": 46,
+      "correct": 46,
+      "total": 49,
+      "rows": {
+        "tp": 7,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 11.345
+    },
+    {
+      "id": "71030009",
+      "before": 263,
+      "correct": 263,
+      "total": 282,
+      "rows": {
+        "tp": 54,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 27.772
+    },
+    {
+      "id": "72120002",
+      "before": 72,
+      "correct": 72,
+      "total": 73,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 6.509
+    },
+    {
+      "id": "72120006",
+      "before": 43,
+      "correct": 43,
+      "total": 45,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.371
+    },
+    {
+      "id": "72120014",
+      "before": 225,
+      "correct": 225,
+      "total": 229,
+      "rows": {
+        "tp": 44,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 11.194
+    },
+    {
+      "id": "73036007",
+      "before": 106,
+      "correct": 106,
+      "total": 109,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 18.896
+    },
+    {
+      "id": "73056008",
+      "before": 70,
+      "correct": 71,
+      "total": 78,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 26.824
+    },
+    {
+      "id": "73066010",
+      "before": 110,
+      "correct": 112,
+      "total": 113,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 13.566
+    },
+    {
+      "id": "74106005",
+      "before": 98,
+      "correct": 98,
+      "total": 103,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.78
+    },
+    {
+      "id": "74106009",
+      "before": 91,
+      "correct": 91,
+      "total": 92,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.29
+    },
+    {
+      "id": "74156004",
+      "before": 108,
+      "correct": 108,
+      "total": 112,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 6.207
+    }
+  ],
+  "correct": 1284,
+  "total": 1338
+}

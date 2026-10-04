@@ -1,0 +1,618 @@
+{
+  "evaluation": "views of one document; development regression, not an independent holdout",
+  "images": 1,
+  "correct": 58,
+  "total": 145,
+  "accuracy": 0.4,
+  "matrix": {
+    "header": {
+      "correct": 4,
+      "total": 6,
+      "accuracy": 0.6666666666666666
+    },
+    "footer": {
+      "correct": 0,
+      "total": 1,
+      "accuracy": 0.0
+    },
+    "summary": {
+      "correct": 0,
+      "total": 2,
+      "accuracy": 0.0
+    },
+    "semester": {
+      "correct": 17,
+      "total": 23,
+      "accuracy": 0.7391304347826086
+    },
+    "course": {
+      "correct": 37,
+      "total": 113,
+      "accuracy": 0.3274336283185841
+    }
+  },
+  "rows": {
+    "tp": 27,
+    "fn": 3,
+    "fp": 1
+  },
+  "row_precision": 0.9642857142857143,
+  "row_recall": 0.9,
+  "row_f1": 0.9310344827586207,
+  "mean_seconds": 17.526,
+  "details": [
+    {
+      "image": "1.jpg",
+      "correct": 58,
+      "total": 145,
+      "accuracy": 0.4,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 4,
+            "total": 6,
+            "edits": 3,
+            "chars": 88,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 0,
+            "total": 2,
+            "edits": 6,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 17,
+            "total": 23,
+            "edits": 24,
+            "chars": 74,
+            "hallucinated": 0
+          },
+          "course": {
+            "correct": 37,
+            "total": 113,
+            "edits": 471,
+            "chars": 999,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 27,
+          "fn": 3,
+          "fp": 1
+        }
+      },
+      "result": {
+        "engine": "tesseract",
+        "processing_seconds": 17.526,
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": "Mr",
+            "name": "Pattarapol Petcharat",
+            "student_id": "67070127",
+            "date_of_birth": "2005-01-09",
+            "admis_date": null,
+            "degree": "bachelorofscience",
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Science and Business Analytics : »",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": null,
+            "cumulative_gpa": null,
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": "2.17",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026200",
+                    "subject_name": "CALCULUS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066101",
+                    "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066303",
+                    "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING Alls",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642999",
+                    "subject_name": "CHARM SCHOOL SH A BE A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644007",
+                    "subject_name": "FOUNDATION ENGLISH 1 ALR HAY A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": "1.88",
+                "GPS": "1.70",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026203",
+                    "subject_name": "COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d+"
+                  },
+                  {
+                    "subject_id": "16026205",
+                    "subject_name": "INTRODUCTION TO MARKETING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066001",
+                    "subject_name": "PROBABILITY AND STATISTICS",
+                    "type": null,
+                    "credit": 13,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90641007",
+                    "subject_name": "DIGITAL CITIZEN A A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "90644008",
+                    "subject_name": "FOUNDATION ENGLISH 2 AAR AR A A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": "2.17",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06066300",
+                    "subject_name": "DATABASE SYSTEM CONCEPTS",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066302",
+                    "subject_name": "FUNDAMENTAL WEB PROGRAMMING A A AN",
+                    "type": null,
+                    "credit": 2,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066304",
+                    "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN SE AN A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026204",
+                    "subject_name": "INTRODUCTION TO NETWORKS AND A ON CYBERSECURITY \\\\",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026207",
+                    "subject_name": "NOSQL DATABASE SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06026208",
+                    "subject_name": "FUNDAMENTALS OF DATA SCIENCE iA",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026209",
+                    "subject_name": "DATA VISUALIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06066102",
+                    "subject_name": "MANAGEMENT INFORMATION SYSTEMS A",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066301",
+                    "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 3,
+                "GPA": null,
+                "GPS": "3.50",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "90642888",
+                    "subject_name": "IN LOVE & IN LIFE",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90643023",
+                    "subject_name": "TECHNOPRENEURS",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2569,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026212",
+                    "subject_name": "DATA WAREHOUSING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026240",
+                    "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026242",
+                    "subject_name": "C1.OUD TECHNOLOGY INFRASTRUCTURE i",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026261",
+                    "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND : BUSINESS ANALYTICS \\ 3 \\",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066000",
+                    "subject_name": "DISCRETE MATHEMATICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644042",
+                    "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 15,
+          "warnings": 1,
+          "course_count": 28,
+          "issues": [
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters[0].subject[1].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[0].subject[2].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[0].subject[3].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[0].subject[4].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[1].subject[3].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[1].subject[5].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[2].subject[0].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[2].subject[2].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[3].subject[0].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[3].subject[2].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[3].subject[4].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[4].subject[0].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[4].subject[1].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[5].subject[2].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[5].subject[5].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            }
+          ]
+        }
+      },
+      "ocr_sources": [
+        {
+          "command": [
+            "tesseract",
+            "orientation-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "Z\n\nB88\n\n&\n\n£8\n\nBEE\n\n8\n\ngs\n\nfile\n\ni\n\nBe\n\nHe\n\nae\n\n8\n\na\n\n&\n\n=\n\nse\n\n|\n\n=\n\n=\n\n92279\n\ngce2\n\n2\n\nB24\n\n$23\n\nZas\n\nS48\n\n£é\n\na2\n\na6\n\n33\n\n=\n\nZe\n\nSe\n\nSee\n\n98\n\nea\n\noe\n\nBg\n\nee\n\noe\n\naeo\n\n53\n\nLar\n\nvas\n\n2 ol\n\nEs\n\nge\n\n3e8\n\n233\n\nez\n\nas\n\n85\n\nge\n\nbad\n\ngad\n\ng3\n\ngy\n\nBi\n\n£4\n\nSs\n\ngz\n\ncay\n\na\n\nge\n\nfa\n\nREE\n\nGEE\n\nFe\n\nea\n\nZB\n\n$3\n\nwa\n\n3e=\n\ng\n\na2\n\nz\n\nea\n\nge\n\n284\n\n§4\n\nbea\n\n4\n\nBE\n\nBe\n\nBE\n\n&¢\n\nRe\n\nZz\n\ngs\n\nZa\n\nBag\n\nsee\n\nBe\n\n$3\n\nwe\n\neee\n\nCe\n\nBE\n\nGLE\n\nPALL\n\ne\n\nCewe\n\n=\n\n=\n\n]\n\ngo\n\nOF ES\n\n8\n\nBES\n\nGEESSES\n\no\n\n“aga\n\niss\n\n~\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-90.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "( Unofficial Transcript )\n\nPhoto\n\nName\n\nMr, Pattitapol Petcharat\n\nStudent ID\n\n17070127\n\nDate of Birth January 9, 2005\n\nDate of Admission 2024\n\nDegree Bachelor of Science\n\nDate of Graduation N/A\n\nProgram Data Science and Business Analytics\n\nJexepie| Gabe\n\nCOURSE TITLE.\n\n[essen exe\n\nCOURSE TITLE\n\n‘\n\nIst Semester, Year, 2024-2025\n\n06026200\n\nCALCULUS 1\n\nOF\n\noenssial\n\nBUSINESS FUNDAMENTALS FOR INFORMATION\n\n06066303\n\nPROBLEM SOLVING AND COMPUTER PROGRAMMING,\n\n90612999\n\nCHARM SCHOOL\n\n‘90654007\n\nFOUNDATION ENGLISH t\n\nGPS 2217\n\nGPA 2207\n\n2nd Semester, Year, 2024-2025\n\n96026201\n\nCALCULUS 2\n\n06026203\n\nCOMPUTER PROGRAMMING\n\n(06026205\n\nINTRODUCTION TO MARKETING\n\n06066001\n\nPROBABILITY AND STATISTICS\n\n90651007\n\nDIGITAL CITIZEN\n\nBe\n\n90652033\n\nLAW FOR NEW GENERATION\n\nFOUNDATION ENGLISH 2\n\n90644008\n\nGPS :1.70\n\nGPA 186\n\nAst Semester, Year, 2025-2026\n\n(06066300\n\nDATABASE SYSTEM CONCEPTS:\n\nCe\n\nFUNDAMENTAL WEB PROGRAMMING.\n\n06066302\n\n06066304\n\nINFORMATION SYSTEM ANALYSIS AND DESIGN,\n\nGPS 32.17\n\nGPA=195\n\n2nd Semester, Year, 2025-2026\n\noO\n\n106026204\n\nINTRODUCTION TO NETWORKS AND.\n\nCYBERSECURITY\n\n106026207\n\nNOSQL DATABASE SYSTEMS\n\n106026208\n\nFUNDAMENTALS OF DATA SCIENCE\n\nBy\n\n(06026209\n\nDATA VISUALIZATION\n\nnS\n\n96066102\n\nMANAGEMENT INFORMATION SYSTEMS\n\nDATA STRUCTURES AND ALGORITHMS,\n\n06060301\n\nGPS 33.08\n\nGPA :235\n\nar\n\nter,\n\n2\n\nY\n\n90642888\n\nIN LOVE & IN LIFE\n\n90613023\n\n‘TECHNOPRENEURS\n\nGPS 3350\n\nGPA: 242\n\nIst Semester, Year, 2026-2027,\n\n06026211\n\n\"APPLIED MACHINE LEARNING\n\n06026212\n\nDATA WAREHOUSING\n\nOPMENT.\n\n96026240\n\nINTELLIGENT SYSTEM DE\n\n(6020242\n\nCLOUD TECHNOLOGY INFRASTRUCTURE,\n\n06026261\n\nSPECIAL TOPICS\n\nIN DATA SCIENCE fan\n\nBUSINESS ANALYTICS }\n\nDISCRETE MATHEMATICS\n\nPRGA?\n\nPROFESSIONAL COMMUNICATION AND.\n\nPRESENTATION\n\nOPATEAR\n\nGPS 2+\n\n‘Total number of credit earned: 6\n\n‘Cumulative GPA: 242\n\nceeeenecnrnntetenconnneevene TeaMseripl CHOK\n\ndid oe\n\nSee\n\nChecked by\n\nXEXKXAD\n\naRxehAy\n\nBw\n\nAVN\n\n‘This document is unofficial transcelphe\n\n:\n\nDate Issued: Septerbst 21,2026\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-180.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "%\n\naS\n\ns\n\n=\n\nvtus\n\n*\n\nattasda\n\nES\n\nz\n\nSaat\n\nawe\n\ntg\n\nz\n\nos\n\na\n\nSADA\n\nLE\n\n=\n\nGLEE\n\naa\n\nnanan\n\nan\n\n\\3\n\nE2\n\n2\n\nBe\n\n=5\n\n388\n\n5\n\nzs\n\n22\n\n28\n\ng\n\n46\n\n96\n\n23\n\nEa\n\na8\n\n€3\n\nZ\n\ntz\n\nGz\n\nts\n\ng\n\nS36\n\nBee\n\ngS\n\naz\n\nts\n\ng9\n\nBZ\n\nne\n\nge\n\n25\n\ngs\n\nga\n\nEa\n\nab\n\nZe\n\noa\n\niz\n\n22\n\n4\n\n2%\n\naaa\n\n22\n\nae\n\ne2\n\nao\n\nBo\n\nzy\n\nES\n\nee\n\neases\n\nS33\n\n28\n\nga\n\n£é\n\ngs\n\n&é\n\ngba\n\n48\n\nes\n\nee\n\nEze\n\nya\n\n§\n\nBog\n\n33\n\n22\n\nB62\n\n@&\n\nBea\n\npa\n\n=:\n\n35\n\naé\n\n2228\n\n28\n\ngaes\n\n32\n\nee\n\na\n\na6\n\n2\n\nS&\n\n52\n\nae\n\n62\n\n£3\n\nge\n\nge\n\nZ6\n\nae\n\n2g\n\n2S\n\na\n\nFs\n\nae\n\n3s\n\n28\n\nou\n\nBEE\n\nx\n\npees\n\n2\n\n3\n\ng\n\naac:\n\noe\n\ni\n\nu\n\na\n\nas\n\nES\n\n=\n\nss\n\nHE\n\ni\n\ni\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-270.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "styedenin prpsUyoun sy anaUENIOD SLL\n\nviiaenety\n\nOpOe TZ PARES poner aie *\n\nEER EK)\n\n(ae\n\npone\n\nAq pops\n\nLO\n\n1 pate nearie -meemere tent\n\npr Wad sanenstte,\n\n49. sparuana 1fp229 Jo satuinit POL,\n\neA VdD,\n\n+t SdD.\n\nNOLWINGSHAE\n\nZHI\n\nANY, NOMLVOINFINKOD TVNOISSLIOH\n\nSOLLVAMUALV LAH OSI\n\n{ SOMLATWNY SSANISNE.\n\n“any JONAIOS VLVE NI SOIdOL T¥IDAdS\n\n19¢92090\n\nceca\n\nAUALIAUISVAINT ADOTONHOAL AO TD.\n\n(ANANdOTHATG PLLSAS INTONT EINE\n\norz97090\n\nzic92090\n\nDNISHOHARYN WAVE.\n\n11292090\n\nDNINHVECT ANTHOVIN Carag ¥\n\nTOE IOT HOR PISUNS BT\n\nOse! SdD\n\nwei vd).\n\nSHOMNAHAONHOSL\n\nLZOETIO6G\n\nRBNZEIOG\n\nart NER GAOT NE\n\n4\n\nje\n\n“To\n\nag.\n\nSeti VID\n\n$08 SAD.\n\n10E9990\n\nSWHLRIODTY ANY SHHLONYLS VV\n\n20199090\n\nat\n\nSINDLLSAS NOLLYINNOANI LNTNTOVNVN\n\nNOLLVZITVASIA VIVO\n\n60297090\n\n+8\n\nHONAIOS VLVC AO STVINANVONOT\n\n3029090\n\n40297090\n\nSWAHLSAS SSVEVLYG TOSON\n\nALnINDaSHHAAD\n\nPOZ9T090\n\ni\n\n(INV SHHOALLN OL NOLLONGOBLNE\n\nLUE STOT HED ANISIUUSS PUT\n\nS612 V9\n\nart Sd9\n\nrOE99090\n\nNDISHO CINY SISATYNY WGLLSAS NOLLYINUOINE\n\n80)\n\nDNINAV DOU GAA TVINANVONDL\n\nz0e990%0\n\n‘00¢99090\n\n\\\n\nSLdHINOD WALSAS USVEVIYG\n\nFLT EE HEX DISS IST\n\nge 15 Vd\n\n0£1? S49\n\nZHSTIDNA\n\nYOLLVANNOs\n\n80071906\n\n+d\n\nNOLLVWANAO AVN\n\nYOU MYT\n\nEL0C19NG\n\nNAZI AVUOIG\n\nLo0T#906\n\nSOUSLLVIS ONY ALTEV EON\n\n10099090,\n\nONLLERVIN OL NOLLNGOMINE\n\nS0z9Z09)\n\nDNIKWVXOONE WLLNGNOD\n\noz97090\n\nTSN Ivo\n\n1oz9z090\n\nSTOCPLOL WIA WISIUIS PUT\n\n4Pt2Vdo\n\nAt! SAD\n\n1 HSCIONA NOLLVANNOd\n\nLOOPING\n\n‘WOOHIS WAVED\n\n66621905,\n\nEo990I0\n\nNIWAVHOOUd WALNGNOD ANY ONIATOS WETONE\n\nn\n\nNOLLYINWOANT HOM SIWINANVANDA SSANISAE\n\nToI99090.\n\nTSIND WO\n\nDicarcon)\n\n\\\n\nSTOTPZOT MO DISUIS ST,\n\nTHLLL ASANO],\n\nsave | 210)\n\nLLL ASHNOD,\n\nofan]\n\nSonsjeuy ssoursng pur aguaiog meq wossory\n\nVIN wonmnpnsy fo 20\n\nQIUSIDG JO LojayaG essay\n\nFE0e uossspupy fo mC\n\nSone 6 Mrenuee quia fo 20g\n\nLZ1OLOLY\n\nLIPS.\n\nywemeyiad jodereyd A\n\nnuDNY\n\n104d\n\n(jduosue.sy, feoyyouy )\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "( Unofficial Transcript )\nName Mr, Pattarapol Petcharat Student ID — 67070127 |\nDate of Birth January 9, 2005 Date of Admission 2024\nDegree Bachelor of Science ' Date of Graduation N/A\nProgram Data Science and Business Analytics \\\nIst Semester, Year, 2024-2025 \\ \\ ANN\n06826200) CALCULUS t ANN LEARY AN \\\\\n06610) BUSINESS FUNDAMENTALS FOR INFORMATION 3b Ge ‘ \\ >\n06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING LANY ARB AS \\ AY ‘\n90642999 CHARM SCHOOL ANE A\n90614007 FOUNDATION ENGLISH 1 ASS AY CANS ARR\nGPS:217. GPA:2.17 AY NY\n2nd Semester, Year, 2024-2025 NAW AIS AN :\n6026201 CALCULUS 2 yD RR \\\n06026203 COMPUTER PROGRAMMING AY AEA Ge SI *\n06026205 INTRODUCTION TO MARKETING ASR ‘\n06066001 PROBABILITY AND STATISTICS. AI WY AS AIR\n90641007 DIGITAL CITIZEN AW KET RIS Ke z\n90642033 LAW FOR NEW GENERATION \\ WA AE ARR ANAS Q\n90544008 FOUNDATION ENGLISH 2 AAR RAIA \\\nGPS:1.70 GPA 1.88 AAS SS VAI \\\n06066300 DATABASE SYSTEM CONCEPTS, NAAN ANE NAAN ANN ANY\n06066302. FUNDAMENTAL WEB PROGRAMMING AAS ANAS ALS A ANY \\ ny\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN, AN AEN AA AR\nGPS:217  GPAs195 NAY AYA RA \\\n2nd Semester, Year, 2025-2026 AWAY AI RI\n06026204 INTRODUCTION TO NETWORKS AND ASSO\nCYBERSECURITY . AY AY ARS e\n“ 06026207. NOSQL DATABASE SYSTEMS \\ ACY eZ AY AAR x\n06026208 FUNDAMENTALS OF DATA SCIENCE WA SAR A\n(16026209. DATA VISUALIZATION A 1B) PBR: Ae ‘\n96066102 MANAGEMENT INFORMATION SYSTEMS \\ RAS IY \\\nbe066301 DATA STRUCTURES AND ALGORITHMS © CAN ASS\nGPS 3.08  GPA>235 \\ NAY\n90642888 IN LOVE & IN LIFE ) ENN NOW AS\n90643023 TECHNOPRENEURS 2 BR ' GE ,\nGPS 3350 GPA 2242 AY AN\n06026211 APPLIED MACHINE LEARNING \\\\ 3 Waa :\n06026212 DATA WAREHOUSING \\ 3\n06026240. INTELLIGENT SYSTEM DEVELOPMENT) \\ \\ SENS |\n96026242. CLOUD TECHNOLOGY INFRASTRUCTURE Hy we |\n06026261. SPECIAL TOPICS IN DATA SCIENCE AND 3 ah |\n: BUSINESS ANALYTICS | \\ : \\ ny\n06060000 DISCRETE MATHEMATICS \\ Ne\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION \\ '\n| GPS?+ GPA 282 . \\\n| > /\n| Total number of credit eared: 69 \\ ;\nCumulative GPA: 242\nNS actare TLATICII PE GOLEM ERT TT iit\n» Date Issued: September 21.2026 This document is wooffictal transcript.\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "4",
+            "tsv"
+          ],
+          "text": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n1\t1\t0\t0\t0\t0\t0\t0\t2652\t3534\t-1\t\n2\t1\t1\t0\t0\t0\t1027\t106\t651\t86\t-1\t\n3\t1\t1\t1\t0\t0\t1027\t106\t651\t86\t-1\t\n4\t1\t1\t1\t1\t0\t1027\t106\t651\t86\t-1\t\n5\t1\t1\t1\t1\t1\t1027\t132\t19\t56\t92.585732\t(\n5\t1\t1\t1\t1\t2\t1062\t106\t261\t84\t96.533920\tUnofficial\n5\t1\t1\t1\t1\t3\t1341\t108\t287\t84\t88.940536\tTranscript\n5\t1\t1\t1\t1\t4\t1643\t129\t35\t55\t7.322052\tyi\n2\t1\t2\t0\t0\t0\t2358\t373\t119\t39\t-1\t\n3\t1\t2\t1\t0\t0\t2358\t373\t119\t39\t-1\t\n4\t1\t2\t1\t1\t0\t2358\t373\t119\t39\t-1\t\n5\t1\t2\t1\t1\t1\t2358\t373\t119\t39\t96.533325\tPhoto\n2\t1\t3\t0\t0\t0\t296\t490\t631\t138\t-1\t\n3\t1\t3\t1\t0\t0\t296\t490\t631\t138\t-1\t\n4\t1\t3\t1\t1\t0\t296\t490\t631\t70\t-1\t\n5\t1\t3\t1\t1\t1\t296\t490\t3\t10\t95.000000\t \n5\t1\t3\t1\t1\t2\t532\t490\t395\t70\t95.000000\t   \n4\t1\t3\t1\t2\t0\t679\t560\t155\t68\t-1\t\n5\t1\t3\t1\t2\t1\t679\t560\t155\t68\t95.000000\t \n2\t1\t4\t0\t0\t0\t293\t440\t1898\t2918\t-1\t\n3\t1\t4\t1\t0\t0\t293\t440\t1898\t2918\t-1\t\n4\t1\t4\t1\t1\t0\t1766\t440\t90\t46\t-1\t\n5\t1\t4\t1\t1\t1\t1766\t440\t90\t46\t95.000000\t \n4\t1\t4\t1\t2\t0\t1766\t486\t211\t89\t-1\t\n5\t1\t4\t1\t2\t1\t1766\t486\t211\t89\t95.000000\t  \n4\t1\t4\t1\t3\t0\t1743\t575\t244\t59\t-1\t\n5\t1\t4\t1\t3\t1\t1743\t575\t244\t59\t95.000000\t  \n4\t1\t4\t1\t4\t0\t1586\t634\t427\t63\t-1\t\n5\t1\t4\t1\t4\t1\t1586\t634\t427\t63\t95.000000\t    \n4\t1\t4\t1\t5\t0\t1586\t697\t427\t31\t-1\t\n5\t1\t4\t1\t5\t1\t1586\t697\t427\t31\t95.000000\t \n4\t1\t4\t1\t6\t0\t1435\t728\t589\t72\t-1\t\n5\t1\t4\t1\t6\t1\t1435\t728\t579\t72\t95.000000\t   \n5\t1\t4\t1\t6\t2\t1975\t760\t49\t28\t95.000000\t \n4\t1\t4\t1\t7\t0\t1285\t800\t811\t66\t-1\t\n5\t1\t4\t1\t7\t1\t1285\t800\t811\t66\t95.000000\t \n4\t1\t4\t1\t8\t0\t1107\t866\t1013\t41\t-1\t\n5\t1\t4\t1\t8\t1\t1107\t866\t1013\t41\t95.000000\t \n4\t1\t4\t1\t9\t0\t1107\t907\t1013\t50\t-1\t\n5\t1\t4\t1\t9\t1\t1107\t907\t1013\t50\t95.000000\t \n4\t1\t4\t1\t10\t0\t1099\t957\t1057\t48\t-1\t\n5\t1\t4\t1\t10\t1\t1099\t957\t1057\t48\t95.000000\t \n4\t1\t4\t1\t11\t0\t899\t1005\t1260\t48\t-1\t\n5\t1\t4\t1\t11\t1\t899\t1005\t1260\t48\t95.000000\t \n4\t1\t4\t1\t12\t0\t897\t1053\t1294\t50\t-1\t\n5\t1\t4\t1\t12\t1\t897\t1053\t1294\t50\t95.000000\t \n4\t1\t4\t1\t13\t0\t897\t1103\t1294\t41\t-1\t\n5\t1\t4\t1\t13\t1\t897\t1103\t1294\t41\t95.000000\t \n4\t1\t4\t1\t14\t0\t886\t1144\t1305\t63\t-1\t\n5\t1\t4\t1\t14\t1\t886\t1144\t1305\t63\t95.000000\t  \n4\t1\t4\t1\t15\t0\t836\t1207\t1315\t40\t-1\t\n5\t1\t4\t1\t15\t1\t836\t1207\t1315\t40\t95.000000\t \n4\t1\t4\t1\t16\t0\t806\t1247\t1345\t51\t-1\t\n5\t1\t4\t1\t16\t1\t806\t1247\t1345\t51\t95.000000\t \n4\t1\t4\t1\t17\t0\t806\t1298\t1341\t47\t-1\t\n5\t1\t4\t1\t17\t1\t806\t1298\t1341\t47\t95.000000\t \n4\t1\t4\t1\t18\t0\t806\t1345\t1358\t50\t-1\t\n5\t1\t4\t1\t18\t1\t806\t1345\t1358\t50\t95.000000\t \n4\t1\t4\t1\t19\t0\t806\t1395\t1345\t47\t-1\t\n5\t1\t4\t1\t19\t1\t806\t1395\t1345\t47\t95.000000\t \n4\t1\t4\t1\t20\t0\t807\t1442\t1286\t71\t-1\t\n5\t1\t4\t1\t20\t1\t807\t1442\t1286\t71\t95.000000\t  \n4\t1\t4\t1\t21\t0\t832\t1513\t1208\t25\t-1\t\n5\t1\t4\t1\t21\t1\t832\t1513\t1208\t25\t95.000000\t \n4\t1\t4\t1\t22\t0\t866\t1538\t992\t45\t-1\t\n5\t1\t4\t1\t22\t1\t866\t1538\t992\t45\t95.000000\t \n4\t1\t4\t1\t23\t0\t880\t1583\t954\t35\t-1\t\n5\t1\t4\t1\t23\t1\t880\t1583\t954\t35\t95.000000\t \n4\t1\t4\t1\t24\t0\t810\t1618\t1024\t43\t-1\t\n5\t1\t4\t1\t24\t1\t810\t1618\t1024\t43\t95.000000\t \n4\t1\t4\t1\t25\t0\t868\t1661\t831\t25\t-1\t\n5\t1\t4\t1\t25\t1\t868\t1661\t831\t25\t95.000000\t \n4\t1\t4\t1\t26\t0\t895\t1710\t786\t28\t-1\t\n5\t1\t4\t1\t26\t1\t895\t1710\t786\t28\t95.000000\t \n4\t1\t4\t1\t27\t0\t896\t1738\t779\t64\t-1\t\n5\t1\t4\t1\t27\t1\t896\t1738\t779\t64\t95.000000\t  \n4\t1\t4\t1\t28\t0\t885\t1802\t790\t85\t-1\t\n5\t1\t4\t1\t28\t1\t885\t1802\t790\t85\t95.000000\t  \n4\t1\t4\t1\t29\t0\t874\t1887\t774\t44\t-1\t\n5\t1\t4\t1\t29\t1\t874\t1887\t774\t44\t95.000000\t \n4\t1\t4\t1\t30\t0\t866\t1931\t782\t47\t-1\t\n5\t1\t4\t1\t30\t1\t866\t1931\t782\t47\t95.000000\t \n4\t1\t4\t1\t31\t0\t866\t1978\t815\t52\t-1\t\n5\t1\t4\t1\t31\t1\t866\t1978\t815\t52\t95.000000\t \n4\t1\t4\t1\t32\t0\t866\t2030\t815\t48\t-1\t\n5\t1\t4\t1\t32\t1\t866\t2030\t815\t48\t95.000000\t \n4\t1\t4\t1\t33\t0\t926\t2078\t778\t46\t-1\t\n5\t1\t4\t1\t33\t1\t926\t2078\t778\t46\t95.000000\t \n4\t1\t4\t1\t34\t0\t926\t2124\t778\t53\t-1\t\n5\t1\t4\t1\t34\t1\t926\t2124\t778\t53\t95.000000\t \n4\t1\t4\t1\t35\t0\t926\t2177\t786\t48\t-1\t\n5\t1\t4\t1\t35\t1\t926\t2177\t786\t48\t95.000000\t \n4\t1\t4\t1\t36\t0\t926\t2225\t786\t30\t-1\t\n5\t1\t4\t1\t36\t1\t926\t2225\t786\t30\t95.000000\t \n4\t1\t4\t1\t37\t0\t986\t2255\t726\t74\t-1\t\n5\t1\t4\t1\t37\t1\t986\t2255\t726\t74\t95.000000\t  \n4\t1\t4\t1\t38\t0\t911\t2329\t796\t36\t-1\t\n5\t1\t4\t1\t38\t1\t911\t2329\t796\t36\t95.000000\t \n4\t1\t4\t1\t39\t0\t904\t2365\t777\t50\t-1\t\n5\t1\t4\t1\t39\t1\t904\t2365\t777\t50\t95.000000\t \n4\t1\t4\t1\t40\t0\t624\t2415\t1013\t44\t-1\t\n5\t1\t4\t1\t40\t1\t624\t2415\t1013\t44\t95.000000\t  \n4\t1\t4\t1\t41\t0\t611\t2459\t966\t28\t-1\t\n5\t1\t4\t1\t41\t1\t611\t2459\t966\t28\t95.000000\t \n4\t1\t4\t1\t42\t0\t753\t2487\t824\t31\t-1\t\n5\t1\t4\t1\t42\t1\t753\t2487\t824\t31\t95.000000\t \n4\t1\t4\t1\t43\t0\t753\t2518\t810\t46\t-1\t\n5\t1\t4\t1\t43\t1\t753\t2518\t810\t46\t95.000000\t \n4\t1\t4\t1\t44\t0\t293\t2564\t1270\t173\t-1\t\n5\t1\t4\t1\t44\t1\t293\t2564\t1270\t173\t95.000000\t   \n4\t1\t4\t1\t45\t0\t293\t2737\t1176\t46\t-1\t\n5\t1\t4\t1\t45\t1\t293\t2737\t4\t46\t95.000000\t \n5\t1\t4\t1\t45\t2\t634\t2737\t835\t46\t95.000000\t \n4\t1\t4\t1\t46\t0\t689\t2783\t659\t26\t-1\t\n5\t1\t4\t1\t46\t1\t689\t2783\t659\t26\t95.000000\t \n4\t1\t4\t1\t47\t0\t689\t2809\t659\t50\t-1\t\n5\t1\t4\t1\t47\t1\t689\t2809\t659\t50\t95.000000\t \n4\t1\t4\t1\t48\t0\t294\t2859\t815\t216\t-1\t\n5\t1\t4\t1\t48\t1\t294\t2859\t815\t216\t95.000000\t  \n4\t1\t4\t1\t49\t0\t294\t3075\t852\t68\t-1\t\n5\t1\t4\t1\t49\t1\t294\t3075\t87\t47\t95.000000\t \n5\t1\t4\t1\t49\t2\t694\t3075\t452\t68\t95.000000\t  \n4\t1\t4\t1\t50\t0\t446\t3143\t700\t181\t-1\t\n5\t1\t4\t1\t50\t1\t446\t3143\t700\t181\t95.000000\t  \n4\t1\t4\t1\t51\t0\t644\t3324\t346\t34\t-1\t\n5\t1\t4\t1\t51\t1\t644\t3324\t346\t34\t95.000000\t \n2\t1\t5\t0\t0\t0\t1822\t470\t9\t11\t-1\t\n3\t1\t5\t1\t0\t0\t1822\t470\t9\t11\t-1\t\n4\t1\t5\t1\t1\t0\t1822\t470\t9\t11\t-1\t\n5\t1\t5\t1\t1\t1\t1822\t470\t9\t11\t95.000000\t \n2\t1\t6\t0\t0\t0\t61\t466\t1710\t2021\t-1\t\n3\t1\t6\t1\t0\t0\t33\t466\t1738\t1978\t-1\t\n4\t1\t6\t1\t1\t0\t142\t466\t1629\t92\t-1\t\n5\t1\t6\t1\t1\t1\t142\t493\t123\t65\t46.462265\tName\n5\t1\t6\t1\t1\t2\t279\t485\t79\t73\t59.308704\tMe\n5\t1\t6\t1\t1\t3\t365\t506\t175\t59\t71.444397\tPattarapol\n5\t1\t6\t1\t1\t4\t569\t536\t56\t18\t96.089439\tPete\n5\t1\t6\t1\t1\t5\t1286\t534\t2\t2\t0.000000\t~\n5\t1\t6\t1\t1\t6\t1318\t472\t129\t80\t92.799927\tStudent\n5\t1\t6\t1\t1\t7\t1458\t472\t76\t64\t42.659920\tiD\n5\t1\t6\t1\t1\t8\t1537\t466\t234\t80\t25.049477\t1070127\n4\t1\t6\t1\t2\t0\t142\t547\t1595\t80\t-1\t\n5\t1\t6\t1\t2\t1\t142\t571\t87\t56\t72.593185\tDate:\n5\t1\t6\t1\t2\t2\t233\t560\t40\t58\t95.141472\tof\n5\t1\t6\t1\t2\t3\t276\t562\t111\t65\t72.154678\tBirth\n5\t1\t6\t1\t2\t4\t401\t562\t121\t59\t89.880020\tJanuary\n5\t1\t6\t1\t2\t5\t542\t564\t29\t52\t87.862267\t9,\n5\t1\t6\t1\t2\t6\t574\t555\t86\t68\t62.429016\t2005\n5\t1\t6\t1\t2\t7\t682\t547\t9\t52\t51.574116\t|\n5\t1\t6\t1\t2\t8\t664\t594\t320\t31\t36.950790\tANAS\n5\t1\t6\t1\t2\t9\t1169\t609\t45\t3\t5.557899\t0\n5\t1\t6\t1\t2\t10\t1290\t560\t114\t43\t81.616119\tDate\n5\t1\t6\t1\t2\t11\t1407\t558\t40\t47\t62.519547\tof,\n5\t1\t6\t1\t2\t12\t1448\t552\t180\t62\t89.348663\tAdmission\n5\t1\t6\t1\t2\t13\t1654\t551\t83\t56\t70.381760\t2024\n4\t1\t6\t1\t3\t0\t117\t608\t1610\t88\t-1\t\n5\t1\t6\t1\t3\t1\t117\t620\t176\t76\t53.527088\tDegree\n5\t1\t6\t1\t3\t2\t284\t618\t159\t67\t66.327034\t“Bachelor\n5\t1\t6\t1\t3\t3\t461\t633\t32\t44\t96.526367\tof\n5\t1\t6\t1\t3\t4\t501\t622\t121\t52\t87.525116\tScience\n5\t1\t6\t1\t3\t5\t636\t630\t11\t42\t53.717690\t|\n5\t1\t6\t1\t3\t6\t680\t624\t128\t49\t44.017788\tAS\n5\t1\t6\t1\t3\t7\t943\t619\t357\t50\t42.746582\tARR\n5\t1\t6\t1\t3\t8\t1271\t622\t126\t38\t0.000000\tDate\n5\t1\t6\t1\t3\t9\t1416\t621\t30\t46\t96.366051\tof\n5\t1\t6\t1\t3\t10\t1462\t608\t179\t52\t96.675491\tGraduation\n5\t1\t6\t1\t3\t11\t1663\t615\t64\t41\t71.711273\tN/M\n4\t1\t6\t1\t4\t0\t138\t666\t1563\t102\t-1\t\n5\t1\t6\t1\t4\t1\t138\t693\t145\t75\t92.044426\tProgram\n5\t1\t6\t1\t4\t2\t306\t682\t71\t80\t86.060242\tData\n5\t1\t6\t1\t4\t3\t386\t687\t123\t68\t44.983330\tScience\n5\t1\t6\t1\t4\t4\t527\t688\t59\t48\t89.625053\tand\n5\t1\t6\t1\t4\t5\t591\t677\t147\t59\t52.433338\tBusiness\n5\t1\t6\t1\t4\t6\t759\t671\t143\t66\t0.000000\tANAIpERS\n5\t1\t6\t1\t4\t7\t920\t681\t25\t41\t54.727486\t\\\n5\t1\t6\t1\t4\t8\t974\t686\t2\t2\t31.318649\t\\\n5\t1\t6\t1\t4\t9\t1073\t696\t66\t34\t59.405693\tAA\n5\t1\t6\t1\t4\t10\t1174\t677\t252\t49\t51.842598\tRAN\n5\t1\t6\t1\t4\t11\t1507\t672\t13\t11\t6.466637\tx\n5\t1\t6\t1\t4\t12\t1615\t666\t86\t13\t51.701538\tAYN\n4\t1\t6\t1\t5\t0\t459\t743\t975\t52\t-1\t\n5\t1\t6\t1\t5\t1\t459\t752\t2\t3\t27.733116\t©\n5\t1\t6\t1\t5\t2\t526\t752\t128\t48\t30.309700\tGOURSE\n5\t1\t6\t1\t5\t3\t668\t753\t103\t44\t71.159271\tTITLE,\n5\t1\t6\t1\t5\t4\t884\t749\t158\t46\t43.811779\tTRU\n5\t1\t6\t1\t5\t5\t1166\t752\t70\t34\t31.899826\tec\n5\t1\t6\t1\t5\t6\t1390\t743\t44\t31\t66.580597\tAN\n4\t1\t6\t1\t6\t0\t158\t796\t1187\t84\t-1\t\n5\t1\t6\t1\t6\t1\t158\t833\t42\t31\t28.611496\tAY\n5\t1\t6\t1\t6\t2\t389\t797\t76\t60\t39.403641\t‘et\n5\t1\t6\t1\t6\t3\t467\t796\t150\t60\t52.607277\tSemester\n5\t1\t6\t1\t6\t4\t639\t815\t76\t47\t25.806557\tVea,\n5\t1\t6\t1\t6\t5\t723\t810\t154\t70\t66.418320\t2024-2028\n5\t1\t6\t1\t6\t6\t892\t811\t20\t41\t61.641632\t|\n5\t1\t6\t1\t6\t7\t1124\t805\t256\t23\t30.567924\tYEARS\n4\t1\t6\t1\t7\t0\t61\t866\t1018\t43\t-1\t\n5\t1\t6\t1\t7\t1\t61\t890\t32\t19\t0.000000\t5)\n5\t1\t6\t1\t7\t2\t142\t866\t136\t36\t0.000000\t/109826200.\n5\t1\t6\t1\t7\t3\t298\t860\t190\t44\t80.887039\tCALCULUS\n5\t1\t6\t1\t7\t4\t477\t855\t15\t58\t56.979401\t2\n5\t1\t6\t1\t7\t5\t1029\t876\t50\t12\t42.685501\tWY\n4\t1\t6\t1\t8\t0\t97\t884\t935\t73\t-1\t\n5\t1\t6\t1\t8\t1\t97\t912\t24\t26\t26.430939\t\\\\\n5\t1\t6\t1\t8\t2\t139\t909\t130\t48\t39.639023\t06610)\n5\t1\t6\t1\t8\t3\t300\t910\t149\t42\t76.059410\tBUSINESS\n5\t1\t6\t1\t8\t4\t454\t897\t262\t44\t83.107986\tFUNDAMENTALS\n5\t1\t6\t1\t8\t5\t724\t907\t67\t32\t56.685997\tFOR,\n5\t1\t6\t1\t8\t6\t789\t884\t237\t58\t72.332809\tINFORMATION.\n5\t1\t6\t1\t8\t7\t1030\t916\t2\t3\t51.972633\t\\\n4\t1\t6\t1\t9\t0\t113\t906\t998\t114\t-1\t\n5\t1\t6\t1\t9\t1\t113\t960\t13\t23\t33.876556\t|\n5\t1\t6\t1\t9\t2\t144\t958\t127\t36\t47.953114\t0666303\n5\t1\t6\t1\t9\t3\t287\t974\t3\t9\t70.012253\t)\n5\t1\t6\t1\t9\t4\t299\t955\t157\t45\t96.535744\tPROBLEM\n5\t1\t6\t1\t9\t5\t458\t962\t138\t29\t95.820747\tSOLVING\n5\t1\t6\t1\t9\t6\t605\t962\t69\t39\t90.197083\tAND\n5\t1\t6\t1\t9\t7\t682\t949\t170\t45\t90.197083\tCOMPUTER\n5\t1\t6\t1\t9\t8\t861\t906\t238\t114\t0.000000\tPROGRAMING\n5\t1\t6\t1\t9\t9\t1107\t941\t30\t35\t66.564720\t\\\n4\t1\t6\t1\t10\t0\t141\t1008\t812\t40\t-1\t\n5\t1\t6\t1\t10\t1\t141\t1008\t131\t40\t56.621269\t1642999.\n5\t1\t6\t1\t10\t2\t299\t1006\t116\t33\t94.396339\tCHARM\n5\t1\t6\t1\t10\t3\t424\t998\t128\t51\t92.666817\tSCHOOL\n5\t1\t6\t1\t10\t4\t941\t1015\t12\t9\t56.355423\t\\\n4\t1\t6\t1\t11\t0\t137\t1054\t624\t36\t-1\t\n5\t1\t6\t1\t11\t1\t137\t1056\t135\t33\t11.251831\t\\OD534007\n5\t1\t6\t1\t11\t2\t299\t1061\t209\t28\t93.350601\tFOUNDATION\n5\t1\t6\t1\t11\t3\t518\t1054\t154\t31\t82.774147\tENGLISH\n5\t1\t6\t1\t11\t4\t657\t1050\t16\t48\t56.273464\t1\n4\t1\t6\t1\t12\t0\t138\t1103\t692\t30\t-1\t\n5\t1\t6\t1\t12\t1\t138\t1103\t58\t13\t62.085705\tAY\n5\t1\t6\t1\t12\t2\t466\t1108\t77\t25\t70.426826\tGPS\n5\t1\t6\t1\t12\t3\t548\t1108\t59\t24\t0.000000\t¥2:17..\\\\.\n5\t1\t6\t1\t12\t4\t686\t1106\t81\t31\t22.410805\tGPX\n5\t1\t6\t1\t12\t5\t775\t1104\t55\t31\t40.097565\t27\n4\t1\t6\t1\t13\t0\t123\t1137\t770\t85\t-1\t\n5\t1\t6\t1\t13\t1\t123\t1177\t54\t27\t6.001320\tVAN\n5\t1\t6\t1\t13\t2\t405\t1157\t70\t32\t89.328979\t2nd.\n5\t1\t6\t1\t13\t3\t477\t1137\t152\t85\t71.425400\tSemester,\n5\t1\t6\t1\t13\t4\t650\t1154\t71\t48\t57.251579\tYears\n5\t1\t6\t1\t13\t5\t735\t1141\t158\t77\t86.960403\t2024-2028\n4\t1\t6\t1\t14\t0\t141\t1207\t352\t40\t-1\t\n5\t1\t6\t1\t14\t1\t141\t1210\t128\t37\t49.688416\t16026201.\n5\t1\t6\t1\t14\t2\t300\t1207\t193\t27\t91.569122\tCALCULUS\n5\t1\t6\t1\t14\t3\t477\t1195\t20\t56\t91.569122\t2\n4\t1\t6\t1\t15\t0\t118\t1228\t604\t62\t-1\t\n5\t1\t6\t1\t15\t1\t118\t1253\t155\t32\t27.596031\t‘106026203\n5\t1\t6\t1\t15\t2\t300\t1257\t174\t26\t46.982349\tCOMPUTER\n5\t1\t6\t1\t15\t3\t484\t1228\t238\t62\t95.474297\tPROGRAMMING\n4\t1\t6\t1\t16\t0\t140\t1294\t677\t38\t-1\t\n5\t1\t6\t1\t16\t1\t140\t1301\t133\t31\t46.817493\t16026205\n5\t1\t6\t1\t16\t2\t301\t1302\t240\t28\t95.108177\tINTRODUCTION\n5\t1\t6\t1\t16\t3\t549\t1302\t42\t23\t96.040764\tTO\n5\t1\t6\t1\t16\t4\t600\t1294\t208\t44\t75.654594\tMARKETING\n5\t1\t6\t1\t16\t5\t815\t1294\t2\t2\t21.380203\t\\\n4\t1\t6\t1\t17\t0\t112\t1347\t672\t43\t-1\t\n5\t1\t6\t1\t17\t1\t112\t1388\t2\t2\t6.325592\t|\n5\t1\t6\t1\t17\t2\t144\t1354\t127\t27\t29.350494\t'06966001\n5\t1\t6\t1\t17\t3\t301\t1351\t212\t28\t96.313629\tPROBABILITY\n5\t1\t6\t1\t17\t4\t521\t1338\t74\t47\t96.196823\tAND\n5\t1\t6\t1\t17\t5\t596\t1343\t193\t38\t55.736469\tSTATISTICS)\n4\t1\t6\t1\t18\t0\t144\t1399\t657\t34\t-1\t\n5\t1\t6\t1\t18\t1\t144\t1404\t129\t29\t54.151119\t90641007)\n5\t1\t6\t1\t18\t2\t306\t1402\t115\t26\t89.946960\tDIGITAL\n5\t1\t6\t1\t18\t3\t440\t1389\t122\t50\t95.477539\tCITIZEN\n5\t1\t6\t1\t18\t4\t789\t1408\t12\t5\t0.353134\t‘\n4\t1\t6\t1\t19\t0\t139\t1412\t610\t69\t-1\t\n5\t1\t6\t1\t19\t1\t139\t1452\t134\t27\t31.846573\t90642033.\n5\t1\t6\t1\t19\t2\t302\t1450\t71\t25\t94.296379\tLAW\n5\t1\t6\t1\t19\t3\t382\t1449\t61\t37\t94.296379\tFOR\n5\t1\t6\t1\t19\t4\t453\t1447\t71\t24\t96.686333\tNEW\n5\t1\t6\t1\t19\t5\t532\t1412\t217\t69\t53.877792\tGENERATION\n4\t1\t6\t1\t20\t0\t145\t1493\t532\t34\t-1\t\n5\t1\t6\t1\t20\t1\t145\t1501\t129\t26\t69.060593\t90644008\n5\t1\t6\t1\t20\t2\t301\t1484\t209\t39\t93.000206\tFOUNDATION\n5\t1\t6\t1\t20\t3\t519\t1483\t158\t41\t96.180908\tENGLISH\n5\t1\t6\t1\t20\t4\t658\t1479\t20\t55\t96.908890\t2\n4\t1\t6\t1\t21\t0\t466\t1530\t370\t40\t-1\t\n5\t1\t6\t1\t21\t1\t466\t1544\t142\t26\t23.839890\tGPS:170\n5\t1\t6\t1\t21\t2\t686\t1524\t151\t48\t67.681259\tGPA?188\n4\t1\t6\t1\t22\t0\t419\t1580\t460\t47\t-1\t\n5\t1\t6\t1\t22\t1\t419\t1594\t42\t31\t92.723183\tIst\n5\t1\t6\t1\t22\t2\t446\t1574\t433\t53\t95.871628\tSemester,\n5\t1\t6\t1\t22\t3\t640\t1570\t80\t63\t93.250214\tYear,\n5\t1\t6\t1\t22\t4\t730\t1574\t149\t53\t96.076416\t2025-2026\n4\t1\t6\t1\t23\t0\t144\t1635\t736\t38\t-1\t\n5\t1\t6\t1\t23\t1\t114\t1638\t10\t37\t58.579540\t|\n5\t1\t6\t1\t23\t2\t144\t1646\t142\t27\t0.000000\t06066300,.\n5\t1\t6\t1\t23\t3\t317\t1641\t151\t28\t95.919662\tDATABASE\n5\t1\t6\t1\t23\t4\t485\t1638\t111\t27\t95.919662\tSYSTEM\n5\t1\t6\t1\t23\t5\t611\t1635\t168\t27\t45.513878\tCONCEPTS\n5\t1\t6\t1\t23\t6\t819\t1643\t61\t13\t0.000000\t\\\\\\.\"\"\n4\t1\t6\t1\t24\t0\t144\t1674\t726\t47\t-1\t\n5\t1\t6\t1\t24\t1\t144\t1690\t130\t31\t60.361145\t06066302.\n5\t1\t6\t1\t24\t2\t302\t1689\t242\t30\t96.375313\tFUNDAMENTAL\n5\t1\t6\t1\t24\t3\t552\t1687\t69\t24\t96.582489\tWEB\n5\t1\t6\t1\t24\t4\t630\t1674\t240\t42\t91.027260\tPROGRAMMING\n4\t1\t6\t1\t25\t0\t99\t1729\t801\t42\t-1\t\n5\t1\t6\t1\t25\t1\t99\t1745\t12\t3\t26.744987\t*\n5\t1\t6\t1\t25\t2\t125\t1724\t11\t61\t72.636650\t|\n5\t1\t6\t1\t25\t3\t145\t1737\t127\t34\t54.884228\t06066304.\n5\t1\t6\t1\t25\t4\t302\t1738\t221\t40\t96.142944\tINFORMATION\n5\t1\t6\t1\t25\t5\t527\t1734\t129\t27\t96.818130\tSYSTEM\n5\t1\t6\t1\t25\t6\t665\t1730\t162\t40\t80.263367\tANALYSIS\n5\t1\t6\t1\t25\t7\t828\t1729\t72\t52\t68.618050\tAND.\n4\t1\t6\t1\t26\t0\t259\t1768\t598\t48\t-1\t\n5\t1\t6\t1\t26\t1\t259\t1792\t3\t3\t24.525673\t‘\n5\t1\t6\t1\t26\t2\t466\t1786\t79\t26\t50.381691\tGPS\n5\t1\t6\t1\t26\t3\t551\t1785\t56\t24\t50.381691\t32.17\n5\t1\t6\t1\t26\t4\t686\t1782\t82\t28\t75.149109\tGPA:\n5\t1\t6\t1\t26\t5\t777\t1768\t80\t48\t66.872124\t195\n4\t1\t6\t1\t27\t0\t409\t1781\t491\t93\t-1\t\n5\t1\t6\t1\t27\t1\t409\t1835\t54\t31\t89.281723\t2nd\n5\t1\t6\t1\t27\t2\t478\t1830\t187\t32\t47.783966\tSemester,\n5\t1\t6\t1\t27\t3\t633\t1826\t34\t49\t12.728340\t.¥'\n5\t1\t6\t1\t27\t4\t663\t1781\t41\t93\t54.247532\tear\n5\t1\t6\t1\t27\t5\t736\t1781\t164\t93\t78.248184\t2025-2026\n4\t1\t6\t1\t28\t0\t145\t1873\t755\t54\t-1\t\n5\t1\t6\t1\t28\t1\t145\t1891\t127\t36\t70.608475\t06026204\n5\t1\t6\t1\t28\t2\t301\t1882\t240\t30\t90.754158\tINTRODUCTION\n5\t1\t6\t1\t28\t3\t549\t1880\t42\t26\t96.724060\tTO\n5\t1\t6\t1\t28\t4\t600\t1868\t174\t48\t96.703392\tNETWORKS\n5\t1\t6\t1\t28\t5\t783\t1873\t84\t40\t16.770798\tAND\n4\t1\t6\t1\t29\t0\t74\t1930\t488\t33\t-1\t\n5\t1\t6\t1\t29\t1\t74\t1932\t66\t31\t29.018929\tAY!\n5\t1\t6\t1\t29\t2\t300\t1930\t262\t32\t78.425125\tCYBERSECURITY\n4\t1\t6\t1\t30\t0\t92\t1972\t641\t50\t-1\t\n5\t1\t6\t1\t30\t1\t33\t1979\t243\t43\t19.787254\t196026207,\n5\t1\t6\t1\t30\t2\t300\t1982\t108\t37\t91.441101\tNOSQL\n5\t1\t6\t1\t30\t3\t427\t1967\t148\t59\t96.882439\tDATABASE\n5\t1\t6\t1\t30\t4\t594\t1967\t139\t59\t96.884720\tSYSTEMS\n4\t1\t6\t1\t31\t0\t140\t2012\t719\t63\t-1\t\n5\t1\t6\t1\t31\t1\t140\t2019\t133\t56\t70.782227\t06026208\n5\t1\t6\t1\t31\t2\t292\t2017\t270\t49\t23.183090\t‘FUNDAMENTALS\n5\t1\t6\t1\t31\t3\t568\t2019\t43\t30\t96.805847\tOF\n5\t1\t6\t1\t31\t4\t614\t2023\t89\t25\t96.603638\tDATA\n5\t1\t6\t1\t31\t5\t712\t2012\t147\t37\t58.896656\tSCIENCE:\n4\t1\t6\t1\t32\t0\t114\t2061\t531\t61\t-1\t\n5\t1\t6\t1\t32\t1\t114\t2080\t177\t42\t9.817749\t{,06026209.°\n5\t1\t6\t1\t32\t2\t300\t2082\t87\t25\t96.965981\tDATA\n5\t1\t6\t1\t32\t3\t397\t2061\t248\t54\t96.124374\tVISUALIZATION\n4\t1\t6\t1\t33\t0\t107\t2086\t821\t86\t-1\t\n5\t1\t6\t1\t33\t1\t107\t2129\t8\t20\t0.000000\t\\)\n5\t1\t6\t1\t33\t2\t139\t2121\t133\t43\t35.945656\t46066102\n5\t1\t6\t1\t33\t3\t299\t2107\t233\t65\t96.545593\tMANAGEMENT\n5\t1\t6\t1\t33\t4\t540\t2107\t217\t53\t96.113892\tINFORMATION\n5\t1\t6\t1\t33\t5\t767\t2086\t161\t70\t62.082230\tSYSTEMS\n4\t1\t6\t1\t34\t0\t67\t2150\t803\t66\t-1\t\n5\t1\t6\t1\t34\t1\t67\t2176\t51\t34\t18.819618\t“1\n5\t1\t6\t1\t34\t2\t143\t2174\t153\t39\t0.000000\t8906630\n5\t1\t6\t1\t34\t3\t300\t2166\t86\t50\t89.942589\tDATA\n5\t1\t6\t1\t34\t4\t391\t2170\t207\t36\t95.069496\tSTRUCTURES\n5\t1\t6\t1\t34\t5\t605\t2169\t70\t31\t96.340469\tAND\n5\t1\t6\t1\t34\t6\t685\t2150\t185\t66\t5.473190\tALGORITHMS\n4\t1\t6\t1\t35\t0\t239\t2212\t611\t36\t-1\t\n5\t1\t6\t1\t35\t1\t140\t2213\t153\t25\t42.704472\tWY\n5\t1\t6\t1\t35\t2\t413\t2212\t129\t41\t31.746536\tGPS\n5\t1\t6\t1\t35\t3\t544\t2220\t65\t34\t31.746536\t3,08.\n5\t1\t6\t1\t35\t4\t667\t2201\t183\t40\t11.971886\tGPA:235)\n4\t1\t6\t1\t36\t0\t100\t2236\t788\t91\t-1\t\n5\t1\t6\t1\t36\t1\t100\t2286\t39\t28\t23.490463\tAER\n5\t1\t6\t1\t36\t2\t381\t2260\t80\t49\t15.737450\tGrd\n5\t1\t6\t1\t36\t3\t489\t2247\t134\t67\t88.403099\tSemester,\n5\t1\t6\t1\t36\t4\t639\t2253\t22\t37\t63.401905\t¥.\n5\t1\t6\t1\t36\t5\t693\t2236\t27\t91\t0.000000\tr,\n5\t1\t6\t1\t36\t6\t726\t2236\t162\t91\t60.288704\t2025-2026\n4\t1\t6\t1\t37\t0\t119\t2297\t696\t70\t-1\t\n5\t1\t6\t1\t37\t1\t119\t2297\t152\t70\t0.000000\tToogy2ee\n5\t1\t6\t1\t37\t2\t297\t2315\t35\t44\t84.073441\tIN\n5\t1\t6\t1\t37\t3\t349\t2309\t72\t53\t84.073441\tLOVE\n5\t1\t6\t1\t37\t4\t440\t2320\t13\t31\t56.222996\t&\n5\t1\t6\t1\t37\t5\t466\t2312\t33\t40\t56.222996\tIN\n5\t1\t6\t1\t37\t6\t511\t2317\t65\t44\t82.247910\tLIFE\n5\t1\t6\t1\t37\t7\t813\t2331\t2\t3\t43.029259\t\\\n4\t1\t6\t1\t38\t0\t91\t2352\t511\t87\t-1\t\n5\t1\t6\t1\t38\t1\t91\t2373\t22\t34\t26.659027\tSN\n5\t1\t6\t1\t38\t2\t143\t2360\t128\t79\t0.000000\tD0643023\n5\t1\t6\t1\t38\t3\t294\t2352\t308\t63\t33.647125\tTECHNOPRENEURS,\n4\t1\t6\t1\t39\t0\t138\t2378\t719\t109\t-1\t\n5\t1\t6\t1\t39\t1\t138\t2430\t71\t12\t45.631424\tAY\n5\t1\t6\t1\t39\t2\t431\t2409\t2\t2\t40.669422\t\\\n5\t1\t6\t1\t39\t3\t461\t2406\t80\t63\t51.125404\tGPS:\n5\t1\t6\t1\t39\t4\t534\t2407\t92\t80\t21.322449\teK\n5\t1\t6\t1\t39\t5\t664\t2378\t193\t84\t0.000000\tGPA2e\n2\t1\t7\t0\t0\t0\t488\t567\t32\t3\t-1\t\n3\t1\t7\t1\t0\t0\t488\t567\t32\t3\t-1\t\n4\t1\t7\t1\t1\t0\t488\t567\t32\t3\t-1\t\n5\t1\t7\t1\t1\t1\t488\t567\t32\t3\t95.000000\t \n2\t1\t8\t0\t0\t0\t1440\t742\t40\t10\t-1\t\n3\t1\t8\t1\t0\t0\t1440\t742\t40\t10\t-1\t\n4\t1\t8\t1\t1\t0\t1440\t742\t40\t10\t-1\t\n5\t1\t8\t1\t1\t1\t1440\t742\t40\t10\t95.000000\t \n2\t1\t9\t0\t0\t0\t1743\t733\t243\t42\t-1\t\n3\t1\t9\t1\t0\t0\t1743\t733\t282\t42\t-1\t\n4\t1\t9\t1\t1\t0\t1743\t733\t243\t42\t-1\t\n5\t1\t9\t1\t1\t1\t1743\t735\t126\t39\t82.427811\tCOURSE\n5\t1\t9\t1\t1\t2\t1886\t729\t89\t52\t35.121086\tTITLE\n2\t1\t10\t0\t0\t0\t127\t741\t1131\t70\t-1\t\n3\t1\t10\t1\t0\t0\t127\t741\t1131\t70\t-1\t\n4\t1\t10\t1\t1\t0\t127\t741\t1131\t70\t-1\t\n5\t1\t10\t1\t1\t1\t127\t741\t1131\t70\t95.000000\t \n2\t1\t11\t0\t0\t0\t112\t2468\t679\t479\t-1\t\n3\t1\t11\t1\t0\t0\t112\t2468\t679\t323\t-1\t\n4\t1\t11\t1\t1\t0\t112\t2468\t679\t92\t-1\t\n5\t1\t11\t1\t1\t1\t112\t2557\t9\t3\t0.000000\t,\n5\t1\t11\t1\t1\t2\t137\t2486\t162\t71\t32.059082\tSN\n5\t1\t11\t1\t1\t3\t283\t2530\t13\t24\t69.304787\t\\\n5\t1\t11\t1\t1\t4\t296\t2488\t110\t68\t47.580429\tAPPLE\n5\t1\t11\t1\t1\t5\t407\t2511\t28\t43\t60.531235\ti).\n5\t1\t11\t1\t1\t6\t409\t2484\t3\t3\t4.832947\tA\n5\t1\t11\t1\t1\t7\t442\t2468\t143\t82\t0.000000\tATACHINE\n5\t1\t11\t1\t1\t8\t600\t2495\t154\t54\t78.592339\tLEARNING\n5\t1\t11\t1\t1\t9\t779\t2495\t12\t11\t81.287491\t\\\n4\t1\t11\t1\t2\t0\t142\t2550\t528\t102\t-1\t\n5\t1\t11\t1\t2\t1\t142\t2558\t192\t94\t19.853889\tGK\n5\t1\t11\t1\t2\t2\t294\t2552\t84\t59\t93.327812\tDATA\n5\t1\t11\t1\t2\t3\t387\t2564\t37\t48\t47.230145\tWw\n5\t1\t11\t1\t2\t4\t423\t2550\t224\t86\t33.832977\tAKAN\n5\t1\t11\t1\t2\t5\t649\t2558\t21\t18\t55.065926\t\\\\\n4\t1\t11\t1\t3\t0\t142\t2612\t173\t47\t-1\t\n5\t1\t11\t1\t3\t1\t142\t2612\t173\t47\t22.340858\t06026240\n5\t1\t11\t1\t3\t2\t289\t2608\t28\t55\t22.340858\tIt\n4\t1\t11\t1\t4\t0\t138\t2682\t154\t75\t-1\t\n5\t1\t11\t1\t4\t1\t138\t2682\t154\t75\t0.000000\toepnene\n4\t1\t11\t1\t5\t0\t138\t2701\t548\t101\t-1\t\n5\t1\t11\t1\t5\t1\t138\t2760\t111\t31\t8.001328\tPy\n5\t1\t11\t1\t5\t2\t286\t2730\t165\t72\t33.650581\t“BUSINESS\n5\t1\t11\t1\t5\t3\t455\t2701\t231\t95\t41.748383\tACA\n3\t1\t11\t2\t0\t0\t137\t2789\t552\t60\t-1\t\n4\t1\t11\t2\t1\t0\t137\t2789\t551\t60\t-1\t\n5\t1\t11\t2\t1\t1\t137\t2807\t136\t47\t69.716530\t(96066000\n5\t1\t11\t2\t1\t2\t295\t2800\t160\t45\t64.428696\tDISCRETE:\n5\t1\t11\t2\t1\t3\t452\t2789\t236\t60\t22.348335\tMATHEMATICS\n3\t1\t11\t3\t0\t0\t143\t2842\t541\t105\t-1\t\n4\t1\t11\t3\t1\t0\t143\t2842\t541\t105\t-1\t\n5\t1\t11\t3\t1\t1\t143\t2856\t165\t91\t36.255344\tAy\n5\t1\t11\t3\t1\t2\t298\t2850\t132\t76\t16.330269\tPRORESS\n5\t1\t11\t3\t1\t3\t444\t2848\t97\t66\t16.330269\tENG\n5\t1\t11\t3\t1\t4\t534\t2842\t150\t65\t78.709747\tCOMMUN\n2\t1\t12\t0\t0\t0\t143\t3064\t595\t132\t-1\t\n3\t1\t12\t1\t0\t0\t143\t3064\t595\t113\t-1\t\n4\t1\t12\t1\t1\t0\t372\t3064\t343\t70\t-1\t\n5\t1\t12\t1\t1\t1\t372\t3077\t166\t57\t35.195930\t“Cumiilatlye\n5\t1\t12\t1\t1\t2\t546\t3073\t77\t51\t73.884773\tGPA:\n5\t1\t12\t1\t1\t3\t630\t3064\t85\t66\t0.000000\t“ah\n4\t1\t12\t1\t2\t0\t143\t3120\t595\t76\t-1\t\n5\t1\t12\t1\t2\t1\t143\t3149\t294\t34\t0.000000\tconcosarmoesereprersepeneee\n5\t1\t12\t1\t2\t2\t441\t3160\t41\t9\t46.095802\tter’,\n5\t1\t12\t1\t2\t3\t489\t3142\t138\t54\t0.000000\tTraasereel\n5\t1\t12\t1\t2\t4\t635\t3136\t16\t31\t34.040001\t«\n5\t1\t12\t1\t2\t5\t650\t3120\t73\t56\t18.268776\t‘oxed\n2\t1\t13\t0\t0\t0\t134\t3319\t556\t98\t-1\t\n3\t1\t13\t1\t0\t0\t134\t3319\t556\t98\t-1\t\n4\t1\t13\t1\t1\t0\t134\t3319\t556\t98\t-1\t\n5\t1\t13\t1\t1\t1\t134\t3373\t7\t9\t14.697403\t,\n5\t1\t13\t1\t1\t2\t166\t3347\t16\t44\t0.000000\t.\n5\t1\t13\t1\t1\t3\t196\t3360\t59\t24\t96.318947\tDate\n5\t1\t13\t1\t1\t4\t266\t3355\t94\t29\t30.769867\tIssued:\n5\t1\t13\t1\t1\t5\t380\t3319\t134\t98\t37.791920\tsete\n5\t1\t13\t1\t1\t6\t535\t3349\t27\t29\t52.543114\t21\n5\t1\t13\t1\t1\t7\t579\t3330\t78\t52\t52.543114\t206\n5\t1\t13\t1\t1\t8\t670\t3356\t20\t4\t33.958519\tNY\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "column-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "\\ RYAN BS NARA ESED ENED Bot NE atane 8 8. DARUSRARELA REEL!\nANS and Semester, Year, 20242025 \\\\\\\\\\K AA CIC\n“| 96066001 PROBABILITY anpstatistics AY AN itt it a AN\n| | 90641007 DIGITAL CITIZEN Atti \\e\\\\\\ Mitt Ua a NAIA ee\ngnigi2h3. LAW FOR NEW GENERATION \\\\\\\\\\ AAR Ait tititttt] WAAR\n‘| 90644008 FOUNDATION ENGLISH 2 ANIKI ARIAS AIR AR ji\nhe GPS:170.. \\ GRAN NI AI AAAS 4\n‘| geaset00, DATABASE SYSTEM CONCEPTS \\\\\\\\\\\\\\\\AAANAY AWittttttt eet tea ds\n06066302. FUNDAMENTAL WEB PROGRAMMING |\\\\\\\\\\AR eR ANIKI a AN\n~~ | 06066304. INFORMATION SYSTEM ANALYSIS AND DESIGN \\\\\\\\\\\\ ARNE AIRS NEN ‘\n. GPS:2.17 — GPATI9S\\\\\\\\ YAW AA Nites ‘ AN\n}'06026204 INTRODUCTION TO NETWORKS AND AAAI AIRE )\n~ | 0926207, NOSOL DATABASE SYSTEMS AI DONA ‘ &\n» [106026208 FUNDAMENTALS OF DATA sclENCE WANA NWA SAN /\n“| 96026209. DATA VISUALIZATION AUN NEA AWE |\n© | uose102 MANAGEMENT INFORMATION SYSTEMS. ANA AR Eas 2B\n© | 04966301 DATA STRUCTURES AND ALGORITHMS (00 NAN aN AAI ! |\n+1 96026212. DATA WAREHOUSING | AIA RU ee\n| pga2ea6i SPECIAL TOPICS IN BATA SCIENCE ANB Na ANSANSSESS Sea\nS061? PROTESSIONAL COMMUNICATION ANB. IAG RRO RN\n© pREsENrAtio’ \\\\\\\\\\\\\\ A NG:\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "header.png",
+            "stdout",
+            "-l",
+            "eng_photo",
+            "--tessdata-dir",
+            "/app/model/data/photo_ocr",
+            "--psm",
+            "6"
+          ],
+          "text": "( Unofficial Transcript )\nName Mr Pattarapol Petcharat Student ID 67070127\nDate of Birth January 9, 2005 Date of Admission 2024\nDegree Bachelor of Science ! Date of Graduation N/A\nProgram Data Science and Business Analytics : »\nFORCE TIT © Temeoeel xbE] COURSE TITLE 0 fearon curve\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "footer.png",
+            "stdout",
+            "-l",
+            "eng_photo",
+            "--tessdata-dir",
+            "/app/model/data/photo_ocr",
+            "--psm",
+            "6"
+          ],
+          "text": "06066000 DISCRETE MATHEMATICS AH ETL AY A+\n90644042 PROFESSIONAL COMMUNICATION AND \\ 3\nPRESENTATION \\ \\ \\\\ X\n| LA GPS: GPA2A2 \\ \\ \\\n| Total pumber of credit earned: 69 \\ Ae\nCumulative GPA: 242 \\\nerr nserarrnesonsnnearers 7005 CHO 6H rremrsrermemtn Teta TE\nCHECKED BY ee TATA TRE ee\n(Xx XaRExRERR XKXALUXXLLER) ST FRB\n. Date Issued: Scplcwbss 21. 2026 This documeni ks unofficial transcript.\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "table.png",
+            "stdout",
+            "-l",
+            "eng_photo",
+            "--tessdata-dir",
+            "/app/model/data/photo_ocr",
+            "--psm",
+            "4"
+          ],
+          "text": "Program Data Science and Business Analytics\n\n1st Semester, Year, 2024-2025\n06026200 CALCULUS 1 3 [CC\n06066101 BUSINESS FUNDAMENTALS FOR INFORMATION A\n06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING Alls\n90642999 CHARM SCHOOL SH A BE A\n90644007 FOUNDATION ENGLISH 1 ALR HAY A\nGPS:217 GPA:2.U\n2nd Semester, Year, 2024-2025\n(16026201 CALCULUS 2 31D\n06026203 COMPUTER PROGRAMMING 3 D+\n16026205 INTRODUCTION TO MARKETING 3 (D+\n06066001 PROBABILITY AND STATISTICS 13 0D\n90641007 DIGITAL CITIZEN A A\n90642033 LAW FOR NEW GENERATION 3 B+\n90644008 FOUNDATION ENGLISH 2 AAR AR A A\nGPS: 170 GPA : 1.88 A\n1st Semester, Year, 2025-2026 \\\n06066300 DATABASE SYSTEM CONCEPTS \\ A LY Ao\n06066302 FUNDAMENTAL WEB PROGRAMMING A A AN 2\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN SE AN A=\nGPS:217 GPA:195 A RA\n2nd Semester, Year, 2025-2026 HA\n06026204 INTRODUCTION TO NETWORKS AND A ON\nCYBERSECURITY \\\\\n06026207 NOSQL DATABASE SYSTEMS 3 C+\n06026208 FUNDAMENTALS OF DATA SCIENCE iA\n06026209 DATA VISUALIZATION 3 B+\n06066102 MANAGEMENT INFORMATION SYSTEMS A\n06066301 DATA STRUCTURES AND ALGORITHMS 3 Cc\nGPS 308 GPA:235\n3rd Semester, Year, 2025-2026\n90642888 IN LOVE & IN LIFE \\ 3S\n\n90643023 TECHNOPRENEURS\nGPS:350 GPA:242\n\n1st Semester, Year, 2026-2027\n\n26211 APPLIED MACHINE LEARNING 3\n06026212 DATA WAREHOUSING 3\n06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n06026242 C1.OUD TECHNOLOGY INFRASTRUCTURE i\n06026261 SPECIAL TOPICS IN DATA SCIENCE AND 3\n\n: BUSINESS ANALYTICS | \\ 3 \\\n06066000 DISCRETE MATHEMATICS 3\n\n3\n\n90644042 PROFESSIONAL COMMUNICATION AND\n\nPRESENTATION\nGPS: OPA:2A2\n\nTotal number of credit carncd: 69\nCumulative GPA: 242\n\nmss reas pe emsssanens ere Transcript Close\n\nros verversnes sera froncy\n"
+        }
+      ]
+    }
+  ]
+}

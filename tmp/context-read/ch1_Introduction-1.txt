@@ -1,0 +1,789 @@
+[PAGE 1]
+06026240 INTELLIGENT SYSTEM DEVELOPMENT
+with Dr. Bhattarabhorn Wattanacheep
+Chapter  I  
+Introduction To Intelligent System Development
+
+[PAGE 2]
+2
+15-WEEK COURSE SCHEDULE   ·   Intelligent System Development   ·   Undergraduate   ·   3+ hrs/session   ·   Lecture + Lab
+Category Key: Foundation, Core AI/ML, LLMs & APIs, Engineering, Capstone
+Wk
+Topic
+Theory / Lecture
+Lab Activity
+Project Milestone
+Checkpoint
+1 Intro + Git Setup
+AI/ML/DL hierarchy · AI stack · Git
+Env setup · API call · git init
+จัดกลุม + ตั้ง repo เลือก domain—29/6
+2 Computer Vision & AI
+Vision basics · Classical CV · CNN
+Augmentation and labeling Dataset project (ของอ.)
+--
+--6/7
+3 ML & DL Foundations CNN 
+Sup/Unsup/RL · Gradient · MLP
+Dataset Lab 2 มา Run model
+--
+--13/7
+4 How to build CNN/ RNN
+How to build CNN/ RNN
+Augmentation and labeling Dataset project (challenge)
+ยืนยัน Dataset
+Checkpoint 1 20/7
+5 Generative Modeling
+Autoencoder · VAE · GAN · Diff
+Dataset Lab 4 มา Run model
+แยกกัน Run model
+— 27/7
+6 Deep Reinforcement Learning
+RL · Q-learning · DQN · policy
+คิดคําถาม / คําแนะนํา / คาที่จะ evaluate ทั้งหมด
+สง Proposal
+Proposal Due 3/8
+7 Agentic AI & LLMs★
+Agentic AI & LLMs
+LLMOCR extract document / Algorithm เปรียบเทียบทวงทาเพิ่ม LLM เขา project
+—10/8
+Midterm เนื้อหา Wk 1-6 (17/8 เชา ตองดูตารางสอบอีกทีนะ)
+8
+Transfer & Fine-tune
+pre-trained · fine-tune
+LLMOCR extract document / Algorithm เปรียบเทียบทวงทา
+—24/8
+หยุด 31/8 เตรียมลาดกระบังนิทรรศ + open house
+9 Evaluation & Overfit
+bias-variance · metrics · reg
+Run model ที่คาดวาจะใชใน project ใหครบ loop
+ประเมิน metrics ทุก model
+Checkpoint 2 7/9
+10 AI APIs & Integration ★
+API · embeddings · function call
+ทําโมเดลใหเกงขึ้น และเลือกโมเดลในกลุม
+Model ทํางานได ครบ loop
+Integration spike 14/9
+11 Frontend Development
+HTML/CSS · JS · responsive
+Index.html
+wireframe + เชื่อม UI
+—21/9
+12 Backend Development
+REST · FastAPI · auth · DB
+ทั้งระบบเชื่อมตอกัน
+End to end
+Checkpoint 3 28/9
+13 สรุปภาพรวม Project
+สรุป Project + ทดสอบ Challenge
+สรุป Project + ทดสอบ Challenge
+--
+—ทดสอบ challenge 5/10
+14 ทําเอกสาร + ทํา presentation
+ทําเอกสาร + presentation
+ทําเอกสาร + presentation (อันนี้เดี๋ยว vote : online/onsite)
+Final code freeze
+Code Freeze 12/10
+15 Final Presentations
+present + demo · review · Q&A
+Live demo full-stack AI
+สง Code + Slides + Demo
+Presentation Day 19/10
+Fi l Eื้
+Wk 7 12 (2/11
+
+ีี
+)
+
+[PAGE 3]
+GRADE
+•
+ Attend class  
+5% (15 ครั้ง)
+•
+ Lab 
+ 
+5% (15 ครั้ง)
+•
+ Assignment  
+30%
+•
+ Midterm examination 30% (ปรนัย)
+•
+ Final examination 
+30% (ปรนัย)
+การตัดเกรด ตัดตามเกณฑ (ชวงคะแนนอาจมีการปรับเปลี่ยน)
+
+[PAGE 4]
+ไอเดียที่ใชไดจริง
+1
+OCR Transcript (สจล.)
+• ขอมูล: Synthetic + Synthetic & noise + Real
+• ทํา OCR ดวย CV หรือ LLM-OCR
+• ออกแบบ Database สําหรับจัดเก็บขอมูล
+• ยิ่งความแมนยําสูง ยิ่งไดคะแนนมาก
+เนน OCR ของ document ที่หลากหลาย
+2
+OCR เลมหลักสูตร เพื่อตอบคําถาม
+เกี่ยวกับการเรียน
+• ทํา OCR (คะแนนสวนนี้นอยกวาโปรเจกต 1)
+• ใช LLM ตอบคําถามระดับงาย-ยาก จาก
+หลักสูตร
+• Database / RAG เก็บขอมูลทั้งหมดที่จําเปน 
+ตอการตอบคําถาม
+เนน OCR + LLM + RAG
+3
+Recommendation การตอยมวย
+• เปรียบเทียบผูเลนกับครูฝก / นักมวย
+• เนน Keypoint / Skeleton Extraction
+• สรางระบบ Recommendation ให
+คําแนะนํา
+• DB เก็บขอมูลเล็กนอย เชน ทาครูฝก เปนตน
+เนน Skeleton + แนะนํา
+**ตองมีการเลือกอยางนอยโปรเจคละ 2 กลุม
+
+[PAGE 5]
+เกณฑการใหคะแนน (Scoring Guideline)
+5
+เต็ม 100 คะแนนตอโปรเจกต — แบงตามองคประกอบ นํ้าหนักคะแนนตางกันตามความยากของแตละโจทย
+P1 = OCR Transcript (สจล.)     ·     P2 = OCR หลักสูตร + LLM ตอบคําถาม     ·     P3 = Recommendation การตอยมวย
+องคประกอบการใหคะแนน
+P1
+P2
+P3
+สิ่งที่ตองทําได / เกณฑคะแนนเต็ม
+1. ออกแบบฐานขอมูล / RAG
+15
+20
+10
+Schema ชัดเจน ความสัมพันธถูกตอง รองรับการคนคืน / query ไดจริง
+2. การอานภาพ: OCR / Key 
+point, Skeleton
+35
+20
+25
+ดึงขอมูลจากภาพไดครบฟลด, จุดสําคัญ ดวย CV หรือ LLM-OCR / โมเดลดึง keypoint  ที่ตองใชไดครบ/ การเลือกใช model
+(if ใชของพรี && ขอความดานบน = ไดเต็ม else  มีการเสียเงิน ตองพิจารณา เคสตอวา สมเหตุสมผลในเรื่องของเวลาประมวลผลและ
+ความแมนยําไหม แพงไหม-เชนอิงจากตอคําถามหรือตอผูใช 1 คน- เปนตน)
+3. ความแมนยํา / คุณภาพ
+ผลลัพธ (ทั้งภาพจําลองและของจริง)
+40
+20
+35
+วัดผลเปนตัวเลขดวย matrix ในเรื่องนั้นๆ : >91% = เต็ม, 80–90% = (~2/3), <80% = เริ่มตน (~1/3)
+4. LLM / Recommend
+0
+30
+20
+ตอบคําถาม ระดับงาย-ยากได อางอิงขอมูลจริง ตอบถูก + อางอิงแหลง (หนา/หัวขอ ในเลมหลักสูตร) จึงไดคะแนนเต็มของระดับนั้น / 
+ใหคําแนะนําไดถูกตอง ทั้งองศาของแตละสวน และความเร็วที่ตองปรับเปลี่ยน  : >91% = เต็ม, 80–90% = ครึ่ง, <80% = เริ่มตน
+5. แอปใชงานไดจริง + เอกสาร
+10
+10
+10
+Up code ขึ้น GitHub ที่แชรกับ mail อ. (bhattarabhorn.wa at kmitl.ac.th) เปน collaborate / Demo ทํางาน end-to-end 
+พรอม README / All Dataset / Presentation / Slide หรือ คูมือการใชงาน  (สงใน discord กลุม)
+รวม
+100
+100
+100
+คะแนนเต็มตอโปรเจกต (น้ําหนักปรับตามความยากของโจทย)
+ปล. Dataset สําหรับการ Challenge สวนใหญตอง ทํา label เอง
+
+[PAGE 6]
+Challenge & คะแนนพิเศษ — P1: OCR Transcript
+6
+ของจริงไมสะอาด: ไฟลอัปโหลดมักมี noise และมีทรานสคริปต หลายเวอรชัน — ยิ่งทนทานและแมนยํา ยิ่งไดคะแนนพิเศษ
+เกณฑ Challenge
+คะแนนพิเศษ
+ระบบตองทําไดถึงจะไดคะแนน
+ความแมนยํา บนชุดภาพที่เปนสถานการณจริง ของระดับ
+ปริญญาตรีและบัณฑิตศึกษา
++0
+อานครบถูกแมภาพเอียง เงา ลายน้ํา หรือถายจากมือถือ 
+เครื่องสแกนหรือถายเอกสาร
+รองรับหลายเวอรชัน / ฟอรแมต (≥ 2 แบบ)
++10
+สลับฟอรมเกา/ใหม ของทรานสคริป สจล. โดยไมตองแกโคด
+ความเร็ว (Latency): อาน 1 ฉบับพรอมเปรียบเทียบความ
+เหมือน เฉลี่ย < 30 วินาที
++10
+ประมวลผลเร็ว รองรับงานจํานวนมาก (batch) ไดจริง
+* นับคะแนนความแมนยําสูงสุดเพียงระดับเดียว · รวมคะแนนพิเศษสูงสุด +10 คะแนน
+
+[PAGE 7]
+Challenge & คะแนนพิเศษ — P2: ถาม-ตอบหลักสูตร (LLM)
+7
+คะแนนพิเศษตาม “ระดับความยากของคําถาม” ที่ระบบตอบถูกและอางอิงหลักฐานในเลมหลักสูตรได
+ตย. ระดับคําถาม
+ตัวอยางคําถาม
+ทักษะที่ระบบตองมี
+คะแนนพิเศษ
+ระดับ 1
+งาย
+“วิชาการเขียนโปรแกรมมีกี่หนวยกิต?” / “รหัสวิชา 01006xxx ชื่ออะไร?”
+คนหาฟลด/ขอความตรง ๆ จากเลมหลักสูตร + 
+อางอิงหนา/ขอในเลม
++0
+ระดับ 2
+ปานกลาง
+“วิชาบังคับชั้นป 2 ภาคตนมีอะไรบาง?” / “หมวดวิชาเฉพาะเลือกเก็บกี่หนวยกิต?” 
+/ “วิชา X ตองผานวิชาใดกอน? ถายังไมผานจะลงทะเบียนไดไหม”
+อานตาราง + รวม / กรองขอมูลหลายจุด  + 
+อางอิงหนา/ขอในเลม
++0
+ระดับ 3
+ยาก
+“ถาจะจบใน 3.5 ป แตละเทอมตองลงวิชาอะไร?” / “ตรวจวาแผนเรียนนี้ครบ
+เงื่อนไขจบหรือไม” / “วิชาที่มีในหลักสูตรเกา ไมมีในหลักสูตรใหม”
+เชื่อมโยงเงื่อนไข prerequisite + ใหเหตุผล + 
+อางอิงหนา/ขอในเลม
++0
+ระดับ 4
+ทาทาย
+สามารถ extract เลมหลักสูตรหลาย version เชน หลักสูตรของปเดียวกัน แตเปน
+เวอรชันแกไข/ หลักสูตร 2 ปริญญา เปนตน
+multi-hop + วางแผน + อางอิงหนา/ขอในเลม
++10
+ความเร็ว
+(Latency)
+ตอบ 1 คําถามในระดับยาก ภายใน < 5 วินาที (รวม retrieval + generate)
+Index / RAG ที่ดึงเร็ว + ตอบไหลลื่น
++10
+*  รวมคะแนนพิเศษสูงสุด +10
+
+[PAGE 8]
+Challenge & คะแนนพิเศษ — P3: แนะนําการตอยมวยไทย
+8
+คะแนนพิเศษ 2 แกน: (1) ยิ่งวิเคราะหทายากได และ (2) ยิ่งใหคําแนะนําที่นําไปแกไดจริง ยิ่งไดคะแนน
+ระดับความสามารถ
+สิ่งที่ระบบตองทําไดถึงจะไดคะแนน
+คะแนนพิเศษ
+แกนที่ 1 — ความยากของทาที่วิเคราะหได
+ทาเดี่ยว (พื้นฐาน)
+จับ keypoint หมัด / เตะพื้นฐานไดถูกตอง
++0
+ทาผสมหลายสวนพรอมกัน
+แยกแยะ หมัด+เตะ / ศอก+เขา / การด+สวนกลับ ในจังหวะเดียว
++5
+จังหวะตอเนื่อง (คอมโบ)
+วิเคราะหลําดับทา + timing + การทรงตัวขณะเปลี่ยนทา
++10
+แกนที่ 2 — คุณภาพคําแนะนํา (Recommendation)
+ชี้จุดที่ตองแก
+เทียบกับครูฝก มีทั้ง text และ เปนคาตัวเลข เชน มุมขอศอก ความสูงการเตะ ตําแหนงการด
++0
+แนะนําที่ทําตามไดจริง
+บอกวิธีปรับ + จัดลําดับความสําคัญ + วัดพัฒนาการเมื่อฝกซํ้า
++5
+ความเร็ว / เรียลไทม (Real-time)
+ให feedback ภายใน < 5 วินาที
++10
+•
+คะแนนพิเศษรวมสูงสุด +10 · โดยการแนะนําหรือวิเคราะหทาตองเทียบกับทามาตรฐานของครูมวย
+
+[PAGE 9]
+9
+15-WEEK COURSE SCHEDULE   ·   Intelligent System Development   ·   Undergraduate   ·   3+ hrs/session   ·   Lecture + Lab
+Category Key: Foundation, Core AI/ML, LLMs & APIs, Engineering, Capstone
+Wk
+Topic
+Theory / Lecture
+Lab Activity
+Project Milestone
+Checkpoint
+1 Intro + Git Setup
+AI/ML/DL hierarchy · AI stack · Git
+Env setup · API call · git init
+จัดกลุม + ตั้ง repo เลือก domain—29/6
+2 Computer Vision & AI
+Vision basics · Classical CV · CNN
+Augmentation and labeling Dataset project (ของอ.)
+--
+--6/7
+3 ML & DL Foundations CNN 
+Sup/Unsup/RL · Gradient · MLP
+Dataset Lab 2 มา Run model
+--
+--13/7
+4 How to build CNN/ RNN
+How to build CNN/ RNN
+Augmentation and labeling Dataset project (challenge)
+ยืนยัน Dataset
+Checkpoint 1 20/7
+5 Generative Modeling
+Autoencoder · VAE · GAN · Diff
+Dataset Lab 4 มา Run model
+แยกกัน Run model
+— 27/7
+6 Deep Reinforcement Learning
+RL · Q-learning · DQN · policy
+คิดคําถาม / คําแนะนํา / คาที่จะ evaluate ทั้งหมด
+สง Proposal
+Proposal Due 3/8
+7 Agentic AI & LLMs★
+Agentic AI & LLMs
+LLMOCR extract document / Algorithm เปรียบเทียบทวงทาเพิ่ม LLM เขา project
+—10/8
+Midterm เนื้อหา Wk 1-6 (17/8 เชา ตองดูตารางสอบอีกทีนะ)
+8
+Transfer & Fine-tune
+pre-trained · fine-tune
+LLMOCR extract document / Algorithm เปรียบเทียบทวงทา
+—24/8
+หยุด 31/8 เตรียมลาดกระบังนิทรรศ + open house
+9 Evaluation & Overfit
+bias-variance · metrics · reg
+Run model ที่คาดวาจะใชใน project ใหครบ loop
+ประเมิน metrics ทุก model
+Checkpoint 2 7/9
+10 AI APIs & Integration ★
+API · embeddings · function call
+ทําโมเดลใหเกงขึ้น และเลือกโมเดลในกลุม
+Model ทํางานได ครบ loop
+Integration spike 14/9
+11 Frontend Development
+HTML/CSS · JS · responsive
+Index.html
+wireframe + เชื่อม UI
+—21/9
+12 Backend Development
+REST · FastAPI · auth · DB
+ทั้งระบบเชื่อมตอกัน
+End to end
+Checkpoint 3 28/9
+13 สรุปภาพรวม Project
+สรุป Project + ทดสอบ Challenge
+สรุป Project + ทดสอบ Challenge
+--
+—ทดสอบ challenge 5/10
+14 ทําเอกสาร + ทํา presentation
+ทําเอกสาร + presentation
+ทําเอกสาร + presentation (อันนี้เดี๋ยว vote : online/onsite)
+Final code freeze
+Code Freeze 12/10
+15 Final Presentations
+present + demo · review · Q&A
+Live demo full-stack AI
+สง Code + Slides + Demo
+Presentation Day 19/10
+Fi l Eื้
+Wk 7 12 (2/11
+
+ีี
+)
+
+[PAGE 10]
+10
+Team Project Milestones & Grading
+Milestone
+สัปดาห
+รายละเอียด
+Deliverable
+จัดกลุม + เลือก Domain
+1
+กลุมละ 3-4 คน · ตกลง domain
+ชื่อกลุม + domain สง LMS
+Checkpoint 1
+4
+ยืนยัน รูปแบบ dataset ที่จะใชในโปรเจควา มีเคสจําลองแบบไหนบาง
+Slide 2-3 หนา
+Project Proposal
+6
+อธิบาย problem · AI approach · tech stack · timeline
+PDF 1 หนา (A4)
+Checkpoint 2
+8
+Model train ได · มี evaluation metrics ·ทุกโมเดล และสรุปโมเดลที่เลือกพรอมเหตุผล
+Code.py + metrics table
+Mid-project Review
+10
+Instructor feedback session · path model เชื่อมตอกันไดอยางชัดเจน
+Demo (5 นาที) + Q&A
+Checkpoint 3
+12
+Frontend + AI + Backend integrated ครบ · ทดสอบ end-to-end
+Working prototype (live demo)
+Code Freeze
+14
+หยุด add feature ใหม · polish + bugfix + Docker deploy
+GitHub repo link (final commit)
+Final Presentation
+15
+Demo 10 นาที + Q&A 3 นาที · peer review form
+Slides + Live Demo
+Written Report
+15
+Architecture · results · challenges · reflection (max 10 หนา)
+Dataset + PDF report + GitHub link
+
+[PAGE 11]
+ภาพรวมรายวิชา — วิชานี้เรียนอะไร ทําอะไรได
+11
+PHASE 1
+Foundations
+สัปดาห 1–4
+• AI / ML / DL พื้นฐาน
+• Computer Vision
+• CNN · RNN · Attention
+• พื้นฐานการสรางโมเดล
+PHASE 2
+Modeling
+สัปดาห 5–7
+• Generative Models
+• Reinforcement Learning
+• Fine-tuning โมเดล
+PHASE 3
+LLM & Integration
+สัปดาห 8–10
+• LLM & Prompting
+• เรียก AI ผาน API
+• Frontend เบื้องตน
+PHASE 4
+Full-stack Product
+สัปดาห 11–15
+• Frontend
+• Backend
+• Deploy ดวย Docker
+• นําเสนอโปรเจกต
+เชื่อมทุกสวนดวยโปรเจกตเดียว — ใช Git จัดการโคดตั้งแตสัปดาหแรก จนถึงงานนําเสนอสุดทาย
+
+[PAGE 12]
+12
+
+[PAGE 13]
+AI / ML / DL — ลําดับชั้นของปญญาประดิษฐ
+13
+AI · ปญญาประดิษฐ
+ML · แมชชีนเลิรนนิง
+DL
+ดีปเลิรนนิง
+วงในเปนสวนหนึ่งของวงนอก — DL ⊂ML ⊂AI
+AI — Artificial Intelligence
+ทําใหเครื่องทํางานที่ตองใชความฉลาดแบบมนุษย (รวมถึงกฎ if-else แบบดั้งเดิม)
+เชน ระบบแนะนําสินคา · ผูชวยเสมือน
+ML — Machine Learning
+ใหเครื่องเรียนรูรูปแบบจากขอมูลเอง โดยไมตองเขียนกฎทุกกรณี
+เชน คัดกรองสแปม · พยากรณยอดขาย
+DL — Deep Learning
+ML ที่ใชโครงขายประสาทเทียมหลายชั้น เหมาะกับขอมูลซับซอน
+เชน รูจําภาพ · แปลภาษา · เปนพื้นฐานของ LLM
+
+[PAGE 14]
+The AI Stack — มอง AI เปนชั้น ๆ
+14
+งาน AI แบงเปนชั้น ๆ — ชั้นลางเปนพื้นฐาน ชั้นบนใกลผูใช · คอลัมนขวาบอกวารายวิชาลงลึกแตละชั้นสัปดาหใด
+ชั้นสูงขึ้น = 
+ใกลผูใชมาก
+ขึ้น
+Application / UI
+เว็บแอป · แชตบอต · แดชบอรด
+W11–14
+API / Serving
+REST · FastAPI · Model API
+W9–10, 13
+Models
+CNN · Transformer · LLM
+W3–8
+Frameworks / Libraries
+PyTorch · TensorFlow · scikit-learn
+W2–7
+Compute
+GPU · Cloud · Colab
+ตลอดเทอม
+Data
+Datasets · Storage · Labeling
+W2–5
+เรียนสัปดาห
+
+[PAGE 15]
+ภาพรวมระบบ: Frontend → API → Backend → AI Model
+15
+ผูใชคลิกบนหนาเว็บ →คําขอวิ่งผาน API →Backend ประมวลผลและเรียก AI Model →สงผลลัพธกลับมาแสดงผล
+Frontend
+หนาเว็บที่ผูใชเห็นและคลิก
+.html  .css  .js
+API
+ตัวกลาง: รับ request แลวสงตอ
+routes · /api/...
+Backend
+ตรรกะ/ประมวลผลของระบบ
+app.py · .py
+AI Model
+ทํานาย/วิเคราะหขอมูล
+model.pkl  .h5  .onnx
+Database (ฐานขอมูล)
+.db  .sqlite  .csv
+อานลูกศรอยางไร
+→request ขาไป   ·   
+อาน/เขียนฐานขอมูล
+Response (ขากลับ): ผลลัพธ JSON ถูกสงจาก Backend →API →Frontend เพื่อแสดงผลใหผูใช
+
+[PAGE 16]
+โครงสรางโฟลเดอรมาตรฐาน & ชนิดไฟลในแตละสวน
+16
+โปรเจกตมาตรฐานจัดไฟลเปนชั้นๆ — แยก frontend / backend / model / data ออกจากกันชัดเจน
+project structure
+intelligent-system/
+├─ frontend/
+│   ├─ index.html
+│   ├─ style.css
+│   └─ app.js
+├─ backend/
+│   ├─ app.py
+← Flask / FastAPI
+│   ├─ api/
+← จุดที่API อยู่
+│   │   └─ routes.py
+│   └─ requirements.txt
+├─ model/
+│   ├─ train.py
+│   └─ model.pkl
+← โมเดลAI
+├─ data/
+│   └─ dataset.csv
+├─ .gitignore
+└─ README.md
+frontend/   .html  .css  .js
+หนาเว็บ — สิ่งที่ผูใชเห็นและคลิก
+backend/   .py  (app.py, routes.py)
+ตรรกะระบบ + จุดที่ API ทํางาน
+model/   .pkl  .h5  .onnx
+โมเดล AI ที่เทรน/บันทึกไวแลว
+data/   .csv  .json
+ชุดขอมูลสําหรับเทรน/ทดสอบ
+ราก (root)   README.md · requirements.txt · 
+.gitignore
+เอกสาร · รายการไลบรารี · ไฟลที่ไม push
+
+[PAGE 17]
+Git — ระบบควบคุมเวอรชันของโคด
+17
+Git = ระบบควบคุมเวอรชัน (Version Control) ที่บันทึกประวัติการเปลี่ยนแปลงโคด — ยอนกลับได และทํางานเปนทีมได
+ยอนเวลาได
+กลับไปเวอรชันกอนหนาไดเมื่อ
+โคดพัง
+ทํางานเปนทีม
+หลายคนแกไฟลเดียวกัน แลว 
+merge รวมงาน
+ติดตามการแกไข
+รูวาใครแกอะไร เมื่อไหร ทุก
+ครั้ง
+สํารองบนคลาวด
+push ขึ้น GitHub ไมกลัว
+เครื่องพัง
+Git Workflow — เสนทางของโคดจากเครื่องเราขึ้น GitHub
+Working Directory
+โฟลเดอรที่เราแกโคด
+git add
+Staging Area
+เลือกไฟลที่จะบันทึก
+git 
+commit
+Local Repo
+บันทึกในเครื่อง (commit)
+git push
+Remote · GitHub
+สํารองบนคลาวด
+
+[PAGE 18]
+ทํางานที่ไหน? เครื่อง Local 
+ GitHub (คลาวด)
+18
+โคดอยู 2 ที่: เครื่องของคุณ (Local) กับ GitHub (คลาวด) — แกที่ Local แลว “sync” ขึ้น/ลงกับ GitHub
+เครื่อง Local (คอมของคุณ)
+• ที่ที่คุณ เขียนและรันโคดจริง
+• โฟลเดอรโปรเจกตเก็บอยูในเครื่อง แกแลวเห็น
+ผลทันที
+• ตองติดตั้ง Git และ Python ไวในเครื่อง
+• งานยัง ไมถูกสํารองจนกวาจะ push ขึ้นไป
+GitHub (บนคลาวด)
+• เก็บโคด สวนกลาง + สํารองออนไลน
+• เพื่อนในกลุม ดึงไปทําตอ ไดพรอมกัน
+• เก็บ ประวัติการแกทุกเวอรชัน
+• ใชสงงาน / แชรลิงก เขาผานเว็บ github.com
+push
+อัปขึ้น GitHub
+pull
+ดึงลงเครื่อง
+กฎงายๆ: แกที่ Local เสมอ →commit →push ขึ้น GitHub   ·   เริ่มงานใหมทุกครั้งให pull กอน
+
+[PAGE 19]
+เริ่มตน: นําโปรเจกตลงเครื่อง (clone) — 3 ทาง
+19
+เปาหมายเดียวกันทั้ง 3 วิธี: ดึง repo จาก GitHub มาไวในเครื่อง (ทําครั้งเดียวตอนเริ่มโปรเจกต)
+GitHub Desktop
+แอปในเครื่อง · งายสุด
+1  เปดแอป แลวไปที่  File ▸Clone 
+repository
+2  เลือก repo ของกลุม และโฟลเดอรปลายทาง
+3  กด  Clone  →ไดโปรเจกตในเครื่องทันที
+ไมตองพิมพคําสั่งเลย เหมาะกับมือใหม
+เว็บ GitHub (UI)
+บนเบราวเซอร · github.com
+1  เขา github.com แลวเปด repo ของกลุม
+2  กดปุม  Code (เขียว)  →คัดลอกลิงก 
+HTTPS
+3  นําลิงกไป clone ดวย Desktop หรือ cmd
+เว็บใชสราง repo / อัปไฟลทีละไฟล / ดูประวัติ
+Command line (cmd)
+เทอรมินัล · ยืดหยุนสุด
+1  เปด cmd ในโฟลเดอรที่จะเก็บงาน
+cd Documents
+2  ดึง repo ลงมา (clone)
+git clone …/isd-2025-group01.git
+3  เขาไปในโฟลเดอรโปรเจกต
+cd isd-2025-group01
+<ลิงก> ไดจากปุม Code สีเขียวบนเว็บ
+
+[PAGE 20]
+วงจรทํางานประจําวัน: pull → แก →commit → push
+20
+ทุกครั้งที่จะทํางาน: ดึงงานลาสุดกอน (pull) →แกโคด →บันทึกเปนเวอรชัน (commit) →สงขึ้น GitHub (push)
+1  Pull
+ดึงงานลาสุด
+2 แกโคด
+เขียน · แกไฟล
+3  Commit
+บันทึกเวอรชัน
+4  Push
+สงขึ้น GitHub
+↺เสร็จแลววนกลับไป pull ใหมทุกครั้งที่จะเริ่มงานรอบถัดไป
+GitHub Desktop
+commit + push แบบกดปุม
+1  ดูไฟลที่แกในชอง Changes (ซายมือ)
+2  พิมพขอความสรุปใน Summary แลวกด Commit to main
+3  กดปุม Push origin (มุมขวาบน) →ขึ้น GitHub
+เว็บ GitHub (UI)
+เหมาะแกไฟลยอยๆ บนเบราวเซอร
+1  เปดไฟลบนเว็บ แลวกดไอคอนดินสอ (Edit)
+2  แกขอความ แลวเลื่อนลงดานลาง
+3  กด Commit changes →เว็บ commit + push ใหเลย
+Command line (cmd)
+พิมพ 3 คําสั่งตามลําดับ
+1  เพิ่มไฟลที่แกทั้งหมด
+git add .
+2  บันทึกเวอรชัน + ใสขอความ
+git commit -m "ข้อความ"
+3  สงขึ้น GitHub
+git push
+
+[PAGE 21]
+Lab 1
+22
+Frontend
+API
+Backend
+AI Model
+Database
+Lab 1
+สราง Git Repo แรกของกลุม
+สวนของระบบ: การทํางานรวมกันบน GitHub (รอบ pull / commit / push)
+นําโคดทั้งโปรเจกตขึ้น GitHub เพื่อเก็บ สํารอง และทํางานเปนทีม
+
+[PAGE 22]
+การสราง GitHub rerpository บน web
+• https://github.com/ >> login >> ตัวแทนกลุมสราง Repository
+23
+isd-2025-xxx
+
+[PAGE 23]
+24
+
+[PAGE 24]
+25
+
+[PAGE 25]
+ติดตั้ง Git
+• เปด terminal >> ไป path ที่ตองการสรางโฟลเดอรงาน
+• จากนั้นใชคําสั่ง git clone ตามดวย url ที่กอบมาจากสไลดกอนหนา
+• เมื่อ clone มาเสร็จ cd เขาไปในโฟลเดอรที่โคลนลงมาดวยคําสั่ง cd ISD_Exxample
+• จากนั้นพิมพ code . เพื่อเขาสู vscode
+26
+
+[PAGE 26]
+Feature branch
+หามทํางานบน branch main ใหทําบน branch ตัวเอง ดังนั้น 
+เริ่มแรก update local repo (ใน vscode ในเครื่องเรา) ใหมี code อะไรตางๆเทา บน git ซึ่งคือ remote repo กอน
+27
+
+[PAGE 27]
+• git checkout main เพื่อดูวาเราอยูที่ main หรือปาว ถาใชจะขึ้น Already on 'main’
+• git pull origin main เพื่อ pull ทุกอยางที่ main มีลงมา
+28
+Feature branch
+
+[PAGE 28]
+สราง branch ที่จะทํางาน ดวยคําสั่ง git checkout -b feature/index เพื่อเติม code ตางๆที่ตองการบน 
+branch ที่สรางมาใหมนั้น
+29
+Feature branch
+
+[PAGE 29]
+เมื่อเพิ่มหรือแกจนพอใจ จะ push code ขึ้น branch ตัวเอง ใชคําสั่ง
+git add ตามดวยชื่อไฟล.นามสกุลไฟล หรือ ถามีหลายไฟล อยาก push พรอมกันหมด ใหใชคําสั่ง git add .
+จากนั้น add commit เพื่อ ใสขอความใน “ ” วา commit นี้เราทําอะไรไป ดวย git commit –m “ขอความ”
+30
+Feature branch
+
+[PAGE 30]
+จากนั้นเราจะ push ขึ้น repository เพื่อใหคนอื่นเห็นงานเรา และเปนการสํารองโคดไวบน rermote
+ดวยคําสั่ง git push –u origin ตามดวยชื่อbranch
+สามารถมาดูที่เว็บ GitHub ได เพพื่อความมั่นใจวา push สําเร็จ จะมีตรงนี้ขึ้นมา
+31
+Feature branch
+
+[PAGE 31]
+• Refresh แลวดูจะมี branch เพิ่มขึ้นมา
+32
+Feature branch
+
+[PAGE 32]
+ขั้นตอมา Merge branch เพื่อ นํา branch ที่เพิ่มทํางาน เขา branch กลาง
+33
+Feature branch
+
+[PAGE 33]
+34
+Feature branch
+
+[PAGE 34]
+35
+Feature branch
+
+[PAGE 35]
+Feature branch
+36
+
+[PAGE 36]
+Feature branch
+37
+
+[PAGE 37]
+Feature branch
+38
+
+[PAGE 38]
+Feature branch
+39
+
+[PAGE 39]
+Feature branch
+40
+
+[PAGE 40]
+Feature branch
+41
+
+[PAGE 41]
+Feature branch
+กลับมาที่ vscode ตรง terminal การสลับกลับมาที่ main 
+branch >> git checkout main
+git pull origin main เพื่อให main ใน local repo มี
+โคดและไฟลเทากับ main ใน rermote repo
+ถาจะทําอะไรตอ หรือแกงานใหมเราก็เริ่ม Slide 28 สราง 
+branch ใหม สําหรับจัดการตางๆ………….
+42
+
+[PAGE 42]
+43

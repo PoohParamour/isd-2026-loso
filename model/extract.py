@@ -47,6 +47,10 @@ EN_SPECIAL = re.compile(r"(?:Summer|Special)\s+Semester[,]?(?:\s+Academic\s+Year
 
 def parse_term(line: str, language: str) -> tuple[int, int] | None:
     """Parse common semester headings without depending on one template."""
+    if language == "en":
+        line = re.sub(r"\b(?:Ast|Ist|151|1S1)\s+(?=S(?:er|e)mester)", "1st ", line, flags=re.I)
+        line = re.sub(r"\bSermester\b", "Semester", line, flags=re.I)
+        line = re.sub(r"\bYeur\b", "Year", line, flags=re.I)
     patterns = (
         (
             r"(?:ภาคการศึกษา|ภาคเรียน)(?:ที่|ที|ทิ)?\s*([123])\D{0,30}(?:ปีการศึกษา|ปี)\s*(\d{4})",
@@ -309,11 +313,11 @@ def parse_header(lines: list[str], language: str) -> dict[str, Any]:
     header["name"] = prefix[2] if prefix else person_value or None
     joined = "\n".join(lines)
     sid = re.search(rf"(?:{id_label})\s*[:：#-]?\s*(\d{{8}})", joined, re.I)
-    if not sid:
+    unofficial = any(re.search(r"Unofficial\s+Transcript", line, re.I) for line in lines)
+    if not sid and not unofficial:
         header_text = "\n".join(lines[: min(30, len(lines))])
         sid = re.search(r"(?<!\d)(\d{8})(?!\d)", header_text)
     header["student_id"] = sid[1] if sid else None
-    unofficial = any(re.search(r"Unofficial\s+Transcript", line, re.I) for line in lines)
     official = any(re.search(r"TRANSCRIPT OF RECORDS|ใบแสดงผลการศึกษา", line, re.I) for line in lines)
     if header["student_id"] and not unofficial and (official or uni_name or uni_address):
         if en:
@@ -430,6 +434,17 @@ def parse_courses(lines: list[str], language: str, graduate: bool) -> list[dict]
         line = re.sub(r"(?<=\s)([0-9])\s+0\+\s*$", r"\1 C+", line)
         line = re.sub(r"(?<=\s)([0-9])\s+8\+\s*$", r"\1 B+", line)
         line = re.sub(r"(?<=\s)([0-9])\s+[\(（][๐0]\s*$", r"\1 C", line)
+        sparse = re.match(r"^(\d{7,9}|\?)\s+(.+?)\s+(\d{1,2}|\?)\s+(\?|[A-F][+]?|S|I|W|P|NP|U|G|-)\s*$", line, re.I) if language == "en" and not graduate else None
+        if sparse and "?" in (sparse[1], sparse[3], sparse[4]):
+            if current is None:
+                current = {"year": None, "sem_num": 0, "GPA": None, "GPS": None, "pass_reason": None, "subject": []}
+                semesters.append(current)
+            last_course = {"subject_id": None if sparse[1] == "?" else sparse[1],
+                           "subject_name": sparse[2].strip(), "type": None,
+                           "credit": None if sparse[3] == "?" else int(sparse[3]),
+                           "grade_earn": None if sparse[4] == "?" else sparse[4].lower()}
+            current["subject"].append(last_course)
+            continue
         row = COURSE.match(line) or COURSE_NO_GRADE.match(line)
         pending = COURSE_PENDING.match(line) if language == "en" and not graduate else None
         # A numeric OCR grade (e.g. "CHARM SCHOOL 3 7") can otherwise be
@@ -797,7 +812,14 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
                     result["validation"]["needs_review"] = True
                 result["processing_seconds"] = round(time.monotonic() - started, 3)
                 return result
-    text, engine = read_document(path, force_ocr)
+    screen_reading = None
+    if _rectified and image_layout == "auto" and format_id in (None, "bachelor_en"):
+        try:
+            from model.screen_table import read_screen_table
+        except ModuleNotFoundError:
+            from screen_table import read_screen_table
+        screen_reading = read_screen_table(path)
+    text, engine = (screen_reading[0], "tesseract") if screen_reading else read_document(path, force_ocr)
     detected = detect_format(text, format_id)
     initial_text = text
     selected_layout = image_layout
@@ -807,7 +829,9 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
         if image_layout == "auto":
             selected_layout = ("detected" if re.search(r"\bUnofficial\s+Transcript\b", initial_text, re.I)
                                else "profile")
-        if selected_layout == "detected":
+        if screen_reading:
+            body = screen_reading[1]
+        elif selected_layout == "detected":
             try:
                 from model.layout_ocr import read_layout_body
             except ModuleNotFoundError:
@@ -828,7 +852,7 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
     candidates = [parse(text, detected, body)]
     course_sources = [body or text]
     gpa_sources = [initial_text, text, body or ""]
-    if body and body != text:
+    if body and body != text and not screen_reading:
         candidates.append(parse(text, detected, None))
         course_sources.append(text)
 
@@ -857,7 +881,7 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
             if initial_text != text:
                 candidates.append(parse(initial_text, detected, detected_body))
                 course_sources.append(detected_body or initial_text)
-    if (path.suffix.lower() != ".pdf" and _rectified and image_layout == "auto"
+    if (path.suffix.lower() != ".pdf" and _rectified and image_layout == "auto" and not screen_reading
             and detected == "bachelor_en"
             and re.search(r"Unofficial\s+Transcript", initial_text, re.I)):
         try:
@@ -885,6 +909,14 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
         # A free-standing eight-digit course code is not evidence of an ID.
         record["header_detail"]["student_id"] = None
     validation = validate_record(record)
+    if screen_reading:
+        validation["issues"].append({
+            "path": "input.image", "code": "screen_photo_review",
+            "message": "ภาพถ่ายจออาจอ่านรหัสวิชา ตัวเลข และเกรดคลาดเคลื่อน กรุณาเทียบกับภาพก่อนบันทึก",
+            "severity": "warning",
+        })
+        validation["warnings"] += 1
+        validation["needs_review"] = True
     if record["transcript_detail"]["cumulative_gpa"] is None:
         label = r"Cumulative GPA|คะแนนเฉล(?:ี่|ี|ิ)ยสะสม"
         invalid_reading = any(

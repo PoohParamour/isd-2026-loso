@@ -11,9 +11,27 @@ from PIL import Image, ImageOps
 def _page_quad(image: np.ndarray) -> np.ndarray | None:
     height, width = image.shape[:2]
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    # Preserve the original crop for strongly rotated pages. Their edges
+    # cannot be classified as horizontal/vertical until OCR chooses orientation.
+    legacy_mask = cv2.inRange(gray, 120, 255)
+    legacy_mask = cv2.morphologyEx(legacy_mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+    legacy_contours, _ = cv2.findContours(legacy_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if legacy_contours:
+        legacy_contour = max(legacy_contours, key=cv2.contourArea)
+        legacy = cv2.approxPolyDP(legacy_contour, .02*cv2.arcLength(legacy_contour, True), True)
+        if .28 <= cv2.contourArea(legacy_contour)/(width*height) <= .92 and len(legacy) == 4 and cv2.isContourConvex(legacy):
+            points = legacy.reshape(4, 2).astype(np.float32)
+            angles = [abs(float(np.degrees(np.arctan2(edge[1],edge[0])))) % 90
+                      for edge in np.roll(points,-1,axis=0)-points]
+            if min(min(angle,90-angle) for angle in angles) > 25:
+                return points
     # A photographed PDF viewer has a bright page against a dark surround.
     # Close tiny gaps from table rules, but keep the page boundary intact.
-    mask = cv2.inRange(gray, 120, 255)
+    # Average screen pixels before locating the page. A fixed high threshold
+    # cuts away the shaded part of a page and invents a slanted bottom edge.
+    smooth = cv2.GaussianBlur(gray, (0, 0), 5)
+    threshold, _ = cv2.threshold(smooth, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    mask = cv2.inRange(smooth, min(round(threshold), 90), 255)
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if not contours:
@@ -23,15 +41,52 @@ def _page_quad(image: np.ndarray) -> np.ndarray | None:
     if not 0.28 <= area_ratio <= 0.92:
         return None
     perimeter = cv2.arcLength(contour, True)
-    polygon = cv2.approxPolyDP(contour, 0.02 * perimeter, True)
-    if len(polygon) != 4 or not cv2.isContourConvex(polygon):
+    polygon = cv2.approxPolyDP(contour, 0.003 * perimeter, True)
+    # A page crossing the frame has extra corners where it hits the image
+    # border. Fit its four real edges and intersect them instead of warping
+    # those artificial corners into a rectangle.
+    vertices = polygon.reshape(-1, 2).astype(np.float32)
+    sides = {}
+    center = vertices.mean(axis=0)
+    for p, q in zip(vertices, np.roll(vertices, -1, axis=0)):
+        if any(abs(float(p[k] - boundary)) < 2 and abs(float(q[k] - boundary)) < 2
+               for k, boundary in ((0, 0), (0, width - 1), (1, 0), (1, height - 1))):
+            continue
+        delta = q - p
+        length = float(np.linalg.norm(delta))
+        if length < min(width, height) * 0.3:
+            continue
+        midpoint = (p + q) / 2
+        if abs(delta[0]) > abs(delta[1]) * 2:
+            key = 'top' if midpoint[1] < center[1] else 'bottom'
+        elif abs(delta[1]) > abs(delta[0]) * 2:
+            key = 'left' if midpoint[0] < center[0] else 'right'
+        else:
+            continue
+        if key not in sides or length > sides[key][0]:
+            sides[key] = (length, np.cross(np.r_[p, 1], np.r_[q, 1]))
+    if len(sides) != 4:
+        # Keep the established quadrilateral path for pages rotated far from
+        # the image axes; horizontal/vertical edge classification is ambiguous
+        # there and the independent OCR orientation step follows this warp.
+        legacy = cv2.approxPolyDP(contour, 0.02 * perimeter, True)
+        if len(legacy) == 4 and cv2.isContourConvex(legacy):
+            return legacy.reshape(4, 2).astype(np.float32)
         return None
-    points = polygon.reshape(4, 2).astype(np.float32)
-    # Reject nearly axis-aligned pages: existing OCR profiles are tuned for them.
-    edges = [points[(i + 1) % 4] - points[i] for i in range(4)]
-    tilt = min(abs(float(np.degrees(np.arctan2(edge[1], edge[0])))) % 90 for edge in edges)
-    if tilt < 5:
+    points = []
+    for first, second in [('top', 'left'), ('top', 'right'), ('bottom', 'right'), ('bottom', 'left')]:
+        point = np.cross(sides[first][1], sides[second][1])
+        if abs(point[2]) < 1e-6:
+            return None
+        points.append(point[:2] / point[2])
+    points = np.array(points, dtype=np.float32)
+    if not cv2.isContourConvex(points) or any(
+        not (-width * .25 <= x <= width * 1.25 and -height * .25 <= y <= height * 1.25)
+        for x, y in points
+    ):
         return None
+    # A near-upright page still needs its dark viewer surround removed.
+    # Full-page scans are excluded above by their area, not by edge angle.
     return points
 
 
