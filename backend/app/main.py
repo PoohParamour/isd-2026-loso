@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from model.extract import FORMATS, extract
+from model.validate import validate_record
 from .database import get_document, init_db, list_students, save_document, search_grades, suggest_ids
 
 
@@ -51,6 +52,15 @@ class SaveRequest(BaseModel):
     record: dict[str, Any]
     engine: str | None = None
     processing_seconds: float | None = None
+
+
+class ValidateRequest(BaseModel):
+    record: dict[str, Any]
+
+
+@app.post("/api/validate")
+def validate(payload: ValidateRequest) -> dict:
+    return validate_record(payload.record)
 
 
 @app.get("/api/health")
