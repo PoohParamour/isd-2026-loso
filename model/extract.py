@@ -166,7 +166,8 @@ def read_bachelor_columns(path: Path, engine: str, language: str) -> str:
 def preprocess_image(image: Image.Image, mode: str, scale: int = 2) -> Image.Image:
     """Apply the dev-selected preprocessing without modifying source files."""
     image = image.convert("RGB")
-    image = image.resize((image.width * scale, image.height * scale), Image.Resampling.LANCZOS)
+    if image.width < 2000:
+        image = image.resize((image.width * scale, image.height * scale), Image.Resampling.LANCZOS)
     if mode == "original":
         return image
     gray = ImageOps.grayscale(image)
