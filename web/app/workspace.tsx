@@ -694,7 +694,7 @@ export default function Workspace() {
                               <th className="px-3 py-4 font-normal w-[90px]">หน่วยกิต</th>
                               <th className="px-3 py-4 font-normal w-[80px]">เกรด</th>
                               <th className="px-3 py-4 font-normal w-[90px]">สถานะ</th>
-                              <th className="px-3 py-4 font-normal w-[44px]"><span className="sr-only">ลบ</span></th>
+                              <th className="relative px-3 py-4 font-normal w-[44px]"><span className="sr-only">ลบ</span></th>
                             </tr>
                           </thead>
                         )}
@@ -859,9 +859,9 @@ export default function Workspace() {
                       <span className="text-[12px] font-normal text-[#716F6A]">GPA {semester.GPA || "—"}</span>
                     </div>
                     <div className="overflow-x-auto">
-                      <table className="w-full min-w-[520px] text-left text-[13px]">
+                      <table className="w-full min-w-[520px] table-fixed text-left text-[13px]">
                         <thead className="text-[11px] text-[#716F6A]">
-                          <tr><th className="px-6 py-3 font-normal">รหัสวิชา</th><th className="px-6 py-3 font-normal">ชื่อรายวิชา</th><th className="px-6 py-3 font-normal">หน่วยกิต</th><th className="px-6 py-3 font-normal">เกรด</th></tr>
+                          <tr><th className="px-6 py-3 font-normal w-[140px]">รหัสวิชา</th><th className="px-6 py-3 font-normal">ชื่อรายวิชา</th><th className="px-6 py-3 font-normal w-[100px]">หน่วยกิต</th><th className="px-6 py-3 font-normal w-[80px]">เกรด</th></tr>
                         </thead>
                         <tbody>
                           {(semester.subject || []).map((course, r) => (
