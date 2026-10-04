@@ -157,3 +157,28 @@ def suggest_ids(kind: str, prefix: str, limit: int = 8) -> list[dict]:
         """
     with connect() as conn:
         return [dict(row) for row in conn.execute(sql, (pattern, limit)).fetchall()]
+
+
+def list_students(limit: int = 500) -> list[dict]:
+    """Every saved student with a summary taken from their most recent saved document."""
+    with connect() as conn:
+        rows = conn.execute("""
+            SELECT s.student_id, s.prename, s.name, s.faculty_name, s.program,
+                   (SELECT COUNT(*) FROM documents WHERE student_id = s.student_id) AS document_count,
+                   d.document_id AS latest_document_id, d.created_at AS last_saved, d.record_json
+            FROM students s
+            JOIN documents d ON d.document_id = (
+                SELECT document_id FROM documents WHERE student_id = s.student_id
+                ORDER BY created_at DESC LIMIT 1)
+            ORDER BY d.created_at DESC LIMIT ?
+        """, (limit,)).fetchall()
+    students = []
+    for row in rows:
+        item = dict(row)
+        record = json.loads(item.pop("record_json"))
+        detail = record.get("transcript_detail") or {}
+        item["cumulative_gpa"] = detail.get("cumulative_gpa")
+        item["total_credits_earned"] = detail.get("total_credits_earned")
+        item["course_count"] = sum(len(sem.get("subject") or []) for sem in detail.get("semesters") or [])
+        students.append(item)
+    return students

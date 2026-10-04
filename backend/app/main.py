@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from model.extract import FORMATS, extract
-from .database import get_document, init_db, save_document, search_grades, suggest_ids
+from .database import get_document, init_db, list_students, save_document, search_grades, suggest_ids
 
 
 MAX_UPLOAD = 20 * 1024 * 1024
@@ -104,6 +104,12 @@ def document(document_id: str) -> dict:
     if result is None:
         raise HTTPException(404, "ไม่พบเอกสาร")
     return result
+
+
+@app.get("/api/students")
+def students() -> dict:
+    rows = list_students()
+    return {"count": len(rows), "results": rows}
 
 
 @app.get("/api/suggest")
