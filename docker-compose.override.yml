@@ -3,6 +3,8 @@
 # For the production-style build run: docker compose -f docker-compose.yml up --build
 services:
   backend:
+    ports:
+      - "8000:8000"
     command: ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app/backend", "--reload-dir", "/app/model"]
     environment:
       WATCHFILES_FORCE_POLLING: "true"
@@ -12,6 +14,8 @@ services:
       - ./model:/app/model
 
   web:
+    ports:
+      - "3000:3000"
     build:
       context: ./web
       target: deps
