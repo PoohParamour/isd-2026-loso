@@ -476,12 +476,12 @@ export default function Workspace() {
   return (
     <div className="min-h-screen bg-[#F8F7F5] text-[#292825]">
       <header className="h-[72px] bg-white flex items-center px-4 lg:px-12 border-b border-[#E7E4DE]">
-        <div className="flex items-center gap-4">
+        <Link href="/" onClick={() => setNotice(null)} aria-label="กลับหน้าแรก" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
           <div className="w-12 h-7 bg-[#ED0A13] rounded-[2px] flex items-center justify-center">
             <span className="font-['Inter'] font-black text-[12px] text-white tracking-widest">LOSO</span>
           </div>
           <h1 className="font-semibold text-[18px]">Transcript OCR Studio</h1>
-        </div>
+        </Link>
       </header>
 
       <div className="flex flex-col lg:flex-row px-4 lg:px-6 py-6 gap-6 max-w-[1440px] mx-auto lg:h-[calc(100vh-72px)] lg:overflow-hidden">
