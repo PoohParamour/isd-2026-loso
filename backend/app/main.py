@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from model.extract import FORMATS, extract
-from .database import get_document, init_db, save_document, search_grades
+from .database import get_document, init_db, save_document, search_grades, suggest_ids
 
 
 MAX_UPLOAD = 20 * 1024 * 1024
@@ -104,6 +104,13 @@ def document(document_id: str) -> dict:
     if result is None:
         raise HTTPException(404, "ไม่พบเอกสาร")
     return result
+
+
+@app.get("/api/suggest")
+def suggest(kind: str, q: str = "") -> dict:
+    if kind not in {"student", "subject"}:
+        raise HTTPException(422, "kind ต้องเป็น student หรือ subject")
+    return {"results": suggest_ids(kind, q.strip())}
 
 
 @app.get("/api/grades")

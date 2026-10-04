@@ -138,3 +138,22 @@ def search_grades(student_id: str | None, subject_id: str | None) -> list[dict]:
         WHERE """ + " AND ".join(conditions) + " ORDER BY d.created_at DESC, t.semester_index, c.row_index LIMIT 200"
     with connect() as conn:
         return [dict(row) for row in conn.execute(sql, params).fetchall()]
+
+
+def suggest_ids(kind: str, prefix: str, limit: int = 8) -> list[dict]:
+    """Saved student or subject ids that start with the digits typed so far."""
+    if not prefix.isdigit():
+        return []
+    pattern = prefix + "%"
+    if kind == "student":
+        sql = """
+            SELECT student_id AS value, TRIM(COALESCE(prename, '') || ' ' || COALESCE(name, '')) AS label
+            FROM students WHERE student_id LIKE ? ORDER BY student_id LIMIT ?
+        """
+    else:
+        sql = """
+            SELECT subject_id AS value, MAX(subject_name) AS label
+            FROM course_results WHERE subject_id LIKE ? GROUP BY subject_id ORDER BY subject_id LIMIT ?
+        """
+    with connect() as conn:
+        return [dict(row) for row in conn.execute(sql, (pattern, limit)).fetchall()]
