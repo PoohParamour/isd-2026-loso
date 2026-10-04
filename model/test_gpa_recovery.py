@@ -2,10 +2,32 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from model.extract import cumulative_gpa_from_sources, extract
+from model.extract import cumulative_gpa_from_sources, extract, parse_summary
 
 
 class GPARecoveryTests(unittest.TestCase):
+    def test_extra_leading_digit_is_rejected_without_guessing(self):
+        self.assertIsNone(parse_summary(["Cumulative GPA: 23.34"], "en")["cumulative_gpa"])
+        self.assertEqual(cumulative_gpa_from_sources([
+            "Cumulative GPA: 23.34", "Cumulative GPA: 3.34"], "en"), "3.34")
+        self.assertIsNone(cumulative_gpa_from_sources(["Cumulative GPA: 23.34"], "en"))
+
+    @patch("model.extract.read_document", return_value=("Student ID 12345678\nCumulative GPA: 23.34", "tesseract"))
+    @patch("model.extract.read_bachelor_columns", return_value="Cumulative GPA: 3.34\n1st Semester, 2024\n12345678 EXAMPLE COURSE 3 A")
+    def test_pdf_uses_clean_existing_column_pass(self, columns, document):
+        result = extract(Path("nonexistent-gpa-test.pdf"), format_id="bachelor_en", force_ocr=True)
+        self.assertEqual(result["record"]["transcript_detail"]["cumulative_gpa"], "3.34")
+        self.assertEqual(result["validation"]["course_count"], 1)
+
+    @patch("model.extract.read_document", return_value=("Student ID 12345678\nCumulative GPA: 23.34", "tesseract"))
+    @patch("model.extract.read_bachelor_columns", return_value="1st Semester, 2024\n12345678 EXAMPLE COURSE 3 A")
+    def test_unrecoverable_pdf_gpa_requires_review(self, columns, document):
+        result = extract(Path("nonexistent-gpa-test.pdf"), format_id="bachelor_en", force_ocr=True)
+        self.assertIsNone(result["record"]["transcript_detail"]["cumulative_gpa"])
+        self.assertTrue(result["validation"]["needs_review"])
+        self.assertTrue(any(issue["code"] == "unreadable_cumulative_gpa"
+                            for issue in result["validation"]["issues"]))
+
     def test_reads_explicit_cumulative_value_from_another_pass(self):
         self.assertEqual(cumulative_gpa_from_sources([
             "Cumulative GPA: 242", "GPA: 3.50\nCumulative GPA: 2.42"], "en"), "2.42")

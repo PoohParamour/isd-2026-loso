@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import cv2
 import numpy as np
+import statistics
 from PIL import Image, ImageOps
 
 
@@ -60,3 +61,35 @@ def straighten_photo(source: Image.Image) -> Image.Image | None:
     result = cv2.warpPerspective(image, cv2.getPerspectiveTransform(np.array([tl, tr, br, bl]), target),
                                  (width, height), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
     return Image.fromarray(result)
+
+
+def deskew_table(source: Image.Image) -> tuple[Image.Image, float] | None:
+    """Straighten a small table tilt only when many long rules agree.
+
+    This does not attempt to undo a perspective warp. The caller keeps the
+    original extraction unless the corrected image has stronger structure.
+    """
+    image = np.asarray(ImageOps.exif_transpose(source).convert("RGB"))
+    height, width = image.shape[:2]
+    if width < 600 or height < 600:
+        return None
+    gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    edges = cv2.Canny(gray, 60, 160)
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 720, threshold=120,
+                            minLineLength=round(width * 0.3), maxLineGap=30)
+    if lines is None:
+        return None
+    angles = []
+    for x1, y1, x2, y2 in lines.reshape(-1, 4):
+        angle = float(np.degrees(np.arctan2(int(y2) - int(y1), int(x2) - int(x1))))
+        if abs(angle) < 10:
+            angles.append(angle)
+    if len(angles) < 8:
+        return None
+    angle = statistics.median(angles)
+    if not 0.8 <= abs(angle) <= 4.0:
+        return None
+    matrix = cv2.getRotationMatrix2D((width / 2, height / 2), angle, 1.0)
+    corrected = cv2.warpAffine(image, matrix, (width, height),
+                               flags=cv2.INTER_CUBIC, borderValue=(255, 255, 255))
+    return Image.fromarray(corrected), angle

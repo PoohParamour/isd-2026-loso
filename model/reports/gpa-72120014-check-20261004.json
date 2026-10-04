@@ -1,0 +1,18 @@
+{
+  "expected_cumulative_gpa_visually_verified": "3.34",
+  "scope": "Uploaded PDF forced OCR and 1800px rendered PNG; original PDF preserved; normal pdftotext route unavailable locally",
+  "results": [
+    {
+      "input": "C:\\Users\\User\\Downloads\\72120014.pdf",
+      "gpa": "3.34",
+      "seconds": 4.343
+    },
+    {
+      "input": "tmp\\pdfs\\gpa-source.png",
+      "gpa": "3.34",
+      "seconds": 9.625
+    }
+  ],
+  "code_changed": false,
+  "remaining": "Need exact failing uploaded image and observed GPA value"
+}

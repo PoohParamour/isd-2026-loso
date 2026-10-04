@@ -605,7 +605,9 @@ def parse_summary(lines: list[str], language: str) -> dict[str, Any]:
         "master_thesis": None,
         "master_qualify": None,
         "total_credits_earned": int(credits_match[1]) if credits_match else None,
-        "cumulative_gpa": gpa_match[1] if gpa_match else None,
+        # A stray table glyph can turn 3.34 into 23.34. Keep only a
+        # physically possible GPA; another OCR pass may have read it cleanly.
+        "cumulative_gpa": gpa_match[1] if gpa_match and 0 <= float(gpa_match[1]) <= 4 else None,
     }
 
 
@@ -710,8 +712,9 @@ def _orient_photo(page: Image.Image, work: Path) -> Image.Image:
     """Choose the quarter-turn whose quick OCR contains transcript cues."""
     best = page
     best_score = -1
+    original_score = 0
     for degrees in (0, 90, 180, 270):
-        candidate = page.rotate(degrees, expand=True)
+        candidate = page if degrees == 0 else page.rotate(degrees, expand=True)
         preview = candidate.copy()
         preview.thumbnail((1200, 1600), Image.Resampling.LANCZOS)
         name = f"orientation-{degrees}.png"
@@ -720,18 +723,51 @@ def _orient_photo(page: Image.Image, work: Path) -> Image.Image:
         score = (4 * bool(re.search(r"\b(?:Name|Student\s*ID|Unofficial\s+Transcript)\b", sample, re.I))
                  + 3 * len(re.findall(r"\b(?:Semester|Course|Program|Degree)\b", sample, re.I))
                  + len(re.findall(r"(?<!\d)\d{8}(?!\d)", sample)))
+        if degrees == 0:
+            original_score = score
         if score > best_score:
             best, best_score = candidate, score
-    return best
+    # Keep the original direction when the text evidence is weak or tied.
+    return best if best_score >= 7 and best_score >= original_score + 4 else page
+
+
+def prefer_deskew_result(base: dict[str, Any], candidate: dict[str, Any]) -> bool:
+    """Accept a second OCR pass only after a clear structural improvement."""
+    base_record, next_record = base["record"], candidate["record"]
+    base_semesters = base_record["transcript_detail"]["semesters"]
+    next_semesters = next_record["transcript_detail"]["semesters"]
+
+    def valid_courses(semesters: list[dict]) -> int:
+        return sum(bool(re.fullmatch(r"\d{8}", str(subject.get("subject_id") or "")))
+                   for semester in semesters for subject in semester.get("subject") or [])
+
+    base_header, next_header = base_record["header_detail"], next_record["header_detail"]
+    fields = ("student_id", "name", "faculty_name", "program")
+    base_courses, next_courses = valid_courses(base_semesters), valid_courses(next_semesters)
+    base_terms = sum(item.get("year") is not None for item in base_semesters)
+    next_terms = sum(item.get("year") is not None for item in next_semesters)
+    base_errors, next_errors = base["validation"]["errors"], candidate["validation"]["errors"]
+    improved = (next_courses >= base_courses + 3
+                or (next_courses > base_courses and next_terms > base_terms)
+                or (next_courses >= base_courses and base_errors - next_errors >= 3))
+    return (improved
+            and next_courses >= base_courses
+            and next_terms >= base_terms
+            and sum(bool(next_header.get(key)) for key in fields)
+            >= sum(bool(base_header.get(key)) for key in fields)
+            and (not base_header.get("student_id") or base_header["student_id"] == next_header.get("student_id"))
+            and next_errors <= base_errors)
 
 
 def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
-            image_layout: str = "auto", _rectified: bool = False) -> dict[str, Any]:
+            image_layout: str = "auto", _rectified: bool = False,
+            _orientation_checked: bool = False,
+            _deskew_checked: bool = False) -> dict[str, Any]:
     if image_layout not in {"auto", "profile", "detected"}:
         raise ValueError(f"Unknown image layout: {image_layout}")
     started = time.monotonic()
     path = path.resolve()
-    if path.suffix.lower() != ".pdf" and not _rectified and path.exists():
+    if path.suffix.lower() != ".pdf" and not (_rectified or _orientation_checked) and path.exists():
         try:
             from model.photo_geometry import straighten_photo
         except ModuleNotFoundError:
@@ -740,14 +776,18 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
             if source.width * source.height > 30_000_000:
                 raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
             page = straighten_photo(source)
-        if page is not None:
-            with tempfile.TemporaryDirectory(prefix="isd_photo_") as temp:
-                work = Path(temp)
-                upright = _orient_photo(page, work)
+            # White screenshots and axis-aligned scans may have no detectable
+            # photo border. Their text still needs an independent direction check.
+            orientation_source = page if page is not None else ImageOps.exif_transpose(source).convert("RGB")
+        with tempfile.TemporaryDirectory(prefix="isd_photo_") as temp:
+            work = Path(temp)
+            upright = _orient_photo(orientation_source, work)
+            if page is not None or upright is not orientation_source:
                 corrected = work / "page.png"
                 upright.save(corrected)
-                result = extract(corrected, format_id, force_ocr, image_layout, _rectified=True)
-                if min(page.size) < 900:
+                result = extract(corrected, format_id, force_ocr, image_layout,
+                                 _rectified=page is not None, _orientation_checked=True)
+                if page is not None and min(page.size) < 900:
                     result["validation"]["issues"].append({
                         "path": "input.image", "code": "low_resolution_photo",
                         "message": "ภาพเอกสารเล็กเกินกว่าจะอ่านตารางได้ชัด กรุณาอัปโหลด PDF ต้นฉบับหรือภาพคมชัดที่หน้ากระดาษกว้างอย่างน้อย 1500 พิกเซล",
@@ -837,14 +877,47 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
             record["transcript_detail"]["semesters"] = parse_courses(
                 recovered.splitlines(), FORMATS[detected]["language"], FORMATS[detected]["course_type_column"])
     record = apply_course_catalog(record)
-    if path.suffix.lower() != ".pdf" and record["transcript_detail"]["cumulative_gpa"] is None:
+    if record["transcript_detail"]["cumulative_gpa"] is None:
         record["transcript_detail"]["cumulative_gpa"] = cumulative_gpa_from_sources(
             gpa_sources, FORMATS[detected]["language"])
     if (_rectified and not record["transcript_detail"]["semesters"] and
             not re.search(r"Student\s*ID\s*[:#-]?\s*\d{8}", text, re.I)):
         # A free-standing eight-digit course code is not evidence of an ID.
         record["header_detail"]["student_id"] = None
-    return {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3), "record": record, "validation": validate_record(record)}
+    validation = validate_record(record)
+    if record["transcript_detail"]["cumulative_gpa"] is None:
+        label = r"Cumulative GPA|คะแนนเฉล(?:ี่|ี|ิ)ยสะสม"
+        invalid_reading = any(
+            (match := re.search(r"(\d+\.\d{2})\s*$", line)) and float(match[1]) > 4
+            for source in gpa_sources for line in source.splitlines() if re.search(label, line, re.I)
+        )
+        if invalid_reading:
+            validation["issues"].append({
+                "path": "transcript_detail.cumulative_gpa", "code": "unreadable_cumulative_gpa",
+                "message": "อ่าน GPA สะสมได้ไม่ชัด กรุณาตรวจจากเอกสารต้นฉบับ",
+                "severity": "warning",
+            })
+            validation["warnings"] += 1
+            validation["needs_review"] = True
+    result = {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3),
+              "record": record, "validation": validation}
+    if path.suffix.lower() != ".pdf" and path.exists() and not (_rectified or _deskew_checked):
+        try:
+            from model.photo_geometry import deskew_table
+        except ModuleNotFoundError:
+            from photo_geometry import deskew_table
+        with Image.open(path) as source:
+            corrected = deskew_table(source)
+        if corrected:
+            with tempfile.TemporaryDirectory(prefix="isd_deskew_") as temp:
+                target = Path(temp) / "deskewed.png"
+                corrected[0].save(target)
+                candidate = extract(target, format_id, force_ocr, image_layout,
+                                    _orientation_checked=True, _deskew_checked=True)
+            if prefer_deskew_result(result, candidate):
+                result = candidate
+            result["processing_seconds"] = round(time.monotonic() - started, 3)
+    return result
 
 
 def main() -> None:
