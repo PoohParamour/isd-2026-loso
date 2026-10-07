@@ -118,6 +118,74 @@ def straighten_photo(source: Image.Image) -> Image.Image | None:
     return Image.fromarray(result)
 
 
+def straighten_clipped_photo(source: Image.Image) -> Image.Image | None:
+    """Rectify a clipped page using three visible edges and a long table rule.
+
+    The lower rule is a reference inside the page, not an invented page edge.
+    Render past it to retain the visible footer; invisible content stays absent.
+    """
+    image=np.asarray(ImageOps.exif_transpose(source).convert('RGB'))
+    h,w=image.shape[:2]
+    if min(h,w)<1800:
+        return None
+    gray=cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
+    smooth=cv2.GaussianBlur(gray,(0,0),5)
+    threshold,_=cv2.threshold(smooth,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    mask=cv2.inRange(smooth,min(round(threshold),90),255)
+    contours,_=cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    if not contours:
+        return None
+    contour=max(contours,key=cv2.contourArea)
+    if not .28<cv2.contourArea(contour)/(h*w)<.94:
+        return None
+    vertices=cv2.approxPolyDP(contour,.003*cv2.arcLength(contour,True),True).reshape(-1,2).astype(np.float32)
+    center=vertices.mean(axis=0);sides={}
+    for p,q in zip(vertices,np.roll(vertices,-1,axis=0)):
+        if any(abs(float(p[k]-boundary))<2 and abs(float(q[k]-boundary))<2
+               for k,boundary in ((0,0),(0,w-1),(1,0),(1,h-1))):
+            continue
+        delta=q-p;length=float(np.linalg.norm(delta));mid=(p+q)/2
+        if length<min(w,h)*.3:
+            continue
+        if abs(delta[0])>abs(delta[1])*2 and mid[1]<center[1]:key='top'
+        elif abs(delta[1])>abs(delta[0])*2:key='left' if mid[0]<center[0] else 'right'
+        else:continue
+        if key not in sides or length>sides[key][0]:sides[key]=(length,np.cross(np.r_[p,1],np.r_[q,1]))
+    if not all(key in sides for key in ('top','left','right')):
+        return None
+    small=cv2.resize(gray,(1400,round(h*1400/w)),interpolation=cv2.INTER_AREA)
+    factor=w/1400
+    candidates=cv2.HoughLinesP(cv2.Canny(small,40,120),1,np.pi/1800,threshold=90,
+                               minLineLength=700,maxLineGap=40)
+    if candidates is None:
+        return None
+    rules=[]
+    for x,y,xx,yy in candidates[:,0]:
+        dx,dy=int(xx-x),int(yy-y)
+        if abs(dx)>700 and abs(dy)<abs(dx)*.15 and min(y,yy)*factor>h*.65:
+            rules.append((float(np.hypot(dx,dy)),np.cross(np.r_[x*factor,y*factor,1],np.r_[xx*factor,yy*factor,1])))
+    if not rules:
+        return None
+    bottom=max(rules,key=lambda row:row[0])[1]
+    points=[]
+    for a,b in ((sides['top'][1],sides['left'][1]),(sides['top'][1],sides['right'][1]),
+                (bottom,sides['right'][1]),(bottom,sides['left'][1])):
+        point=np.cross(a,b)
+        if abs(point[2])<1e-6:return None
+        points.append(point[:2]/point[2])
+    quad=np.array(points,np.float32)
+    if not cv2.isContourConvex(quad) or any(not(-w*.25<=x<=w*1.25 and -h*.25<=y<=h*1.25) for x,y in quad):
+        return None
+    tl,tr,br,bl=quad
+    width=round(max(np.linalg.norm(tr-tl),np.linalg.norm(br-bl)))
+    table_height=round(max(np.linalg.norm(bl-tl),np.linalg.norm(br-tr)))
+    target=np.array([[0,0],[width-1,0],[width-1,table_height-1],[0,table_height-1]],np.float32)
+    result=cv2.warpPerspective(image,cv2.getPerspectiveTransform(quad,target),
+                              (width,table_height+round(table_height*.08)),flags=cv2.INTER_CUBIC,
+                              borderMode=cv2.BORDER_CONSTANT,borderValue=(255,255,255))
+    return Image.fromarray(result)
+
+
 def deskew_table(source: Image.Image) -> tuple[Image.Image, float] | None:
     """Straighten a small table tilt only when many long rules agree.
 

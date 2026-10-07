@@ -785,13 +785,15 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
     path = path.resolve()
     if path.suffix.lower() != ".pdf" and not (_rectified or _orientation_checked) and path.exists():
         try:
-            from model.photo_geometry import straighten_photo
+            from model.photo_geometry import straighten_photo, straighten_clipped_photo
         except ModuleNotFoundError:
-            from photo_geometry import straighten_photo
+            from photo_geometry import straighten_photo, straighten_clipped_photo
         with Image.open(path) as source:
             if source.width * source.height > 30_000_000:
                 raise ValueError("ภาพมีขนาดพิกเซลเกิน 30 ล้านพิกเซล")
             page = straighten_photo(source)
+            if page is None:
+                page = straighten_clipped_photo(source)
             # White screenshots and axis-aligned scans may have no detectable
             # photo border. Their text still needs an independent direction check.
             orientation_source = page if page is not None else ImageOps.exif_transpose(source).convert("RGB")
@@ -814,12 +816,27 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
                 result["processing_seconds"] = round(time.monotonic() - started, 3)
                 return result
     screen_reading = None
+    phone_reading = False
     if _rectified and image_layout == "auto" and format_id in (None, "bachelor_en"):
+        # High-resolution camera pages use the separately trained recognizer.
+        # Low-resolution screen captures retain their established path.
+        phone_models = Path(__file__).parent / "data/phone_ocr"
+        if (phone_models / "eng_phone.traineddata").exists():
+            with Image.open(path) as source:
+                high_resolution = source.width >= 1800
+            if high_resolution:
+                try:
+                    from model.phone_table import read_phone_table
+                except ModuleNotFoundError:
+                    from phone_table import read_phone_table
+                screen_reading = read_phone_table(path, phone_models, "eng_phone")
+                phone_reading = screen_reading is not None
         try:
             from model.screen_table import read_screen_table
         except ModuleNotFoundError:
             from screen_table import read_screen_table
-        screen_reading = read_screen_table(path)
+        if screen_reading is None:
+            screen_reading = read_screen_table(path)
     text, engine = (screen_reading[0], "tesseract") if screen_reading else read_document(path, force_ocr)
     detected = detect_format(text, format_id)
     initial_text = text
@@ -912,8 +929,8 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
     validation = validate_record(record)
     if screen_reading:
         validation["issues"].append({
-            "path": "input.image", "code": "screen_photo_review",
-            "message": "ภาพถ่ายจออาจอ่านรหัสวิชา ตัวเลข และเกรดคลาดเคลื่อน กรุณาเทียบกับภาพก่อนบันทึก",
+            "path": "input.image", "code": "phone_photo_review" if phone_reading else "screen_photo_review",
+            "message": "ภาพถ่ายอาจอ่านรหัสวิชา ตัวเลข และเกรดคลาดเคลื่อน กรุณาเทียบกับภาพก่อนบันทึก",
             "severity": "warning",
         })
         validation["warnings"] += 1
@@ -932,7 +949,7 @@ def extract(path: Path, format_id: str | None = None, force_ocr: bool = False,
             })
             validation["warnings"] += 1
             validation["needs_review"] = True
-    result = {"engine": engine, "processing_seconds": round(time.monotonic() - started, 3),
+    result = {"engine": "tesseract_phone" if phone_reading else engine, "processing_seconds": round(time.monotonic() - started, 3),
               "record": record, "validation": validation}
     if path.suffix.lower() != ".pdf" and path.exists() and not (_rectified or _deskew_checked):
         try:

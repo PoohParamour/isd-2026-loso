@@ -1,0 +1,575 @@
+{
+  "date": "2026-10-07",
+  "method": "fresh tessdata_best English LSTM fine-tuning plus image-only ruled-row geometry",
+  "selected_iterations": 300,
+  "requested_learning_rate": 0.0001,
+  "training_lines": 109,
+  "validation_lines": 109,
+  "split": "angle 1 train / angle 2 validation / angle 3 sealed final test; same two documents",
+  "line_baseline": {
+    "installed": {
+      "lines": 109,
+      "cer": 0.0883,
+      "exact_lines": 21,
+      "characters": 3373
+    },
+    "old_photo": {
+      "lines": 109,
+      "cer": 0.0786,
+      "exact_lines": 16,
+      "characters": 3373
+    },
+    "best": {
+      "lines": 109,
+      "cer": 0.0883,
+      "exact_lines": 19,
+      "characters": 3373
+    }
+  },
+  "training_rounds": [
+    {
+      "iterations": 100,
+      "learning_rate": 0.0001,
+      "train": {
+        "lines": 109,
+        "cer": 0.062,
+        "exact_lines": 32,
+        "characters": 3373
+      },
+      "validation": {
+        "lines": 109,
+        "cer": 0.0617,
+        "exact_lines": 33,
+        "characters": 3373
+      }
+    },
+    {
+      "iterations": 300,
+      "learning_rate": 0.0001,
+      "train": {
+        "lines": 109,
+        "cer": 0.0213,
+        "exact_lines": 82,
+        "characters": 3373
+      },
+      "validation": {
+        "lines": 109,
+        "cer": 0.0231,
+        "exact_lines": 79,
+        "characters": 3373
+      }
+    },
+    {
+      "iterations": 600,
+      "learning_rate": 0.0001,
+      "train": {
+        "lines": 109,
+        "cer": 0.0261,
+        "exact_lines": 72,
+        "characters": 3373
+      },
+      "validation": {
+        "lines": 109,
+        "cer": 0.0249,
+        "exact_lines": 74,
+        "characters": 3373
+      }
+    },
+    {
+      "iterations": 300,
+      "learning_rate": 0.0003,
+      "train": {
+        "lines": 109,
+        "cer": 0.0213,
+        "exact_lines": 82,
+        "characters": 3373
+      },
+      "validation": {
+        "lines": 109,
+        "cer": 0.0231,
+        "exact_lines": 79,
+        "characters": 3373
+      }
+    }
+  ],
+  "development_baseline": {
+    "correct": 413,
+    "total": 590,
+    "accuracy": 0.7
+  },
+  "development_final": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 4,
+    "correct": 574,
+    "total": 590,
+    "accuracy": 0.9728813559322034,
+    "rows": {
+      "tp": 124,
+      "fn": 0,
+      "fp": 0
+    },
+    "row_f1": 1.0,
+    "critical": {
+      "student_id": {
+        "correct": 4,
+        "total": 4
+      },
+      "course_id": {
+        "correct": 124,
+        "total": 124
+      },
+      "grade": {
+        "correct": 96,
+        "total": 98
+      },
+      "gpa": {
+        "correct": 22,
+        "total": 22
+      },
+      "gps": {
+        "correct": 18,
+        "total": 18
+      },
+      "cumulative_gpa": {
+        "correct": 4,
+        "total": 4
+      }
+    },
+    "mean_seconds": 27.539,
+    "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360"
+  },
+  "validation_untrained_same_layout": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 2,
+    "correct": 250,
+    "total": 295,
+    "accuracy": 0.847457627118644,
+    "rows": {
+      "tp": 58,
+      "fn": 4,
+      "fp": 3
+    },
+    "row_f1": 0.943089430894309,
+    "critical": {
+      "student_id": {
+        "correct": 2,
+        "total": 2
+      },
+      "course_id": {
+        "correct": 57,
+        "total": 62
+      },
+      "grade": {
+        "correct": 27,
+        "total": 49
+      },
+      "gpa": {
+        "correct": 8,
+        "total": 11
+      },
+      "gps": {
+        "correct": 5,
+        "total": 9
+      },
+      "cumulative_gpa": {
+        "correct": 1,
+        "total": 2
+      }
+    },
+    "mean_seconds": 19.8755,
+    "model_sha256": null
+  },
+  "validation_trained_before_final_geometry_changes": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 2,
+    "correct": 288,
+    "total": 295,
+    "accuracy": 0.976271186440678,
+    "rows": {
+      "tp": 62,
+      "fn": 0,
+      "fp": 0
+    },
+    "row_f1": 1.0,
+    "critical": {
+      "student_id": {
+        "correct": 2,
+        "total": 2
+      },
+      "course_id": {
+        "correct": 62,
+        "total": 62
+      },
+      "grade": {
+        "correct": 48,
+        "total": 49
+      },
+      "gpa": {
+        "correct": 11,
+        "total": 11
+      },
+      "gps": {
+        "correct": 9,
+        "total": 9
+      },
+      "cumulative_gpa": {
+        "correct": 2,
+        "total": 2
+      }
+    },
+    "mean_seconds": 23.6875,
+    "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360"
+  },
+  "first_angle_holdout": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 2,
+    "correct": 252,
+    "total": 295,
+    "accuracy": 0.8542372881355932,
+    "rows": {
+      "tp": 54,
+      "fn": 8,
+      "fp": 7
+    },
+    "row_f1": 0.8780487804878049,
+    "critical": {
+      "student_id": {
+        "correct": 1,
+        "total": 2
+      },
+      "course_id": {
+        "correct": 54,
+        "total": 62
+      },
+      "grade": {
+        "correct": 41,
+        "total": 49
+      },
+      "gpa": {
+        "correct": 8,
+        "total": 11
+      },
+      "gps": {
+        "correct": 7,
+        "total": 9
+      },
+      "cumulative_gpa": {
+        "correct": 2,
+        "total": 2
+      }
+    },
+    "mean_seconds": 20.0855,
+    "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360"
+  },
+  "reused_angle_test": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 2,
+    "correct": 287,
+    "total": 295,
+    "accuracy": 0.9728813559322034,
+    "rows": {
+      "tp": 61,
+      "fn": 1,
+      "fp": 1
+    },
+    "row_f1": 0.9838709677419355,
+    "critical": {
+      "student_id": {
+        "correct": 2,
+        "total": 2
+      },
+      "course_id": {
+        "correct": 61,
+        "total": 62
+      },
+      "grade": {
+        "correct": 48,
+        "total": 49
+      },
+      "gpa": {
+        "correct": 11,
+        "total": 11
+      },
+      "gps": {
+        "correct": 9,
+        "total": 9
+      },
+      "cumulative_gpa": {
+        "correct": 2,
+        "total": 2
+      }
+    },
+    "mean_seconds": 29.89,
+    "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360"
+  },
+  "final_all_six": {
+    "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+    "images": 6,
+    "correct": 861,
+    "total": 885,
+    "accuracy": 0.9728813559322034,
+    "rows": {
+      "tp": 185,
+      "fn": 1,
+      "fp": 1
+    },
+    "row_f1": 0.9946236559139785,
+    "critical": {
+      "student_id": {
+        "correct": 6,
+        "total": 6
+      },
+      "course_id": {
+        "correct": 185,
+        "total": 186
+      },
+      "grade": {
+        "correct": 144,
+        "total": 147
+      },
+      "gpa": {
+        "correct": 33,
+        "total": 33
+      },
+      "gps": {
+        "correct": 27,
+        "total": 27
+      },
+      "cumulative_gpa": {
+        "correct": 6,
+        "total": 6
+      }
+    },
+    "mean_seconds": 27.539,
+    "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360"
+  },
+  "per_image": [
+    {
+      "image": "peam_photo1.HEIC",
+      "role": "train",
+      "correct": 149,
+      "total": 150,
+      "accuracy": 0.9933333333333333,
+      "seconds": 26.485,
+      "errors": [
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+          "pred": "PROBI.EM SOLVING AND COMPUTER PROGRAMMING"
+        }
+      ]
+    },
+    {
+      "image": "peam_photo2.HEIC",
+      "role": "validation",
+      "correct": 145,
+      "total": 150,
+      "accuracy": 0.9666666666666667,
+      "seconds": 28.641,
+      "errors": [
+        {
+          "field": "header_detail.name",
+          "truth": "Pakaphon Phothivorn",
+          "pred": "Pakaphon Phothivom"
+        },
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-20",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[0].subject_name",
+          "truth": "CALCULUS 1",
+          "pred": "CALCULUS I"
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+          "pred": "PROBI.EM SOLVING AND COMPUTER PROGRAMMING"
+        },
+        {
+          "field": "semesters[0].subject[5].grade_earn",
+          "truth": "S",
+          "pred": null
+        }
+      ]
+    },
+    {
+      "image": "peam_photo3.HEIC",
+      "role": "reused test",
+      "correct": 146,
+      "total": 150,
+      "accuracy": 0.9733333333333334,
+      "seconds": 27.906,
+      "errors": [
+        {
+          "field": "header_detail.prename",
+          "truth": "Mr.",
+          "pred": "Mr"
+        },
+        {
+          "field": "header_detail.name",
+          "truth": "Pakaphon Phothivorn",
+          "pred": ", Pakaphon Phothivorn"
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+          "pred": "PROBIEM SOLVING AND COMPUTER PROGRAMMING"
+        },
+        {
+          "field": "semesters[1].subject[3].subject_id",
+          "truth": "06066001",
+          "pred": "006066001"
+        }
+      ]
+    },
+    {
+      "image": "pooh_photo1.HEIC",
+      "role": "train",
+      "correct": 138,
+      "total": 145,
+      "accuracy": 0.9517241379310345,
+      "seconds": 27.562,
+      "errors": [
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-21",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[0].subject_name",
+          "truth": "CALCULUS 1",
+          "pred": "CALCULUS I"
+        },
+        {
+          "field": "semesters[0].subject[2].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "CHARM SCHOOL",
+          "pred": "CHARM SCHOOI"
+        },
+        {
+          "field": "semesters[0].subject[4].subject_name",
+          "truth": "FOUNDATION ENGLISH 1",
+          "pred": "FOUNDATION ENGLISH I"
+        },
+        {
+          "field": "semesters[4].subject[0].subject_name",
+          "truth": "IN LOVE & IN LIFE",
+          "pred": "IN LOVE 4 IN LIFE"
+        },
+        {
+          "field": "semesters[5].subject[3].subject_name",
+          "truth": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+          "pred": "CLOUD TECHNOGLOGY INFRASTRUCTURE"
+        }
+      ]
+    },
+    {
+      "image": "pooh_photo2.HEIC",
+      "role": "validation",
+      "correct": 142,
+      "total": 145,
+      "accuracy": 0.9793103448275862,
+      "seconds": 27.468,
+      "errors": [
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-21",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "CHARM SCHOOL",
+          "pred": "CHARM SCHOO]."
+        },
+        {
+          "field": "semesters[4].subject[0].subject_name",
+          "truth": "IN LOVE & IN LIFE",
+          "pred": "IN IOVE & IN LIFE"
+        }
+      ]
+    },
+    {
+      "image": "pooh_photo3.HEIC",
+      "role": "reused test",
+      "correct": 141,
+      "total": 145,
+      "accuracy": 0.9724137931034482,
+      "seconds": 27.172,
+      "errors": [
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-21",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[2].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "CHARM SCHOOL",
+          "pred": "CHARM SCHOOI."
+        },
+        {
+          "field": "semesters[4].subject[0].subject_name",
+          "truth": "IN LOVE & IN LIFE",
+          "pred": "IN IOVE A IN LIFE"
+        }
+      ]
+    }
+  ],
+  "original_regression": {
+    "baseline": {
+      "correct": 1281,
+      "total": 1338,
+      "tp": 201,
+      "fn": 0,
+      "fp": 0,
+      "accuracy": 0.9573991031390134,
+      "row_f1": 1.0
+    },
+    "after": {
+      "correct": 1281,
+      "total": 1338,
+      "tp": 201,
+      "fn": 0,
+      "fp": 0,
+      "accuracy": 0.9573991031390134,
+      "row_f1": 1.0
+    },
+    "all_documents_equal": true
+  },
+  "tests": "93 passed, 3 subtests passed; no cache provider; Ruff checks passed",
+  "runtime": {
+    "python": "3.12.3",
+    "opencv": "4.14.0",
+    "numpy": "2.2.3",
+    "pillow": "12.3.0",
+    "pillow_heif": "1.8.0"
+  },
+  "limitations": [
+    "Only two source documents; same-document angle test is not independent document generalization.",
+    "First sealed-angle evaluation was 85.42%; after debugging angle 3 it is a reused test.",
+    "Weights use angle 1 only; angle 3 was never added to recognizer training.",
+    "Some names, course codes, grades and issue dates still require visual review.",
+    "Timing may reflect concurrent local development work; no latency guarantee.",
+    "API smoke uses an in-process client; Docker server has not been started or deployed."
+  ],
+  "input_hashes": {
+    "data_transcript\\input_photo\\peam_photo1.HEIC": "4d570f70e5eb4bcc758abe00c30075cc880393d52e575baf920bde05125c3313",
+    "data_transcript\\input_photo\\peam_photo2.HEIC": "273a9af58e20a2656622680042c1ee5a7bc02f1632914b680f42ae20f6905113",
+    "data_transcript\\input_photo\\peam_photo3.HEIC": "2878e1d3f0caf7de4dc41511328c82175ab6af20772352ca7491b1809a2655ed",
+    "data_transcript\\input_photo\\pooh_photo1.HEIC": "b36114d2c3750115931ed35788a4c270266083fa32e970f80a0dcbf0adabaa87",
+    "data_transcript\\input_photo\\pooh_photo2.HEIC": "9a4cb9b551f68d33c4d884c94a0971c77851e2c7e553673e1dbf0d2ef5eae5b5",
+    "data_transcript\\input_photo\\pooh_photo3.HEIC": "395174d847647fa660a09f836d173c5e4e90e9a1769e00e22be4501e6cbd7a61"
+  },
+  "source_images_unchanged": true,
+  "official_training_documentation": "https://tesseract-ocr.github.io/tessdoc/tess5/TrainingTesseract-5.html"
+}
