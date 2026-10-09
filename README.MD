@@ -40,7 +40,7 @@ docker compose up --build
 3. กด **บันทึกผลที่ตรวจแล้ว** เพื่อเก็บลงฐานข้อมูล
 4. หน้า **ค้นหาผลการเรียน** (`/search`): ดูรายชื่อนักศึกษาที่บันทึกไว้ คลิกชื่อเพื่อดูรายวิชารายภาค หรือค้นตามรหัสวิชา
 
-> repo ไม่มีไฟล์ transcript ตัวอย่างแนบมา (ข้อมูลทดสอบอยู่นอก git) ให้ใช้ transcript PDF หรือภาพของสถาบันที่มีอยู่ในการทดลองระบบ
+> ชุดข้อมูลทดสอบอยู่ใน repo แล้ว: `data_transcript/` (transcript PDF จริง 48 ฉบับ: ปริญญาตรี `input_Bachelor_Degrees/` และบัณฑิตศึกษา `input_Master/`) และเฉลย JSON ใน `ground_truth_transcript/` ลองอัปโหลดไฟล์ใดก็ได้ เช่น `data_transcript/input_Bachelor_Degrees/72140002.pdf`
 
 ### อ่านไฟล์เดียวผ่านบรรทัดคำสั่ง (ไม่ต้องเปิดหน้าเว็บ)
 รันใน container ของระบบโดยไม่ต้องติดตั้ง Python หรือ Tesseract เอง ผลลัพธ์เป็น JSON ทาง stdout (ข้อความสถานะของ Docker ไปทาง stderr):
@@ -72,7 +72,7 @@ docker compose run --rm --no-deps -v "$PWD/ไฟล์ของคุณ.pdf:/t
 | `Code.py` | จุดเริ่มสำหรับอ่านไฟล์เดียวจากบรรทัดคำสั่ง |
 | `docs/` | โจทย์ (`P1_OCR_Prompt.md`), บันทึกงานและผลทดสอบ (`process.md`), สไลด์นำเสนอ (`presentation/`) |
 | `data/`, `ground_truth_new/` | ฐานข้อมูลตัวอย่างและเฉลยภาพถ่ายมือถือ |
-| `data_transcript/`, `ground_truth_transcript/` | ข้อมูลทดสอบและเฉลย (ไม่อยู่ใน git) |
+| `data_transcript/`, `ground_truth_transcript/` | ข้อมูลทดสอบ (PDF จริง 48 ฉบับ) และเฉลย JSON 48 ไฟล์ |
 
 รันเทสต์: `python -m pytest model backend` (ต้องติดตั้ง `pip install -r backend/requirements.txt pytest` และ Tesseract/Poppler บนเครื่อง)
 

@@ -16,8 +16,8 @@ isd-2026-loso/
 ├── model/                     ③ pipeline OCR + ตัวตรวจ + เครื่องมือวัดผล/ฝึก + รายงานผล
 ├── data/                      ฐานข้อมูล SQLite ที่ใช้ตอนรันนอก Docker (transcripts.db)
 │
-├── data_transcript/           ข้อมูลทดสอบ: transcript PDF จริง 49 ไฟล์        (ไม่อยู่ใน git)
-├── ground_truth_transcript/   เฉลย JSON ของข้อมูลทดสอบ                      (ไม่อยู่ใน git)
+├── data_transcript/           ข้อมูลทดสอบ: transcript PDF จริง 48 ไฟล์ (input_Bachelor_Degrees, input_Master)
+├── ground_truth_transcript/   เฉลย JSON ของข้อมูลทดสอบ 48 ไฟล์
 ├── ground_truth_new/          เฉลยของภาพถ่ายมือถือ 2 ชุด (peam.json, pooh.json)
 │
 └── docs/                      เอกสาร (โจทย์ บันทึกงาน สไลด์)
@@ -97,7 +97,7 @@ isd-2026-loso/
 | | `train_phone_ocr.py`, `train_photo_ocr.py`, `evaluate_photo_ocr.py` | ฝึก/ประเมิน Tesseract จากภาพถ่าย (ต้องติดตั้ง `photo_training_requirements.txt`) |
 | วัดเวลา | `profile_steps.py` | เวลารายขั้นตอนของ pipeline (วิธีรันอยู่ในหัวไฟล์) |
 
-หมายเหตุ: สคริปต์ `benchmark_images/augmented/noise_all/catalog_cv` และ `audit_ground_truth` อ่านภาพจากโฟลเดอร์ `all/Lab5_transcript_dataset/images` ซึ่ง **ไม่อยู่ใน repo** และ `data_transcript/`, `ground_truth_transcript/` ก็ไม่อยู่ใน git เช่นกัน จึงรันซ้ำได้เฉพาะเมื่อมีข้อมูลเหล่านี้
+หมายเหตุ: สคริปต์ `benchmark_images/augmented/noise_all/catalog_cv` และ `audit_ground_truth` อ่านภาพจากโฟลเดอร์ `all/Lab5_transcript_dataset/images` ซึ่ง **ไม่อยู่ใน repo** (โฟลเดอร์ `all/` ยังอยู่ใน `.gitignore`) จึงรันซ้ำได้เฉพาะเมื่อมีภาพชุดนี้ ส่วนสคริปต์ที่ใช้ `data_transcript/` และ `ground_truth_transcript/` (เช่น `benchmark.py`, `compare_routes.py`) รันได้จาก repo ตรงๆ
 
 ## 6. ค้นหาให้เร็ว (ถ้าจะแก้เรื่อง... ให้เปิด...)
 

@@ -229,7 +229,7 @@ AI ต้องเปิดอ่านก่อนเขียนสไลด�
 | `model/reports/` | รายงานผลดิบทุกชุด (เช่น `challenge-api-dev.json`, `phone-training-summary-20261007.json`, `augmented-dev-deskew-full-20261004.json`, `vlm-dev.json`) |
 | `backend/app/main.py`, `backend/app/database.py` | API และ schema ฐานข้อมูล |
 | `backend/requirements.txt`, `docker-compose.yml` | ไลบรารีและวิธีรัน |
-| `ground_truth_transcript/`, `data_transcript/` | ข้อมูลทดสอบและเฉลย (ไม่อยู่ใน git) |
+| `ground_truth_transcript/`, `data_transcript/` | ข้อมูลทดสอบและเฉลย (อยู่ใน repo) |
 
 ## 10. หลักการพรีเซนต์และการออกแบบ (บังคับ)
 
