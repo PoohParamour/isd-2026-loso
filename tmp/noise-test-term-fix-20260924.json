@@ -1,0 +1,198 @@
+{
+  "split": "test",
+  "augmentation": "aug2_noise",
+  "image_layout": "auto",
+  "documents": 12,
+  "correct": 1215,
+  "total": 1338,
+  "exact_field_accuracy": 0.9080717488789237,
+  "rows": {
+    "tp": 196,
+    "fn": 5,
+    "fp": 1,
+    "f1": 0.9849246231155779
+  },
+  "mean_seconds": 9.424666666666667,
+  "details": [
+    {
+      "id": "71020005",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 45,
+      "total": 53,
+      "accuracy": 0.8490566037735849,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 11.438,
+      "predicted_format": "bachelor_th"
+    },
+    {
+      "id": "71030005",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 37,
+      "total": 49,
+      "accuracy": 0.7551020408163265,
+      "rows": {
+        "tp": 6,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 15.657,
+      "predicted_format": "bachelor_th"
+    },
+    {
+      "id": "71030009",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 249,
+      "total": 282,
+      "accuracy": 0.8829787234042553,
+      "rows": {
+        "tp": 53,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 24.188,
+      "predicted_format": "bachelor_th"
+    },
+    {
+      "id": "72120002",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 70,
+      "total": 73,
+      "accuracy": 0.958904109589041,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.469,
+      "predicted_format": "bachelor_en"
+    },
+    {
+      "id": "72120006",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 41,
+      "total": 45,
+      "accuracy": 0.9111111111111111,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.125,
+      "predicted_format": "bachelor_en"
+    },
+    {
+      "id": "72120014",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 225,
+      "total": 229,
+      "accuracy": 0.982532751091703,
+      "rows": {
+        "tp": 44,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 7.11,
+      "predicted_format": "bachelor_en"
+    },
+    {
+      "id": "73036007",
+      "group": "graduate",
+      "language": "th",
+      "correct": 99,
+      "total": 109,
+      "accuracy": 0.908256880733945,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 12.391,
+      "predicted_format": "graduate_th"
+    },
+    {
+      "id": "73056008",
+      "group": "graduate",
+      "language": "th",
+      "correct": 67,
+      "total": 78,
+      "accuracy": 0.8589743589743589,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 10.578,
+      "predicted_format": "graduate_th"
+    },
+    {
+      "id": "73066010",
+      "group": "graduate",
+      "language": "th",
+      "correct": 110,
+      "total": 113,
+      "accuracy": 0.9734513274336283,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 12.734,
+      "predicted_format": "graduate_th"
+    },
+    {
+      "id": "74106005",
+      "group": "graduate",
+      "language": "en",
+      "correct": 96,
+      "total": 103,
+      "accuracy": 0.9320388349514563,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 3.422,
+      "predicted_format": "graduate_en"
+    },
+    {
+      "id": "74106009",
+      "group": "graduate",
+      "language": "en",
+      "correct": 79,
+      "total": 92,
+      "accuracy": 0.8586956521739131,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 3.344,
+      "predicted_format": "graduate_en"
+    },
+    {
+      "id": "74156004",
+      "group": "graduate",
+      "language": "en",
+      "correct": 97,
+      "total": 112,
+      "accuracy": 0.8660714285714286,
+      "rows": {
+        "tp": 13,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 3.64,
+      "predicted_format": "graduate_en"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+.git
+.DS_Store
+all
+data_transcript
+ground_truth_transcript
+web
+backend/.venv
+backend/*.db
+model/runs
+model/saved_models
+**/__pycache__

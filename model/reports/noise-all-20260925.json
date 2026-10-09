@@ -1,0 +1,966 @@
+{
+  "input": "Existing Lab5 aug2_noise PNG images (Gaussian sensor grain, sigma 8-18)",
+  "pipeline": "extract(image, image_layout='auto')",
+  "metric": "Exact match on nonempty ground-truth fields; row F1 by semester, year, and course code",
+  "note": "Existing dev/test documents have informed earlier OCR and parser tuning; this is a robustness check, not a blind generalization estimate.",
+  "unlabeled_images_excluded": [
+    "74176008"
+  ],
+  "matrix": {
+    "overall": {
+      "documents": 47,
+      "correct": 5445,
+      "total": 5889,
+      "exact_field_accuracy_micro": 0.9246051961283749,
+      "exact_field_accuracy_macro": 0.9198191877762081,
+      "rows": {
+        "tp": 929,
+        "fn": 33,
+        "fp": 3,
+        "f1": 0.9809926082365364
+      },
+      "mean_seconds": 12.179170212765964
+    },
+    "group:bachelor": {
+      "documents": 24,
+      "correct": 3556,
+      "total": 3835,
+      "exact_field_accuracy_micro": 0.9272490221642764,
+      "exact_field_accuracy_macro": 0.9116726439802229,
+      "rows": {
+        "tp": 699,
+        "fn": 22,
+        "fp": 2,
+        "f1": 0.9831223628691983
+      },
+      "mean_seconds": 14.868333333333338
+    },
+    "group:graduate": {
+      "documents": 23,
+      "correct": 1889,
+      "total": 2054,
+      "exact_field_accuracy_micro": 0.9196689386562804,
+      "exact_field_accuracy_macro": 0.9283199291285402,
+      "rows": {
+        "tp": 230,
+        "fn": 11,
+        "fp": 1,
+        "f1": 0.9745762711864406
+      },
+      "mean_seconds": 9.373086956521743
+    },
+    "language:en": {
+      "documents": 23,
+      "correct": 2569,
+      "total": 2738,
+      "exact_field_accuracy_micro": 0.9382761139517897,
+      "exact_field_accuracy_macro": 0.9307496919363669,
+      "rows": {
+        "tp": 435,
+        "fn": 13,
+        "fp": 0,
+        "f1": 0.9852774631936579
+      },
+      "mean_seconds": 5.690217391304348
+    },
+    "language:th": {
+      "documents": 24,
+      "correct": 2876,
+      "total": 3151,
+      "exact_field_accuracy_micro": 0.9127261186924785,
+      "exact_field_accuracy_macro": 0.909344121289389,
+      "rows": {
+        "tp": 494,
+        "fn": 20,
+        "fp": 3,
+        "f1": 0.9772502472799208
+      },
+      "mean_seconds": 18.397750000000006
+    },
+    "split:dev": {
+      "documents": 35,
+      "correct": 4215,
+      "total": 4551,
+      "exact_field_accuracy_micro": 0.9261700725115359,
+      "exact_field_accuracy_macro": 0.9241391851747969,
+      "rows": {
+        "tp": 731,
+        "fn": 30,
+        "fp": 2,
+        "f1": 0.9785809906291834
+      },
+      "mean_seconds": 12.395600000000004
+    },
+    "split:test": {
+      "documents": 12,
+      "correct": 1230,
+      "total": 1338,
+      "exact_field_accuracy_micro": 0.9192825112107623,
+      "exact_field_accuracy_macro": 0.9072191953636568,
+      "rows": {
+        "tp": 198,
+        "fn": 3,
+        "fp": 1,
+        "f1": 0.99
+      },
+      "mean_seconds": 11.547916666666671
+    },
+    "bachelor_th": {
+      "documents": 12,
+      "correct": 1941,
+      "total": 2105,
+      "exact_field_accuracy_micro": 0.9220902612826604,
+      "exact_field_accuracy_macro": 0.9105919004147376,
+      "rows": {
+        "tp": 384,
+        "fn": 11,
+        "fp": 2,
+        "f1": 0.9833546734955185
+      },
+      "mean_seconds": 22.77591666666667
+    },
+    "bachelor_en": {
+      "documents": 12,
+      "correct": 1615,
+      "total": 1730,
+      "exact_field_accuracy_micro": 0.9335260115606936,
+      "exact_field_accuracy_macro": 0.9127533875457082,
+      "rows": {
+        "tp": 315,
+        "fn": 11,
+        "fp": 0,
+        "f1": 0.982839313572543
+      },
+      "mean_seconds": 6.96075
+    },
+    "graduate_th": {
+      "documents": 12,
+      "correct": 935,
+      "total": 1046,
+      "exact_field_accuracy_micro": 0.8938814531548758,
+      "exact_field_accuracy_macro": 0.9080963421640406,
+      "rows": {
+        "tp": 110,
+        "fn": 9,
+        "fp": 1,
+        "f1": 0.9565217391304348
+      },
+      "mean_seconds": 14.019583333333335
+    },
+    "graduate_en": {
+      "documents": 11,
+      "correct": 954,
+      "total": 1008,
+      "exact_field_accuracy_micro": 0.9464285714285714,
+      "exact_field_accuracy_macro": 0.9503820239989039,
+      "rows": {
+        "tp": 120,
+        "fn": 2,
+        "fp": 0,
+        "f1": 0.9917355371900827
+      },
+      "mean_seconds": 4.304181818181818
+    }
+  },
+  "details": [
+    {
+      "id": "71010001",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71010001_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 70,
+      "total": 73,
+      "accuracy": 0.958904109589041,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 16.359
+    },
+    {
+      "id": "71010005",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71010005_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 40,
+      "total": 45,
+      "accuracy": 0.8888888888888888,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 13.219
+    },
+    {
+      "id": "71010009",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71010009_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 276,
+      "total": 307,
+      "accuracy": 0.8990228013029316,
+      "rows": {
+        "tp": 55,
+        "fn": 5,
+        "fp": 0
+      },
+      "seconds": 28.953
+    },
+    {
+      "id": "71010013",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71010013_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 226,
+      "total": 236,
+      "accuracy": 0.9576271186440678,
+      "rows": {
+        "tp": 44,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 26.172
+    },
+    {
+      "id": "71020001",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71020001_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 219,
+      "total": 233,
+      "accuracy": 0.9399141630901288,
+      "rows": {
+        "tp": 45,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 25.75
+    },
+    {
+      "id": "71020005",
+      "split": "test",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71020005_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 45,
+      "total": 53,
+      "accuracy": 0.8490566037735849,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 14.093
+    },
+    {
+      "id": "71020009",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71020009_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 279,
+      "total": 304,
+      "accuracy": 0.9177631578947368,
+      "rows": {
+        "tp": 56,
+        "fn": 2,
+        "fp": 0
+      },
+      "seconds": 31.985
+    },
+    {
+      "id": "71020013",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71020013_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 219,
+      "total": 233,
+      "accuracy": 0.9399141630901288,
+      "rows": {
+        "tp": 45,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 27.734
+    },
+    {
+      "id": "71030001",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71030001_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 140,
+      "total": 145,
+      "accuracy": 0.9655172413793104,
+      "rows": {
+        "tp": 27,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 20.531
+    },
+    {
+      "id": "71030005",
+      "split": "test",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71030005_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 37,
+      "total": 49,
+      "accuracy": 0.7551020408163265,
+      "rows": {
+        "tp": 6,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 18.453
+    },
+    {
+      "id": "71030009",
+      "split": "test",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71030009_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 249,
+      "total": 282,
+      "accuracy": 0.8829787234042553,
+      "rows": {
+        "tp": 53,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 29.312
+    },
+    {
+      "id": "71030013",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\71030013_aug2_noise.png",
+      "predicted_format": "bachelor_th",
+      "correct": 141,
+      "total": 145,
+      "accuracy": 0.9724137931034482,
+      "rows": {
+        "tp": 27,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 20.75
+    },
+    {
+      "id": "72100002",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72100002_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.453
+    },
+    {
+      "id": "72100006",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72100006_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 46,
+      "total": 49,
+      "accuracy": 0.9387755102040817,
+      "rows": {
+        "tp": 7,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.281
+    },
+    {
+      "id": "72100009",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72100009_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 264,
+      "total": 272,
+      "accuracy": 0.9705882352941176,
+      "rows": {
+        "tp": 52,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 8.984
+    },
+    {
+      "id": "72100013",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72100013_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 249,
+      "total": 253,
+      "accuracy": 0.9841897233201581,
+      "rows": {
+        "tp": 51,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 8.672
+    },
+    {
+      "id": "72110002",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72110002_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 88,
+      "total": 91,
+      "accuracy": 0.967032967032967,
+      "rows": {
+        "tp": 17,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.922
+    },
+    {
+      "id": "72110006",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72110006_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 41,
+      "total": 53,
+      "accuracy": 0.7735849056603774,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.218
+    },
+    {
+      "id": "72110012",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72110012_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 275,
+      "total": 277,
+      "accuracy": 0.9927797833935018,
+      "rows": {
+        "tp": 56,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.406
+    },
+    {
+      "id": "72120002",
+      "split": "test",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72120002_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 70,
+      "total": 73,
+      "accuracy": 0.958904109589041,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.796
+    },
+    {
+      "id": "72120006",
+      "split": "test",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72120006_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 41,
+      "total": 45,
+      "accuracy": 0.9111111111111111,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.422
+    },
+    {
+      "id": "72120010",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72120010_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 213,
+      "total": 262,
+      "accuracy": 0.8129770992366412,
+      "rows": {
+        "tp": 46,
+        "fn": 4,
+        "fp": 0
+      },
+      "seconds": 9.328
+    },
+    {
+      "id": "72120014",
+      "split": "test",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72120014_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 225,
+      "total": 229,
+      "accuracy": 0.982532751091703,
+      "rows": {
+        "tp": 44,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 8.672
+    },
+    {
+      "id": "72140002",
+      "split": "dev",
+      "group": "bachelor",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\th\\72140002_aug2_noise.png",
+      "predicted_format": "bachelor_en",
+      "correct": 48,
+      "total": 69,
+      "accuracy": 0.6956521739130435,
+      "rows": {
+        "tp": 7,
+        "fn": 6,
+        "fp": 0
+      },
+      "seconds": 5.375
+    },
+    {
+      "id": "73036003",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73036003_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 102,
+      "total": 106,
+      "accuracy": 0.9622641509433962,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 14.641
+    },
+    {
+      "id": "73036007",
+      "split": "test",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73036007_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 99,
+      "total": 109,
+      "accuracy": 0.908256880733945,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 15.203
+    },
+    {
+      "id": "73036011",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73036011_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 100,
+      "total": 104,
+      "accuracy": 0.9615384615384616,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 14.907
+    },
+    {
+      "id": "73046003",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73046003_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 32,
+      "total": 36,
+      "accuracy": 0.8888888888888888,
+      "rows": {
+        "tp": 4,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 11.172
+    },
+    {
+      "id": "73046007",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73046007_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 106,
+      "total": 133,
+      "accuracy": 0.7969924812030075,
+      "rows": {
+        "tp": 13,
+        "fn": 4,
+        "fp": 0
+      },
+      "seconds": 15.36
+    },
+    {
+      "id": "73046011",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73046011_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 78,
+      "total": 96,
+      "accuracy": 0.8125,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 15.141
+    },
+    {
+      "id": "73056004",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73056004_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 19,
+      "total": 19,
+      "accuracy": 1.0,
+      "rows": {
+        "tp": 0,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 13.187
+    },
+    {
+      "id": "73056008",
+      "split": "test",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73056008_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 67,
+      "total": 78,
+      "accuracy": 0.8589743589743589,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 12.515
+    },
+    {
+      "id": "73056012",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73056012_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 94,
+      "total": 97,
+      "accuracy": 0.9690721649484536,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 13.391
+    },
+    {
+      "id": "73066003",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73066003_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 40,
+      "total": 40,
+      "accuracy": 1.0,
+      "rows": {
+        "tp": 4,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 10.594
+    },
+    {
+      "id": "73066006",
+      "split": "dev",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73066006_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 88,
+      "total": 115,
+      "accuracy": 0.7652173913043478,
+      "rows": {
+        "tp": 12,
+        "fn": 2,
+        "fp": 0
+      },
+      "seconds": 15.843
+    },
+    {
+      "id": "73066010",
+      "split": "test",
+      "group": "graduate",
+      "language": "th",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\73066010_aug2_noise.png",
+      "predicted_format": "graduate_th",
+      "correct": 110,
+      "total": 113,
+      "accuracy": 0.9734513274336283,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 16.281
+    },
+    {
+      "id": "74106005",
+      "split": "test",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74106005_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 96,
+      "total": 103,
+      "accuracy": 0.9320388349514563,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.234
+    },
+    {
+      "id": "74106009",
+      "split": "test",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74106009_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 87,
+      "total": 92,
+      "accuracy": 0.9456521739130435,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.11
+    },
+    {
+      "id": "74116006",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74116006_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 77,
+      "total": 79,
+      "accuracy": 0.9746835443037974,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.016
+    },
+    {
+      "id": "74116010",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74116010_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 60,
+      "total": 62,
+      "accuracy": 0.967741935483871,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 3.985
+    },
+    {
+      "id": "74126003",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74126003_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 62,
+      "total": 64,
+      "accuracy": 0.96875,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.578
+    },
+    {
+      "id": "74126007",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74126007_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 102,
+      "total": 117,
+      "accuracy": 0.8717948717948718,
+      "rows": {
+        "tp": 13,
+        "fn": 2,
+        "fp": 0
+      },
+      "seconds": 4.547
+    },
+    {
+      "id": "74126011",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74126011_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 88,
+      "total": 91,
+      "accuracy": 0.967032967032967,
+      "rows": {
+        "tp": 11,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.407
+    },
+    {
+      "id": "74156004",
+      "split": "test",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74156004_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 104,
+      "total": 112,
+      "accuracy": 0.9285714285714286,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.484
+    },
+    {
+      "id": "74156007",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74156007_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 100,
+      "total": 105,
+      "accuracy": 0.9523809523809523,
+      "rows": {
+        "tp": 13,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.531
+    },
+    {
+      "id": "74166001",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74166001_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 105,
+      "total": 108,
+      "accuracy": 0.9722222222222222,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.297
+    },
+    {
+      "id": "74176002",
+      "split": "dev",
+      "group": "graduate",
+      "language": "en",
+      "image": "all\\Lab5_transcript_dataset\\images\\augmented\\G\\74176002_aug2_noise.png",
+      "predicted_format": "graduate_en",
+      "correct": 73,
+      "total": 75,
+      "accuracy": 0.9733333333333334,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 4.157
+    }
+  ]
+}

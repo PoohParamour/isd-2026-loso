@@ -1,0 +1,240 @@
+{
+  "split": "test",
+  "documents": 12,
+  "note": "Source labels are immutable; mismatches are documented and never rewritten or used as inference rules.",
+  "audit_method": "Compared immutable JSON labels with rendered/source PDF content. Final-semester findings were checked against pdftotext -layout and page images; the 72120014 credit value was checked on the rendered page.",
+  "mismatch_fields": 23,
+  "categories": {
+    "issued_date_wrong_value": 10,
+    "phantom_final_semester_fields": 12,
+    "total_credits_wrong_value": 1
+  },
+  "raw_label_score": {
+    "correct": 1281,
+    "total": 1338,
+    "accuracy": 0.9573991031390134
+  },
+  "conservative_score_excluding_all_audited_mismatches": {
+    "correct": 1281,
+    "total": 1315,
+    "accuracy": 0.9741444866920153
+  },
+  "visible_document_score": {
+    "correct": 1292,
+    "total": 1326,
+    "accuracy": 0.9743589743589743,
+    "calculation": "Add 11 OCR values that match the visible document; remove 12 phantom fields absent from the document."
+  },
+  "target": "> 0.91",
+  "target_met_raw": true,
+  "details": [
+    {
+      "id": "71020005",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "71030005",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "71030009",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "72120002",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "72120006",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "72120014",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-17",
+      "image_ocr": "2025-01-17",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "73066010",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-16",
+      "image_ocr": "2025-01-16",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "74106005",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-16",
+      "image_ocr": "2025-01-16",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "74106009",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-16",
+      "image_ocr": "2025-01-16",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "74156004",
+      "field": "footer_detail.updated_at",
+      "ground_truth": "2025-01-15",
+      "visible_pdf_text": "2025-01-16",
+      "image_ocr": "2025-01-16",
+      "matches": false,
+      "image_ocr_matches_visible": true
+    },
+    {
+      "id": "73036007",
+      "field": "transcript_detail.semesters[8].year",
+      "ground_truth": 2567,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "73036007",
+      "field": "transcript_detail.semesters[8].sem_num",
+      "ground_truth": 2,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "73036007",
+      "field": "transcript_detail.semesters[8].pass_reason",
+      "ground_truth": "maintain",
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "73056008",
+      "field": "transcript_detail.semesters[8].year",
+      "ground_truth": 2567,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "73056008",
+      "field": "transcript_detail.semesters[8].sem_num",
+      "ground_truth": 2,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "73056008",
+      "field": "transcript_detail.semesters[8].pass_reason",
+      "ground_truth": "maintain",
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74106005",
+      "field": "transcript_detail.semesters[7].year",
+      "ground_truth": 2567,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74106005",
+      "field": "transcript_detail.semesters[7].sem_num",
+      "ground_truth": 2,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74106005",
+      "field": "transcript_detail.semesters[7].pass_reason",
+      "ground_truth": "maintain",
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74156004",
+      "field": "transcript_detail.semesters[6].year",
+      "ground_truth": 2567,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74156004",
+      "field": "transcript_detail.semesters[6].sem_num",
+      "ground_truth": 2,
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "74156004",
+      "field": "transcript_detail.semesters[6].pass_reason",
+      "ground_truth": "maintain",
+      "visible_pdf_text": null,
+      "image_ocr": null,
+      "matches": false,
+      "finding": "Ground truth contains a final semester that is absent from the source PDF/image."
+    },
+    {
+      "id": "72120014",
+      "field": "transcript_detail.total_credits_earned",
+      "ground_truth": 129,
+      "visible_pdf_image": 132,
+      "image_ocr": 132,
+      "matches": false,
+      "image_ocr_matches_visible": true,
+      "finding": "The rendered transcript visibly shows Total Credits Earned 132."
+    }
+  ]
+}

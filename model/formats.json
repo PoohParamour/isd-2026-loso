@@ -1,0 +1,26 @@
+{
+  "bachelor_th": {
+    "language": "th",
+    "degree_group": "bachelor",
+    "course_type_column": false,
+    "semester_marker": "ภาคการศึกษาที่"
+  },
+  "bachelor_en": {
+    "language": "en",
+    "degree_group": "bachelor",
+    "course_type_column": false,
+    "semester_marker": "Semester"
+  },
+  "graduate_th": {
+    "language": "th",
+    "degree_group": "graduate",
+    "course_type_column": true,
+    "semester_marker": "ภาคการศึกษาที่"
+  },
+  "graduate_en": {
+    "language": "en",
+    "degree_group": "graduate",
+    "course_type_column": true,
+    "semester_marker": "Semester"
+  }
+}

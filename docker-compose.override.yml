@@ -1,0 +1,33 @@
+# Dev overrides: docker compose up (loads this file automatically).
+# Code is mounted from the host, so edits reload without rebuilding.
+# For the production-style build run: docker compose -f docker-compose.yml up --build
+services:
+  backend:
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app/backend", "--reload-dir", "/app/model"]
+    environment:
+      WATCHFILES_FORCE_POLLING: "true"
+    volumes:
+      - ./data:/data
+      - ./backend/app:/app/backend/app
+      - ./model:/app/model
+
+  web:
+    ports:
+      - "3000:3000"
+    build:
+      context: ./web
+      target: deps
+    working_dir: /app
+    user: root
+    command: ["npm", "run", "dev"]
+    environment:
+      OCR_API_URL: http://backend:8000
+      WATCHPACK_POLLING: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+    volumes:
+      - ./web:/app
+      # Keep the Linux node_modules from the image and the container's own .next cache
+      - /app/node_modules
+      - /app/.next

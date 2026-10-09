@@ -1,0 +1,473 @@
+{
+  "input": "original",
+  "split": "dev",
+  "evaluation": "document-held-out catalog; OCR/parser still tuned on dev",
+  "documents": 35,
+  "correct": 4192,
+  "total": 4551,
+  "exact_field_accuracy": 0.9211162381894089,
+  "rows": {
+    "tp": 735,
+    "fn": 26,
+    "fp": 3,
+    "f1": 0.980653769179453
+  },
+  "mean_seconds": 7.765171428571429,
+  "details": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 71,
+      "total": 73,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.078
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 43,
+      "total": 45,
+      "rows": {
+        "tp": 6,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 7.609
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 253,
+      "total": 307,
+      "rows": {
+        "tp": 54,
+        "fn": 6,
+        "fp": 0
+      },
+      "seconds": 19.062
+    },
+    {
+      "id": "71010013",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 215,
+      "total": 236,
+      "rows": {
+        "tp": 45,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 17.188
+    },
+    {
+      "id": "71020001",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 199,
+      "total": 233,
+      "rows": {
+        "tp": 46,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 16.922
+    },
+    {
+      "id": "71020009",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 266,
+      "total": 304,
+      "rows": {
+        "tp": 55,
+        "fn": 3,
+        "fp": 0
+      },
+      "seconds": 20.469
+    },
+    {
+      "id": "71020013",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 201,
+      "total": 233,
+      "rows": {
+        "tp": 45,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 18.656
+    },
+    {
+      "id": "71030001",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 142,
+      "total": 145,
+      "rows": {
+        "tp": 27,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 13.219
+    },
+    {
+      "id": "71030013",
+      "group": "bachelor",
+      "language": "th",
+      "correct": 142,
+      "total": 145,
+      "rows": {
+        "tp": 27,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 12.953
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 56,
+      "total": 57,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 3.125
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 47,
+      "total": 49,
+      "rows": {
+        "tp": 7,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 3.078
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 264,
+      "total": 272,
+      "rows": {
+        "tp": 52,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 6.688
+    },
+    {
+      "id": "72100013",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 252,
+      "total": 253,
+      "rows": {
+        "tp": 51,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 5.75
+    },
+    {
+      "id": "72110002",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 89,
+      "total": 91,
+      "rows": {
+        "tp": 17,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 3.282
+    },
+    {
+      "id": "72110006",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 51,
+      "total": 53,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.782
+    },
+    {
+      "id": "72110012",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 274,
+      "total": 277,
+      "rows": {
+        "tp": 56,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 6.266
+    },
+    {
+      "id": "72120010",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 253,
+      "total": 262,
+      "rows": {
+        "tp": 49,
+        "fn": 1,
+        "fp": 0
+      },
+      "seconds": 6.344
+    },
+    {
+      "id": "72140002",
+      "group": "bachelor",
+      "language": "en",
+      "correct": 48,
+      "total": 69,
+      "rows": {
+        "tp": 7,
+        "fn": 6,
+        "fp": 0
+      },
+      "seconds": 2.765
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "correct": 105,
+      "total": 106,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.516
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "correct": 104,
+      "total": 104,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.485
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "correct": 34,
+      "total": 36,
+      "rows": {
+        "tp": 4,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 6.875
+    },
+    {
+      "id": "73046007",
+      "group": "graduate",
+      "language": "th",
+      "correct": 99,
+      "total": 133,
+      "rows": {
+        "tp": 13,
+        "fn": 4,
+        "fp": 0
+      },
+      "seconds": 9.609
+    },
+    {
+      "id": "73046011",
+      "group": "graduate",
+      "language": "th",
+      "correct": 88,
+      "total": 96,
+      "rows": {
+        "tp": 12,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.203
+    },
+    {
+      "id": "73056004",
+      "group": "graduate",
+      "language": "th",
+      "correct": 18,
+      "total": 19,
+      "rows": {
+        "tp": 0,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 7.89
+    },
+    {
+      "id": "73056012",
+      "group": "graduate",
+      "language": "th",
+      "correct": 84,
+      "total": 97,
+      "rows": {
+        "tp": 11,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 8.734
+    },
+    {
+      "id": "73066003",
+      "group": "graduate",
+      "language": "th",
+      "correct": 37,
+      "total": 40,
+      "rows": {
+        "tp": 4,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 6.437
+    },
+    {
+      "id": "73066006",
+      "group": "graduate",
+      "language": "th",
+      "correct": 106,
+      "total": 115,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 9.984
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "correct": 64,
+      "total": 79,
+      "rows": {
+        "tp": 7,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 2.188
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "correct": 49,
+      "total": 62,
+      "rows": {
+        "tp": 5,
+        "fn": 1,
+        "fp": 1
+      },
+      "seconds": 2.125
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "correct": 63,
+      "total": 64,
+      "rows": {
+        "tp": 8,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.25
+    },
+    {
+      "id": "74126007",
+      "group": "graduate",
+      "language": "en",
+      "correct": 104,
+      "total": 117,
+      "rows": {
+        "tp": 13,
+        "fn": 2,
+        "fp": 0
+      },
+      "seconds": 2.5
+    },
+    {
+      "id": "74126011",
+      "group": "graduate",
+      "language": "en",
+      "correct": 89,
+      "total": 91,
+      "rows": {
+        "tp": 11,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.422
+    },
+    {
+      "id": "74156007",
+      "group": "graduate",
+      "language": "en",
+      "correct": 104,
+      "total": 105,
+      "rows": {
+        "tp": 13,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.656
+    },
+    {
+      "id": "74166001",
+      "group": "graduate",
+      "language": "en",
+      "correct": 106,
+      "total": 108,
+      "rows": {
+        "tp": 14,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.437
+    },
+    {
+      "id": "74176002",
+      "group": "graduate",
+      "language": "en",
+      "correct": 72,
+      "total": 75,
+      "rows": {
+        "tp": 9,
+        "fn": 0,
+        "fp": 0
+      },
+      "seconds": 2.234
+    }
+  ]
+}

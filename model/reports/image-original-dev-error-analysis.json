@@ -1,0 +1,583 @@
+{
+  "input": "Lab5 original PNG, 150 DPI",
+  "split": "dev",
+  "documents": 12,
+  "mean_seconds": 7.93075,
+  "matrix": {
+    "overall": {
+      "correct": 1020,
+      "total": 1254,
+      "tp": 174,
+      "fn": 23,
+      "fp": 4,
+      "accuracy": 0.8133971291866029,
+      "row_f1": 0.9279999999999999
+    },
+    "bachelor_th": {
+      "correct": 345,
+      "total": 425,
+      "tp": 69,
+      "fn": 9,
+      "fp": 0,
+      "accuracy": 0.8117647058823529,
+      "row_f1": 0.9387755102040816
+    },
+    "bachelor_en": {
+      "correct": 362,
+      "total": 378,
+      "tp": 68,
+      "fn": 1,
+      "fp": 0,
+      "accuracy": 0.9576719576719577,
+      "row_f1": 0.9927007299270074
+    },
+    "graduate_th": {
+      "correct": 155,
+      "total": 246,
+      "tp": 19,
+      "fn": 9,
+      "fp": 0,
+      "accuracy": 0.6300813008130082,
+      "row_f1": 0.8085106382978724
+    },
+    "graduate_en": {
+      "correct": 158,
+      "total": 205,
+      "tp": 18,
+      "fn": 4,
+      "fp": 4,
+      "accuracy": 0.7707317073170732,
+      "row_f1": 0.8181818181818182
+    }
+  },
+  "top_field_errors": [
+    {
+      "field": "semesters[].GPS",
+      "errors": 32,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "2.33",
+          "actual": ""
+        },
+        {
+          "id": "71010001",
+          "expected": "0.00",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "2.75",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].subject_id",
+      "errors": 26,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "90595002",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "01016230",
+          "actual": "01016232"
+        },
+        {
+          "id": "71010009",
+          "expected": "01016232",
+          "actual": "01016234"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].subject_name",
+      "errors": 26,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "ภาษาอังกฤษเพื่อการสื่อสาร",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "การวิเคราะห์วงจรไฟฟ้า1",
+          "actual": "สนามแม่เหล็กไฟฟ้า"
+        },
+        {
+          "id": "71010009",
+          "expected": "สนามแม่เหล็กไฟฟ้า",
+          "actual": "การออกแบบวงจรดิจิทัลและลอจิก"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].credit",
+      "errors": 23,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "3",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "3",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "3",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].grade_earn",
+      "errors": 22,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "b",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "c",
+          "actual": "b+"
+        },
+        {
+          "id": "71010009",
+          "expected": "b+",
+          "actual": "b"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].GPA",
+      "errors": 16,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "2.01",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "2.01",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "1.93",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].type",
+      "errors": 13,
+      "examples": [
+        {
+          "id": "73036003",
+          "expected": "cr",
+          "actual": ""
+        },
+        {
+          "id": "73036003",
+          "expected": "cr",
+          "actual": ""
+        },
+        {
+          "id": "73036003",
+          "expected": "cr",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "footer_detail.by.by_reg",
+      "errors": 12,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "สํานักทะเบียนและบริการการศึกษา",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "สํานักทะเบียนและบริการการศึกษา",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "สํานักทะเบียนและบริการการศึกษา",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "footer_detail.updated_at",
+      "errors": 9,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "2025-01-15",
+          "actual": "2025-01-16"
+        },
+        {
+          "id": "71010005",
+          "expected": "2025-01-15",
+          "actual": "2025-01-16"
+        },
+        {
+          "id": "71010009",
+          "expected": "2025-01-15",
+          "actual": "2025-01-17"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].year",
+      "errors": 8,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "2567",
+          "actual": ""
+        },
+        {
+          "id": "72100009",
+          "expected": "2567",
+          "actual": ""
+        },
+        {
+          "id": "74116006",
+          "expected": "2565",
+          "actual": "2566"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].sem_num",
+      "errors": 8,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "2",
+          "actual": ""
+        },
+        {
+          "id": "72100009",
+          "expected": "2",
+          "actual": ""
+        },
+        {
+          "id": "74116006",
+          "expected": "2",
+          "actual": "1"
+        }
+      ]
+    },
+    {
+      "field": "header_detail.uni_name",
+      "errors": 7,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.uni_address",
+      "errors": 6,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "เลขที่1ซอยฉลองกรุง1เขตลาดกระบังกรุงเทพฯ10520",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "เลขที่1ซอยฉลองกรุง1เขตลาดกระบังกรุงเทพฯ10520",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "เลขที่1ซอยฉลองกรุง1เขตลาดกระบังกรุงเทพฯ10520",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "footer_detail.by.by_signature",
+      "errors": 6,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "ผู้ช่วยศาสตราจารย์ดร.ทดสอบนามสกุล",
+          "actual": "ผูชวยศาสตราจารยดร.ทดสอบนามสกุล"
+        },
+        {
+          "id": "71010005",
+          "expected": "ผู้ช่วยศาสตราจารย์ดร.ทดสอบนามสกุล",
+          "actual": "ผูชวยศาสตราจารยดร.ทดสอบนามสกุล"
+        },
+        {
+          "id": "71010009",
+          "expected": "ผู้ช่วยศาสตราจารย์ดร.ทดสอบนามสกุล",
+          "actual": "ผูชวยศาสตราจารยดร.ทดสอบนามสกุล"
+        }
+      ]
+    },
+    {
+      "field": "footer_detail.by.by_position",
+      "errors": 6,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "ผู้อํานวยการ",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "ผู้อํานวยการ",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "ผู้อํานวยการ",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "transcript_detail.total_credits_earned",
+      "errors": 6,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "36",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "18",
+          "actual": ""
+        },
+        {
+          "id": "71010009",
+          "expected": "146",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.grad_reason",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "71010001",
+          "expected": "n/a(พ้นสภาพ1/2562)",
+          "actual": ""
+        },
+        {
+          "id": "71010005",
+          "expected": "n/a(ลาออก1/2561)",
+          "actual": ""
+        },
+        {
+          "id": "72100006",
+          "expected": "n/a(resignedinsemester1/2019)",
+          "actual": "n/a(resignedinsemester|/2019)"
+        }
+      ]
+    },
+    {
+      "field": "transcript_detail.cumulative_gpa",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036011",
+          "expected": "3.79",
+          "actual": ""
+        },
+        {
+          "id": "73046003",
+          "expected": "0.00",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].pass_reason",
+      "errors": 1,
+      "examples": [
+        {
+          "id": "71010009",
+          "expected": "leaveofabsence",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.grad_date",
+      "errors": 1,
+      "examples": [
+        {
+          "id": "73036011",
+          "expected": "2024-04-04",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.name",
+      "errors": 1,
+      "examples": [
+        {
+          "id": "74116010",
+          "expected": "graduateami10advancedmanufacturinginnovation10",
+          "actual": "graduateamil0advancedmanufacturinginnovation10"
+        }
+      ]
+    }
+  ],
+  "details": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "predicted_format": "bachelor_th",
+      "seconds": 10.107,
+      "correct": 63,
+      "total": 73,
+      "accuracy": 0.863013698630137
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "predicted_format": "bachelor_th",
+      "seconds": 9.478,
+      "correct": 36,
+      "total": 45,
+      "accuracy": 0.8
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "predicted_format": "bachelor_th",
+      "seconds": 24.174,
+      "correct": 246,
+      "total": 307,
+      "accuracy": 0.8013029315960912
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "predicted_format": "bachelor_en",
+      "seconds": 3.794,
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "predicted_format": "bachelor_en",
+      "seconds": 3.259,
+      "correct": 45,
+      "total": 49,
+      "accuracy": 0.9183673469387755
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "predicted_format": "bachelor_en",
+      "seconds": 7.623,
+      "correct": 262,
+      "total": 272,
+      "accuracy": 0.9632352941176471
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "predicted_format": "graduate_th",
+      "seconds": 11.675,
+      "correct": 66,
+      "total": 106,
+      "accuracy": 0.6226415094339622
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "predicted_format": "graduate_th",
+      "seconds": 10.4,
+      "correct": 62,
+      "total": 104,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "predicted_format": "graduate_th",
+      "seconds": 6.802,
+      "correct": 27,
+      "total": 36,
+      "accuracy": 0.75
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "predicted_format": "graduate_en",
+      "seconds": 2.512,
+      "correct": 48,
+      "total": 79,
+      "accuracy": 0.6075949367088608
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "predicted_format": "graduate_en",
+      "seconds": 2.435,
+      "correct": 48,
+      "total": 62,
+      "accuracy": 0.7741935483870968
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "predicted_format": "graduate_en",
+      "seconds": 2.91,
+      "correct": 62,
+      "total": 64,
+      "accuracy": 0.96875
+    }
+  ]
+}

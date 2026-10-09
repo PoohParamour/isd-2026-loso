@@ -1,0 +1,29 @@
+{
+  "scope": "input_new photographed unofficial English transcripts; both photos are the same source documents used for training and are not an independent holdout",
+  "cause": [
+    "The line recognizer was trained and evaluated on PDF-aligned course crops, while production OCR was applied to whole pages containing long table rules and narrow credit/grade columns.",
+    "The OCR reading 151 Semester was not recognized as a new semester, moving the latest pooh courses into the previous term.",
+    "The 2.png page rectifies to only 595 by 696 pixels. Its tiny blurred glyphs corrupt course codes and academic years; bilingual fallback also misrouted it as Thai."
+  ],
+  "photos": [
+    {
+      "file": "1.jpg",
+      "source_pdf": "pooh.pdf",
+      "rectified_pixels": [1326, 1767],
+      "before": {"exact_fields": 11, "total_fields": 145, "matched_course_rows": 10, "expected_course_rows": 30},
+      "after": {"exact_fields": 63, "total_fields": 145, "matched_course_rows": 26, "expected_course_rows": 30, "validation_errors": 16}
+    },
+    {
+      "file": "2.png",
+      "source_pdf": "doc.pdf",
+      "rectified_pixels": [595, 696],
+      "before": {"exact_fields": 5, "total_fields": 150, "matched_course_rows": 0, "expected_course_rows": 32},
+      "after": {"exact_fields": 7, "total_fields": 150, "matched_course_rows": 0, "expected_course_rows": 32, "quality_warning": "low_resolution_photo"}
+    }
+  ],
+  "source_pdf_reference": {
+    "pooh.pdf": {"exact_fields": 145, "total_fields": 145, "matched_course_rows": 30},
+    "doc.pdf": {"exact_fields": 150, "total_fields": 150, "matched_course_rows": 32}
+  },
+  "regression_check": {"existing_format_images": 4, "exact_fields": 325, "total_fields": 338, "matched_course_rows": 44, "expected_course_rows": 44}
+}

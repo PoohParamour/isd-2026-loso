@@ -1,0 +1,939 @@
+{
+  "input": "Lab5 augmented PNG",
+  "split": "dev",
+  "documents": 60,
+  "matrix": {
+    "overall": {
+      "documents": 60,
+      "correct": 4373,
+      "total": 6270,
+      "accuracy": 0.6974481658692185,
+      "row_f1": 0.8255416191562144,
+      "mean_seconds": 14.216683333333334,
+      "max_seconds": 44.328
+    },
+    "aug1_rotate_bright": {
+      "documents": 12,
+      "correct": 938,
+      "total": 1254,
+      "accuracy": 0.748006379585327,
+      "row_f1": 0.9065934065934065,
+      "mean_seconds": 18.329666666666668,
+      "max_seconds": 44.328
+    },
+    "bachelor_th": {
+      "documents": 15,
+      "correct": 1284,
+      "total": 2125,
+      "accuracy": 0.6042352941176471,
+      "row_f1": 0.7765793528505393,
+      "mean_seconds": 22.463533333333334,
+      "max_seconds": 44.328
+    },
+    "bachelor_th__aug1_rotate_bright": {
+      "documents": 3,
+      "correct": 282,
+      "total": 425,
+      "accuracy": 0.6635294117647059,
+      "row_f1": 0.8776978417266188,
+      "mean_seconds": 27.81266666666667,
+      "max_seconds": 44.328
+    },
+    "aug2_noise": {
+      "documents": 12,
+      "correct": 1186,
+      "total": 1254,
+      "accuracy": 0.9457735247208932,
+      "row_f1": 0.9845360824742267,
+      "mean_seconds": 12.7315,
+      "max_seconds": 32.156
+    },
+    "bachelor_th__aug2_noise": {
+      "documents": 3,
+      "correct": 387,
+      "total": 425,
+      "accuracy": 0.9105882352941177,
+      "row_f1": 0.9668874172185431,
+      "mean_seconds": 20.458,
+      "max_seconds": 32.156
+    },
+    "aug3_blur_contrast": {
+      "documents": 12,
+      "correct": 717,
+      "total": 1254,
+      "accuracy": 0.5717703349282297,
+      "row_f1": 0.7530120481927712,
+      "mean_seconds": 9.583166666666667,
+      "max_seconds": 21.031
+    },
+    "bachelor_th__aug3_blur_contrast": {
+      "documents": 3,
+      "correct": 121,
+      "total": 425,
+      "accuracy": 0.2847058823529412,
+      "row_f1": 0.5,
+      "mean_seconds": 13.458,
+      "max_seconds": 20.0
+    },
+    "aug4_perspective": {
+      "documents": 12,
+      "correct": 757,
+      "total": 1254,
+      "accuracy": 0.6036682615629984,
+      "row_f1": 0.7484662576687117,
+      "mean_seconds": 18.796916666666668,
+      "max_seconds": 43.969
+    },
+    "bachelor_th__aug4_perspective": {
+      "documents": 3,
+      "correct": 104,
+      "total": 425,
+      "accuracy": 0.2447058823529412,
+      "row_f1": 0.375,
+      "mean_seconds": 31.604333333333333,
+      "max_seconds": 43.969
+    },
+    "aug5_jpeg_dark": {
+      "documents": 12,
+      "correct": 775,
+      "total": 1254,
+      "accuracy": 0.6180223285486444,
+      "row_f1": 0.7034883720930233,
+      "mean_seconds": 11.642166666666666,
+      "max_seconds": 32.704
+    },
+    "bachelor_th__aug5_jpeg_dark": {
+      "documents": 3,
+      "correct": 390,
+      "total": 425,
+      "accuracy": 0.9176470588235294,
+      "row_f1": 0.9536423841059603,
+      "mean_seconds": 18.984666666666666,
+      "max_seconds": 32.704
+    },
+    "bachelor_en": {
+      "documents": 15,
+      "correct": 1447,
+      "total": 1890,
+      "accuracy": 0.7656084656084656,
+      "row_f1": 0.8667687595712098,
+      "mean_seconds": 9.307266666666667,
+      "max_seconds": 15.187
+    },
+    "bachelor_en__aug1_rotate_bright": {
+      "documents": 3,
+      "correct": 320,
+      "total": 378,
+      "accuracy": 0.8465608465608465,
+      "row_f1": 0.9927007299270074,
+      "mean_seconds": 10.297,
+      "max_seconds": 10.891
+    },
+    "bachelor_en__aug2_noise": {
+      "documents": 3,
+      "correct": 365,
+      "total": 378,
+      "accuracy": 0.9656084656084656,
+      "row_f1": 0.9927007299270074,
+      "mean_seconds": 10.843666666666667,
+      "max_seconds": 11.204
+    },
+    "bachelor_en__aug3_blur_contrast": {
+      "documents": 3,
+      "correct": 324,
+      "total": 378,
+      "accuracy": 0.8571428571428571,
+      "row_f1": 0.9701492537313433,
+      "mean_seconds": 6.6353333333333335,
+      "max_seconds": 8.593
+    },
+    "bachelor_en__aug4_perspective": {
+      "documents": 3,
+      "correct": 353,
+      "total": 378,
+      "accuracy": 0.9338624338624338,
+      "row_f1": 0.9927007299270074,
+      "mean_seconds": 11.275666666666666,
+      "max_seconds": 15.187
+    },
+    "bachelor_en__aug5_jpeg_dark": {
+      "documents": 3,
+      "correct": 85,
+      "total": 378,
+      "accuracy": 0.22486772486772486,
+      "row_f1": 0.25925925925925924,
+      "mean_seconds": 7.484666666666667,
+      "max_seconds": 10.735
+    },
+    "graduate_th": {
+      "documents": 15,
+      "correct": 840,
+      "total": 1230,
+      "accuracy": 0.6829268292682927,
+      "row_f1": 0.771186440677966,
+      "mean_seconds": 19.390666666666668,
+      "max_seconds": 35.141
+    },
+    "graduate_th__aug1_rotate_bright": {
+      "documents": 3,
+      "correct": 149,
+      "total": 246,
+      "accuracy": 0.6056910569105691,
+      "row_f1": 0.6666666666666667,
+      "mean_seconds": 27.209,
+      "max_seconds": 29.657
+    },
+    "graduate_th__aug2_noise": {
+      "documents": 3,
+      "correct": 235,
+      "total": 246,
+      "accuracy": 0.9552845528455285,
+      "row_f1": 1.0,
+      "mean_seconds": 14.129666666666667,
+      "max_seconds": 15.531
+    },
+    "graduate_th__aug3_blur_contrast": {
+      "documents": 3,
+      "correct": 149,
+      "total": 246,
+      "accuracy": 0.6056910569105691,
+      "row_f1": 0.6976744186046512,
+      "mean_seconds": 13.531,
+      "max_seconds": 21.031
+    },
+    "graduate_th__aug4_perspective": {
+      "documents": 3,
+      "correct": 179,
+      "total": 246,
+      "accuracy": 0.7276422764227642,
+      "row_f1": 0.7346938775510204,
+      "mean_seconds": 26.104333333333333,
+      "max_seconds": 35.141
+    },
+    "graduate_th__aug5_jpeg_dark": {
+      "documents": 3,
+      "correct": 128,
+      "total": 246,
+      "accuracy": 0.5203252032520326,
+      "row_f1": 0.6976744186046512,
+      "mean_seconds": 15.979333333333333,
+      "max_seconds": 22.922
+    },
+    "graduate_en": {
+      "documents": 15,
+      "correct": 802,
+      "total": 1025,
+      "accuracy": 0.7824390243902439,
+      "row_f1": 0.9074074074074073,
+      "mean_seconds": 5.705266666666667,
+      "max_seconds": 9.687
+    },
+    "graduate_en__aug1_rotate_bright": {
+      "documents": 3,
+      "correct": 187,
+      "total": 205,
+      "accuracy": 0.9121951219512195,
+      "row_f1": 0.9767441860465117,
+      "mean_seconds": 8.0,
+      "max_seconds": 9.687
+    },
+    "graduate_en__aug2_noise": {
+      "documents": 3,
+      "correct": 199,
+      "total": 205,
+      "accuracy": 0.9707317073170731,
+      "row_f1": 1.0,
+      "mean_seconds": 5.494666666666667,
+      "max_seconds": 5.578
+    },
+    "graduate_en__aug3_blur_contrast": {
+      "documents": 3,
+      "correct": 123,
+      "total": 205,
+      "accuracy": 0.6,
+      "row_f1": 0.7906976744186046,
+      "mean_seconds": 4.708333333333334,
+      "max_seconds": 6.578
+    },
+    "graduate_en__aug4_perspective": {
+      "documents": 3,
+      "correct": 121,
+      "total": 205,
+      "accuracy": 0.5902439024390244,
+      "row_f1": 0.8181818181818182,
+      "mean_seconds": 6.203333333333333,
+      "max_seconds": 6.422
+    },
+    "graduate_en__aug5_jpeg_dark": {
+      "documents": 3,
+      "correct": 172,
+      "total": 205,
+      "accuracy": 0.8390243902439024,
+      "row_f1": 0.9523809523809523,
+      "mean_seconds": 4.12,
+      "max_seconds": 4.344
+    }
+  },
+  "details": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_th",
+      "seconds": 20.578,
+      "correct": 51,
+      "total": 73,
+      "accuracy": 0.6986301369863014
+    },
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_th",
+      "seconds": 15.297,
+      "correct": 71,
+      "total": 73,
+      "accuracy": 0.9726027397260274
+    },
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_th",
+      "seconds": 10.468,
+      "correct": 44,
+      "total": 73,
+      "accuracy": 0.6027397260273972
+    },
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_th",
+      "seconds": 19.969,
+      "correct": 47,
+      "total": 73,
+      "accuracy": 0.6438356164383562
+    },
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_th",
+      "seconds": 11.75,
+      "correct": 70,
+      "total": 73,
+      "accuracy": 0.958904109589041
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_th",
+      "seconds": 18.532,
+      "correct": 41,
+      "total": 45,
+      "accuracy": 0.9111111111111111
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_th",
+      "seconds": 13.921,
+      "correct": 40,
+      "total": 45,
+      "accuracy": 0.8888888888888888
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_th",
+      "seconds": 9.906,
+      "correct": 40,
+      "total": 45,
+      "accuracy": 0.8888888888888888
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_th",
+      "seconds": 30.875,
+      "correct": 41,
+      "total": 45,
+      "accuracy": 0.9111111111111111
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_th",
+      "seconds": 12.5,
+      "correct": 42,
+      "total": 45,
+      "accuracy": 0.9333333333333333
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_th",
+      "seconds": 44.328,
+      "correct": 190,
+      "total": 307,
+      "accuracy": 0.6188925081433225
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_th",
+      "seconds": 32.156,
+      "correct": 276,
+      "total": 307,
+      "accuracy": 0.8990228013029316
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_th",
+      "seconds": 20.0,
+      "correct": 37,
+      "total": 307,
+      "accuracy": 0.12052117263843648
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_th",
+      "seconds": 43.969,
+      "correct": 16,
+      "total": 307,
+      "accuracy": 0.05211726384364821
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_th",
+      "seconds": 32.704,
+      "correct": 278,
+      "total": 307,
+      "accuracy": 0.9055374592833876
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_en",
+      "seconds": 10.625,
+      "correct": 51,
+      "total": 57,
+      "accuracy": 0.8947368421052632
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_en",
+      "seconds": 10.437,
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_en",
+      "seconds": 5.641,
+      "correct": 38,
+      "total": 57,
+      "accuracy": 0.6666666666666666
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_en",
+      "seconds": 11.406,
+      "correct": 52,
+      "total": 57,
+      "accuracy": 0.9122807017543859
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_en",
+      "seconds": 6.25,
+      "correct": 27,
+      "total": 57,
+      "accuracy": 0.47368421052631576
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_en",
+      "seconds": 10.891,
+      "correct": 43,
+      "total": 49,
+      "accuracy": 0.8775510204081632
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_en",
+      "seconds": 10.89,
+      "correct": 46,
+      "total": 49,
+      "accuracy": 0.9387755102040817
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_en",
+      "seconds": 5.672,
+      "correct": 33,
+      "total": 49,
+      "accuracy": 0.673469387755102
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_en",
+      "seconds": 7.234,
+      "correct": 40,
+      "total": 49,
+      "accuracy": 0.8163265306122449
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_en",
+      "seconds": 5.469,
+      "correct": 16,
+      "total": 49,
+      "accuracy": 0.32653061224489793
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "bachelor_en",
+      "seconds": 9.375,
+      "correct": 226,
+      "total": 272,
+      "accuracy": 0.8308823529411765
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "bachelor_en",
+      "seconds": 11.204,
+      "correct": 264,
+      "total": 272,
+      "accuracy": 0.9705882352941176
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_en",
+      "seconds": 8.593,
+      "correct": 253,
+      "total": 272,
+      "accuracy": 0.9301470588235294
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "bachelor_en",
+      "seconds": 15.187,
+      "correct": 261,
+      "total": 272,
+      "accuracy": 0.9595588235294118
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_en",
+      "seconds": 10.735,
+      "correct": 42,
+      "total": 272,
+      "accuracy": 0.15441176470588236
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_th",
+      "seconds": 29.657,
+      "correct": 82,
+      "total": 106,
+      "accuracy": 0.7735849056603774
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_th",
+      "seconds": 15.531,
+      "correct": 102,
+      "total": 106,
+      "accuracy": 0.9622641509433962
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "graduate_th",
+      "seconds": 21.031,
+      "correct": 36,
+      "total": 106,
+      "accuracy": 0.33962264150943394
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_th",
+      "seconds": 24.5,
+      "correct": 57,
+      "total": 106,
+      "accuracy": 0.5377358490566038
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "bachelor_th",
+      "seconds": 22.922,
+      "correct": 79,
+      "total": 106,
+      "accuracy": 0.7452830188679245
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_th",
+      "seconds": 29.016,
+      "correct": 45,
+      "total": 104,
+      "accuracy": 0.4326923076923077
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_th",
+      "seconds": 15.437,
+      "correct": 100,
+      "total": 104,
+      "accuracy": 0.9615384615384616
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "graduate_th",
+      "seconds": 11.39,
+      "correct": 78,
+      "total": 104,
+      "accuracy": 0.75
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_th",
+      "seconds": 35.141,
+      "correct": 88,
+      "total": 104,
+      "accuracy": 0.8461538461538461
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "graduate_th",
+      "seconds": 13.219,
+      "correct": 33,
+      "total": 104,
+      "accuracy": 0.3173076923076923
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_th",
+      "seconds": 22.954,
+      "correct": 22,
+      "total": 36,
+      "accuracy": 0.6111111111111112
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_th",
+      "seconds": 11.421,
+      "correct": 33,
+      "total": 36,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "graduate_th",
+      "seconds": 8.172,
+      "correct": 35,
+      "total": 36,
+      "accuracy": 0.9722222222222222
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_th",
+      "seconds": 18.672,
+      "correct": 34,
+      "total": 36,
+      "accuracy": 0.9444444444444444
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "graduate_th",
+      "seconds": 11.797,
+      "correct": 16,
+      "total": 36,
+      "accuracy": 0.4444444444444444
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_en",
+      "seconds": 6.422,
+      "correct": 73,
+      "total": 79,
+      "accuracy": 0.9240506329113924
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_en",
+      "seconds": 5.562,
+      "correct": 77,
+      "total": 79,
+      "accuracy": 0.9746835443037974
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "graduate_en",
+      "seconds": 3.875,
+      "correct": 50,
+      "total": 79,
+      "accuracy": 0.6329113924050633
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_en",
+      "seconds": 6.266,
+      "correct": 47,
+      "total": 79,
+      "accuracy": 0.5949367088607594
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "graduate_en",
+      "seconds": 4.094,
+      "correct": 66,
+      "total": 79,
+      "accuracy": 0.8354430379746836
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_en",
+      "seconds": 9.687,
+      "correct": 60,
+      "total": 62,
+      "accuracy": 0.967741935483871
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_en",
+      "seconds": 5.344,
+      "correct": 60,
+      "total": 62,
+      "accuracy": 0.967741935483871
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "graduate_en",
+      "seconds": 3.672,
+      "correct": 55,
+      "total": 62,
+      "accuracy": 0.8870967741935484
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_en",
+      "seconds": 5.922,
+      "correct": 37,
+      "total": 62,
+      "accuracy": 0.5967741935483871
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "graduate_en",
+      "seconds": 3.922,
+      "correct": 51,
+      "total": 62,
+      "accuracy": 0.8225806451612904
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug1_rotate_bright",
+      "predicted_format": "graduate_en",
+      "seconds": 7.891,
+      "correct": 54,
+      "total": 64,
+      "accuracy": 0.84375
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug2_noise",
+      "predicted_format": "graduate_en",
+      "seconds": 5.578,
+      "correct": 62,
+      "total": 64,
+      "accuracy": 0.96875
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug3_blur_contrast",
+      "predicted_format": "bachelor_en",
+      "seconds": 6.578,
+      "correct": 18,
+      "total": 64,
+      "accuracy": 0.28125
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug4_perspective",
+      "predicted_format": "graduate_en",
+      "seconds": 6.422,
+      "correct": 37,
+      "total": 64,
+      "accuracy": 0.578125
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "augmentation": "aug5_jpeg_dark",
+      "predicted_format": "graduate_en",
+      "seconds": 4.344,
+      "correct": 55,
+      "total": 64,
+      "accuracy": 0.859375
+    }
+  ]
+}

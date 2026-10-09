@@ -1,0 +1,75 @@
+{
+  "sources": [
+    "1.jpg",
+    "2.png"
+  ],
+  "training_lines": 49,
+  "held_out_lines": 13,
+  "iterations": 100,
+  "split": "within-document line holdout; not an independent document test",
+  "installed_fast_validation": {
+    "lines": 13,
+    "cer": 0.2018,
+    "exact_lines": 0,
+    "characters": 451
+  },
+  "before": {
+    "train": {
+      "lines": 49,
+      "cer": 0.2312,
+      "exact_lines": 1,
+      "characters": 1812
+    },
+    "validation": {
+      "lines": 13,
+      "cer": 0.2749,
+      "exact_lines": 0,
+      "characters": 451
+    }
+  },
+  "after": {
+    "train": {
+      "lines": 49,
+      "cer": 0.0988,
+      "exact_lines": 1,
+      "characters": 1812
+    },
+    "validation": {
+      "lines": 13,
+      "cer": 0.1153,
+      "exact_lines": 0,
+      "characters": 451
+    }
+  },
+  "model": "model\\data\\photo_ocr\\eng_photo.traineddata",
+  "by_source": {
+    "pooh": {
+      "before": {
+        "lines": 6,
+        "cer": 0.2452,
+        "exact_lines": 0,
+        "characters": 208
+      },
+      "after": {
+        "lines": 6,
+        "cer": 0.125,
+        "exact_lines": 0,
+        "characters": 208
+      }
+    },
+    "doc": {
+      "before": {
+        "lines": 7,
+        "cer": 0.3004,
+        "exact_lines": 0,
+        "characters": 243
+      },
+      "after": {
+        "lines": 7,
+        "cer": 0.107,
+        "exact_lines": 0,
+        "characters": 243
+      }
+    }
+  }
+}

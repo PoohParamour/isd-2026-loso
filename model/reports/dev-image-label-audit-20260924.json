@@ -1,0 +1,35 @@
+{
+  "scope": "Manually checked development documents with prominent image/label differences",
+  "method": "Compare visible first-page PNG, its one-page source PDF, and the existing JSON label; do not alter source labels or inference",
+  "complete_audit": false,
+  "findings": [
+    {
+      "id": "72140002",
+      "visible_last_term": "1st Semester, Academic Year 2019",
+      "label_only_term": "2nd Semester, Academic Year 2019",
+      "label_only_course_rows": 6,
+      "source_pdf_pages": 1
+    },
+    {
+      "id": "71010009",
+      "visible_last_term": "ภาคการศึกษาที่ 2 ปีการศึกษา 2566",
+      "label_only_term": "ภาคการศึกษาที่ 2 ปีการศึกษา 2567",
+      "label_only_course_rows": 5,
+      "source_pdf_pages": 1
+    },
+    {
+      "id": "73046007",
+      "visible_last_term": "ภาคการศึกษาที่ 1 ปีการศึกษา 2567",
+      "label_only_term": "ภาคการศึกษาที่ 2 ปีการศึกษา 2567",
+      "label_only_course_rows": 4,
+      "source_pdf_pages": 1
+    },
+    {
+      "id": "73046003",
+      "field": "transcript_detail.total_credits_earned",
+      "visible_value": 0,
+      "label_value": 12,
+      "source_pdf_pages": 1
+    }
+  ]
+}

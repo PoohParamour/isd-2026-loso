@@ -1,0 +1,202 @@
+{
+  "split": "dev",
+  "same_source_documents": 8,
+  "matrix": {
+    "hybrid": {
+      "documents": 8,
+      "correct": 565,
+      "total": 575,
+      "accuracy": 0.9826086956521739,
+      "mean_seconds": 0.432875,
+      "max_seconds": 1.706,
+      "api_cost_usd": 0
+    },
+    "tesseract_only": {
+      "documents": 8,
+      "correct": 241,
+      "total": 575,
+      "accuracy": 0.4191304347826087,
+      "mean_seconds": 3.226875,
+      "max_seconds": 5.344,
+      "api_cost_usd": 0
+    }
+  },
+  "details": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.11,
+      "correct": 72,
+      "total": 73,
+      "accuracy": 0.9863013698630136
+    },
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 4.686,
+      "correct": 50,
+      "total": 73,
+      "accuracy": 0.684931506849315
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.056,
+      "correct": 44,
+      "total": 45,
+      "accuracy": 0.9777777777777777
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 4.727,
+      "correct": 3,
+      "total": 45,
+      "accuracy": 0.06666666666666667
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "route": "hybrid",
+      "engine": "tesseract",
+      "seconds": 1.706,
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 1.515,
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "route": "hybrid",
+      "engine": "tesseract",
+      "seconds": 1.488,
+      "correct": 47,
+      "total": 49,
+      "accuracy": 0.9591836734693877
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 2.017,
+      "correct": 47,
+      "total": 49,
+      "accuracy": 0.9591836734693877
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.032,
+      "correct": 106,
+      "total": 106,
+      "accuracy": 1.0
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 4.823,
+      "correct": 15,
+      "total": 106,
+      "accuracy": 0.14150943396226415
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.025,
+      "correct": 104,
+      "total": 104,
+      "accuracy": 1.0
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 5.344,
+      "correct": 21,
+      "total": 104,
+      "accuracy": 0.20192307692307693
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.023,
+      "correct": 77,
+      "total": 79,
+      "accuracy": 0.9746835443037974
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 1.253,
+      "correct": 23,
+      "total": 79,
+      "accuracy": 0.2911392405063291
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "route": "hybrid",
+      "engine": "pdf_text",
+      "seconds": 0.023,
+      "correct": 60,
+      "total": 62,
+      "accuracy": 0.967741935483871
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "route": "tesseract_only",
+      "engine": "tesseract",
+      "seconds": 1.45,
+      "correct": 27,
+      "total": 62,
+      "accuracy": 0.43548387096774194
+    }
+  ]
+}

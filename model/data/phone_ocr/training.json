@@ -1,0 +1,40 @@
+{
+  "method": "fresh tessdata_best English LSTM fine-tuning plus image-only ruled-row geometry",
+  "selected_iterations": 300,
+  "requested_learning_rate": 0.0001,
+  "training_lines": 109,
+  "validation_lines": 109,
+  "split": "angle 1 train / angle 2 validation / angle 3 sealed final test; same two documents",
+  "input_hashes": {
+    "data_transcript\\input_photo\\peam_photo1.HEIC": "4d570f70e5eb4bcc758abe00c30075cc880393d52e575baf920bde05125c3313",
+    "data_transcript\\input_photo\\peam_photo2.HEIC": "273a9af58e20a2656622680042c1ee5a7bc02f1632914b680f42ae20f6905113",
+    "data_transcript\\input_photo\\peam_photo3.HEIC": "2878e1d3f0caf7de4dc41511328c82175ab6af20772352ca7491b1809a2655ed",
+    "data_transcript\\input_photo\\pooh_photo1.HEIC": "b36114d2c3750115931ed35788a4c270266083fa32e970f80a0dcbf0adabaa87",
+    "data_transcript\\input_photo\\pooh_photo2.HEIC": "9a4cb9b551f68d33c4d884c94a0971c77851e2c7e553673e1dbf0d2ef5eae5b5",
+    "data_transcript\\input_photo\\pooh_photo3.HEIC": "395174d847647fa660a09f836d173c5e4e90e9a1769e00e22be4501e6cbd7a61"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "opencv": "4.14.0",
+    "numpy": "2.2.3",
+    "pillow": "12.3.0",
+    "pillow_heif": "1.8.0"
+  },
+  "limitations": [
+    "Only two source documents; same-document angle test is not independent document generalization.",
+    "First sealed-angle evaluation was 85.42%; after debugging angle 3 it is a reused test.",
+    "Weights use angle 1 only; angle 3 was never added to recognizer training.",
+    "Some names, course codes, grades and issue dates still require visual review.",
+    "Timing may reflect concurrent local development work; no latency guarantee.",
+    "API smoke uses an in-process client; Docker server has not been started or deployed."
+  ],
+  "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360",
+  "validation_selection_cer": 0.0231,
+  "starter_sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+  "reproduce": {
+    "prepare": ".venv-photo/Scripts/python.exe -m model.train_phone_ocr prepare",
+    "train": ".venv-photo/Scripts/python.exe -m model.train_phone_ocr train --iterations 300 --learning-rate 0.0001",
+    "evaluate": ".venv-photo/Scripts/python.exe -m model.benchmark_phone_ocr --angles 1 2 3 --production --model-dir model/data/phone_ocr --language eng_phone --out model/reports/phone-repeat.json",
+    "starter_requirement": "Place tessdata_best/eng.traineddata in tmp/photo_ocr_training/eng_best.traineddata; match starter SHA256 for this experiment."
+  }
+}

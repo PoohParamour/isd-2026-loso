@@ -1,0 +1,882 @@
+[PAGE 1]
+06026240 INTELLIGENT SYSTEM DEVELOPMENT
+with Dr. Bhattarabhorn Wattanacheep
+Chapter  III
+Introduction to ML and Deep learning
+
+[PAGE 2]
+3
+Is Computer
+Vision Artificial
+Intelligence?
+• Relation between Artificial
+Intelligence, Machine Learning
+and Deep Learning,Computer
+Vision.
+https://www.researchgate.net/figur
+e/Relationbetween-Artificial-
+Intelligence-Machine-Learning-and-
+Deep-Learning-
+Computer_fig1_342978934
+3
+
+[PAGE 3]
+4
+
+[PAGE 4]
+5
+1943
+Perceptron
+McCulloch-
+Pitts
+1986
+Backprop
+Rumelhart, 
+Hinton
+1998
+CNN
+LeCun, 
+AlexNet
+2014
+GAN
+Goodfellow
+2017
+Transformer
+Vaswani et al.
+2020+
+Foundation
+GPT, 
+Diffusion
+Key Insight: Transformer (2017) เปลี่ยนทุกอย่าง— เป็นพื้นฐานของGPT, BERT, Stable Diffusion และAI สมัยใหม่ทั้งหมด
+Evolution of Neural Networks
+
+[PAGE 5]
+6
+Neural Networks Basics
+
+[PAGE 6]
+7
+Activation 
+Function
+Inspiration from Biology
+
+[PAGE 7]
+
+[PAGE 8]
+9
+
+[PAGE 9]
+Activation 
+Function
+10
+
+[PAGE 10]
+Activation Function
+■Biological neurons are either active or not active
+■We can see this as a step function:
+■Bias tells us where the activation happens
+“no activation”
+“activated”
+■We can model this behavior through
+11
+
+[PAGE 11]
+12
+
+[PAGE 12]
+13
+
+[PAGE 13]
+14
+
+[PAGE 14]
+15
+
+[PAGE 15]
+16
+
+[PAGE 16]
+18
+
+[PAGE 17]
+Image Classification
+pixels intensities 
+are the values of 
+the input layer
+output layer is a 
+vector of likelihoods 
+for the possible labels
+19
+
+[PAGE 18]
+Is it a... 
+cat or a 
+dog or a
+human or a
+...?
+we are 
+never 
+certain...
+What is the Network’s Output?
+20
+“cat”
+largest 
+value
+
+[PAGE 19]
+Function Behind a Neuron
+(input) activations
+weights 
+bias
+activation function 
+output activation
+21
+
+[PAGE 20]
+Let’s Use a Matrix Notation
+22
+
+[PAGE 21]
+Each Layer Can Be Expressed 
+Through Matrix Multiplications
+layer 1
+layer 0
+23
+
+[PAGE 22]
+Do It Layer by Layer...
+• input = layer 0
+• layer 1
+• layer 2
+• layer k = output
+• That not much more than linear algebra...
+24
+
+[PAGE 23]
+Training perceptrons
+
+[PAGE 24]
+26
+Gradient Descent
+Loss (L)
+Weight (w)
+Minimum Loss
+w ← w − α · ∂L/∂w
+
+[PAGE 25]
+Gradient Descent (world’s smallest perceptron)
+For each sample
+1. Predict
+a. Forward pass
+b. Compute Loss
+2. Update
+a. Back Propagation
+b. Gradient update
+
+[PAGE 26]
+Forward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+2
+28
+
+[PAGE 27]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+1
+2
+29
+
+[PAGE 28]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+local function
+30
+
+[PAGE 29]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+local function
+3
+31
+
+[PAGE 30]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+-0.2
+local function
+3
+32
+
+[PAGE 31]
+Backward Pass
+-1
+-3
+-2
+-3
+-2
+6
+4
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+-0.2
+local function
+2
+3
+33
+
+[PAGE 32]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+6
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+0.2
+-0.2
+4
+0.2
+local function
+3
+34
+
+[PAGE 33]
+Backward Pass
+2
+-1
+-3
+-2
+-3
+-2
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+0.2
+6
+0.2
+0.2
+-0.2
+4
+0.2
+local function
+3
+35
+
+[PAGE 34]
+Backward Pass
+2
+-3
+-2
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+0.2
+6
+-0.2-1
+0.4
+-3
+-2
+0.2
+0.2
+-0.2
+4
+0.2
+local function
+3
+36
+
+[PAGE 35]
+Backward Pass
+2
+-3
+-2
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+0.2
+6
+-0.2-1
+0.4
+-3
+-0.4-2
+-0.6
+0.2
+0.2
+-0.2
+4
+0.2
+local function
+3
+37
+
+[PAGE 36]
+Backward Pass
+2
+-3
+-2
+1
+-1
+0.37
+1.37 
+0.73
+1
+-0.53
+-0.53
+0.2
+0.2
+6
+-0.2-1
+0.4
+-3
+-0.4-2
+-0.6
+0.2
+0.2
+-0.2
+4
+0.2
+3
+38
+
+[PAGE 37]
+• What is Deep learning
+• Artificial neural network (ANN)
+• Convolutional neural network (CNN)
+• Recurrent Neural Network (RNN)
+• Generative adversarial network (GAN)
+39
+Introduction to Deep Learning & Neural Networks
+
+[PAGE 38]
+Artificial neural network (ANN)
+• How then would this neural network work?
+0.
+1
+0.
+6
+0.
+2
+0.
+1
+0.
+6
+40
+
+[PAGE 39]
+• What is Deep learning
+• Artificial neural network (ANN)
+• Convolutional neural network (CNN)
+• Recurrent Neural Network (RNN)
+• Generative adversarial network (GAN)
+41
+Introduction to Deep Learning & Neural Networks
+
+[PAGE 40]
+Introduction to Convolutional Neural Networks (CNNs)
+42
+
+[PAGE 41]
+Convolutional neural network (CNN)
+Spatial Involvement (ﬃþðāü ľ
+ĬđçðĪēĬć Ķć įđďĶûįgđêû ﬀċĘıģč ć įg)
+First convolution and pooling
+Second convolution and pooling
+low-level features: edges, curves, shapes
+high-level features: objects eyes or faces
+43
+
+[PAGE 42]
+The main types of tasks
+Computer vision
+•
+Object Recognition / classification
+•
+Object Detection 
+•
+Image Segmentation
+•
+Tracking Object in Videos
+44
+Convolutional neural network (CNN)
+
+[PAGE 43]
+MNIST
+45
+Convolutional neural network (CNN)
+
+[PAGE 44]
+MNIST
+46
+Convolutional neural network (CNN)
+สมมติว่าเรามีNeural Network
+ที่ใช้ประมวลผลกับข้อมูลภาพขนาด28*28 px
+(784px²) จากMNIST Dataset
+
+[PAGE 45]
+47
+
+[PAGE 46]
+48
+
+[PAGE 47]
+49
+
+[PAGE 48]
+50
+
+[PAGE 49]
+51
+
+[PAGE 50]
+Introduction to Convolutional Neural Networks (CNNs)
+52
+Layer Types
+There are many types of layers used to build Convolutional Neural Networks, but the 
+ones you are most likely to encounter include:
+• Convolutional (CONV)
+• Activation (ACT or RELU, where we use the same or the actual activation function)
+• Pooling (POOL)
+• Fully connected (FC)
+• Dropout (DO)
+
+[PAGE 51]
+53
+Introduction to Convolutional Neural Networks (CNNs)
+The Convolution Operation (Input * Kernel)
+
+[PAGE 52]
+54
+Sobel Kernel Example
+Introduction to Convolutional Neural Networks (CNNs)
+Source: https://setosa.io/ev/image-kernels/
+
+[PAGE 53]
+Kernel Convolutions
+Kernel is an MxN matrix
+3x3 Kernel Example
+56
+
+[PAGE 54]
+Kernel Convolutions
+Window
+Kernel
+x
+=
+Multiplied
+Sum = 9 
+Sum = 2223
+New Pixel Value 
+2223 / 9 = 247
+57
+
+[PAGE 55]
+Kernel Convolutions
+Window
+Kernel
+x
+=
+Multiplied
+Sum = 9 
+Sum = 2223
+New Pixel Value 
+2223 / 9 = 247
+58
+
+[PAGE 56]
+Kernel Convolutions
+Window
+Kernel
+x
+=
+Multiplied
+Sum = 9 
+Sum = 2223
+New Pixel Value 
+2223 / 9 = 247
+59
+
+[PAGE 57]
+Kernel Convolutions
+Window
+Kernel
+x
+=
+Multiplied
+Sum = 9 
+Sum = 1768
+New Pixel Value 
+1768 / 9 =
+196.4
+196
+60
+
+[PAGE 58]
+Kernel Convolutions
+Window
+Kernel
+x
+=
+Multiplied
+Sum = 9 
+Sum = 1288
+New Pixel Value 
+1288 / 9 =
+143.1
+143
+61
+
+[PAGE 59]
+62
+Introduction to Convolutional Neural Networks (CNNs)
+Stride and Padding
+Stride denotes how many steps we are moving in each steps in convolution.By default it is one.
+
+[PAGE 60]
+63
+Introduction to Convolutional Neural Networks (CNNs)
+We can observe that the size of output is smaller that input. To maintain the dimension of output as in input , we use padding. 
+Padding is a process of adding zeros to the input matrix symmetrically. In the following example,the extra grey blocks denote the 
+padding. It is used to make the dimension of output same as input.
+Let say ‘p’ is the padding
+Initially(without padding)
+(N x N) * (F x F) = (N-F+1)x(N-F+1)---(1)
+After applying padding
+If we apply filter F x F in (N+2p) x (N+2p) input matrix 
+with padding, then we will get output matrix dimension 
+(N+2p-F+1) x (N+2p-F+1). As we know that after 
+applying padding we will get the same dimension as 
+original input dimension (N x N). Hence we have,
+(N+2p-F+1)x(N+2p-F+1) equivalent to NxN
+N+2p-F+1 = N ---(2)
+p = (F-1)/2 ---(3)
+The equation (3) clearly shows that Padding depends 
+on the dimension of filter.
+
+[PAGE 61]
+65
+Introduction to Convolutional Neural Networks (CNNs)
+Convolutional Layers
+A convolutional layer can be thought of as the “eyes” of a CNN. The neurons in a convolutional layer look for specific features
+The input to the very first convolutional layer is the input image. The input image is typically either a grayscale image (single channel) or a 
+color image (3 channels).
+
+[PAGE 62]
+66
+Convolutional Layer with a Single Filter
+Introduction to Convolutional Neural Networks (CNNs)
+
+[PAGE 63]
+67
+Introduction to Convolutional Neural Networks (CNNs)
+Convolutional Layer with a Two Filters
+
+[PAGE 64]
+68
+Filters Learn to Detect Structure
+Introduction to Convolutional Neural Networks (CNNs)
+
+[PAGE 65]
+Kernel Convolutions
+Sharpen
+Kernel
+69
+
+[PAGE 66]
+Kernel Convolutions
+Edge 
+Highlight
+Kernel
+70
+
+[PAGE 67]
+Kernel Convolutions
+Emboss
+Kernel
+71
+
+[PAGE 68]
+Kernel Convolutions
+Horizontal 
+“Derivative”
+Kernel
+72
+
+[PAGE 69]
+Kernel Convolutions
+Vertical “Derivative”
+Kernel
+73
+
+[PAGE 70]
+Kernel Convolutions
+Overlay them to get Sobel 
+Operator
+74
+
+[PAGE 71]
+75
+
+[PAGE 72]
+Introduction to Convolutional Neural Networks (CNNs)
+76
+Layer Types
+There are many types of layers used to build Convolutional Neural Networks, but the 
+ones you are most likely to encounter include:
+• Convolutional (CONV)
+• Activation (ACT or RELU, where we use the same or the actual activation function)
+• Pooling (POOL)
+• Fully connected (FC)
+• Dropout (DO)
+
+[PAGE 73]
+Common Activation Functions
+There are different activation functions
+■sigmoid()
+■ReLU()
+■tanh()
+■atan()
+■softplus()
+■identity()
+■step-function()
+■…
+ReLU is often used
+77
+
+[PAGE 74]
+Illustration
+[Courtesy of S. Sharma]
+78
+
+[PAGE 75]
+Introduction to Convolutional Neural Networks (CNNs)
+79
+Layer Types
+There are many types of layers used to build Convolutional Neural Networks, but the 
+ones you are most likely to encounter include:
+• Convolutional (CONV)
+• Activation (ACT or RELU, where we use the same or the actual activation function)
+• Pooling (POOL)
+• Fully connected (FC)
+• Dropout (DO)
+
+[PAGE 76]
+Max Pooling
+
+[PAGE 77]
+Average pooling
+Kernel =2 strides =2
+
+[PAGE 78]
+
+[PAGE 79]
+Introduction to Convolutional Neural Networks (CNNs)
+84
+Layer Types
+There are many types of layers used to build Convolutional Neural Networks, but the 
+ones you are most likely to encounter include:
+• Convolutional (CONV)
+• Activation (ACT or RELU, where we use the same or the actual activation function)
+• Pooling (POOL)
+• Fully connected (FC)
+• Dropout (DO)
+
+[PAGE 80]
+Introduction to Convolutional Neural Networks (CNNs)
+85
+Fully-Connected Layer 
+
+[PAGE 81]
+Introduction to Convolutional Neural Networks (CNNs)
+86
+Layer Types
+There are many types of layers used to build Convolutional Neural Networks, but the 
+ones you are most likely to encounter include:
+• Convolutional (CONV)
+• Activation (ACT or RELU, where we use the same or the actual activation function)
+• Pooling (POOL)
+• Fully connected (FC)
+• Dropout (DO)
+
+[PAGE 82]
+Introduction to Convolutional Neural Networks (CNNs)
+87
+source : https://markojerkic.com/what-is-dropout-deep-learning/
+
+[PAGE 83]
+Introduction to Convolutional Neural Networks (CNNs)
+88
+Epoch
+One Epoch is when an Enter dataset is passed forward and backward through the neural 
+network only once
+
+[PAGE 84]
+Introduction to Convolutional Neural Networks (CNNs)
+89
+Batch size
+
+[PAGE 85]
+Introduction to Convolutional Neural Networks (CNNs)
+90
+Batch size
+
+[PAGE 86]
+Introduction to Convolutional Neural Networks (CNNs)
+91
+Iterations
+Iterations is the 
+number of 
+batches needed 
+to complete 
+one epoch
+
+[PAGE 87]
+Regression
+●Predict a continuous value target.
+●Linear regression predicts a 
+numeric value
+●Logistic regression predicts a 
+probability
+Classification
+●Predict which category an
+item belongs to based on
+labeled examples of known
+items
+●Use in classify a new data
+Introduction to Convolutional Neural Networks (CNNs)
+92
+Classification v.s. Regression
+
+[PAGE 88]
+Examples of classification
+●Credit card fraud detection (fraud, not fraud)
+●Credit card application (good credit, bad credit)
+●Email spam detection (spam, not spam)
+●Text sentiment analysis (happy, not happy)
+●Predicting patient risk (high risk patient, low risk patient)
+●Classifying a tumor as malignant or not
+Introduction to Convolutional Neural Networks (CNNs)
+93
+Examples of regression
+●Predicting the price of the house.
+●Predicting age of a person
+●Predicting the stock price for tomorrow.
+●Predicting next year GDP.
+
+[PAGE 89]
+94
+
+[PAGE 90]
+Ref
+95
+Convolutional Neural Network. Learn Convolutional Neural Network from… | by dshahid380 | Towards Data Science
+Convolutional Neural Networks (CNNs) and Layer Types – PyImageSearch
+Convolutional Neural Network: A Complete Guide (learnopencv.com)
+[Student] Shopee Code League - Product Detection | Kaggle
+
+[PAGE 91]
+Lab 3
+Lab OCR
+96

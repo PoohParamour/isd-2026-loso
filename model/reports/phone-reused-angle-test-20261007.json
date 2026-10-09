@@ -1,0 +1,900 @@
+{
+  "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+  "images": 2,
+  "correct": 287,
+  "total": 295,
+  "accuracy": 0.9728813559322034,
+  "rows": {
+    "tp": 61,
+    "fn": 1,
+    "fp": 1
+  },
+  "row_f1": 0.9838709677419355,
+  "critical": {
+    "student_id": {
+      "correct": 2,
+      "total": 2
+    },
+    "course_id": {
+      "correct": 61,
+      "total": 62
+    },
+    "grade": {
+      "correct": 48,
+      "total": 49
+    },
+    "gpa": {
+      "correct": 11,
+      "total": 11
+    },
+    "gps": {
+      "correct": 9,
+      "total": 9
+    },
+    "cumulative_gpa": {
+      "correct": 2,
+      "total": 2
+    }
+  },
+  "mean_seconds": 29.89,
+  "model_sha256": "0c84654e6c0f1fdddaf5fc06917d4ccb5081a87db9fb7d92ddf4930e28bf9360",
+  "details": [
+    {
+      "image": "peam_photo3.HEIC",
+      "angle": 3,
+      "correct": 146,
+      "total": 150,
+      "accuracy": 0.9733333333333334,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 4,
+            "total": 6,
+            "edits": 2,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 1,
+            "total": 1,
+            "edits": 0,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 2,
+            "total": 2,
+            "edits": 0,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 19,
+            "total": 19,
+            "edits": 0,
+            "chars": 61,
+            "hallucinated": 1
+          },
+          "course": {
+            "correct": 120,
+            "total": 122,
+            "edits": 2,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 31,
+          "fn": 1,
+          "fp": 1
+        }
+      },
+      "critical": {
+        "student_id": {
+          "correct": 1,
+          "total": 1
+        },
+        "course_id": {
+          "correct": 31,
+          "total": 32
+        },
+        "grade": {
+          "correct": 26,
+          "total": 26
+        },
+        "gpa": {
+          "correct": 5,
+          "total": 5
+        },
+        "gps": {
+          "correct": 4,
+          "total": 4
+        },
+        "cumulative_gpa": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "result": {
+        "engine": "tesseract_phone",
+        "processing_seconds": 28.468,
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": "Mr",
+            "name": ", Pakaphon Phothivorn",
+            "student_id": "67070124",
+            "date_of_birth": "2005-08-04",
+            "admis_date": null,
+            "degree": "bachelorofscience",
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Science and Business Analytics",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": 78,
+            "cumulative_gpa": "3.59",
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 1,
+                "GPA": "4.00",
+                "GPS": "4.00",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026200",
+                    "subject_name": "CALCULUS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026202",
+                    "subject_name": "LINEAR ALGEBRA",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066101",
+                    "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066303",
+                    "subject_name": "PROBIEM SOLVING AND COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "90642999",
+                    "subject_name": "CHARM SCHOOL",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90644007",
+                    "subject_name": "FOUNDATION ENGLISH 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90644008",
+                    "subject_name": "FOUNDATION ENGLISH 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  }
+                ]
+              },
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": "3.72",
+                "GPS": "3.50",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026201",
+                    "subject_name": "CALCULUS 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026203",
+                    "subject_name": "COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "06026205",
+                    "subject_name": "INTRODUCTION TO MARKETING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "006066001",
+                    "subject_name": "PROBABILITY AND STATISTICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "90641007",
+                    "subject_name": "DIGITAL CITIZEN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90642033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": "3.57",
+                "GPS": "3.33",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026206",
+                    "subject_name": "DATA ANALYTICS AND PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066000",
+                    "subject_name": "DISCRETE MATHEMATICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06066300",
+                    "subject_name": "DATABASE SYSTEM CONCEPTS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06066302",
+                    "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06066304",
+                    "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "90644017",
+                    "subject_name": "ENGLISH FOR BUSINESS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": "3.59",
+                "GPS": "3.64",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026204",
+                    "subject_name": "INTRODUCTION TO NETWORKS AND CYBERSECURITY",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "06026207",
+                    "subject_name": "NOSQL DATABASE SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06026208",
+                    "subject_name": "FUNDAMENTALS OF DATA SCIENCE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026209",
+                    "subject_name": "DATA VISUALIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06026210",
+                    "subject_name": "OPTIMIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066102",
+                    "subject_name": "MANAGEMENT INFORMATION SY STEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066301",
+                    "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  }
+                ]
+              },
+              {
+                "year": 2569,
+                "sem_num": 1,
+                "GPA": "3.59",
+                "GPS": "0.00",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026211",
+                    "subject_name": "APPLIED MACHINE LEARNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026212",
+                    "subject_name": "DATA WAREHOUSING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026240",
+                    "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026242",
+                    "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90643026",
+                    "subject_name": "INVESTMENT PLANNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644042",
+                    "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": "2026-09-20",
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 1,
+          "warnings": 2,
+          "course_count": 32,
+          "issues": [
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters[1].subject[3].subject_id",
+              "code": "invalid_subject_id",
+              "message": "รหัสวิชาต้องเป็นตัวเลข 8 หลัก",
+              "severity": "error"
+            },
+            {
+              "path": "input.image",
+              "code": "phone_photo_review",
+              "message": "ภาพถ่ายอาจอ่านรหัสวิชา ตัวเลข และเกรดคลาดเคลื่อน กรุณาเทียบกับภาพก่อนบันทึก",
+              "severity": "warning"
+            }
+          ]
+        }
+      },
+      "errors": [
+        {
+          "field": "header_detail.prename",
+          "truth": "Mr.",
+          "pred": "Mr"
+        },
+        {
+          "field": "header_detail.name",
+          "truth": "Pakaphon Phothivorn",
+          "pred": ", Pakaphon Phothivorn"
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+          "pred": "PROBIEM SOLVING AND COMPUTER PROGRAMMING"
+        },
+        {
+          "field": "semesters[1].subject[3].subject_id",
+          "truth": "06066001",
+          "pred": "006066001"
+        }
+      ]
+    },
+    {
+      "image": "pooh_photo3.HEIC",
+      "angle": 3,
+      "correct": 141,
+      "total": 145,
+      "accuracy": 0.9724137931034482,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 6,
+            "total": 6,
+            "edits": 0,
+            "chars": 88,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 2,
+            "total": 2,
+            "edits": 0,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 23,
+            "total": 23,
+            "edits": 0,
+            "chars": 74,
+            "hallucinated": 1
+          },
+          "course": {
+            "correct": 110,
+            "total": 113,
+            "edits": 5,
+            "chars": 999,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 30,
+          "fn": 0,
+          "fp": 0
+        }
+      },
+      "critical": {
+        "student_id": {
+          "correct": 1,
+          "total": 1
+        },
+        "course_id": {
+          "correct": 30,
+          "total": 30
+        },
+        "grade": {
+          "correct": 22,
+          "total": 23
+        },
+        "gpa": {
+          "correct": 6,
+          "total": 6
+        },
+        "gps": {
+          "correct": 5,
+          "total": 5
+        },
+        "cumulative_gpa": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "result": {
+        "engine": "tesseract_phone",
+        "processing_seconds": 31.312,
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": "Mr.",
+            "name": "Pattarapol Petcharat",
+            "student_id": "67070127",
+            "date_of_birth": "2005-01-09",
+            "admis_date": null,
+            "degree": "bachelorofscience",
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Science and Business Analytics",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": 69,
+            "cumulative_gpa": "2.42",
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 1,
+                "GPA": "2.17",
+                "GPS": "2.17",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026200",
+                    "subject_name": "CALCULUS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c"
+                  },
+                  {
+                    "subject_id": "06066101",
+                    "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMA TION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06066303",
+                    "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642999",
+                    "subject_name": "CHARM SCHOOI.",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90644007",
+                    "subject_name": "FOUNDATION ENGLISH 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  }
+                ]
+              },
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": "1.88",
+                "GPS": "1.70",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026201",
+                    "subject_name": "CALCULUS 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d"
+                  },
+                  {
+                    "subject_id": "06026203",
+                    "subject_name": "COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d+"
+                  },
+                  {
+                    "subject_id": "06026205",
+                    "subject_name": "INTRODUCTION TO MARKETING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d+"
+                  },
+                  {
+                    "subject_id": "06066001",
+                    "subject_name": "PROBABILITY AND STATISTICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d"
+                  },
+                  {
+                    "subject_id": "90641007",
+                    "subject_name": "DIGITAL CITIZEN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90642033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "90644008",
+                    "subject_name": "FOUNDATION ENGLISH 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": "1.95",
+                "GPS": "2.17",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06066300",
+                    "subject_name": "DATABASE SYSTEM CONCEPTS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c"
+                  },
+                  {
+                    "subject_id": "06066302",
+                    "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06066304",
+                    "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": "2.35",
+                "GPS": "3.08",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026204",
+                    "subject_name": "INTRODUCTION TO NETWORKS AND CYBERSECURITY",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06026207",
+                    "subject_name": "NOSQL DATABASE SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06026208",
+                    "subject_name": "FUNDAMENTALS OF DATA SCIENCE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026209",
+                    "subject_name": "DATA VISUALIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06066102",
+                    "subject_name": "MANAGEMENT INFORMATION SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066301",
+                    "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 3,
+                "GPA": "2.42",
+                "GPS": "3.50",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "90642888",
+                    "subject_name": "IN IOVE A IN LIFE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90643023",
+                    "subject_name": "TECHNOPRENEURS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  }
+                ]
+              },
+              {
+                "year": 2569,
+                "sem_num": 1,
+                "GPA": "2.42",
+                "GPS": "0.00",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026211",
+                    "subject_name": "APPLIED MACHINE LEARNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026212",
+                    "subject_name": "DATA WAREHOUSING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026240",
+                    "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026242",
+                    "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026261",
+                    "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND BUSINESS ANALYTICS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066000",
+                    "subject_name": "DISCRETE MATHEMATICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644042",
+                    "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 0,
+          "warnings": 2,
+          "course_count": 30,
+          "issues": [
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "input.image",
+              "code": "phone_photo_review",
+              "message": "ภาพถ่ายอาจอ่านรหัสวิชา ตัวเลข และเกรดคลาดเคลื่อน กรุณาเทียบกับภาพก่อนบันทึก",
+              "severity": "warning"
+            }
+          ]
+        }
+      },
+      "errors": [
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-21",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[2].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "CHARM SCHOOL",
+          "pred": "CHARM SCHOOI."
+        },
+        {
+          "field": "semesters[4].subject[0].subject_name",
+          "truth": "IN LOVE & IN LIFE",
+          "pred": "IN IOVE A IN LIFE"
+        }
+      ]
+    }
+  ]
+}

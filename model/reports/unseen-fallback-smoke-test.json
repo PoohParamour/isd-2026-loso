@@ -1,0 +1,341 @@
+{
+  "input": "Lab5 original PNG, 150 DPI",
+  "split": "test",
+  "documents": 4,
+  "mean_seconds": 7.164499999999999,
+  "matrix": {
+    "overall": {
+      "correct": 306,
+      "total": 338,
+      "tp": 41,
+      "fn": 3,
+      "fp": 0,
+      "accuracy": 0.9053254437869822,
+      "row_f1": 0.9647058823529412
+    },
+    "bachelor_th": {
+      "correct": 49,
+      "total": 53,
+      "tp": 8,
+      "fn": 0,
+      "fp": 0,
+      "accuracy": 0.9245283018867925,
+      "row_f1": 1.0
+    },
+    "bachelor_en": {
+      "correct": 72,
+      "total": 73,
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "accuracy": 0.9863013698630136,
+      "row_f1": 1.0
+    },
+    "graduate_th": {
+      "correct": 87,
+      "total": 109,
+      "tp": 9,
+      "fn": 3,
+      "fp": 0,
+      "accuracy": 0.7981651376146789,
+      "row_f1": 0.8571428571428571
+    },
+    "graduate_en": {
+      "correct": 98,
+      "total": 103,
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "accuracy": 0.9514563106796117,
+      "row_f1": 1.0
+    }
+  },
+  "top_field_errors": [
+    {
+      "field": "footer_detail.updated_at",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "71020005",
+          "expected": "2025-01-15",
+          "actual": "2025-01-17"
+        },
+        {
+          "id": "72120002",
+          "expected": "2025-01-15",
+          "actual": "2025-01-17"
+        },
+        {
+          "id": "74106005",
+          "expected": "2025-01-15",
+          "actual": "2025-01-16"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].subject_id",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "03258902",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "03258902",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "03258902",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].subject_name",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "ดุษฎีนิพนธ์",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "ดุษฎีนิพนธ์",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "ดุษฎีนิพนธ์",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].type",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "cr",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "cr",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "cr",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].credit",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "12",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "12",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "12",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].subject[].grade_earn",
+      "errors": 3,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "s",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "s",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "i",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.name",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "71020005",
+          "expected": "สถ5สถาปัตยกรรมศิลปะและการออกแบบ5",
+          "actual": "สถ5สถาบัตยกรรมศิลปะและการออกแบบ5"
+        },
+        {
+          "id": "74106005",
+          "expected": "graduatemit5materialsinnovationandtechnology5",
+          "actual": "graduatemit5materialsinnovationandtechnologys"
+        }
+      ]
+    },
+    {
+      "field": "semesters[].GPA",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "3.42",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "3.43",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].GPS",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "3.50",
+          "actual": ""
+        },
+        {
+          "id": "73036007",
+          "expected": "3.50",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].year",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "2567",
+          "actual": ""
+        },
+        {
+          "id": "74106005",
+          "expected": "2567",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].sem_num",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "2",
+          "actual": ""
+        },
+        {
+          "id": "74106005",
+          "expected": "2",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "semesters[].pass_reason",
+      "errors": 2,
+      "examples": [
+        {
+          "id": "73036007",
+          "expected": "maintain",
+          "actual": ""
+        },
+        {
+          "id": "74106005",
+          "expected": "maintain",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "field": "header_detail.faculty_name",
+      "errors": 1,
+      "examples": [
+        {
+          "id": "71020005",
+          "expected": "คณะสถาปัตยกรรมศาสตร์",
+          "actual": "คณะสถาบัตยกรรมศาสตร"
+        }
+      ]
+    },
+    {
+      "field": "header_detail.grad_reason",
+      "errors": 1,
+      "examples": [
+        {
+          "id": "71020005",
+          "expected": "n/a(ลาออก1/2561)",
+          "actual": ""
+        }
+      ]
+    }
+  ],
+  "details": [
+    {
+      "id": "71020005",
+      "group": "bachelor",
+      "language": "th",
+      "predicted_format": "bachelor_th",
+      "seconds": 10.466,
+      "correct": 49,
+      "total": 53,
+      "accuracy": 0.9245283018867925
+    },
+    {
+      "id": "72120002",
+      "group": "bachelor",
+      "language": "en",
+      "predicted_format": "bachelor_en",
+      "seconds": 4.074,
+      "correct": 72,
+      "total": 73,
+      "accuracy": 0.9863013698630136
+    },
+    {
+      "id": "73036007",
+      "group": "graduate",
+      "language": "th",
+      "predicted_format": "graduate_th",
+      "seconds": 11.125,
+      "correct": 87,
+      "total": 109,
+      "accuracy": 0.7981651376146789
+    },
+    {
+      "id": "74106005",
+      "group": "graduate",
+      "language": "en",
+      "predicted_format": "graduate_en",
+      "seconds": 2.993,
+      "correct": 98,
+      "total": 103,
+      "accuracy": 0.9514563106796117
+    }
+  ]
+}

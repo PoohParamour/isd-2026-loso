@@ -1,0 +1,1191 @@
+{
+  "evaluation": "four views of one document; development regression",
+  "details": [
+    {
+      "image": "19b631b5-8bd2-4c3a-80e3-f6a381dfa2f8.jpg",
+      "correct": 0,
+      "total": 150,
+      "accuracy": 0.0,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 0,
+            "total": 6,
+            "edits": 80,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 0,
+            "total": 2,
+            "edits": 6,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 0,
+            "total": 19,
+            "edits": 61,
+            "chars": 61,
+            "hallucinated": 0
+          },
+          "course": {
+            "correct": 0,
+            "total": 122,
+            "edits": 1033,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 0,
+          "fn": 32,
+          "fp": 0
+        }
+      },
+      "result": {
+        "engine": "tesseract",
+        "processing_seconds": 34.538,
+        "record": {
+          "format_id": "bachelor_th",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": null,
+            "name": null,
+            "student_id": "07070124",
+            "date_of_birth": null,
+            "admis_date": null,
+            "degree": null,
+            "grad_date": null,
+            "grad_reason": null,
+            "program": null,
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": null,
+            "cumulative_gpa": null,
+            "semesters": []
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 2,
+          "warnings": 3,
+          "course_count": 0,
+          "issues": [
+            {
+              "path": "header_detail.name",
+              "code": "missing_field",
+              "message": "ไม่พบชื่อ-สกุล",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.program",
+              "code": "missing_field",
+              "message": "ไม่พบหลักสูตร",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_semesters",
+              "message": "ไม่พบภาคการศึกษา",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_courses",
+              "message": "ไม่พบรายวิชา",
+              "severity": "error"
+            }
+          ]
+        }
+      },
+      "ocr_sources": [
+        {
+          "command": [
+            "tesseract",
+            "orientation-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "Ask Copilot\n\n~\n\n+ 8\n\noft\n\n(U\n\nnofficial Transcript )\n\nName\n\nMr. F\n\nPakaphon Py\n\nPate of Birth\n\nAugu\n\n200\n\nDegree Bache\n\nlor\n\nOf Science\n\nStodem 1p\n\n6\n\n4\n\nPhoto\n\n4\n\nProgramData Se\n\nDate\n\nNCO and Bus\n\nes:\n\nA:\n\nOf Admission\n\n0,\n\n‘\n\nDate of ©\n\nCouRsE TTL\n\nraduation Ni\n\ntéD26 200\n\n1 CA\n\ncut\n\nws\n\nAs Semester. Year 2024-2025\n\n| Onoz62y\n\nLINEA\n\nAK A\n\nBRA\n\nJ On0e6 10\n\nBus\n\nSs\n\nCOURSE Trip\n\n606630:\n\nAN\n\nAL\n\nPROBL IN s\n\nNC\n\nNt\n\nFon\n\nNF\n\nNA,\n\n| 9062994\n\non\n\nARN\n\nAN’\n\n[weit] crane\n\nSCHOOL\n\nPUTER prey\n\n| 91644007\n\nFo\n\nND,\n\n90644005\n\nATION\n\nEN\n\n1s\n\nFOUN\n\n109\n\n.\n\nIs\n\nGps\n\n400\n\nGra\n\n00\n\nOs0z620)\n\nCAL a 1.\n\nSsn26203\n\n‘ear. 2024-2095\n\nComp,\n\n602620.\n\nER Pre\n\nIntR\n\nDt\n\n606600\n\nTION TO MAR:\n\nPROBAR,\n\n90541097\n\nst\n\nann\n\nICs\n\n80642035\n\nNGITAL critzey\n\nLAWe\n\nit NEW\n\nCENERATION\n\nGPS. 9 59\n\nGPA» 37\n\n6026206\n\n# Semester.\n\n6066000\n\nNALY Tic\n\nYear, 2025.29,\n\nDiscrer\n\nAND Pie\n\n2GR\n\n6066300\n\nATHEN\n\nMATIC\n\nINC\n\nDATAR,\n\nASE sysrp\n\nO8066 302\n\nIND,\n\nAa\n\nM CONCEP,\n\n066304\n\nAME\n\nNTAL We\n\nINFORs\n\nBy\n\n8644017\n\nSTEM\n\nPROGRAM pa\n\n8\n\nENGLISH rap,\n\nbe\n\nNALY Sis\n\nNES\n\nND DES\n\nB,\n\nGPS 3.45\n\nGra\n\n8\n\n028204\n\nid Semeste\n\n57\n\nWreory\n\n202:\n\neg\n\nCYBER SEC\n\nTo\n\nETWoRK\n\n5.2026\n\nSenz8 207\n\nerr\n\nSA:\n\nD\n\nNOs\n\nSiozpang\n\nFUNDA,\n\nDATARAS\n\nSE Sysrp\n\n026299\n\nMENTAL\n\n8\n\nDATA vy\n\nts\n\nSor p\n\nATA\n\ne0g5 2},\n\nAliza,\n\nSCN\n\nOre\n\noy\n\nB\n\nH\n\ni066 a\n\nMANA\n\nota,\n\nNM\n\nTINE\n\nA\n\nData\n\nMATION ¢\n\n8,\n\nUCT\n\nSANt\n\n‘STEN\n\ncr\n\n4\n\nMORE Ag\n\nrN\n\n4\n\nonze»\n\nGPA 9 5g\n\neen\n\nArey\n\nSar, 202\n\nA\n\nDAr\n\nMACHINE f\n\nNI\n\nz6240\n\nEHOULIN\n\neizea4,\n\ntren\n\nCLOUD 45,\n\nHG e429\n\nIves\n\nFLOWN,\n\nMeans\n\nSTMuny\n\nTP\n\nPeon\n\nale\n\nRue itey\n\nPens,\n\nLINC\n\nATION AN\n\ncrs\n\nGra\n\niid ee\n\nul\n\nal ea\n\nNed py\n\nih\n\nin Cig,\n\n89\n\nit\n\nTR et Cag\n\nhy\n\nAE\n\ni\n\nBetty oe\n\nhi\n\nOa Kena\n\nQ\n\n‘r\n\nHikcany)\n\npets thchaed ery\n\nmy\n\ni\n\no\n\nul\n\nWm\n\niN\n\nUh\n\n™ @\n\nDe\n\nui\n\nif\n\nPe\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-90.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "ee\n\nC\n\nt|\n\n=\n\nFF y\n\n$7\n\nz 4\n\na2\n\nse\n\nii\n\nLER ETE}\n\nge\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-180.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "my\n\nTi\n\n6\n\niy\n\nui\n\na\n\nTr\n\n7\n\n] wy\n\n6\n\nhy\n\neee my\n\n1\n\n3\n\nronan\n\n1e)\n\nene hee\n\nRat ry\n\nin\n\nWi\n\nim\n\n4 baal\n\ni\n\nBinicda ent\n\ntre\n\ni}\n\nmy\n\nae\n\na\n\n‘Pathe is\n\n Vaney\n\nTHe ea\n\nSp,\n\nANY Non.\n\nai\n\nENS\n\ni\n\nhae\n\nHLL Shay\n\nWd ans\n\ntL\n\nWiagies\n\n10K,\n\ntNanvicry:\n\nOED 904,\n\nsiiican)\n\nBeez\n\nTay\n\nASO\n\nOF 20)\n\n“4\n\nEG)\n\n1ebe¢Hq\n\nTete Wee sear\n\ntry\n\nVv\n\nOS vy\n\ney\n\n\"eb2n04\n\nv\n\n19\n\nShag,\n\nPN eyes\n\nINV s,\n\n‘a\n\nNOt yyy\n\nTOMAS Vey\n\nv\n\nov\n\nWy\n\n10CIH059\n\n‘a\n\nNou\n\n2019005\n\nNOLL verry,\n\n\"ZN Lac)\n\nTON\n\n1S Viy\n\n\\ Vive\n\nDtaaenng\n\nTio s\n\noe 9)\n\n#\n\nTWN\n\nWane\n\nSWAES AG acy\n\nYL vq\n\nSex200q)\n\na\n\n¥\n\nTOsOn\n\nMOM\n\nAlnin sas\n\noA\n\n40282090,\n\nOL Noy\n\n|\n\ne S02 Tea\n\nrataize\n\net\n\n#\n\nder\n\nYao\n\nBi;\n\nMeeaZ0m\n\nFEES\n\n‘a\n\nsa\n\nISAC cry\n\nSISK ty\n\nSg »\n\na\n\nNAISAS y\n\n404 SHON\n\n+g\n\nNTH yy\n\n21090906\n\nDa\n\nRAM TV,\n\nMYON\n\nPOeI009\n\nLINO yy\n\nNay\n\nON,\n\nUSAS 96)\n\n2099090\n\nSOU VAy\n\nvive\n\nONY\n\n49004\n\nFHL\n\nWa\n\n0099099\n\nweary;\n\n4 CNY\n\nLA Ty,\n\nLRSIq\n\n0099050)\n\nOe\n\nRay\n\nseen\n\nNV viv\n\nary\n\naS eT\n\n90292099)\n\nao\n\nOSE S495\n\nNOLL Vanna 9\n\nMAN ay\n\nMy\n\nSmZP E05\n\n8\n\nSon\n\nLy\n\nIs\n\nNBZLLD TWLrey\n\n40019906\n\nDey\n\nTEVA OU\n\nOL Noy\n\nTon99099\n\nLNT\n\nSozaz099\n\nPd\n\nTWO\n\nere o2099\n\nSOE Fag:\n\nTI\n\nV9\n\nony\n\nTSS My\n\n'eeg2099\n\nva\n\n07\n\nSa\n\nHst\n\nWN\n\n0\n\nHsr\n\nNa\n\n104\n\n800905\n\nOlLy\n\n‘ON\n\nOx\n\n1OOHIS\n\n£00996 |\n\na\n\nPit 24.\n\nNC\n\nV\n\nwav\n\ned |\n\nvine\n\n4N\n\nON\n\n28820406 |\n\nHa\n\nW\n\nS WT HOuy\n\n49S\n\nOR oa |\n\nTULL asenos\n\nsng\n\n0\n\nvate:\n\nVoy\n\n211000 |\n\nVary\n\nnea |\n\nwave\n\nrm\n\ni)\n\nv2\n\nDozazoyy\n\n|\n\nS202 Fiz Tay TRIE yy\n\n|\n\nTU aso\n\nV/N vonenpe\n\n5\n\n0,\n\n4D. J0 aery\n\nSoH\n\nong\n\nue\n\nDU\n\n|\n\n,\n\nOORSspupy 70\n\nweg\n\nbe\n\n9\n\nPS FeCl aneidaigy\n\nA kopays\n\nUIE Jo\n\n044\n\n1G\n\narog\n\n002\n\nnny\n\nte\n\nME Jo seq\n\nid woudeyp.s\n\nWw\n\nuray\n\n( Idisuesy [epr\n\njour;\n\nnN)\n\n&\n\nLjo\n\nOB +\n\n_\n\nJO[IdO ysy\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-270.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "235.\n\nfe\n\niF\n\ngE\n\nge\n\nSe\n\nfe\n\nBS\n\nIR\n\nFE\n\n=\n\nFs]\n\n5\n\n=\n\n—\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "~ + & RD ws Oo\nAsk Copilot |\n. b4 “y\" - \"\n{ Unofficia} Transcript )\nt\nPhoto\nMencken ID 5/0701 24 |\nNain 14, Pakaphon Pi A Vor vi\nati Date oy Motes Mon 2094\nanv ei ire eager 4, 2UMpS\nhate ey Craduation N/A\nDeg rey Banc bige Ct Scleney Dane\nFrogriun tts MM howe edited Puy Afar, Mialytice mi \\ : — } “)\n| COURSE rr 5 [canter =a : RSE Ti ns oe |\n| NORIO Zs dnai LENE LY ae BUN | ; 1 | | /\n| ou ti Ih SVN NY ey IN eg N't INAS pty TER WiNteoy IR AA, Nay | | A | | |\nMEET yy PACMAN ey MA WN ANIL Cy PUI py PRCA ANGER aw su\n| EIDE a | |\nDERM | \\y HARM Sipe, M | 3 i,\nIG Ad Dery POM NN TG IK LaShy y 1 } 5 | j\nj /\nYOY 4 Oe BONN 4 TON Bing MASH I] tre fee { j\nCPS > aap GPA - 4 op i | j\nsiti NN | fi i\nO8O25 20) ; NICAL 1 16 io ANNA AN\nDEDRGIN3 COMPUT Ey, PR¢ GRAMM inyy | AN A | /\n6025 2n< INTRO “TION To MARK: TINK }\\\\\\\\\\ | 5 | j\n0606600 5 PROBARI ITY AND 5} ATISTIC‘< SA A | /\n‘ }\n9064 tag? DiGrray ITIZEY i § | |\nMGd2yrs LAW Foie NEW GEenep ATION X By | j\nGPS: 3 sy GPA - 9 7p f\nIst Semester Year 2025 2026 |\n6026 276; DATA AN ALY nics AND PROGR A MMING | A\n\"4066099 DISCRETE MATHER ATICS X 8, |\nCDG ang DATABAs SYETEN DNC EPTS | By\nOfDGGR> FUND Asp NAL We S PROGRAM Mac x | By\nHDGEIDg INFORMATION SYSTEN( a NAL Were ANU Wor SCN) y ki\n90644077 ENGLISH Figg, BUSIN Iss i te\nCRS: 9 oy GPA sy\n2nd Setiheste,. Year 20>) 2026\n\"i026 apy INTRO Cro TC hy WORE Ry NED i] tt\nCY BERS er Mier\nMel ttacty ty NOs)! DAT ARN aN i Ri\nMaatesett THNOAMEN TAL « OR ANN SAHIN hg: y A\n(MORE any Dusty MSUAL Ana 4 hy\nWEIOZE >) healbiuinneearane SAN\nNWO ti) DYAN Gita ny TEORM Tey) NYS Nt \"\nNieweust PATA STRUCH ties ANE NAN es q Ai)\nCRS Whig Hetty\ntit Seinen, Year, 2095 4 27\nHeDeeio SMAI MACHINE LEAR Nig: y\nNicaana eater {WIN Rees) {OUNIives !\nNeat) Na BUS i VAlneNy a OREN\nih Witenes, (COR Hi HEMCURieoy HNP THat tan Sher: ,\nMW lisa INVEST Mary FANE \\ \"\ni Ny inate! \\iiakinaa TAMOsLi hes TON Nin 5\nAANA MY NSA es \\ \\ \\\nNh at Mian RA A INN ANN \\ ha MLN ANN mete AN A A Ni Ms\nna sa SN mat thicracnpgy met ran A AN EAs tree —— “i ame\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "~ + ๓๒| ม  ท,\nAsk Copilot                                                            |         |\n*         b4    กลาฯ  .        \"\n( Unofficia}  Transcript )\nt\nPhoto\nแมช่โหแพ ID   5/0701 24                            |\nเษ  Pakaphon Pi A Vor                                  vi\n|                ati                                    Date oy Motes Mon 2004\n๒เป 1  \"แผนขุ| 4, 2005\n!                                  hate ต/ Craduation N/A\nDeg rey  ลกแกต Ct ก|หนน                                               Dane\nFrogriun tts MM howe edited พิน มศกย4 Mialytice                            แป        |                           ก     |     ฯ\n|                 COURSE จรา 5                   [canter =a                   :  RSE 1ว     ns              oe     |\nเน  LENE “ น! ภูแน                                   |   ;   | “4   |                                                                |             |\n[พยน ti  Ih SVN NY ey เห แจ พฯ แซ แลร แก Nay          |       |  A   |                                                                          |              |\nMEET yy พแน6 MA WN  ANIL Cy 1พ py PRCA ANGER    aw    su                                                    |\n| ไซนอ a                                                   |                                                                          !\nงอนทุย , HARM พาพ M                                   | 3   | *                                                               |\nแน Dery  แจ NN เทศพ แ พพ 1แ15| y                            |   1   1 5                                                                 |            |\n|                                                             !\n1น06ง4  BONN 4 แอดงหพ MASH :                                I]  tre fee                                                                          |              |\nCPS > aap   GPA - 4 op             ผู   |                                             |        |\nแฟ    NN                            |  |  | ,.                                         |        |\nยอบ2วท| , NICAL บ6 io                                       | ส ง                                                                  |             |\n0ยมทร 0แบๆาหาร ๒รง! ?นเมผลแผก                     |  ' ง                                                    |          !\nนิอปิวห ร  INTRO “TION To MARK: TINK                   | พ  |  \"                                                       |          !\n0606600 5  PROBARI ITY AND 5} ATISTIC‘<                    |  ง |                                                           |           /\n‘                                    |\n9054ง1๓7  ไวง7ร | , 1117๒พ                                     i     §                                                               |           |\n50642(แจจ  LAW Foie NEW GEenep ATION                            ง     By                                                                  |            !\nGPS: 3 sy   GPA - 9 7p                                                                 |\nIst Semester Year 2025 2026                                                                                                                       |\n6026 276;  DATA AN ALY nics AND PROGR A MMING                    ซี     A\n\"4066099 DISCRETE MATHER ATICS                        ปู    8,                                                            |\nCDG ang  DATABAs SYETEN 6 DNC EPTS                        |    By\n06ิณิธาท> FUND Asp NAL We S PROGRAM Mac                 ง    8,\n0ย0เนร)4  INFORMATION SYSTEN( 4 NAL Were ANU Wor SCN)         y    ki\n90644077 ENGLISH หอ6 ป5แพยง6                    i   te\nCRS: 9 oy     ๓4 sy\n2nd พน Year 2096 2026\n\"i026 apy INTRO Cro 1 แพ| WORE Ry NED                i]    tt\nCY BERS er เงแร\nอนงชา “มอแก| ลไพแนง จหจงปนย                   ๆ   Ri\nยอตวแมพ THNOAMEN TAL « OR ANN SAHIN hg:             ง   A   |\n(MORE any Dusty MSUAL Ana                           ง    หัง\nแห แห                    แว\nแซยต แแน ห แนแงแม หจอมง             ๆ    4                                                       '\n| ซ่ยพเน ลยยแน “พดเพ NAN es                    q     ด\n(แนล        4 น9\n|            tit Seinen, Year, 2095 4 87                                                                                        |\n'อย2คู| |   SMAI MACHINE LEAR Nig:                                      y\nเพตอ9 แน “แนะ 1อนแผ                                         น\n|   พะสองค Na BUS จ \"แพงมู แน นแพง                          ผู\nih  Witenes, เพพ Hi พอ(นโบ แลรยบ เย                             ง\nMW lisa INVEST Mary FANE                    |       ง\n|     Ny inate! ณา “หหแพนน TON Nin                            5\nAANA MY NSA es   |                             |                                                                \\\nNh at หลัง ป เบแก A INN  ANN   [ด ha                          «งน ANN mete AN แ แก แล\nna    sa    SN   ล5 หนหน met ran A AN EAs tree —— “i ame\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "+ 6๒9\n\n( Unofficia) Transcripy )\n\nแห  My, ‘akaphon py\nปล เก\n\nแน Very\n\nใบผ่นข ง 6005\n\ni\n\nPhoto\nแมช่โหแพ ID   07070124\nDate oy Late on 21) ง\nhate   eked  พวก Nin\nDeg rey  Bay) ใหพปเพ เปล  ก4                                            Date On tir 0\n|      พไวดแพ น ล่ ตแย Bus NESS Analytics                                                                  ‘                           }     “ๆ\nกณ์ผ่นซิ                  T     IN                    ’                                   Cy แน๒ |\nOot Ree ทหาทา 1                  eh                  ~OURSE ITU  5              HW ih     |\nidl,                       .     —   -      4      +                                 ก   ซ่                               |             |\nise Semester Year, 2024.2025              |          |                                                   |          |\n(ใตลกย น แบ                                          |      | 4                                                                 |            j\nเน  แพนแน แ , หลนน                               | เร ! แน   |                                                        |           |\nพแลเย| น SHINN pe ig  แพหพ < Preity แพดตผูแง Gay        |     ซิ                                                       |           |\n(ซอ1 ผมม แพ SOM, Win  ANT COMI Np PACH AMNGEN    | 3    4 |                                                   |          |\n|\nbal ae HARM Stipe ney                                    | 3   fil.                                                                 |            |\n|                                                                          !\nแน Dery  แจอีก WOW EINK LaShy |                            | 3   ae                                                                 |            |\nห0๒งจ6 แน SYATION พนน ISH :                            I  J hee                                                               |            |\nGPS aay     GPA > 4 9                   | |    |                                                                   |\n2nd Semester   tar  202  2025                      |\n9อ22ต1 KA; 1\" 6 2                                      ‘ANNE AVA ! 4\nเก COMPUTE: PR: CRA MMiny                     AN ANY Ae\n6026205  INTRON, ak TO MARKET,\nOS066D9 |  PROBA BH +.   AND\n90641097\n\n|\nST ATIStir 5\n12ง6277 2 Al ori, N\n\n|\ni\n|          |\n|\n|     |\nA AN A\n|\n|  ' \\\\\\\\\nLAW Fr  a NRW GEN\n\nVER ATION\n\n90642033 |\n\n(ฟู\n\n2nd § meet          ะ 203%. 2026\n   บาแหพู     อณา tc NE\nCY BERS er (kar\n\nอนงชา “มอแก| DATA ih\nยอตวแมพ  FL\n\ni    ty\nne aN                      ๆ    ล\nWIND AW tres NYY \"แจอ, ANA Seyi พแต                    งู    “\n(MORE any 1แหน Visti) (NN yy DN  |                    ง   ถ้า\nแห On FMA Tey\nแพยตแน,  “พเนล! UMN) Ni SHON ray ANY\n(ขอยณเพ|  (อดหน ลยง NAN es    AWRY\n\nit\nNG DUNES (aw\nty,  7,\n\nอย2คูน| ฟู\n\nAint «a\nNA \\)\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "header.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "® 7๕6 Copilot             ณ + & | ': | ซา   6    |\n( Unofficia} Transcript )\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "footer.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "i\n|           |\n|           |\n\n!\n/\n'                                                                           |\nไดคําจ      พ  Fag                                                                                                |\n|      แนแน \"ผดฝน:เ ada ys คน\n\\\\    พณ์น เนห ฟั แย\ni   i แหนแ “แน   WY HH cA\n\\\\    | iy)   |      1   \\\\     \\\\\\   \\\\      |  \\\nWIN   UU Ps แน  ฒา    \\        |          เกต Baia ly “Wi vigy พ ela,\n'                                               ’                 .         —          x          Wye\nน         \"So, Sno,\n—        7\nอ  7 คลอ๒ -\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "issued.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "7"
+          ],
+          "text": ""
+        },
+        {
+          "command": [
+            "tesseract",
+            "left.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "เห  My แน ไหทอฟ์ปนอกท\nดแฟเพน\n\n\"แผนค ง  อ005\nดตห โน\n\nเพ คล ก\nProgra t ald Sehoneys ,\n\nTiti rece Analytice\nCOOLER pe หาา แ                        เ\"\n\nแห  KARE 'แบ% !\n\nNi 26 Uy\n\n(พน๒เย|\n\nCM ies หาา\n\nตงอนนุย\n\nIG 44 oe\n\nแห 4 0c\n\n|\n] แพ แล จแน\n\nAISNE \"| เง แจ แลก              |\nพมม6 แจ พอ(แมแทพ แงห แน     fe !\nแอ หเพ\n\nTaw\n\n2nd        ear. 2024 2095            |\n\n0อง25วทา เหนอเห Lie >                       “AVY AN\n0ชม2ห9ทร COMPUTE: PROGR,\n\nนิอปิว6ก6 INTRON: CTION To MARK: TINK\n\n0อ60พรต1   1 คธา1 iTy AND s\n90641007 DiGrray CITIZEy\n5%0642(13จ  LAW FOR NEW Gr NERATION\nGPs. 3.350\n\nง    3.72\nIst Semestey Year 2025 2026\n0602สวท6 DATA ANALYTICS any Pie)\n\"4066099 Disc  a       s\nCDG ang\n06ิณิธาท>\n\n0อ0เนรา4\n90644017\n\n|\nA, MMING\n\nSTATISTy 5\n\nNG\nANAL Vins AND MOE SCN)\nเจ\n\n0609ธณุ\n\n|  9อง9ช่อก\n\ni          Mas,\n\nPSO 2e ania FOIND AN ten        (หแนก\n| แร BAIN,\n\n| เห (ซาแป\n\nWhe  iN\n\nผู กัอแทอ ไหจอม\n|  KAS Al ERA SOO \\\n\nตาจ(สอล 7 แอ\n\nYeur, รยงพ :\n\nAN\nAR  |  iN\nHAAN ‘i iy iN | :\n\n14)\n\nบู\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "right.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "แมช่โหแพ ID      6/070}\n\nDane ๓0/ | emis Slog\nDate gif or.\n\n4\nสั่บเธพ่อ๓ Nit\n\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4",
+            "tsv"
+          ],
+          "text": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n1\t1\t0\t0\t0\t0\t0\t0\t3072\t4096\t-1\t\n2\t1\t1\t0\t0\t0\t1366\t289\t245\t90\t-1\t\n3\t1\t1\t1\t0\t0\t1366\t289\t245\t90\t-1\t\n4\t1\t1\t1\t1\t0\t1366\t289\t245\t90\t-1\t\n5\t1\t1\t1\t1\t1\t1366\t289\t53\t60\t87.828941\t+\n5\t1\t1\t1\t1\t2\t1499\t285\t49\t110\t87.931351\t6\n5\t1\t1\t1\t1\t3\t1547\t285\t15\t110\t51.752785\t๒\n5\t1\t1\t1\t1\t4\t1526\t304\t85\t75\t86.833832\t9\n2\t1\t2\t0\t0\t0\t0\t1005\t3072\t3091\t-1\t\n3\t1\t2\t1\t0\t0\t0\t1005\t3072\t3091\t-1\t\n4\t1\t2\t1\t1\t0\t0\t1005\t266\t85\t-1\t\n5\t1\t2\t1\t1\t1\t0\t1005\t266\t85\t95.000000\t  \n4\t1\t2\t1\t2\t0\t0\t1090\t260\t58\t-1\t\n5\t1\t2\t1\t2\t1\t0\t1090\t260\t58\t95.000000\t  \n4\t1\t2\t1\t3\t0\t0\t1189\t252\t76\t-1\t\n5\t1\t2\t1\t3\t1\t0\t1189\t252\t76\t95.000000\t  \n4\t1\t2\t1\t4\t0\t0\t1282\t246\t60\t-1\t\n5\t1\t2\t1\t4\t1\t0\t1282\t246\t60\t95.000000\t  \n4\t1\t2\t1\t5\t0\t0\t1342\t244\t44\t-1\t\n5\t1\t2\t1\t5\t1\t0\t1342\t244\t44\t95.000000\t  \n4\t1\t2\t1\t6\t0\t0\t1403\t240\t109\t-1\t\n5\t1\t2\t1\t6\t1\t0\t1403\t240\t109\t95.000000\t     \n4\t1\t2\t1\t7\t0\t0\t1512\t356\t26\t-1\t\n5\t1\t2\t1\t7\t1\t0\t1512\t356\t26\t95.000000\t \n4\t1\t2\t1\t8\t0\t0\t1538\t361\t25\t-1\t\n5\t1\t2\t1\t8\t1\t0\t1538\t361\t25\t95.000000\t \n4\t1\t2\t1\t9\t0\t0\t1563\t361\t58\t-1\t\n5\t1\t2\t1\t9\t1\t0\t1563\t361\t58\t95.000000\t     \n4\t1\t2\t1\t10\t0\t0\t1621\t356\t41\t-1\t\n5\t1\t2\t1\t10\t1\t0\t1621\t356\t41\t95.000000\t  \n4\t1\t2\t1\t11\t0\t0\t1662\t354\t33\t-1\t\n5\t1\t2\t1\t11\t1\t0\t1662\t354\t33\t95.000000\t  \n4\t1\t2\t1\t12\t0\t0\t1695\t350\t37\t-1\t\n5\t1\t2\t1\t12\t1\t0\t1695\t350\t37\t95.000000\t   \n4\t1\t2\t1\t13\t0\t0\t1732\t349\t49\t-1\t\n5\t1\t2\t1\t13\t1\t0\t1732\t349\t49\t95.000000\t  \n4\t1\t2\t1\t14\t0\t0\t1872\t344\t65\t-1\t\n5\t1\t2\t1\t14\t1\t0\t1872\t344\t65\t95.000000\t    \n4\t1\t2\t1\t15\t0\t0\t1937\t335\t51\t-1\t\n5\t1\t2\t1\t15\t1\t0\t1937\t335\t51\t95.000000\t  \n4\t1\t2\t1\t16\t0\t0\t1988\t3072\t158\t-1\t\n5\t1\t2\t1\t16\t1\t0\t1988\t334\t94\t95.000000\t   \n5\t1\t2\t1\t16\t2\t880\t2131\t2192\t15\t95.000000\t \n4\t1\t2\t1\t17\t0\t0\t2082\t768\t64\t-1\t\n5\t1\t2\t1\t17\t1\t0\t2082\t768\t64\t95.000000\t    \n4\t1\t2\t1\t18\t0\t0\t2146\t3072\t598\t-1\t\n5\t1\t2\t1\t18\t1\t0\t2146\t3072\t598\t95.000000\t     \n4\t1\t2\t1\t19\t0\t1169\t2475\t1903\t300\t-1\t\n5\t1\t2\t1\t19\t1\t1169\t2475\t1903\t300\t95.000000\t  \n4\t1\t2\t1\t20\t0\t2884\t2775\t188\t46\t-1\t\n5\t1\t2\t1\t20\t1\t2884\t2775\t188\t46\t95.000000\t  \n4\t1\t2\t1\t21\t0\t0\t2475\t3072\t433\t-1\t\n5\t1\t2\t1\t21\t1\t0\t2475\t3072\t433\t95.000000\t     \n4\t1\t2\t1\t22\t0\t0\t2527\t3072\t450\t-1\t\n5\t1\t2\t1\t22\t1\t0\t2527\t3072\t450\t95.000000\t    \n4\t1\t2\t1\t23\t0\t0\t2669\t290\t27\t-1\t\n5\t1\t2\t1\t23\t1\t0\t2669\t290\t27\t95.000000\t   \n4\t1\t2\t1\t24\t0\t0\t2775\t284\t60\t-1\t\n5\t1\t2\t1\t24\t1\t0\t2775\t284\t60\t95.000000\t   \n4\t1\t2\t1\t25\t0\t0\t2835\t3072\t185\t-1\t\n5\t1\t2\t1\t25\t1\t0\t2835\t281\t45\t95.000000\t  \n5\t1\t2\t1\t25\t2\t978\t2977\t2094\t43\t95.000000\t \n4\t1\t2\t1\t26\t0\t0\t2880\t280\t28\t-1\t\n5\t1\t2\t1\t26\t1\t0\t2880\t280\t28\t95.000000\t \n4\t1\t2\t1\t27\t0\t0\t2908\t280\t50\t-1\t\n5\t1\t2\t1\t27\t1\t0\t2908\t280\t50\t95.000000\t  \n4\t1\t2\t1\t28\t0\t0\t2958\t3072\t1138\t-1\t\n5\t1\t2\t1\t28\t1\t0\t2958\t3072\t1138\t95.000000\t   \n2\t1\t3\t0\t0\t0\t1617\t584\t1455\t141\t-1\t\n3\t1\t3\t1\t0\t0\t1617\t584\t1455\t141\t-1\t\n4\t1\t3\t1\t1\t0\t1617\t584\t1455\t141\t-1\t\n5\t1\t3\t1\t1\t1\t1617\t584\t1455\t141\t95.000000\t  \n2\t1\t4\t0\t0\t0\t1395\t619\t715\t140\t-1\t\n3\t1\t4\t1\t0\t0\t1395\t619\t716\t140\t-1\t\n4\t1\t4\t1\t1\t0\t1395\t619\t715\t140\t-1\t\n5\t1\t4\t1\t1\t1\t1395\t619\t15\t56\t93.127983\t(\n5\t1\t4\t1\t1\t2\t1436\t624\t289\t79\t50.423244\tUnofficia)\n5\t1\t4\t1\t1\t3\t1751\t655\t317\t104\t63.238342\tTranscripy\n5\t1\t4\t1\t1\t4\t2095\t700\t15\t54\t92.070328\t)\n2\t1\t5\t0\t0\t0\t406\t945\t457\t119\t-1\t\n3\t1\t5\t1\t0\t0\t409\t945\t454\t119\t-1\t\n4\t1\t5\t1\t1\t0\t409\t945\t454\t79\t-1\t\n5\t1\t5\t1\t1\t1\t409\t945\t103\t40\t0.000000\tแห\n5\t1\t5\t1\t1\t2\t572\t964\t40\t33\t66.620094\tMy,\n5\t1\t5\t1\t1\t3\t658\t975\t148\t45\t36.043602\t‘akaphon\n5\t1\t5\t1\t1\t4\t833\t994\t30\t30\t77.240616\tpy\n4\t1\t5\t1\t2\t0\t406\t1011\t228\t53\t-1\t\n5\t1\t5\t1\t2\t1\t406\t1011\t32\t30\t73.379120\tป\n5\t1\t5\t1\t2\t2\t435\t1021\t103\t31\t54.921616\tล\n5\t1\t5\t1\t2\t3\t544\t1026\t90\t38\t20.258255\tเก\n2\t1\t6\t0\t0\t0\t870\t1008\t139\t32\t-1\t\n3\t1\t6\t1\t0\t0\t870\t1008\t139\t32\t-1\t\n4\t1\t6\t1\t1\t0\t870\t1008\t139\t32\t-1\t\n5\t1\t6\t1\t1\t1\t870\t1008\t79\t26\t39.920902\tแน\n5\t1\t6\t1\t1\t2\t950\t1021\t59\t19\t20.673050\tVery\n2\t1\t7\t0\t0\t0\t672\t1041\t254\t53\t-1\t\n3\t1\t7\t1\t0\t0\t672\t1041\t254\t53\t-1\t\n4\t1\t7\t1\t1\t0\t672\t1041\t254\t53\t-1\t\n5\t1\t7\t1\t1\t1\t672\t1041\t117\t47\t31.271500\tใบ\n5\t1\t7\t1\t1\t2\t720\t1037\t29\t56\t7.472473\tผ่\n5\t1\t7\t1\t1\t3\t748\t1037\t32\t56\t37.145126\tนข\n5\t1\t7\t1\t1\t4\t806\t1060\t14\t27\t34.957169\tง\n5\t1\t7\t1\t1\t5\t849\t1066\t77\t28\t63.111824\t6005\n2\t1\t8\t0\t0\t0\t1005\t1029\t13\t13\t-1\t\n3\t1\t8\t1\t0\t0\t1005\t1029\t13\t13\t-1\t\n4\t1\t8\t1\t1\t0\t1005\t1029\t13\t13\t-1\t\n5\t1\t8\t1\t1\t1\t1005\t1029\t13\t13\t48.926819\ti\n2\t1\t9\t0\t0\t0\t376\t1143\t144\t89\t-1\t\n3\t1\t9\t1\t0\t0\t376\t1143\t144\t89\t-1\t\n4\t1\t9\t1\t1\t0\t376\t1143\t144\t89\t-1\t\n5\t1\t9\t1\t1\t1\t376\t1143\t144\t89\t95.000000\t  \n2\t1\t10\t0\t0\t0\t338\t1078\t2707\t945\t-1\t\n3\t1\t10\t1\t0\t0\t338\t1078\t2707\t945\t-1\t\n4\t1\t10\t1\t1\t0\t2892\t1096\t137\t51\t-1\t\n5\t1\t10\t1\t1\t1\t2892\t1096\t137\t51\t94.160194\tPhoto\n4\t1\t10\t1\t2\t0\t1674\t1098\t451\t78\t-1\t\n5\t1\t10\t1\t2\t1\t1674\t1098\t55\t33\t25.677788\tแม\n5\t1\t10\t1\t2\t2\t1730\t1105\t23\t28\t51.302303\tช่\n5\t1\t10\t1\t2\t3\t1752\t1117\t20\t18\t78.587936\tโห\n5\t1\t10\t1\t2\t4\t1775\t1118\t35\t23\t63.696388\tแพ\n5\t1\t10\t1\t2\t5\t1823\t1116\t49\t31\t79.380508\tID\n5\t1\t10\t1\t2\t6\t1950\t1135\t175\t41\t80.924698\t07070124\n4\t1\t10\t1\t3\t0\t1662\t1163\t462\t84\t-1\t\n5\t1\t10\t1\t3\t1\t1662\t1163\t82\t37\t56.209812\tDate\n5\t1\t10\t1\t3\t2\t1757\t1179\t38\t28\t53.202572\toy\n5\t1\t10\t1\t3\t3\t1811\t1182\t108\t39\t2.744171\tLate\n5\t1\t10\t1\t3\t4\t1928\t1199\t71\t32\t61.150597\ton\n5\t1\t10\t1\t3\t5\t2046\t1216\t57\t28\t12.515839\t21)\n5\t1\t10\t1\t3\t6\t2116\t1222\t8\t25\t61.206211\tง\n4\t1\t10\t1\t4\t0\t1673\t1236\t425\t76\t-1\t\n5\t1\t10\t1\t4\t1\t1673\t1236\t62\t24\t69.384521\thate\n5\t1\t10\t1\t4\t2\t1815\t1254\t78\t36\t30.508545\teked\n5\t1\t10\t1\t4\t3\t1938\t1273\t24\t26\t69.340714\tพ\n5\t1\t10\t1\t4\t4\t1964\t1281\t20\t19\t79.619133\tว\n5\t1\t10\t1\t4\t5\t1989\t1284\t19\t20\t93.198235\tก\n5\t1\t10\t1\t4\t6\t2035\t1280\t63\t32\t46.783249\tNin\n4\t1\t10\t1\t5\t0\t402\t1078\t1534\t218\t-1\t\n5\t1\t10\t1\t5\t1\t402\t1078\t63\t45\t31.399574\tDeg\n5\t1\t10\t1\t5\t2\t473\t1094\t50\t26\t31.399574\trey\n5\t1\t10\t1\t5\t3\t560\t1095\t52\t36\t59.908646\tBay)\n5\t1\t10\t1\t5\t4\t624\t1104\t35\t32\t55.245789\tให\n5\t1\t10\t1\t5\t5\t646\t1100\t7\t47\t42.354282\tพ\n5\t1\t10\t1\t5\t6\t666\t1109\t5\t28\t86.378014\tป\n5\t1\t10\t1\t5\t7\t674\t1120\t30\t20\t27.390350\tเพ\n5\t1\t10\t1\t5\t8\t720\t1119\t31\t27\t26.292709\tเป\n5\t1\t10\t1\t5\t9\t768\t1122\t70\t33\t44.926682\tล\n5\t1\t10\t1\t5\t10\t844\t1140\t24\t21\t82.985313\tก\n5\t1\t10\t1\t5\t11\t881\t1148\t5\t16\t66.872208\t4\n5\t1\t10\t1\t5\t12\t1654\t1233\t73\t37\t56.961407\tDate\n5\t1\t10\t1\t5\t13\t1748\t1248\t62\t32\t46.365494\tOn\n5\t1\t10\t1\t5\t14\t1830\t1264\t12\t20\t17.247078\ttir\n5\t1\t10\t1\t5\t15\t1855\t1267\t20\t22\t12.644157\t0\n4\t1\t10\t1\t6\t0\t416\t1145\t2629\t407\t-1\t\n5\t1\t10\t1\t6\t1\t416\t1145\t2\t7\t43.445583\t|\n5\t1\t10\t1\t6\t2\t520\t1168\t28\t24\t82.762718\tพ\n5\t1\t10\t1\t6\t3\t554\t1163\t73\t38\t67.319885\tไว\n5\t1\t10\t1\t6\t4\t586\t1159\t17\t51\t65.646286\tด\n5\t1\t10\t1\t6\t5\t602\t1159\t26\t51\t53.472919\tแพ\n5\t1\t10\t1\t6\t6\t644\t1175\t29\t31\t45.808147\tน\n5\t1\t10\t1\t6\t7\t686\t1182\t83\t60\t6.564598\tล่\n5\t1\t10\t1\t6\t8\t785\t1202\t15\t44\t51.144405\tต\n5\t1\t10\t1\t6\t9\t804\t1200\t38\t26\t57.458412\tแย\n5\t1\t10\t1\t6\t10\t856\t1201\t64\t52\t91.855194\tBus\n5\t1\t10\t1\t6\t11\t927\t1221\t73\t23\t47.016846\tNESS\n5\t1\t10\t1\t6\t12\t1030\t1225\t152\t41\t7.702347\tAnalytics\n5\t1\t10\t1\t6\t13\t2337\t1441\t4\t1\t52.889374\t‘\n5\t1\t10\t1\t6\t14\t2810\t1502\t6\t22\t9.453903\t}\n5\t1\t10\t1\t6\t15\t3026\t1532\t19\t20\t77.238884\t“ๆ\n4\t1\t10\t1\t7\t0\t675\t1229\t2366\t355\t-1\t\n5\t1\t10\t1\t7\t1\t514\t1208\t35\t8\t74.004684\tก\n5\t1\t10\t1\t7\t2\t552\t1213\t56\t9\t24.059914\tณ์\n5\t1\t10\t1\t7\t3\t615\t1229\t63\t3\t48.655212\tผ่\n5\t1\t10\t1\t7\t4\t687\t1199\t17\t43\t68.389786\tน\n5\t1\t10\t1\t7\t5\t705\t1233\t27\t5\t34.502876\tซิ\n5\t1\t10\t1\t7\t6\t1451\t1329\t5\t9\t16.603630\tT\n5\t1\t10\t1\t7\t7\t1669\t1357\t31\t23\t22.462509\tIN\n5\t1\t10\t1\t7\t8\t2108\t1439\t5\t5\t0.000000\t’\n5\t1\t10\t1\t7\t9\t2817\t1535\t93\t24\t36.348656\tCy\n5\t1\t10\t1\t7\t10\t2936\t1550\t84\t24\t67.156036\tแน\n5\t1\t10\t1\t7\t11\t2996\t1545\t22\t43\t42.241169\t๒\n5\t1\t10\t1\t7\t12\t3035\t1556\t6\t28\t62.723690\t|\n4\t1\t10\t1\t8\t0\t784\t1248\t2251\t377\t-1\t\n5\t1\t10\t1\t8\t1\t784\t1248\t57\t48\t68.522789\tOot\n5\t1\t10\t1\t8\t2\t859\t1260\t67\t44\t38.392673\tRee\n5\t1\t10\t1\t8\t3\t935\t1287\t8\t21\t80.564026\tท\n5\t1\t10\t1\t8\t4\t947\t1281\t31\t44\t50.090466\tหา\n5\t1\t10\t1\t8\t5\t977\t1281\t18\t44\t62.938721\tทา\n5\t1\t10\t1\t8\t6\t1011\t1298\t8\t20\t78.616142\t1\n5\t1\t10\t1\t8\t7\t1460\t1364\t213\t68\t3.855118\teh\n5\t1\t10\t1\t8\t8\t2104\t1443\t132\t31\t40.988316\t~OURSE\n5\t1\t10\t1\t8\t9\t2255\t1458\t98\t48\t39.418686\tITU\n5\t1\t10\t1\t8\t10\t2412\t1520\t36\t6\t32.902718\t5\n5\t1\t10\t1\t8\t11\t2781\t1539\t26\t37\t39.318642\tHW\n5\t1\t10\t1\t8\t12\t2845\t1577\t2\t2\t48.344021\tih\n5\t1\t10\t1\t8\t13\t3021\t1587\t14\t38\t68.158295\t|\n4\t1\t10\t1\t9\t0\t726\t1286\t2301\t348\t-1\t\n5\t1\t10\t1\t9\t1\t726\t1286\t16\t25\t44.609322\tidl,\n5\t1\t10\t1\t9\t2\t1160\t1360\t2\t2\t49.764385\t.\n5\t1\t10\t1\t9\t3\t1248\t1372\t39\t6\t64.678055\t—\n5\t1\t10\t1\t9\t4\t1340\t1384\t3\t2\t86.189041\t-\n5\t1\t10\t1\t9\t5\t1443\t1392\t6\t10\t92.951843\t4\n5\t1\t10\t1\t9\t6\t1554\t1405\t5\t12\t64.198517\t+\n5\t1\t10\t1\t9\t7\t2152\t1488\t7\t2\t53.739437\tก\n5\t1\t10\t1\t9\t8\t2219\t1496\t21\t4\t55.816574\tซ่\n5\t1\t10\t1\t9\t9\t2795\t1581\t5\t21\t63.330341\t|\n5\t1\t10\t1\t9\t10\t3025\t1624\t2\t10\t67.607903\t|\n4\t1\t10\t1\t10\t0\t660\t1290\t2363\t385\t-1\t\n5\t1\t10\t1\t10\t1\t660\t1290\t45\t65\t58.109085\tise\n5\t1\t10\t1\t10\t2\t700\t1303\t165\t88\t0.000000\tSemester\n5\t1\t10\t1\t10\t3\t881\t1338\t83\t43\t25.100334\tYear,\n5\t1\t10\t1\t10\t4\t980\t1352\t161\t52\t47.565388\t2024.2025\n5\t1\t10\t1\t10\t5\t1442\t1435\t1\t5\t94.990257\t|\n5\t1\t10\t1\t10\t6\t1657\t1462\t1\t5\t95.222069\t|\n5\t1\t10\t1\t10\t7\t2785\t1604\t10\t50\t89.514763\t|\n5\t1\t10\t1\t10\t8\t3017\t1643\t6\t32\t73.583626\t|\n4\t1\t10\t1\t11\t0\t364\t1329\t2647\t405\t-1\t\n5\t1\t10\t1\t11\t1\t364\t1329\t145\t35\t38.944244\t(ใต\n5\t1\t10\t1\t11\t2\t422\t1325\t26\t50\t47.674526\tล\n5\t1\t10\t1\t11\t3\t447\t1325\t32\t50\t28.873428\tก\n5\t1\t10\t1\t11\t4\t478\t1325\t36\t50\t53.396114\tย\n5\t1\t10\t1\t11\t5\t562\t1356\t11\t15\t33.988731\tน\n5\t1\t10\t1\t11\t6\t576\t1356\t121\t30\t33.101204\tแบ\n5\t1\t10\t1\t11\t7\t1433\t1483\t4\t25\t95.803970\t|\n5\t1\t10\t1\t11\t8\t1544\t1494\t3\t22\t92.456253\t|\n5\t1\t10\t1\t11\t9\t1593\t1501\t6\t9\t87.645203\t4\n5\t1\t10\t1\t11\t10\t2771\t1665\t12\t63\t95.333786\t|\n5\t1\t10\t1\t11\t11\t3004\t1706\t7\t28\t78.813133\tj\n4\t1\t10\t1\t12\t0\t364\t1376\t2640\t423\t-1\t\n5\t1\t10\t1\t12\t1\t364\t1376\t140\t41\t43.555294\tเน\n5\t1\t10\t1\t12\t2\t538\t1400\t82\t28\t63.171192\tแพ\n5\t1\t10\t1\t12\t3\t592\t1396\t25\t49\t78.486481\tน\n5\t1\t10\t1\t12\t4\t622\t1414\t26\t22\t56.162907\tแน\n5\t1\t10\t1\t12\t5\t665\t1419\t25\t22\t70.651886\tแ\n5\t1\t10\t1\t12\t6\t707\t1425\t3\t15\t40.841728\t,\n5\t1\t10\t1\t12\t7\t732\t1427\t3\t18\t85.988724\tห\n5\t1\t10\t1\t12\t8\t751\t1429\t15\t20\t36.034435\tล\n5\t1\t10\t1\t12\t9\t774\t1434\t14\t21\t68.929153\tน\n5\t1\t10\t1\t12\t10\t797\t1435\t12\t21\t85.095596\tน\n5\t1\t10\t1\t12\t11\t1430\t1517\t3\t24\t27.565987\t|\n5\t1\t10\t1\t12\t12\t1485\t1530\t2\t2\t34.749451\tเร\n5\t1\t10\t1\t12\t13\t1540\t1544\t1\t7\t37.010353\t!\n5\t1\t10\t1\t12\t14\t1584\t1545\t7\t16\t37.010353\tแน\n5\t1\t10\t1\t12\t15\t1643\t1568\t1\t3\t68.094521\t|\n5\t1\t10\t1\t12\t16\t2767\t1733\t4\t18\t76.442429\t|\n5\t1\t10\t1\t12\t17\t2991\t1744\t13\t55\t96.288757\t|\n4\t1\t10\t1\t13\t0\t375\t1433\t2617\t400\t-1\t\n5\t1\t10\t1\t13\t1\t375\t1433\t31\t23\t70.285828\tพ\n5\t1\t10\t1\t13\t2\t408\t1434\t40\t28\t33.366158\tแล\n5\t1\t10\t1\t13\t3\t460\t1445\t25\t20\t80.179199\tเย\n5\t1\t10\t1\t13\t4\t493\t1449\t4\t18\t74.387436\t|\n5\t1\t10\t1\t13\t5\t534\t1451\t38\t24\t0.000000\tน\n5\t1\t10\t1\t13\t6\t577\t1460\t99\t31\t38.082310\tSHINN\n5\t1\t10\t1\t13\t7\t691\t1455\t20\t46\t28.053001\tpe\n5\t1\t10\t1\t13\t8\t722\t1478\t22\t11\t37.543011\tig\n5\t1\t10\t1\t13\t9\t748\t1482\t82\t27\t46.569420\tแพ\n5\t1\t10\t1\t13\t10\t838\t1492\t3\t15\t55.879875\tห\n5\t1\t10\t1\t13\t11\t856\t1495\t96\t30\t21.804443\tพ\n5\t1\t10\t1\t13\t12\t941\t1478\t14\t51\t80.872330\t<\n5\t1\t10\t1\t13\t13\t970\t1498\t56\t47\t41.181454\tPreity\n5\t1\t10\t1\t13\t14\t1042\t1521\t30\t23\t65.676697\tแพ\n5\t1\t10\t1\t13\t15\t1078\t1526\t20\t18\t70.076172\tด\n5\t1\t10\t1\t13\t16\t1114\t1535\t2\t12\t20.627777\tต\n5\t1\t10\t1\t13\t17\t1120\t1531\t46\t25\t2.343140\tผู\n5\t1\t10\t1\t13\t18\t1174\t1541\t32\t20\t55.169151\tแง\n5\t1\t10\t1\t13\t19\t1218\t1552\t50\t20\t12.787048\tGay\n5\t1\t10\t1\t13\t20\t1422\t1568\t5\t41\t96.563339\t|\n5\t1\t10\t1\t13\t21\t1532\t1594\t51\t17\t0.000000\tซิ\n5\t1\t10\t1\t13\t22\t2755\t1752\t12\t61\t88.288399\t|\n5\t1\t10\t1\t13\t23\t2984\t1800\t8\t33\t80.665253\t|\n4\t1\t10\t1\t14\t0\t356\t1484\t2629\t378\t-1\t\n5\t1\t10\t1\t14\t1\t356\t1484\t92\t36\t34.724892\t(ซอ\n5\t1\t10\t1\t14\t2\t459\t1495\t37\t24\t44.230713\t1\n5\t1\t10\t1\t14\t3\t530\t1503\t41\t24\t49.229340\tผม\n5\t1\t10\t1\t14\t4\t583\t1512\t34\t20\t44.303749\tม\n5\t1\t10\t1\t14\t5\t632\t1517\t44\t26\t51.583447\tแพ\n5\t1\t10\t1\t14\t6\t689\t1526\t48\t25\t47.937088\tSOM,\n5\t1\t10\t1\t14\t7\t752\t1534\t59\t26\t20.130112\tWin\n5\t1\t10\t1\t14\t8\t845\t1548\t102\t27\t39.176758\tANT\n5\t1\t10\t1\t14\t9\t943\t1564\t89\t24\t47.073898\tCOMI\n5\t1\t10\t1\t14\t10\t1039\t1572\t44\t24\t53.914143\tNp\n5\t1\t10\t1\t14\t11\t1108\t1582\t68\t28\t28.537933\tPACH\n5\t1\t10\t1\t14\t12\t1224\t1601\t105\t31\t25.518333\tAMNGEN\n5\t1\t10\t1\t14\t13\t1417\t1617\t5\t34\t94.965500\t|\n5\t1\t10\t1\t14\t14\t1473\t1634\t4\t9\t93.643738\t3\n5\t1\t10\t1\t14\t15\t1569\t1649\t9\t17\t76.496101\t4\n5\t1\t10\t1\t14\t16\t1633\t1642\t2\t41\t76.496101\t|\n5\t1\t10\t1\t14\t17\t2745\t1818\t10\t44\t93.175316\t|\n5\t1\t10\t1\t14\t18\t2979\t1836\t6\t26\t71.806213\t|\n4\t1\t10\t1\t15\t0\t1415\t1658\t2\t11\t-1\t\n5\t1\t10\t1\t15\t1\t1415\t1658\t2\t11\t52.787132\t|\n4\t1\t10\t1\t16\t0\t369\t1537\t2610\t416\t-1\t\n5\t1\t10\t1\t16\t1\t365\t1531\t41\t52\t29.941498\tbal\n5\t1\t10\t1\t16\t2\t434\t1561\t95\t18\t16.078835\tae\n5\t1\t10\t1\t16\t3\t546\t1561\t114\t34\t64.120941\tHARM\n5\t1\t10\t1\t16\t4\t662\t1576\t58\t25\t5.011597\tStipe\n5\t1\t10\t1\t16\t5\t730\t1588\t35\t22\t0.000000\tney\n5\t1\t10\t1\t16\t6\t1411\t1673\t4\t29\t60.366467\t|\n5\t1\t10\t1\t16\t7\t1462\t1689\t6\t9\t84.386971\t3\n5\t1\t10\t1\t16\t8\t1518\t1693\t48\t35\t56.042313\tfil.\n5\t1\t10\t1\t16\t9\t2740\t1868\t5\t21\t90.530785\t|\n5\t1\t10\t1\t16\t10\t2960\t1862\t19\t91\t90.974770\t|\n4\t1\t10\t1\t17\t0\t1409\t1709\t1330\t195\t-1\t\n5\t1\t10\t1\t17\t1\t1409\t1709\t2\t11\t66.814926\t|\n5\t1\t10\t1\t17\t2\t2738\t1897\t1\t7\t74.299568\t!\n4\t1\t10\t1\t18\t0\t365\t1587\t2596\t404\t-1\t\n5\t1\t10\t1\t18\t1\t365\t1587\t46\t26\t54.635513\tแน\n5\t1\t10\t1\t18\t2\t450\t1595\t39\t27\t15.640755\tDery\n5\t1\t10\t1\t18\t3\t522\t1608\t21\t19\t58.697338\tแจ\n5\t1\t10\t1\t18\t4\t551\t1613\t43\t21\t53.130753\tอีก\n5\t1\t10\t1\t18\t5\t596\t1620\t128\t34\t31.666153\tWOW\n5\t1\t10\t1\t18\t6\t741\t1638\t45\t26\t36.608131\tEINK\n5\t1\t10\t1\t18\t7\t807\t1648\t66\t28\t15.698845\tLaShy\n5\t1\t10\t1\t18\t8\t891\t1661\t4\t18\t73.270645\t|\n5\t1\t10\t1\t18\t9\t1405\t1728\t4\t28\t95.894638\t|\n5\t1\t10\t1\t18\t10\t1458\t1741\t6\t10\t87.393906\t3\n5\t1\t10\t1\t18\t11\t1511\t1751\t4\t24\t36.630371\tae\n5\t1\t10\t1\t18\t12\t2728\t1915\t8\t41\t89.965630\t|\n5\t1\t10\t1\t18\t13\t2952\t1955\t9\t36\t86.838127\t|\n4\t1\t10\t1\t19\t0\t363\t1638\t2591\t382\t-1\t\n5\t1\t10\t1\t19\t1\t363\t1638\t17\t22\t62.065414\tห\n5\t1\t10\t1\t19\t2\t387\t1641\t10\t21\t60.280518\t0\n5\t1\t10\t1\t19\t3\t401\t1642\t7\t22\t69.012161\t๒\n5\t1\t10\t1\t19\t4\t412\t1645\t10\t20\t67.911827\tง\n5\t1\t10\t1\t19\t5\t426\t1647\t60\t24\t78.368629\tจ\n5\t1\t10\t1\t19\t6\t456\t1634\t35\t54\t26.406090\t6\n5\t1\t10\t1\t19\t7\t518\t1658\t70\t26\t24.406067\tแน\n5\t1\t10\t1\t19\t8\t590\t1671\t130\t34\t45.986076\tSYATION\n5\t1\t10\t1\t19\t9\t757\t1692\t28\t22\t53.797958\tพ\n5\t1\t10\t1\t19\t10\t771\t1667\t18\t55\t50.461193\tน\n5\t1\t10\t1\t19\t11\t803\t1697\t5\t21\t43.838402\tน\n5\t1\t10\t1\t19\t12\t823\t1701\t33\t22\t94.583191\tISH\n5\t1\t10\t1\t19\t13\t874\t1708\t12\t20\t90.571648\t:\n5\t1\t10\t1\t19\t14\t1395\t1759\t26\t80\t67.228966\tI\n5\t1\t10\t1\t19\t15\t1453\t1792\t3\t8\t34.745338\tJ\n5\t1\t10\t1\t19\t16\t1547\t1806\t2\t2\t53.609921\thee\n5\t1\t10\t1\t19\t17\t2720\t1960\t7\t33\t63.352295\t|\n5\t1\t10\t1\t19\t18\t2948\t1994\t6\t26\t83.822418\t|\n4\t1\t10\t1\t20\t0\t678\t1733\t2040\t284\t-1\t\n5\t1\t10\t1\t20\t1\t678\t1733\t58\t27\t63.375080\tGPS\n5\t1\t10\t1\t20\t2\t769\t1745\t54\t24\t40.534332\taay\n5\t1\t10\t1\t20\t3\t907\t1766\t58\t25\t82.167122\tGPA\n5\t1\t10\t1\t20\t4\t977\t1760\t9\t47\t57.882172\t>\n5\t1\t10\t1\t20\t5\t1000\t1779\t12\t17\t73.945282\t4\n5\t1\t10\t1\t20\t6\t1024\t1782\t31\t20\t54.577019\t9\n5\t1\t10\t1\t20\t7\t1388\t1844\t7\t49\t95.869644\t|\n5\t1\t10\t1\t20\t8\t1415\t1824\t4\t23\t79.408417\t|\n5\t1\t10\t1\t20\t9\t1499\t1836\t6\t38\t91.335884\t|\n5\t1\t10\t1\t20\t10\t2716\t2010\t2\t7\t92.257027\t|\n4\t1\t10\t1\t21\t0\t619\t1773\t877\t134\t-1\t\n5\t1\t10\t1\t21\t1\t619\t1773\t53\t35\t77.957939\t2nd\n5\t1\t10\t1\t21\t2\t686\t1780\t137\t53\t0.000000\tSemester\n5\t1\t10\t1\t21\t3\t868\t1809\t49\t33\t61.025917\ttar\n5\t1\t10\t1\t21\t4\t946\t1821\t51\t33\t95.139618\t202\n5\t1\t10\t1\t21\t5\t1034\t1833\t68\t35\t84.607727\t2025\n5\t1\t10\t1\t21\t6\t1495\t1900\t1\t7\t96.728607\t|\n4\t1\t10\t1\t22\t0\t352\t1791\t1186\t185\t-1\t\n5\t1\t10\t1\t22\t1\t352\t1791\t6\t17\t74.832283\t9\n5\t1\t10\t1\t22\t2\t369\t1792\t25\t23\t49.912659\tอ\n5\t1\t10\t1\t22\t3\t401\t1797\t71\t27\t16.072189\t22\n5\t1\t10\t1\t22\t4\t449\t1787\t11\t56\t21.320930\tต\n5\t1\t10\t1\t22\t5\t460\t1787\t21\t56\t84.434830\t1\n5\t1\t10\t1\t22\t6\t504\t1812\t70\t27\t15.192673\tKA;\n5\t1\t10\t1\t22\t7\t590\t1831\t28\t15\t68.218460\t1\"\n5\t1\t10\t1\t22\t8\t656\t1833\t12\t16\t59.795994\t6\n5\t1\t10\t1\t22\t9\t681\t1844\t10\t12\t37.589664\t2\n5\t1\t10\t1\t22\t10\t1378\t1945\t5\t29\t41.145786\t‘ANNE\n5\t1\t10\t1\t22\t11\t1444\t1930\t30\t50\t47.942505\tAVA\n5\t1\t10\t1\t22\t12\t1487\t1964\t1\t4\t61.369225\t!\n5\t1\t10\t1\t22\t13\t1533\t1963\t5\t13\t84.447418\t4\n4\t1\t10\t1\t23\t0\t348\t1838\t1185\t185\t-1\t\n5\t1\t10\t1\t23\t1\t348\t1838\t123\t37\t8.970222\tเก\n5\t1\t10\t1\t23\t2\t500\t1846\t169\t61\t45.485249\tCOMPUTE:\n5\t1\t10\t1\t23\t3\t683\t1885\t42\t23\t39.997612\tPR:\n5\t1\t10\t1\t23\t4\t739\t1898\t67\t24\t48.928116\tCRA\n5\t1\t10\t1\t23\t5\t818\t1905\t92\t31\t44.328011\tMMiny\n5\t1\t10\t1\t23\t6\t1374\t1976\t5\t30\t56.480148\tAN\n5\t1\t10\t1\t23\t7\t1434\t1972\t42\t55\t17.460953\tANY\n5\t1\t10\t1\t23\t8\t1519\t2006\t14\t17\t59.018181\tAe\n4\t1\t10\t1\t24\t0\t344\t1888\t626\t116\t-1\t\n5\t1\t10\t1\t24\t1\t344\t1888\t122\t35\t51.921421\t6026205\n5\t1\t10\t1\t24\t2\t499\t1910\t124\t36\t0.000000\tINTRON,\n5\t1\t10\t1\t24\t3\t667\t1932\t65\t72\t38.449196\tak\n5\t1\t10\t1\t24\t4\t752\t1945\t34\t23\t69.124542\tTO\n5\t1\t10\t1\t24\t5\t799\t1952\t171\t40\t43.806110\tMARKET,\n4\t1\t10\t1\t25\t0\t342\t1929\t436\t87\t-1\t\n5\t1\t10\t1\t25\t1\t342\t1929\t101\t47\t0.000000\tOS066D9\n5\t1\t10\t1\t25\t2\t455\t1951\t7\t20\t42.934155\t|\n5\t1\t10\t1\t25\t3\t495\t1957\t121\t37\t0.000000\tPROBA\n5\t1\t10\t1\t25\t4\t599\t1953\t28\t50\t0.000000\tBH\n5\t1\t10\t1\t25\t5\t653\t1981\t12\t7\t31.026596\t+.\n5\t1\t10\t1\t25\t6\t715\t1993\t63\t32\t96.996277\tAND\n4\t1\t10\t1\t26\t0\t338\t1984\t122\t35\t-1\t\n5\t1\t10\t1\t26\t1\t338\t1984\t122\t35\t54.904285\t90641097\n2\t1\t11\t0\t0\t0\t491\t1983\t884\t77\t-1\t\n3\t1\t11\t1\t0\t0\t491\t2003\t884\t54\t-1\t\n4\t1\t11\t1\t1\t0\t1372\t2008\t3\t15\t-1\t\n5\t1\t11\t1\t1\t1\t1372\t2008\t3\t15\t72.232269\t|\n4\t1\t11\t1\t2\t0\t790\t2001\t172\t41\t-1\t\n5\t1\t11\t1\t2\t1\t790\t2001\t28\t22\t90.373985\tST\n5\t1\t11\t1\t2\t2\t833\t2004\t100\t38\t9.702835\tATIStir\n5\t1\t11\t1\t2\t3\t952\t2024\t10\t17\t94.435669\t5\n4\t1\t11\t1\t3\t0\t491\t1983\t254\t77\t-1\t\n5\t1\t11\t1\t3\t1\t491\t2006\t20\t21\t36.695019\t12\n5\t1\t11\t1\t3\t2\t514\t2010\t6\t20\t73.343208\tง\n5\t1\t11\t1\t3\t3\t547\t2014\t37\t21\t36.624493\t6277\n5\t1\t11\t1\t3\t4\t574\t2002\t13\t40\t69.436279\t2\n5\t1\t11\t1\t3\t5\t576\t2020\t30\t21\t93.232674\tAl\n5\t1\t11\t1\t3\t6\t626\t1983\t88\t74\t46.394863\tori,\n5\t1\t11\t1\t3\t7\t730\t2042\t15\t18\t91.617630\tN\n2\t1\t12\t0\t0\t0\t489\t2020\t2458\t108\t-1\t\n3\t1\t12\t1\t0\t0\t511\t2020\t2436\t108\t-1\t\n4\t1\t12\t1\t1\t0\t2940\t2022\t7\t32\t-1\t\n5\t1\t12\t1\t1\t1\t2940\t2022\t7\t32\t65.429459\t|\n4\t1\t12\t1\t2\t0\t2712\t2020\t3\t10\t-1\t\n5\t1\t12\t1\t2\t1\t2712\t2020\t3\t10\t44.126587\ti\n4\t1\t12\t1\t3\t0\t2697\t2062\t243\t66\t-1\t\n5\t1\t12\t1\t3\t1\t2697\t2093\t4\t19\t82.595116\t|\n5\t1\t12\t1\t3\t2\t2925\t2062\t15\t66\t92.727020\t|\n4\t1\t12\t1\t4\t0\t1478\t2026\t2\t10\t-1\t\n5\t1\t12\t1\t4\t1\t1478\t2026\t2\t10\t33.871216\t|\n4\t1\t12\t1\t5\t0\t1370\t2026\t108\t27\t-1\t\n5\t1\t12\t1\t5\t1\t1370\t2026\t2\t14\t56.691757\t|\n5\t1\t12\t1\t5\t2\t1476\t2041\t2\t12\t21.127403\t|\n4\t1\t12\t1\t6\t0\t1368\t2042\t158\t31\t-1\t\n5\t1\t12\t1\t6\t1\t1368\t2042\t3\t15\t44.429726\tA\n5\t1\t12\t1\t6\t2\t1430\t2030\t32\t47\t43.640141\tAN\n5\t1\t12\t1\t6\t3\t1512\t2055\t14\t18\t50.202351\tA\n4\t1\t12\t1\t7\t0\t1471\t2087\t1\t9\t-1\t\n5\t1\t12\t1\t7\t1\t1471\t2087\t1\t9\t87.591858\t|\n4\t1\t12\t1\t8\t0\t1360\t2060\t110\t62\t-1\t\n5\t1\t12\t1\t8\t1\t1360\t2060\t8\t62\t95.952789\t|\n5\t1\t12\t1\t8\t2\t1410\t2090\t13\t18\t66.585236\t'\n5\t1\t12\t1\t8\t3\t1426\t2086\t33\t35\t20.388321\t\\\\\\\\\n4\t1\t12\t1\t9\t0\t489\t2058\t288\t56\t-1\t\n5\t1\t12\t1\t9\t1\t489\t2058\t61\t27\t93.174538\tLAW\n5\t1\t12\t1\t9\t2\t566\t2069\t25\t19\t73.489777\tFr\n5\t1\t12\t1\t9\t3\t596\t2075\t27\t21\t56.295837\ta\n5\t1\t12\t1\t9\t4\t637\t2079\t62\t28\t65.371674\tNRW\n5\t1\t12\t1\t9\t5\t716\t2091\t61\t23\t94.527794\tGEN\n2\t1\t13\t0\t0\t0\t768\t2100\t137\t34\t-1\t\n3\t1\t13\t1\t0\t0\t768\t2100\t137\t34\t-1\t\n4\t1\t13\t1\t1\t0\t768\t2100\t137\t34\t-1\t\n5\t1\t13\t1\t1\t1\t768\t2100\t49\t22\t81.864471\tVER\n5\t1\t13\t1\t1\t2\t826\t2108\t79\t26\t81.122375\tATION\n2\t1\t14\t0\t0\t0\t332\t2032\t161\t50\t-1\t\n3\t1\t14\t1\t0\t0\t332\t2032\t161\t50\t-1\t\n4\t1\t14\t1\t1\t0\t332\t2032\t161\t50\t-1\t\n5\t1\t14\t1\t1\t1\t332\t2032\t125\t50\t45.997093\t90642033\n5\t1\t14\t1\t1\t2\t489\t2058\t4\t20\t93.442390\t|\n2\t1\t15\t0\t0\t0\t1101\t2487\t68\t27\t-1\t\n3\t1\t15\t1\t0\t0\t1101\t2487\t68\t27\t-1\t\n4\t1\t15\t1\t1\t0\t1101\t2487\t68\t27\t-1\t\n5\t1\t15\t1\t1\t1\t1101\t2487\t68\t27\t39.919819\t(ฟู\n2\t1\t16\t0\t0\t0\t0\t2568\t797\t101\t-1\t\n3\t1\t16\t1\t0\t0\t0\t2568\t797\t101\t-1\t\n4\t1\t16\t1\t1\t0\t0\t2568\t797\t101\t-1\t\n5\t1\t16\t1\t1\t1\t0\t2568\t797\t101\t95.000000\t   \n2\t1\t17\t0\t0\t0\t294\t2541\t726\t192\t-1\t\n3\t1\t17\t1\t0\t0\t461\t2541\t559\t134\t-1\t\n4\t1\t17\t1\t1\t0\t548\t2541\t472\t97\t-1\t\n5\t1\t17\t1\t1\t1\t548\t2541\t56\t48\t57.484455\t2nd\n5\t1\t17\t1\t1\t2\t620\t2541\t16\t48\t85.213600\t§\n5\t1\t17\t1\t1\t3\t620\t2551\t178\t87\t32.239014\tmeet\n5\t1\t17\t1\t1\t4\t832\t2594\t15\t15\t70.566162\tะ\n5\t1\t17\t1\t1\t5\t870\t2569\t76\t55\t59.560432\t203%.\n5\t1\t17\t1\t1\t6\t944\t2605\t76\t32\t86.542442\t2026\n4\t1\t17\t1\t2\t0\t524\t2578\t456\t98\t-1\t\n5\t1\t17\t1\t2\t1\t524\t2604\t56\t11\t14.710785\tบา\n5\t1\t17\t1\t2\t2\t612\t2602\t63\t28\t45.562000\tแห\n5\t1\t17\t1\t2\t3\t653\t2593\t26\t41\t52.553841\tพู\n5\t1\t17\t1\t2\t4\t706\t2618\t19\t20\t75.787735\tอ\n5\t1\t17\t1\t2\t5\t736\t2595\t59\t49\t29.885010\tณา\n5\t1\t17\t1\t2\t6\t776\t2578\t127\t87\t34.625122\ttc\n5\t1\t17\t1\t2\t7\t916\t2649\t64\t27\t68.891121\tNE\n4\t1\t17\t1\t3\t0\t445\t2623\t209\t57\t-1\t\n5\t1\t17\t1\t3\t1\t445\t2623\t32\t22\t54.887089\tCY\n5\t1\t17\t1\t3\t2\t491\t2626\t64\t32\t18.289604\tBERS\n5\t1\t17\t1\t3\t3\t570\t2639\t22\t23\t34.330627\ter\n5\t1\t17\t1\t3\t4\t602\t2642\t52\t38\t28.482986\t(kar\n3\t1\t17\t2\t0\t0\t294\t2642\t372\t88\t-1\t\n4\t1\t17\t2\t1\t0\t296\t2642\t370\t78\t-1\t\n5\t1\t17\t2\t1\t1\t296\t2642\t30\t23\t40.689743\tอ\n5\t1\t17\t2\t1\t2\t329\t2647\t12\t20\t29.327301\tน\n5\t1\t17\t2\t1\t3\t345\t2648\t11\t22\t49.604790\tง\n5\t1\t17\t2\t1\t4\t358\t2652\t58\t28\t35.971359\tชา\n5\t1\t17\t2\t1\t5\t443\t2665\t42\t26\t54.770439\t“มอ\n5\t1\t17\t2\t1\t6\t488\t2673\t31\t31\t56.035957\tแก\n5\t1\t17\t2\t1\t7\t526\t2680\t12\t20\t60.572037\t|\n5\t1\t17\t2\t1\t8\t551\t2684\t77\t28\t78.701691\tDATA\n5\t1\t17\t2\t1\t9\t625\t2655\t41\t65\t55.678146\tih\n4\t1\t17\t2\t2\t0\t294\t2683\t172\t50\t-1\t\n5\t1\t17\t2\t2\t1\t294\t2687\t17\t22\t48.107990\tย\n5\t1\t17\t2\t2\t2\t319\t2691\t4\t19\t63.688530\tอ\n5\t1\t17\t2\t2\t3\t326\t2693\t13\t19\t61.043541\tต\n5\t1\t17\t2\t2\t4\t342\t2695\t15\t23\t72.434685\tว\n5\t1\t17\t2\t2\t5\t356\t2683\t41\t46\t25.714943\tแม\n5\t1\t17\t2\t2\t6\t400\t2704\t13\t21\t47.486362\tพ\n5\t1\t17\t2\t2\t7\t441\t2710\t25\t23\t70.223755\tFL\n2\t1\t18\t0\t0\t0\t0\t2696\t292\t79\t-1\t\n3\t1\t18\t1\t0\t0\t0\t2696\t292\t79\t-1\t\n4\t1\t18\t1\t1\t0\t0\t2696\t290\t48\t-1\t\n5\t1\t18\t1\t1\t1\t0\t2696\t290\t48\t95.000000\t  \n4\t1\t18\t1\t2\t0\t0\t2744\t292\t15\t-1\t\n5\t1\t18\t1\t2\t1\t0\t2744\t292\t15\t95.000000\t \n4\t1\t18\t1\t3\t0\t0\t2759\t288\t16\t-1\t\n5\t1\t18\t1\t3\t1\t0\t2759\t288\t16\t95.000000\t \n2\t1\t19\t0\t0\t0\t268\t2666\t1173\t303\t-1\t\n3\t1\t19\t1\t0\t0\t268\t2700\t1173\t266\t-1\t\n4\t1\t19\t1\t1\t0\t1333\t2715\t108\t35\t-1\t\n5\t1\t19\t1\t1\t1\t1333\t2715\t11\t19\t27.797638\ti\n5\t1\t19\t1\t1\t2\t1424\t2727\t17\t23\t39.278103\tty\n4\t1\t19\t1\t2\t0\t658\t2666\t782\t177\t-1\t\n5\t1\t19\t1\t2\t1\t658\t2666\t43\t60\t27.835297\tne\n5\t1\t19\t1\t2\t2\t722\t2711\t134\t40\t28.485123\taN\n5\t1\t19\t1\t2\t3\t1322\t2806\t9\t20\t44.843376\tๆ\n5\t1\t19\t1\t2\t4\t1409\t2819\t31\t24\t47.174118\tล\n4\t1\t19\t1\t3\t0\t458\t2714\t962\t174\t-1\t\n5\t1\t19\t1\t3\t1\t458\t2714\t58\t28\t4.558601\tWIND\n5\t1\t19\t1\t3\t2\t523\t2724\t27\t25\t4.558601\tAW\n5\t1\t19\t1\t3\t3\t561\t2732\t34\t20\t5.096146\ttres\n5\t1\t19\t1\t3\t4\t588\t2735\t48\t25\t63.220688\tNYY\n5\t1\t19\t1\t3\t5\t629\t2743\t54\t25\t48.687595\t\"แจ\n5\t1\t19\t1\t3\t6\t694\t2759\t76\t23\t51.845406\tอ,\n5\t1\t19\t1\t3\t7\t766\t2764\t75\t26\t40.623993\tANA\n5\t1\t19\t1\t3\t8\t834\t2775\t61\t27\t34.318207\tSeyi\n5\t1\t19\t1\t3\t9\t898\t2784\t21\t23\t50.284492\tพ\n5\t1\t19\t1\t3\t10\t922\t2789\t33\t23\t30.313332\tแต\n5\t1\t19\t1\t3\t11\t1315\t2851\t11\t21\t24.241081\tงู\n5\t1\t19\t1\t3\t12\t1403\t2865\t17\t23\t79.525284\t“\n4\t1\t19\t1\t4\t0\t289\t2729\t1139\t209\t-1\t\n5\t1\t19\t1\t4\t1\t289\t2733\t72\t31\t35.388550\t(MORE\n5\t1\t19\t1\t4\t2\t373\t2729\t37\t48\t36.495014\tany\n5\t1\t19\t1\t4\t3\t438\t2758\t17\t20\t89.008171\t1\n5\t1\t19\t1\t4\t4\t458\t2763\t38\t21\t60.440384\tแห\n5\t1\t19\t1\t4\t5\t496\t2769\t20\t22\t41.521778\tน\n5\t1\t19\t1\t4\t6\t529\t2771\t96\t37\t18.749802\tVisti)\n5\t1\t19\t1\t4\t7\t620\t2788\t61\t30\t37.775497\t(NN\n5\t1\t19\t1\t4\t8\t698\t2800\t25\t23\t2.285423\tyy\n5\t1\t19\t1\t4\t9\t727\t2807\t28\t23\t16.733536\tDN\n5\t1\t19\t1\t4\t10\t802\t2848\t1\t3\t94.703766\t|\n5\t1\t19\t1\t4\t11\t1308\t2898\t12\t23\t53.005714\tง\n5\t1\t19\t1\t4\t12\t1396\t2913\t32\t25\t45.592140\tถ้า\n4\t1\t19\t1\t5\t0\t288\t2778\t355\t78\t-1\t\n5\t1\t19\t1\t5\t1\t288\t2778\t119\t38\t28.818977\tแห\n5\t1\t19\t1\t5\t2\t432\t2803\t43\t21\t59.961151\tOn\n5\t1\t19\t1\t5\t3\t478\t2809\t91\t35\t31.448181\tFMA\n5\t1\t19\t1\t5\t4\t581\t2807\t62\t49\t24.358353\tTey\n4\t1\t19\t1\t6\t0\t286\t2819\t721\t141\t-1\t\n5\t1\t19\t1\t6\t1\t286\t2819\t29\t29\t50.857071\tแพ\n5\t1\t19\t1\t6\t2\t318\t2828\t16\t21\t73.218948\tย\n5\t1\t19\t1\t6\t3\t339\t2832\t19\t21\t58.060760\tต\n5\t1\t19\t1\t6\t4\t366\t2835\t79\t31\t29.479515\tแน,\n5\t1\t19\t1\t6\t5\t431\t2847\t66\t31\t58.203156\t“พ\n5\t1\t19\t1\t6\t6\t500\t2858\t30\t23\t59.999435\tเน\n5\t1\t19\t1\t6\t7\t530\t2862\t29\t24\t29.063309\tล!\n5\t1\t19\t1\t6\t8\t552\t2867\t108\t35\t34.186119\tUMN)\n5\t1\t19\t1\t6\t9\t656\t2883\t41\t26\t29.000656\tNi\n5\t1\t19\t1\t6\t10\t689\t2893\t174\t67\t0.000000\tSHON\n5\t1\t19\t1\t6\t11\t916\t2916\t59\t44\t26.527695\tray\n5\t1\t19\t1\t6\t12\t967\t2936\t40\t24\t45.162540\tANY\n4\t1\t19\t1\t7\t0\t268\t2864\t511\t105\t-1\t\n5\t1\t19\t1\t7\t1\t268\t2864\t131\t38\t47.124996\t(ขอ\n5\t1\t19\t1\t7\t2\t327\t2860\t6\t46\t62.664394\tย\n5\t1\t19\t1\t7\t3\t333\t2860\t18\t46\t53.892303\tณ\n5\t1\t19\t1\t7\t4\t350\t2860\t32\t46\t50.248627\tเพ\n5\t1\t19\t1\t7\t5\t381\t2860\t21\t46\t65.444443\t|\n5\t1\t19\t1\t7\t6\t416\t2889\t31\t23\t27.225227\t(อ\n5\t1\t19\t1\t7\t7\t452\t2895\t16\t19\t45.119873\tด\n5\t1\t19\t1\t7\t8\t472\t2896\t10\t21\t77.284439\tห\n5\t1\t19\t1\t7\t9\t489\t2900\t18\t20\t73.761215\tน\n5\t1\t19\t1\t7\t10\t516\t2904\t53\t28\t16.349457\tล\n5\t1\t19\t1\t7\t11\t573\t2915\t27\t22\t52.153660\tย\n5\t1\t19\t1\t7\t12\t600\t2919\t23\t22\t17.229248\tง\n5\t1\t19\t1\t7\t13\t620\t2922\t29\t22\t15.743256\tNAN\n5\t1\t19\t1\t7\t14\t674\t2928\t14\t27\t53.983284\tes\n5\t1\t19\t1\t7\t15\t716\t2940\t63\t29\t33.415787\tAWRY\n2\t1\t20\t0\t0\t0\t772\t2950\t639\t68\t-1\t\n3\t1\t20\t1\t0\t0\t788\t2950\t623\t67\t-1\t\n4\t1\t20\t1\t1\t0\t1391\t2960\t20\t21\t-1\t\n5\t1\t20\t1\t1\t1\t1391\t2960\t20\t21\t12.880234\tit\n4\t1\t20\t1\t2\t0\t772\t2950\t212\t51\t-1\t\n5\t1\t20\t1\t2\t1\t772\t2950\t73\t28\t51.512398\tNG\n5\t1\t20\t1\t2\t2\t841\t2962\t59\t27\t26.951111\tDUNES\n5\t1\t20\t1\t2\t3\t906\t2970\t78\t31\t43.004494\t(aw\n4\t1\t20\t1\t3\t0\t788\t2995\t40\t23\t-1\t\n5\t1\t20\t1\t3\t1\t788\t2995\t20\t22\t47.066025\tty,\n5\t1\t20\t1\t3\t2\t816\t2997\t12\t21\t18.663193\t7,\n2\t1\t21\t0\t0\t0\t272\t2992\t117\t53\t-1\t\n3\t1\t21\t1\t0\t0\t272\t2992\t117\t53\t-1\t\n4\t1\t21\t1\t1\t0\t272\t2992\t117\t53\t-1\t\n5\t1\t21\t1\t1\t1\t272\t2996\t49\t26\t33.458054\tอย\n5\t1\t21\t1\t1\t2\t323\t3005\t11\t19\t70.501900\t2\n5\t1\t21\t1\t1\t3\t336\t3008\t9\t19\t52.206436\tค\n5\t1\t21\t1\t1\t4\t344\t2992\t13\t47\t84.881447\tู\n5\t1\t21\t1\t1\t5\t356\t3010\t9\t20\t9.913605\tน\n5\t1\t21\t1\t1\t6\t369\t3014\t6\t21\t84.619904\t|\n5\t1\t21\t1\t1\t7\t380\t3011\t9\t34\t35.886070\tฟู\n2\t1\t22\t0\t0\t0\t339\t3561\t152\t79\t-1\t\n3\t1\t22\t1\t0\t0\t339\t3561\t152\t79\t-1\t\n4\t1\t22\t1\t1\t0\t339\t3561\t152\t79\t-1\t\n5\t1\t22\t1\t1\t1\t339\t3561\t94\t79\t25.996925\tAint\n5\t1\t22\t1\t1\t2\t440\t3563\t51\t64\t64.305511\t«a\n4\t1\t22\t1\t2\t0\t340\t3588\t90\t47\t-1\t\n5\t1\t22\t1\t2\t1\t340\t3588\t68\t47\t41.241379\tNA\n5\t1\t22\t1\t2\t2\t421\t3619\t9\t10\t63.245617\t\\)\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "column-0.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "| [SSS ทงรแกอน PROGRAMMING                              |                                                                                                      เล\n9641007         AND sr                      ง\nncn              :           AL เทงสรจ                  Cs                                                                                                                                                                                                 «              |\nMoshe ไจ้ให ภัผ่ท 5ไลล๓ 2025 2ด26                          NIA Petes                                                                                           กบ ร\n"
+        }
+      ]
+    },
+    {
+      "image": "26e37977-0752-4921-8819-8a21562cdb0c.jpg",
+      "correct": 0,
+      "total": 150,
+      "accuracy": 0.0,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 0,
+            "total": 6,
+            "edits": 87,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 0,
+            "total": 2,
+            "edits": 6,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 0,
+            "total": 19,
+            "edits": 61,
+            "chars": 61,
+            "hallucinated": 0
+          },
+          "course": {
+            "correct": 0,
+            "total": 122,
+            "edits": 1033,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 0,
+          "fn": 32,
+          "fp": 0
+        }
+      },
+      "result": {
+        "engine": "tesseract",
+        "processing_seconds": 32.73,
+        "record": {
+          "format_id": "bachelor_th",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": null,
+            "name": null,
+            "student_id": null,
+            "date_of_birth": null,
+            "admis_date": null,
+            "degree": null,
+            "grad_date": null,
+            "grad_reason": null,
+            "program": null,
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": null,
+            "cumulative_gpa": null,
+            "semesters": []
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 3,
+          "warnings": 3,
+          "course_count": 0,
+          "issues": [
+            {
+              "path": "header_detail.student_id",
+              "code": "invalid_student_id",
+              "message": "รหัสนักศึกษาต้องเป็นตัวเลข 8 หลัก",
+              "severity": "error"
+            },
+            {
+              "path": "header_detail.name",
+              "code": "missing_field",
+              "message": "ไม่พบชื่อ-สกุล",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.program",
+              "code": "missing_field",
+              "message": "ไม่พบหลักสูตร",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_semesters",
+              "message": "ไม่พบภาคการศึกษา",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_courses",
+              "message": "ไม่พบรายวิชา",
+              "severity": "error"
+            }
+          ]
+        }
+      },
+      "ocr_sources": [
+        {
+          "command": [
+            "tesseract",
+            "orientation-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "Nah\n\n_\n\na\n\nin\n\n( Unofficial Transcript )\n\n‘Name Mi. Pakaphon Phothivorn\n\nDate of Birth August 4, 2005\n\nStudent ID\n\n67070124\n\nDegree Bachelor of Science\n\nDate of Admission 2024\n\nProgramData Sclence and Business Analytics\n\nDate of Graduation N/A\n\n(COURSE TrTLE\n\n[Ceenrt | ceane\n\neras Ac LD DE\n\nCOURSE TITLE\n\nonze LINcAR ALGEBRA\n\n=o\n\nBUSINESS FUND ANd\n\nENTALS FOR INFORMATION\n\nPROBLIM SOLVING\n\nSCHOOL\n\nAND COMPUTER PROGRAMMING\n\nFOUNDATION ENGLISH 1\n\n‘avi FOUNDATION ENGLISH 2\n\nte | OPAL eas\n\nCALCULUS y\n\nv\n\nPROGRAMMING\n\nDicrra,\n\nAND StANSTics\n\nAW FoR New op\n\ni\n\nGPS: 350\n\ncE Ya 2 og\n\nATS AND\n\nABASE SySTiqy\n\ni\n\nWER PROG;\n\nALYSIS AND DESIGN\n\nBy\n\non\n\ni\n\nGPAs a 57\n\ni\n\ni)\n\n)\n\nli\n\nth\n\nNG\n\n|\n\nHi)\n\nchu\n\niN\n\nih\n\nil\n\ni)\n\nMth\n\nit\n\nAu\n\nNO\n\n:\n\nih\n\nWi\n\ni\n\nmi\n\nHl\n\nMI\n\ni\n\ni\n\ni\n\ni\\\n\ni)\n\niy\n\ni\n\n:\n\ni\n\n|\n\ni\n\nhh\n\ni\n\nInit\n\nMi\n\nit\n\ni\n\ni\n\nil\n\nHi\n\ni\n\ni)\n\nMy\n\ni)\n\nmt\n\ni\n\nih\n\nwilt\n\nAil\n\nik\n\ni\n\nIh\n\ni\n\ni\n\na\n\n4\n\ni\n\ni\n\n|\n\nhi\n\nil\n\nMa\n\ni\n\ni\n\nI)\n\nnih\n\nii\n\n|\n\nWal\n\ni\n\ni}\n\nHf\n\niii\n\nis,\n\nI\n\nMy\n\nWt\n\nhi\n\ni\n\n(\n\ni\n\nif\n\nNi\n\nMN\n\nHi\n\nIh\n\n|\n\n|\n\n\\I\n\n}\n\n|\n\nMal\n\nWy\n\nHit\n\ni\n\nll\n\nih\n\n/\n\n| i\n\nil\n\nH\n\nr\n\ni\n\nNit\n\nMN f\n\ni\n\nWht\n\ni\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-90.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "_\n\nAe\n\nif\n\naa\n\n33\n\naad\n\ncanna tt aaa nme\n\nii\n\nHy H\n\nie\n\naes\n\ni\n\nf ‘i H\n\nHh\n\nHG\n\nrr\n\nuH\n\nmh\n\nail\n\nv\n\nHil\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-180.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "i)\n\nqh\n\ni\n\nUN}\n\ni\n\nil\n\ni\n\ni\n\nVl\n\ni\n\nit\n\n/\n\ni\n\n|\n\nMi\n\n|\n\n|\n\ni)\n\niH\n\nLN)\n\nil\n\nH\n\niN\n\nH\n\n|\n\ni\n\ni\n\ni\n\nH\n\nf\n\n|\n\nii\n\ni\n\nhy\n\nhh}\n\nih\n\ni\n\ni\n\nHi\n\nl\n\n|\n\ni]\n\n;\n\nI\n\ni\n\nmel\n\ni\n\ni!\n\ni\n\nNit\n\ni\n\nHl\n\ni\n\nMy\n\njill\n\nial\n\nils\n\nAN\n\ni\n\n\\\n\ni\n\ni\n\nik\n\n:\n\nty\n\nbill\n\nAEA)\n\nif\n\nili\n\ni\n\niil ib\n\n\\\n\nan\n\ni\n\ni\n\nl\n\nIM\n\ni)\n\nth\n\ni\n\nil\n\nil\n\n\\\n\ni\n\ni\n\ni\n\nthi\n\nby\n\nul\n\ni\n\ni\n\ni)\n\nv\n\nay\n\ntt,\n\nWi\n\n;\n\ni\n\ni\n\ni\n\nMe\n\nil)\n\n\\\n\nla\n\n|\n\ni\n\ni\n\nne\n\n|\n\niy\n\ni\n\n|\n\ni\n\n\"i\n\nacl\n\nif]\n\nKy\n\ni\n\nMit\n\nlil\n\n1)\n\n|\n\n|\n\niN)\n\nMi\n\ni\n\nSE Vay\n\ni\n\n“a\n\nNOSE ONY sisxy\n\n0d tay\n\nWUSAS Asya,\n\ni\n\ni\n\nPAINAO MEN Ho iy\n\ni}\n\nSOUSULVAS ay\n\nWuig\n\ni i\n\nDMN oy\n\nsmart\n\nit\n\nOVE Gori syey\n\nZHSTIONG NOLLVONAOM ’ gooep\n\ni chia NOKVaNNOW\n\nPNININYE DONA aL nao\n\nNOLLVWAOUNT Hog\n\nNY ONINNOS Hor iROn\n\nININVONTL SSavisna_sorongo|\n\nstaid Coes)\n\naso Avan aee080 |\n\nTUL gsanoD\n\nsv20 | uaa)\n\nRT age eH\n\nWU asanog\n\nVN GopEnpesy jo ayer\n\nSDAATRUY ssoujsng pur soupy\n\n$202 worsspupy jo yey\n\nDOS JO u0KKeG aautlagy\n\nrz1020z9\n\n8002p isniley quyge jo ayeey\n\nI keeps\n\nWOnnOdd woudened ay oureyy\n\n(idynsuesy pepyyoun )\n\nt\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-270.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "i Hi\n\nHH\n\ni 7\n\nHib\n\ni g\n\ni,\n\nid\n\nHail\n\nie\n\ni\n\nay\n\nVi\n\n\"i\n\nFy e i 8\n\ni\n\nil\n\nfi\n\nKi\n\n2s\n\neeuuuw eueewe yuu\n\nSate FoF ees unersss\n\nrie\n\ni\n\nSas\n\nLal\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "7\n— Jnofficial Transcript ) .\n5\nD Dev etnxa August 4, 2005 Date of Graduation\nen gree Bachelor of Science ema ‘cna\nindo Science and Business Analytics = =| me ——— a :\nYl id MAAN NUN F | Mit} i\nitl ANNE 1 Semester, Year, 2074 7 7 a A Wit my ey\nih pe SOP AMENTALS FOR ENPORMA THON ah Wy Bt i\ni) w 309 eC SOLVING AND COMPUTER PROGRAMMING a 1A HMA AVL\nmo eter PouNDaTiION enc ji WAN WAH ath\nvn eM Hn ; IK a UNA)\nHi or, mS 2 | } ata ATM Haha) i Ni\n= MEO Mcagn AND STATISTics i) | nll Ui HA ne a ne |\npes!) et ome Wis he il) a we Ea —=h\nao, mma Yenc sees seg ||| Wi Hi ee =\n: [oe on tem Se te AL ve. ili Pa) on pee\ni tose path rea cn ay il i | | i mM i | TT NA SHI ut h ie | Hi ety a= ql\nSe66I02 py UND, MENTAL ; sii Pal HiFhi Hiab ee Ht f | tt My vata i \\ NWN aaa om i\nJess carom » svsren oRAaNG | i) il | | lal Wh whi HANA AN | } i | ih i Mi i i He Nile i i ie a“! :\n064017 ENGLasy ronnie ASS aN ce si il | ii) i i ii ie i | a i Dae ue wae Wie: [a |\n| a\" etait yh i i aie Mh il Ml vl Ih | | he i) | Wi ATA ART i | Wea | il til i A | il Wi i Ni ay A {\nMEO25206 nen tone Sat. 2025 200 AN i Hi i) | | ial i \\ | i lit NANA Ai ts aa\nei Orb ECA UL eli im ii) il Hh NMS | iil MANTA i i iM n | Pe AAA dah Wi\n| dre, ih lassi HN) | Mi Pn Hint I i il Hl | | ii MH) WA i | ] | | tl | Wn MAAN eatin Ah) | ,\nh HDRES | i nee HH lly i ! Mi Nin il lh Hi i | Hh WT } )| i) } | | Ky | il Mil \\ i | ] Hl NIN | \\ \\\nhin ee Wii} A Hi] Wie Hu Ml Hh Hl i | | MN NAAN\nUiied iS An i | | Hh) Mi H| i Hi HII Wie | : WI AT \\\n| Wu ij (Muha\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": ": น\n—                                Jnofficial Transcript )                                       .\n5\n ไมสมด August 4, 2005                        Date of Graduation\n อ gree Bachelor of Science                                                                              เร    เฉมม\nindo Science and Business Analytics         = =| me ———                   a   ท\n1 แน MAAN   NUN                         ล                                                                                                      |     Mit}     i\nitl ANNE  |   1 Semester, Year, 2074         7       7                   a    A                                                           Wit   my ey\nih pe แหโต ห ด       ah Wy                                         Bt i\ni) w พพง เหเฟ แน SOLVING AND COMPUTER PROGRAMMING     a ผ่                                                           [| AVL\n| eter แขนแอนเท่อพแพอเณ 1                              |                                                     (แพ (แผ\nย แล  แง                                                                        |     IK   a UNA)\nHi or,    หปรด |                              } ata                                                    แพแก Ni\n= MEO หนอแมเหบ AND STATISTics             |   |  nll Ui                             HA  เพ a - |\n 0    et ome         'แย                il)                   a แป:   -\n' 1 กฑาซ์ต ||| Wi                                              โภหญา  =\nก เ on tem   Se te AL                       ve.        ili  Pa) “|\n| แนแน เระจาจารน                il (|  | i mM  |           |         |                TT NA  SHI ut | ie | Hi “ a=    ล\n| 6068102 py UND, MENTAL        ;     sii   ยย [| เติ |!     Ht      |           ก    | tt My แพ  i | NWN aaa om     i\nJess carom  » ธารายมัเนอ      | i) | |  | | ! |  เซ  (ย     whi         HANA   AN | | | | ih i Mi i i He Nile i i ie a“! :       |\nเท ENGLasy ronnie ASS aN ce si il | |! | i ii ie  i | a | i Dae ue wae แนนตรรต     |\n|   2 \"จาย  yh  |  i aie Mh  il Ml  | vl Ih | |     |  | | Wi | ย ART i | (แห | | i A   | il    Wi (ป Ni ay A     |\n๒ nen หก Sat. 2025 200 AN i Hi i) | | | ial  i | | | | (ห   NANA Ai น aa\nซน   Orb ECA ก [ห ก ย| il | แม |  iil | MANTA |  | i  iM    มิ | | Pe AAA dah Wi\n|   dre, ih   โคญ์ HN) | Mi  Pn [แพ  (| | |  |   [| | |   ii     (แ   i  |    |     |   |       |       | tl    | Wn แแหร Ah)       |       | |\n| HDRES | i nee “พ พ i ! Mi Nin “|   | Hi      | |      | |        | ย|       '!   |  |        (|  |  | | Ky | | Mil |   (| | | (|     ห        |          \\            |\nก ee   ทน! \"|  | ย |   Ml Hh  Hl i |               |    MN     NAAN      |        |\n|           ขุณห\"    An แย | |   [| Mi  | | |   | | |      |          WI     AT     |         |\n|             | ด   (ห                         |\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "| Mi\n\n( Unofficial Transcript )\n\nSudem ID ตา7070124\nDate of Admission    2024\n\nCOURSE TITLE\n\nเ i)\n\n|        แน\n\n|    |     [|                         |  | |     |\n|      |                       ik mt  a        Nt\n\nIh  แผ |   i  fis   Naat\ni Mh Mi “   แห  ig  iA\nit | i  il Me th Nt  i    \\  a |\n|   ne | it | น ie '\nย i   ish        My\n|  ue\n\nNLA\n\nih\n\n1)   Yc      i    |         |!         |      |              i li |\nล|ห์           |           ip         i il a\n\nHi\nMi\nแ |\ni}\n\ni\n\nWN\n\nWh\n\n|\nแ. ก a\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "header.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "|\n|   A   |   NVA Wily |\n|  | HN HN (| | เพ | | ith | |\nน 0                                                                                                                                    (\"|       Pit ih | น  Mn, i\nพพพา                                                                                                                           ain : : at Alin .\n[| ญ่   =                                                                                                                              4\nie   =                                                                                                                                a   ,\nก       เ                                                                                                                                 ฟ   '\n%     | /                                                                                                                                4 |      q\nWe  ก   ส    ร                                                                                                              |    | | sil\nเน :   Z    |      a                                                                                                                            |   i [จ  ง แล   จ\n( ¥ rg                                                                                                                               lll f  an ”  ธุ ‘\nMeri.\n| ไม                        ลล                                                                   |   :   a\nj      =                                                                                                                                              ie 0 =\nDegres _ Bachelor of Science                                          Tite 2\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "footer.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "it iy Vi ก i NW 7  i\n(เณ  | at  un  ih NN alt Nh | i ie a\nNN  NI 0 Mi  ANNI  NI  MIN 1th iat i in i i: อ\nย el wu HN ANN NNN ANN Nt '! lit i Nn ya\nWHT    | By) |   Mi  | | | i | Uh ณุ Mh Nie ne ย แผ แ  | i :\nby ||| | | |  | 0 |  i Ml il (| Hie i (แน ilk | ij ii ป | ns Mi ) :\nแพ |   PRR,    Wii   i     AN HHI)   Wh  ก   (เน (เพ            Wik Ht NW HN vt  ih\n(พ | ก   bh i Hi Min Mh WAN  ป แพ         ญู  cat ANN   |\n| Te ก   \" |  ty | i | | | ย |   [| hin  | |        Wet  | Mh ‘ii  WN  (IN ANAK\n| | | Hi        ' a  6 Ht (|  (แก             |  Hi  | ANN Wt\n| พ i | น  กแล  |   ง MG NO\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "issued.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "7"
+          ],
+          "text": "“0 1 แก i [3 |\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "left.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "ๆยแต็คร\nDate of Birth 1แผหต 4, 2005\nDegree Bachelor of Science\n\nFOUNDATION แพอนแรม 1\n1ัจนพตาทเนุ ENGI Asie 2\n\n| |\n\nwll\n\n|           |\n\nเห\n\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "right.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "ห0 67070124                                .            '\n[ ส่สน่รฉ่อเต 2024\n\nf Graduation N/A\n\nill\nฑ์1 แห\n|      iN)\nil wil i\nAN\ni)    แพ |\nWT         Ml Mi\ntt\n| il     แแ |\ni                               (\n\ni   | |      2      ai i NIN ล\ni |  !            | | (! ผู | | iy a\nแก   hh | ญู [|  | it แพ   i |\n|  “itv ij | m i | i |   เฟน is  ne\n\nฏู | ;  i   Wa Ii\nth       |    Vv ht\n| i | !\n|  ก | | i\na ue  '! |\n|      |\n\nne  i\nli Wi\n\niW\nsil\n\nIAN\n| i\n| WA Ki\n\n|\n0 AA\ni ' |\ni iN  i\n\n0\n(| Wil\n| |\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4",
+            "tsv"
+          ],
+          "text": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n1\t1\t0\t0\t0\t0\t0\t0\t3070\t3506\t-1\t\n2\t1\t1\t0\t0\t0\t2868\t9\t48\t58\t-1\t\n3\t1\t1\t1\t0\t0\t2868\t9\t48\t58\t-1\t\n4\t1\t1\t1\t1\t0\t2868\t9\t48\t58\t-1\t\n5\t1\t1\t1\t1\t1\t2868\t22\t7\t21\t84.975113\t|\n5\t1\t1\t1\t1\t2\t2872\t9\t44\t58\t37.294903\tMi\n2\t1\t2\t0\t0\t0\t0\t0\t3070\t2263\t-1\t\n3\t1\t2\t1\t0\t0\t0\t0\t3070\t2263\t-1\t\n4\t1\t2\t1\t1\t0\t0\t0\t1018\t624\t-1\t\n5\t1\t2\t1\t1\t1\t0\t0\t1018\t624\t95.000000\t  \n4\t1\t2\t1\t2\t0\t0\t624\t1018\t89\t-1\t\n5\t1\t2\t1\t2\t1\t0\t624\t1018\t89\t95.000000\t \n4\t1\t2\t1\t3\t0\t0\t713\t1189\t105\t-1\t\n5\t1\t2\t1\t3\t1\t0\t713\t1189\t105\t95.000000\t  \n4\t1\t2\t1\t4\t0\t0\t818\t3070\t258\t-1\t\n5\t1\t2\t1\t4\t1\t0\t818\t3070\t258\t95.000000\t  \n4\t1\t2\t1\t5\t0\t0\t971\t3070\t1292\t-1\t\n5\t1\t2\t1\t5\t1\t0\t971\t3070\t1292\t95.000000\t  \n2\t1\t3\t0\t0\t0\t1047\t155\t809\t92\t-1\t\n3\t1\t3\t1\t0\t0\t1047\t155\t809\t92\t-1\t\n4\t1\t3\t1\t1\t0\t1047\t155\t809\t92\t-1\t\n5\t1\t3\t1\t1\t1\t1047\t157\t24\t69\t93.005623\t(\n5\t1\t3\t1\t1\t2\t1105\t144\t313\t107\t96.806412\tUnofficial\n5\t1\t3\t1\t1\t3\t1453\t144\t331\t107\t93.229233\tTranscript\n5\t1\t3\t1\t1\t4\t1831\t165\t24\t74\t93.229233\t)\n2\t1\t4\t0\t0\t0\t2900\t6\t170\t328\t-1\t\n3\t1\t4\t1\t0\t0\t2900\t6\t170\t328\t-1\t\n4\t1\t4\t1\t1\t0\t2900\t6\t170\t328\t-1\t\n5\t1\t4\t1\t1\t1\t2900\t6\t170\t328\t95.000000\t \n2\t1\t5\t0\t0\t0\t1395\t646\t543\t154\t-1\t\n3\t1\t5\t1\t0\t0\t1395\t646\t543\t139\t-1\t\n4\t1\t5\t1\t1\t0\t1396\t646\t533\t61\t-1\t\n5\t1\t5\t1\t1\t1\t1396\t646\t237\t45\t0.508720\tSudem\n5\t1\t5\t1\t1\t2\t1581\t642\t59\t69\t69.499054\tID\n5\t1\t5\t1\t1\t3\t1720\t661\t22\t36\t89.027657\tต\n5\t1\t5\t1\t1\t4\t1741\t642\t18\t69\t56.838879\tา\n5\t1\t5\t1\t1\t5\t1747\t662\t182\t45\t54.079090\t7070124\n4\t1\t5\t1\t2\t0\t1395\t719\t543\t81\t-1\t\n5\t1\t5\t1\t2\t1\t1395\t719\t101\t41\t96.625229\tDate\n5\t1\t5\t1\t2\t2\t1510\t715\t46\t68\t96.965019\tof\n5\t1\t5\t1\t2\t3\t1563\t724\t226\t52\t95.661980\tAdmission\n5\t1\t5\t1\t2\t4\t1832\t739\t106\t61\t95.706306\t2024\n2\t1\t6\t0\t0\t0\t2713\t337\t357\t468\t-1\t\n3\t1\t6\t1\t0\t0\t2713\t337\t357\t468\t-1\t\n4\t1\t6\t1\t1\t0\t2713\t337\t357\t468\t-1\t\n5\t1\t6\t1\t1\t1\t2713\t337\t357\t468\t95.000000\t \n2\t1\t7\t0\t0\t0\t2540\t1004\t104\t26\t-1\t\n3\t1\t7\t1\t0\t0\t2540\t1004\t104\t26\t-1\t\n4\t1\t7\t1\t1\t0\t2540\t1004\t104\t26\t-1\t\n5\t1\t7\t1\t1\t1\t2540\t1004\t104\t26\t95.000000\t \n2\t1\t8\t0\t0\t0\t1937\t997\t319\t53\t-1\t\n3\t1\t8\t1\t0\t0\t1937\t997\t319\t53\t-1\t\n4\t1\t8\t1\t1\t0\t1937\t997\t319\t53\t-1\t\n5\t1\t8\t1\t1\t1\t1937\t997\t175\t42\t96.665527\tCOURSE\n5\t1\t8\t1\t1\t2\t2125\t1009\t131\t41\t95.500504\tTITLE\n2\t1\t9\t0\t0\t0\t0\t2263\t3070\t181\t-1\t\n3\t1\t9\t1\t0\t0\t0\t2263\t3070\t181\t-1\t\n4\t1\t9\t1\t1\t0\t2204\t2263\t866\t37\t-1\t\n5\t1\t9\t1\t1\t1\t2204\t2263\t866\t37\t95.000000\t  \n4\t1\t9\t1\t2\t0\t2330\t2300\t738\t15\t-1\t\n5\t1\t9\t1\t2\t1\t2330\t2300\t738\t15\t95.000000\t \n4\t1\t9\t1\t3\t0\t2330\t2315\t738\t15\t-1\t\n5\t1\t9\t1\t3\t1\t2330\t2315\t738\t15\t95.000000\t \n4\t1\t9\t1\t4\t0\t2330\t2330\t738\t25\t-1\t\n5\t1\t9\t1\t4\t1\t2330\t2330\t738\t25\t95.000000\t \n4\t1\t9\t1\t5\t0\t2317\t2355\t751\t18\t-1\t\n5\t1\t9\t1\t5\t1\t2317\t2355\t751\t18\t95.000000\t \n4\t1\t9\t1\t6\t0\t2317\t2373\t751\t25\t-1\t\n5\t1\t9\t1\t6\t1\t2317\t2373\t751\t25\t95.000000\t  \n4\t1\t9\t1\t7\t0\t2236\t2398\t832\t13\t-1\t\n5\t1\t9\t1\t7\t1\t2236\t2398\t832\t13\t95.000000\t \n4\t1\t9\t1\t8\t0\t0\t2315\t3068\t129\t-1\t\n5\t1\t9\t1\t8\t1\t0\t2315\t2124\t15\t95.000000\t \n5\t1\t9\t1\t8\t2\t2168\t2411\t900\t33\t95.000000\t \n2\t1\t10\t0\t0\t0\t1366\t2208\t1223\t188\t-1\t\n3\t1\t10\t1\t0\t0\t2308\t2208\t77\t103\t-1\t\n4\t1\t10\t1\t1\t0\t2308\t2208\t77\t103\t-1\t\n5\t1\t10\t1\t1\t1\t2311\t2262\t2\t8\t73.710739\tเ\n5\t1\t10\t1\t1\t2\t2308\t2208\t77\t103\t27.350014\ti)\n3\t1\t10\t2\t0\t0\t1735\t2266\t612\t39\t-1\t\n4\t1\t10\t2\t1\t0\t1735\t2266\t612\t39\t-1\t\n5\t1\t10\t2\t1\t1\t1735\t2268\t1\t3\t85.601295\t|\n5\t1\t10\t2\t1\t2\t2012\t2256\t335\t56\t35.114250\tแน\n3\t1\t10\t3\t0\t0\t1366\t2272\t1223\t118\t-1\t\n4\t1\t10\t3\t1\t0\t1372\t2272\t942\t84\t-1\t\n5\t1\t10\t3\t1\t1\t1372\t2272\t10\t17\t57.829102\t|\n5\t1\t10\t3\t1\t2\t1464\t2276\t1\t4\t88.986076\t|\n5\t1\t10\t3\t1\t3\t1562\t2277\t76\t23\t46.813541\t[|\n5\t1\t10\t3\t1\t4\t2124\t2294\t1\t16\t84.749191\t|\n5\t1\t10\t3\t1\t5\t2160\t2294\t47\t62\t31.882637\t|\n5\t1\t10\t3\t1\t6\t2215\t2296\t7\t20\t75.922813\t|\n5\t1\t10\t3\t1\t7\t2312\t2314\t2\t16\t89.160866\t|\n4\t1\t10\t3\t2\t0\t1366\t2246\t1223\t150\t-1\t\n5\t1\t10\t3\t2\t1\t1366\t2284\t80\t25\t34.279007\t|\n5\t1\t10\t3\t2\t2\t1587\t2301\t1\t3\t93.949570\t|\n5\t1\t10\t3\t2\t3\t2157\t2331\t17\t43\t57.589706\tik\n5\t1\t10\t3\t2\t4\t2176\t2246\t84\t121\t5.781059\tmt\n5\t1\t10\t3\t2\t5\t2286\t2302\t89\t94\t28.032143\ta\n5\t1\t10\t3\t2\t6\t2522\t2336\t67\t54\t14.683502\tNt\n2\t1\t11\t0\t0\t0\t1941\t2187\t745\t692\t-1\t\n3\t1\t11\t1\t0\t0\t1974\t2293\t712\t478\t-1\t\n4\t1\t11\t1\t1\t0\t2067\t2293\t617\t127\t-1\t\n5\t1\t11\t1\t1\t1\t2067\t2326\t47\t48\t38.021599\tIh\n5\t1\t11\t1\t1\t2\t2157\t2330\t103\t72\t56.812931\tแผ\n5\t1\t11\t1\t1\t3\t2257\t2365\t19\t45\t60.135048\t|\n5\t1\t11\t1\t1\t4\t2351\t2293\t34\t87\t25.262955\ti\n5\t1\t11\t1\t1\t5\t2387\t2293\t86\t127\t39.741322\tfis\n5\t1\t11\t1\t1\t6\t2548\t2348\t136\t62\t29.533447\tNaat\n4\t1\t11\t1\t2\t0\t2041\t2209\t645\t277\t-1\t\n5\t1\t11\t1\t2\t1\t2041\t2344\t63\t142\t52.477997\ti\n5\t1\t11\t1\t2\t2\t2122\t2364\t126\t84\t37.255665\tMh\n5\t1\t11\t1\t2\t3\t2213\t2369\t53\t59\t34.618881\tMi\n5\t1\t11\t1\t2\t4\t2279\t2209\t125\t252\t0.000000\t“\n5\t1\t11\t1\t2\t5\t2391\t2371\t67\t63\t51.608795\tแห\n5\t1\t11\t1\t2\t6\t2461\t2365\t121\t99\t50.921513\tig\n5\t1\t11\t1\t2\t7\t2625\t2425\t61\t32\t25.366714\tiA\n4\t1\t11\t1\t3\t0\t2015\t2385\t669\t158\t-1\t\n5\t1\t11\t1\t3\t1\t2015\t2432\t27\t36\t51.653145\tit\n5\t1\t11\t1\t3\t2\t2053\t2435\t12\t94\t93.735321\t|\n5\t1\t11\t1\t3\t3\t2074\t2440\t52\t103\t24.933708\ti\n5\t1\t11\t1\t3\t4\t2135\t2435\t15\t39\t50.400101\til\n5\t1\t11\t1\t3\t5\t2142\t2385\t104\t128\t41.584068\tMe\n5\t1\t11\t1\t3\t6\t2207\t2407\t75\t113\t44.021076\tth\n5\t1\t11\t1\t3\t7\t2250\t2399\t43\t67\t32.841400\tNt\n5\t1\t11\t1\t3\t8\t2296\t2403\t62\t113\t58.307514\ti\n5\t1\t11\t1\t3\t9\t2397\t2403\t20\t113\t29.314186\t\\\n5\t1\t11\t1\t3\t10\t2609\t2437\t55\t57\t47.303841\ta\n5\t1\t11\t1\t3\t11\t2680\t2442\t4\t25\t86.205269\t|\n4\t1\t11\t1\t4\t0\t1965\t2187\t563\t449\t-1\t\n5\t1\t11\t1\t4\t1\t1974\t2498\t9\t44\t87.069580\t|\n5\t1\t11\t1\t4\t2\t1965\t2408\t193\t228\t37.830917\tne\n5\t1\t11\t1\t4\t3\t2134\t2498\t26\t58\t67.831787\t|\n5\t1\t11\t1\t4\t4\t2171\t2461\t58\t150\t47.813225\tit\n5\t1\t11\t1\t4\t5\t2241\t2484\t11\t59\t83.729752\t|\n5\t1\t11\t1\t4\t6\t2251\t2187\t122\t437\t54.184120\tน\n5\t1\t11\t1\t4\t7\t2334\t2462\t146\t171\t12.739708\tie\n5\t1\t11\t1\t4\t8\t2468\t2473\t60\t133\t27.954399\t'\n4\t1\t11\t1\t5\t0\t2096\t2538\t505\t184\t-1\t\n5\t1\t11\t1\t5\t1\t2096\t2570\t58\t122\t19.551453\tย\n5\t1\t11\t1\t5\t2\t2161\t2570\t36\t128\t47.829853\ti\n5\t1\t11\t1\t5\t3\t2234\t2538\t119\t184\t33.756294\tish\n5\t1\t11\t1\t5\t4\t2566\t2628\t35\t31\t36.976948\tMy\n4\t1\t11\t1\t6\t0\t1941\t2649\t253\t230\t-1\t\n5\t1\t11\t1\t6\t1\t2019\t2726\t3\t50\t80.567993\t|\n5\t1\t11\t1\t6\t2\t1941\t2649\t253\t230\t39.141689\tue\n2\t1\t12\t0\t0\t0\t0\t2330\t3068\t1176\t-1\t\n3\t1\t12\t1\t0\t0\t0\t2330\t3068\t1176\t-1\t\n4\t1\t12\t1\t1\t0\t0\t2330\t3068\t1176\t-1\t\n5\t1\t12\t1\t1\t1\t0\t2330\t3068\t1176\t95.000000\t \n2\t1\t13\t0\t0\t0\t2560\t2327\t89\t43\t-1\t\n3\t1\t13\t1\t0\t0\t2560\t2327\t89\t43\t-1\t\n4\t1\t13\t1\t1\t0\t2560\t2327\t89\t43\t-1\t\n5\t1\t13\t1\t1\t1\t2560\t2327\t89\t43\t32.536057\tNLA\n2\t1\t14\t0\t0\t0\t2168\t2336\t72\t75\t-1\t\n3\t1\t14\t1\t0\t0\t2168\t2336\t72\t75\t-1\t\n4\t1\t14\t1\t1\t0\t2168\t2336\t72\t75\t-1\t\n5\t1\t14\t1\t1\t1\t2168\t2336\t47\t75\t95.000000\t   \n5\t1\t14\t1\t1\t2\t2207\t2373\t33\t25\t95.000000\t   \n2\t1\t15\t0\t0\t0\t2094\t2652\t88\t88\t-1\t\n3\t1\t15\t1\t0\t0\t2094\t2652\t88\t88\t-1\t\n4\t1\t15\t1\t1\t0\t2094\t2652\t88\t88\t-1\t\n5\t1\t15\t1\t1\t1\t2094\t2652\t88\t88\t23.939957\tih\n2\t1\t16\t0\t0\t0\t600\t2717\t1581\t369\t-1\t\n3\t1\t16\t1\t0\t0\t600\t2717\t1581\t357\t-1\t\n4\t1\t16\t1\t1\t0\t600\t2717\t1581\t240\t-1\t\n5\t1\t16\t1\t1\t1\t600\t2732\t50\t46\t39.520203\t1)\n5\t1\t16\t1\t1\t2\t651\t2717\t112\t123\t26.911591\tYc\n5\t1\t16\t1\t1\t3\t854\t2756\t16\t15\t69.151108\ti\n5\t1\t16\t1\t1\t4\t967\t2779\t2\t6\t68.348877\t|\n5\t1\t16\t1\t1\t5\t1193\t2773\t115\t48\t41.261780\t|!\n5\t1\t16\t1\t1\t6\t1534\t2806\t1\t8\t77.283470\t|\n5\t1\t16\t1\t1\t7\t1680\t2827\t1\t3\t79.317169\t|\n5\t1\t16\t1\t1\t8\t1978\t2777\t61\t150\t59.987659\ti\n5\t1\t16\t1\t1\t9\t2019\t2764\t162\t193\t31.803505\tli\n5\t1\t16\t1\t1\t10\t2162\t2864\t6\t11\t92.741890\t|\n4\t1\t16\t1\t2\t0\t655\t2792\t1343\t294\t-1\t\n5\t1\t16\t1\t2\t1\t604\t2915\t64\t19\t35.646904\tล\n5\t1\t16\t1\t2\t2\t727\t2900\t59\t93\t53.806969\t|\n5\t1\t16\t1\t2\t3\t809\t2960\t21\t29\t43.533951\tห์\n5\t1\t16\t1\t2\t4\t1086\t2922\t170\t35\t24.100555\t|\n5\t1\t16\t1\t2\t5\t1476\t2885\t70\t179\t24.103325\tip\n5\t1\t16\t1\t2\t6\t1662\t2792\t205\t294\t42.765446\ti\n5\t1\t16\t1\t2\t7\t1848\t2969\t54\t107\t52.914223\til\n5\t1\t16\t1\t2\t8\t1879\t2854\t119\t187\t0.000000\ta\n2\t1\t17\t0\t0\t0\t1905\t2994\t65\t160\t-1\t\n3\t1\t17\t1\t0\t0\t1917\t2994\t45\t120\t-1\t\n4\t1\t17\t1\t1\t0\t1917\t2994\t45\t72\t-1\t\n5\t1\t17\t1\t1\t1\t1917\t2994\t45\t72\t21.234253\tHi\n4\t1\t17\t1\t2\t0\t1924\t3030\t46\t51\t-1\t\n5\t1\t17\t1\t2\t1\t1924\t3030\t46\t51\t56.534084\tMi\n4\t1\t17\t1\t3\t0\t1905\t3056\t40\t50\t-1\t\n5\t1\t17\t1\t3\t1\t1905\t3056\t39\t47\t68.901718\tแ\n5\t1\t17\t1\t3\t2\t1944\t3090\t1\t16\t94.638519\t|\n4\t1\t17\t1\t4\t0\t1905\t3091\t19\t23\t-1\t\n5\t1\t17\t1\t4\t1\t1905\t3091\t19\t23\t43.724976\ti}\n3\t1\t17\t2\t0\t0\t1924\t3107\t27\t47\t-1\t\n4\t1\t17\t2\t1\t0\t1924\t3107\t27\t47\t-1\t\n5\t1\t17\t2\t1\t1\t1924\t3107\t27\t47\t35.197815\ti\n2\t1\t18\t0\t0\t0\t1903\t3136\t45\t35\t-1\t\n3\t1\t18\t1\t0\t0\t1903\t3136\t45\t35\t-1\t\n4\t1\t18\t1\t1\t0\t1903\t3136\t45\t35\t-1\t\n5\t1\t18\t1\t1\t1\t1903\t3136\t45\t35\t61.490349\tWN\n2\t1\t19\t0\t0\t0\t1420\t3156\t68\t84\t-1\t\n3\t1\t19\t1\t0\t0\t1420\t3156\t68\t84\t-1\t\n4\t1\t19\t1\t1\t0\t1420\t3156\t68\t84\t-1\t\n5\t1\t19\t1\t1\t1\t1420\t3156\t68\t84\t54.424213\tWh\n2\t1\t20\t0\t0\t0\t1240\t2841\t802\t423\t-1\t\n3\t1\t20\t1\t0\t0\t1370\t2913\t549\t275\t-1\t\n4\t1\t20\t1\t1\t0\t1370\t2913\t39\t137\t-1\t\n5\t1\t20\t1\t1\t1\t1370\t2913\t39\t137\t69.000778\t|\n4\t1\t20\t1\t2\t0\t1240\t2841\t802\t423\t-1\t\n5\t1\t20\t1\t2\t1\t1240\t2903\t222\t338\t83.367294\tแ\n5\t1\t20\t1\t2\t2\t1465\t2841\t191\t371\t68.291046\t.\n5\t1\t20\t1\t2\t3\t1556\t3012\t340\t261\t71.702461\tก\n5\t1\t20\t1\t2\t4\t1774\t2944\t268\t320\t55.610428\ta\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "| Mi\n\n( Unofficial Transcript )\n\nSudem ID ตา7070124\nDate of Admission    2024\n\nCOURSE TITLE\n\nเ i)\n\n|        แน\n\n|    |     [|                         |  | |     |\n|      |                       ik mt  a        Nt\n\nIh  แผ |   i  fis   Naat\ni Mh Mi “   แห  ig  iA\nit | i  il Me th Nt  i    \\  a |\n|   ne | it | น ie '\nย i   ish        My\n|  ue\n\nNLA\n\nih\n\n1)   Yc      i    |         |!         |      |              i li |\nล|ห์           |           ip         i il a\n\nHi\nMi\nแ |\ni}\n\ni\n\nWN\n\nWh\n\n|\nแ. ก a\n"
+        }
+      ]
+    },
+    {
+      "image": "6cca1647-1819-462b-ab11-1c0c42a65cfd.jpg",
+      "correct": 2,
+      "total": 150,
+      "accuracy": 0.013333333333333334,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 0,
+            "total": 6,
+            "edits": 66,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 0,
+            "total": 2,
+            "edits": 6,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 2,
+            "total": 19,
+            "edits": 49,
+            "chars": 61,
+            "hallucinated": 0
+          },
+          "course": {
+            "correct": 0,
+            "total": 122,
+            "edits": 1040,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 0,
+          "fn": 32,
+          "fp": 1
+        }
+      },
+      "result": {
+        "engine": "tesseract",
+        "processing_seconds": 10.918,
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": null,
+            "name": null,
+            "student_id": "20249025",
+            "date_of_birth": null,
+            "admis_date": null,
+            "degree": null,
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Sdience and Busiiess Anatyties INN Ue UN",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": null,
+            "cumulative_gpa": null,
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": null,
+                "GPS": "3.72",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "90592033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": []
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": []
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 1,
+          "warnings": 2,
+          "course_count": 1,
+          "issues": [
+            {
+              "path": "header_detail.name",
+              "code": "missing_field",
+              "message": "ไม่พบชื่อ-สกุล",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters[0].subject[0].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            }
+          ]
+        }
+      },
+      "ocr_sources": [
+        {
+          "command": [
+            "tesseract",
+            "orientation-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "4-\n\n1\n\nof 1\n\nAd\n\nAsk Copilot\n\n( Unoffici\n\njal Transe\n\npt)\n\nWea\n\nPhoto\n\nName\n\nMe. Pakaphon Phothivorn\n\nStudent ID\n\n67070124\n\nDate of Birth\n\nAugust 4, 2005\n\nDate of Admission\n\n2024\n\nDegree Back\n\nlor of Science\n\nDate of Graduation NIA\n\nProgramData Science and Business Analytics\n\ne\n\nCOURSE TITLE\n\nHi\n\nVal\n\nv\n\nla}\n\nCOURSE THLE\n\nwell\n\n[econ [crane]\n\nis\n\npester\n\n024\n\n02\n\n60:\n\n200\n\ncaLcu\n\nus\n\n6026202\n\nLINE\n\nR ALGEBRA\n\n606510\n\nBUSINESS FUNDAME\n\nALS FOR INFORMATION.\n\n606630\n\nPROBLEM SOLVING AND COMPUTER PROGRAMMING\n\n9062099\n\nCHARM SCHOOL\n\n90644007\n\nFOUNDATION ENC\n\ni\n\nHt\n\n| 9068008\n\nFOUNDATION ENGLISH\n\nGPS-400\n\nGPA: 4.00\n\nil\n\n2\n\n2\n\n2\n\n‘oszsz0\n\nus2\n\nA\n\n602620\n\nCOMPUTER PROGRAMMING\n\n8\n\n(96025205\n\n=\n\nDUC\n\nION TO MARKETIN\n\n8\n\n‘96086001\n\nPROBABI\n\nTY AN\n\n5\n\nansT\n\ns\n\n90631007\n\npic\n\nALC\n\nTIZEN\n\nR\n\n906\n\n033\n\nLAW FC\n\nN\n\nW GENERATION\n\ncP\n\n350\n\nGPA\n\ns72\n\n1st Semester, Year, 2025-2026\n\n92\n\n206\n\n>,\n\nLy\n\nPROGRAM\n\na\n\n‘98056000\n\nDI\n\nRETE\n\nAn\n\nEy\n\n(6066500\n\nDATABASE\n\nSYSTEM\n\nDNCEPTS\n\nBy\n\n056302\n\nru\n\n7\n\nMENT\n\ni\n\nBPROGRA\n\nINC\n\n5.\n\n| 06056304\n\nIN\n\nve\n\nsi\n\nAND DESIGN\n\n8\n\n05440\n\nim\n\nENGLISH FOR BUSINESS\n\n|\n\nGPs-353\n\nGPA\n\n2ad Sei\n\nter, Yeas\n\n2025-2026\n\nenzezn4\n\nWNTRODUCTION TO NETW\n\nRK\n\nre\n\nND,\n\n8\n\nCYBERSECURI\n\ny\n\nxiozeen7\n\nNOSQL DATAHASE\n\nSTEMS\n\nB\n\nio\n\na\n\nFUNDAMENTA\n\nOF\n\nTA SCIENCE\n\noeozezg\n\nDATA VISUALIZA\n\nby\n\nmy\n\n10\n\nortimiz\\non\n\n606102\n\nMANAGEMENT INFORMATIQ)\n\n66301\n\nDATA SRUCITUIE\n\nND ALGORITHM:\n\n8,\n\nGPS 364\n\nGPA\n\n459\n\nter\n\n2021\n\n27\n\nonze\n\nAPPLIED MACHINE\n\nEAKNINC\n\nohne?\n\n2\n\n2\n\nDATA WAREHOUSING\n\n026240\n\nINTELLIGENT SYSTEM DEVELOPMENT\n\noanzea4z\n\nGLOU TECHNOLOGY INFRASTRUCTURE\n\nooasnze\n\nINVESTMEN\n\nPLANNING\n\nHossanse\n\nPROHISSIONAL COMMUNICATION AND\n\nPRESENTATION,\n\nRs\n\nCt\n\n$39\n\n‘Total univer af credit earned: 78\n\nCunmalative\n\nPA: 159\n\nI\n\nTramacript Closed\n\nEtech by\n\nee\n\n|_DocXinainuoa Xe ceraac)\n\nMI\n\nlh\n\nin\n\nae\n\nDalelssued: “Segiewabet 20 2028\n\nThis docun\n\nnt is unofficial transcript\n\naD\n\n+\n\nBr\n\nQ Search\n\n\"OO m=e@<c\n\nSo 9\n\nG 0\n\n—_\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-90.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "==\n\n—\n\net\n\nSy\n\n“e\n\ni\n\nae\n\na\n\nGI\n\n=\n\na4\n\nSy\n\n2aagé\n\na5\n\n3s\n\nis]\n\nae\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-180.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "—\n\no © G6\n\n&\n\n+6\n\na\n\nyaueas\n\na\n\n‘eum pomepou 5\n\nwmoop\n\nHa\n\nul\n\ni\n\nEN\n\nror ae ag\n\npansy iver\n\nih eh\n\nORTNN NITE ND\n\nAy epi)\n\ni\n\npony mene\n\nBEE Va annem\n\n2 ‘poner npaxy jo saquend pre,\n\nore\n\nwo\n\n$0\n\nNouuvanasery)\n\nGNY NOLLVSINIININOD TYNOISSI HORM\n\nHPO\n\nDNINNV A IATRLESIANT\n\naznerabe\n\nPALOMUSVAUINE AOOIONNOAL GACT,\n\nzeman\n\nINSMOTAARO WOLLSAS ANTDEF EL\n\nreszano\n\nONISTOLERIVM vive\n\nztaz00n\n\nmt\n\niva\n\nINIHOVIN CrarTa\n\n‘teszaso)\n\nTe0e 8202\n\nTASS BT\n\nas\n\n19\n\nWe sa9\n\n‘a\n\nWHLLBIOSTY ON\n\nNOMS vava\n\nto38000\n\nNO\n\nVARSOUN NWO\n\nZot 9090\n\n;\n\nNouvziiinae\n\norzven90\n\nBy\n\nVaLIvesia Vive!\n\nbe\n\nnd\n\nANOS V1\n\n40 SIVAN\n\nshe\n\n92090\n\n‘a\n\nWe\n\nx\n\nLVG) TOON\n\nLozwzave\n\n‘\n\nAN TASAATAD\n\na\n\nany\n\na\n\nAVIN OL NOLLINGOULN\n\nvozaza00\n\npolhiathlcasnn\n\n%\n\nMa: SUE TBOK Ta\n\nTS BO\n\niss\n\nvd9\n\nsrE!s49\n\n|\n\nSSANISI 4O4 HSTIDNA\n\nctaspo08\n\n#\n\nNoisag any\n\n15.\n\nMI\n\n¥oe99090 |\n\n=\n\na\n\n)NININV2I90% SIM\n\nNay\n\nuM\n\nzosaa090\n\n‘a\n\nS Lad ONO\n\nWLLSA\n\nsve\n\niva.\n\nor99090\n\n‘a\n\n.\n\nveo\n\n¥\n\nv\n\nter\n\na\n\nconn\n\nNth\n\npvaooud\n\nSOULAT\n\na\n\noo2s209\n\nFATS IX EIS ET\n\nwe\n\nva\n\noce:sao\n\nNO}\n\nNHaNGD M1\n\nNOI MVT\n\n106\n\nNaz.\n\nDv\n\n1910\n\n2001906\n\nSoustLY\n\ns\n\nINV ALTTIBVEOUd\n\nron990%0\n\nCt\n\nwt\n\nRAVI 4 NOL\n\nsna\n\nz0x0\n\na\n\nONINVED Od 2ELANOD\n\n92090\n\ny\n\nzsir\n\nmz\n\n00.\n\niz\n\nZz\n\nZ\n\n009: vo\n\noor: sao\n\nHSTIONa NOLLVaNNO,\n\n00¥0906 |\n\n1Hstt\n\nNE NOLLVGNAOA\n\n20098906\n\n1OOHS WAVED\n\n55620908\n\nONVA DOA WALNAWOD\n\nNV ONINTOS IN\n\nOe\n\n0629000\n\nNOLLVIWMOANI 3104 STV.LASAVONNH SSaNISna\n\no129090\n\n\\\n\n(ATV 4\n\nINF\n\n20292090\n\nsan\n\nAD TWD,\n\n‘nesga90\n\nTT\n\nFa\n\nbil\n\nTi asanOd\n\nWUNL SURO\n\nL\n\n‘SOpATEURY SNOUTSN pu aouaIDS erEcqumesdTany\n\nVIN wonenpes Jo ae\n\nUNS Jowo|aWe eat\n\n¥02\n\nvossspiapy Jo seer\n\n$002 'b isndny\n\nyung jo rea\n\nary\n\nAU\n\na aapnis\n\nwuoapipoya woydeyed aN\n\no104d\n\n(ady\n\nFEAL [EPYFOUN )\n\n2.\n\nyoyo sv\n\n&\n\n140\n\nL\n\n+\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-270.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "g\n\nwn\n\nia)\n\nAa\n\nsee\n\nvere\n\na\n\n=F\n\nibe }\n\n=>\n\n8,\n\n8\n\nask\n\n=\n\n=\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "@ | Ask Copilot = ap ete] ort | |\n| i}\n( Unofficial Transcript )\n|\nPhoto\nNan |) Mr) |Pakaphon) | Phodiuyan Shame iD) GeO 24 ae\nDate of Birth | August) 4) 2005 ute of Arkinission) || 2024\nDegive 'Bavholot of Sci¢nice Date of Graduatton iN\nProgramData Sdience and Busiiess Anatyties INN Ue UN\nTM NH COURSE HELE ||| TAT TTT eae Git Hi COURSE TITLE Cie Yt) ciLADe\nist Semester, Year, 20249025 |i!) iii ATMA AAMT ATAMATTATTTAN TTT TT |\nPSNYEO CALCULUS 4 j A\nDG0Z26202 LINEAR ALGEBRA o A\n(ADEGTOL BUSINESS FUNDAMENTALS FOR INFORMATION i A\n(6DK5303 PROBLEM SOLVING AND COMPUTER PROGRAMMING ti A\n0602809 CHARM SCHOO! i §\nQ0644007 FOUNDATION ENGLISH | A $\nHO60MI8 FOUNDATION ENGLISH 2 HI)i 8\nGPS = 4.00 GPA - 4.00 ll |\nond S Year. 2024-2025\n(026201 CALCULLIS2 a A\n(6026208 COMPUTER PROGRAMMING 3 i\n(026205 INTRODUCTION TO MARKETING 5 BR\nNEDKEKU) PROBABILITY AND STATISTICS 8 A\nHOBGIDOT DIGITAL CITIZEN 3 §\nq064Z033 LAW FOR NEW GENERATION 3 8 |\nGPS = 3.50 GPA: 3.72\nist Semester, Year. 2025-2026 li\n(MNZ6206 DATA ANALYTICS AND PROGRAMMING H| All |\n(MIDKERMIO DISCRETE MATHEMATICS i} By |\n6056300 DATABASE SYSTEM CONCEPTS tH By\nO60KEMIZ FUNDAMENTAL WEB PROGRAMMING 4 Bt\n(6056304) INFORMATION SYSTEM ANALYSIS AND DESICIN 4 B\nWS44017 ENGLISH FOR BUSINESS 8 Cy\nGPS) 3,33 GPA) 957\n2nd Semester, Year, 2025-2026\n(G0Z6204 | INTRODUCTION i) NETIWORICS AND 4 rf\nUYBERSEOURITY\n(MIDZEZN7) NOSOL DATABASE SYSTEMS 4 Hy\n(GOZ6 008 | /FINDAMENTIALS CF DUT A SCLEMCH K A\nMOZE2IE | OAT WAAL AICO 4 Hy\nKMD26 210) CTIA Cen i A\nCBDBENIZ| MAM ACIENVIEN | INIORMAIICN Si nilRthes i NY\nHODGE RT OAT A SUCRE ANE ALSCH ETS i By\nGPS)! Fed APA 2 Sad\ntat Semester, Year) 2026-2027\nD262) NPR LEG MUAVCHLNY LE ARENEINES 4\nOZE2T 2 AT A MVAREI NISL i\nPHIDZE AO) UTE ICHENE STR IEMA (IY HCA ENT i\nUID ZEAE | LOND IRCRIMCHRCG Y ANTAR ASIA UICIEIRE '\nNG AS HG | INNES BATE UNNI 4\n1) aA | ACUTE RAIN CICRMOMCIMNE COLCA NIC\nl THRESH AIAN TACH\n| | | hh bias | GHA > aie\n| ih | bietul WWMtilLneer lel He\n| | WA Mt ita iii v8 |\nil VN [Cindy CAIDAS\n| | | sii HM WAT 1h JNM Airaid (Cina | | }\ni l| | | WA I | HHT\nae \" ~ (ie\nBE seas ~\"Bemac@oGgo ve\n: Li ~ =\nEEN oy - ~ .\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "4",
+            "tsv"
+          ],
+          "text": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n1\t1\t0\t0\t0\t0\t0\t0\t3072\t4096\t-1\t\n2\t1\t1\t0\t0\t0\t1531\t758\t297\t142\t-1\t\n3\t1\t1\t1\t0\t0\t1531\t758\t297\t142\t-1\t\n4\t1\t1\t1\t1\t0\t1531\t758\t297\t142\t-1\t\n5\t1\t1\t1\t1\t1\t1531\t758\t264\t142\t0.000000\tTranscript\n5\t1\t1\t1\t1\t2\t1805\t816\t23\t77\t92.857185\t)\n2\t1\t2\t0\t0\t0\t381\t1504\t932\t1201\t-1\t\n3\t1\t2\t1\t0\t0\t381\t1504\t340\t31\t-1\t\n4\t1\t2\t1\t1\t0\t381\t1504\t340\t31\t-1\t\n5\t1\t2\t1\t1\t1\t381\t1504\t144\t31\t0.634041\tWOE\n5\t1\t2\t1\t1\t2\t550\t1504\t171\t22\t55.507607\tCALCULUS\n5\t1\t2\t1\t1\t3\t710\t1493\t12\t46\t74.826424\t4\n3\t1\t2\t2\t0\t0\t401\t1548\t912\t250\t-1\t\n4\t1\t2\t2\t1\t0\t408\t1548\t392\t24\t-1\t\n5\t1\t2\t2\t1\t1\t408\t1552\t117\t20\t21.172249\t8026202)\n5\t1\t2\t2\t1\t2\t554\t1537\t104\t45\t48.895599\tLINEAR\n5\t1\t2\t2\t1\t3\t674\t1537\t126\t45\t43.473694\tALGEBRN\n4\t1\t2\t2\t2\t0\t404\t1593\t808\t23\t-1\t\n5\t1\t2\t2\t2\t1\t404\t1576\t76\t51\t0.000000\t(RDEG\n5\t1\t2\t2\t2\t2\t485\t1596\t36\t20\t4.946884\tTOL\n5\t1\t2\t2\t2\t3\t548\t1592\t139\t24\t53.847824\t(BUSINESS\n5\t1\t2\t2\t2\t4\t697\t1593\t237\t23\t63.569225\tFUNDAMENTALS\n5\t1\t2\t2\t2\t5\t944\t1595\t54\t21\t93.285477\tFOR\n5\t1\t2\t2\t2\t6\t1008\t1580\t204\t36\t52.058102\tINFORMATICN\n4\t1\t2\t2\t3\t0\t407\t1634\t906\t30\t-1\t\n5\t1\t2\t2\t3\t1\t407\t1634\t121\t26\t0.000000\t(EDKGS0S:\n5\t1\t2\t2\t3\t2\t548\t1636\t138\t24\t95.535103\tPROBLEM\n5\t1\t2\t2\t3\t3\t694\t1639\t127\t21\t84.693642\tSOLVING\n5\t1\t2\t2\t3\t4\t832\t1639\t61\t21\t95.214821\tAND\n5\t1\t2\t2\t3\t5\t898\t1634\t164\t30\t36.923859\tCOMPUTER\n5\t1\t2\t2\t3\t6\t1071\t1634\t220\t28\t73.360657\tPROGRAMMING\n5\t1\t2\t2\t3\t7\t1312\t1648\t1\t12\t72.737076\t|\n4\t1\t2\t2\t4\t0\t401\t1683\t380\t29\t-1\t\n5\t1\t2\t2\t4\t1\t401\t1684\t123\t28\t0.000000\tW6d2899;\n5\t1\t2\t2\t4\t2\t548\t1684\t106\t24\t32.321510\tCHARM\n5\t1\t2\t2\t4\t3\t662\t1683\t119\t25\t5.247963\tSCHOOL\n4\t1\t2\t2\t5\t0\t406\t1728\t485\t24\t-1\t\n5\t1\t2\t2\t5\t1\t406\t1732\t118\t20\t0.000000\tQ0644DI7\n5\t1\t2\t2\t5\t2\t549\t1728\t191\t24\t85.990486\tFOUNDATION\n5\t1\t2\t2\t5\t3\t748\t1731\t123\t21\t29.370514\tENGLISET\n5\t1\t2\t2\t5\t4\t886\t1732\t5\t20\t90.119553\t|\n4\t1\t2\t2\t6\t0\t407\t1775\t498\t23\t-1\t\n5\t1\t2\t2\t6\t1\t407\t1776\t116\t20\t0.000000\t§O504MI8\n5\t1\t2\t2\t6\t2\t545\t1775\t195\t21\t93.155800\tFOUNDATION\n5\t1\t2\t2\t6\t3\t748\t1776\t124\t20\t93.025162\tENGLISH\n5\t1\t2\t2\t6\t4\t882\t1777\t23\t21\t74.334564\tZ,\n3\t1\t2\t3\t0\t0\t701\t1821\t341\t21\t-1\t\n4\t1\t2\t3\t1\t0\t701\t1821\t341\t21\t-1\t\n5\t1\t2\t3\t1\t1\t701\t1821\t133\t20\t36.030373\tGPS:4.00\n5\t1\t2\t3\t1\t2\t877\t1807\t19\t45\t0.000000\t—\n5\t1\t2\t3\t1\t3\t908\t1822\t74\t19\t0.000000\tGPA=\n5\t1\t2\t3\t1\t4\t992\t1822\t50\t20\t24.149055\t4.00\n3\t1\t2\t4\t0\t0\t645\t1865\t448\t27\t-1\t\n4\t1\t2\t4\t1\t0\t645\t1865\t448\t27\t-1\t\n5\t1\t2\t4\t1\t1\t641\t1861\t59\t44\t92.282516\t2nd\n5\t1\t2\t4\t1\t2\t645\t1865\t448\t27\t84.559723\tSemester,\n5\t1\t2\t4\t1\t3\t864\t1861\t74\t44\t95.713158\tYear,\n5\t1\t2\t4\t1\t4\t952\t1865\t141\t27\t96.122528\t2024-2025\n3\t1\t2\t5\t0\t0\t402\t1911\t595\t249\t-1\t\n4\t1\t2\t5\t1\t0\t404\t1911\t319\t23\t-1\t\n5\t1\t2\t5\t1\t1\t404\t1912\t114\t22\t28.951111\t(OZ6201\n5\t1\t2\t5\t1\t2\t547\t1911\t176\t22\t74.219696\tCALCULLIS2\n4\t1\t2\t5\t2\t0\t404\t1953\t533\t25\t-1\t\n5\t1\t2\t5\t2\t1\t404\t1958\t118\t20\t0.000000\tD6026203\n5\t1\t2\t5\t2\t2\t547\t1954\t160\t24\t57.580727\tCOMPUTER\n5\t1\t2\t5\t2\t3\t715\t1953\t222\t25\t95.238564\tPROGRAMMING\n4\t1\t2\t5\t3\t0\t404\t2000\t593\t23\t-1\t\n5\t1\t2\t5\t3\t1\t404\t2002\t117\t21\t35.218048\t(MDZ6205\n5\t1\t2\t5\t3\t2\t545\t2000\t222\t22\t93.106682\tINTRODUCTION\n5\t1\t2\t5\t3\t3\t776\t2001\t38\t21\t87.979958\t'TO\n5\t1\t2\t5\t3\t4\t824\t2001\t173\t22\t96.434273\tMARKETING\n4\t1\t2\t5\t4\t0\t404\t2047\t579\t30\t-1\t\n5\t1\t2\t5\t4\t1\t404\t2047\t113\t20\t0.000000\t(MDEEDU\n5\t1\t2\t5\t4\t2\t547\t2047\t192\t20\t69.778595\tPROBABILITY\n5\t1\t2\t5\t4\t3\t748\t2048\t63\t29\t96.002060\tAND\n5\t1\t2\t5\t4\t4\t820\t2048\t163\t20\t96.002060\tSTATISTICS\n4\t1\t2\t5\t5\t0\t406\t2091\t380\t21\t-1\t\n5\t1\t2\t5\t5\t1\t406\t2091\t114\t21\t0.000000\tHO0B41D07\n5\t1\t2\t5\t5\t2\t547\t2092\t117\t20\t92.844017\tDIGITAL\n5\t1\t2\t5\t5\t3\t673\t2092\t113\t20\t95.116394\tCITIZEN\n4\t1\t2\t5\t6\t0\t402\t2139\t546\t21\t-1\t\n5\t1\t2\t5\t6\t1\t402\t2140\t118\t20\t54.906227\t90592033.\n5\t1\t2\t5\t6\t2\t544\t2139\t68\t21\t81.465874\tLAW\n5\t1\t2\t5\t6\t3\t622\t2140\t54\t20\t81.465874\tFOR\n5\t1\t2\t5\t6\t4\t684\t2140\t66\t20\t96.076103\tNEW\n5\t1\t2\t5\t6\t5\t759\t2140\t189\t20\t96.221367\tGENERATION\n3\t1\t2\t6\t0\t0\t699\t2169\t341\t39\t-1\t\n4\t1\t2\t6\t1\t0\t699\t2169\t341\t39\t-1\t\n5\t1\t2\t6\t1\t1\t699\t2184\t132\t24\t89.634178\tGPS:350\n5\t1\t2\t6\t1\t2\t899\t2169\t62\t35\t32.434654\t“GPA:\n5\t1\t2\t6\t1\t3\t973\t2185\t67\t19\t32.434654\t3.72\n3\t1\t2\t7\t0\t0\t655\t2226\t427\t24\t-1\t\n4\t1\t2\t7\t1\t0\t655\t2226\t427\t24\t-1\t\n5\t1\t2\t7\t1\t1\t655\t2226\t37\t23\t89.160751\tIst\n5\t1\t2\t7\t1\t2\t700\t2226\t139\t24\t93.326126\tSemester,\n5\t1\t2\t7\t1\t3\t849\t2226\t79\t24\t89.437149\tYear.\n5\t1\t2\t7\t1\t4\t937\t2226\t145\t23\t96.685471\t2025-2026\n3\t1\t2\t8\t0\t0\t400\t2261\t812\t267\t-1\t\n4\t1\t2\t8\t1\t0\t400\t2261\t702\t33\t-1\t\n5\t1\t2\t8\t1\t1\t400\t2273\t119\t21\t0.000000\tIMINZ6206\n5\t1\t2\t8\t1\t2\t535\t2261\t89\t33\t88.427017\tDATA\n5\t1\t2\t8\t1\t3\t632\t2274\t168\t20\t94.971161\tANALYTICS\n5\t1\t2\t8\t1\t4\t808\t2274\t63\t20\t96.527428\tAND\n5\t1\t2\t8\t1\t5\t880\t2274\t222\t20\t96.001762\tPROGRAMMING\n4\t1\t2\t8\t2\t0\t402\t2318\t506\t25\t-1\t\n5\t1\t2\t8\t2\t1\t402\t2318\t116\t25\t0.000000\t{MIDEGNOO:\n5\t1\t2\t8\t2\t2\t545\t2318\t139\t20\t65.458504\tDISCRETE\n5\t1\t2\t8\t2\t3\t693\t2319\t215\t19\t94.849052\tMATHEMATICS\n4\t1\t2\t8\t3\t0\t400\t2365\t582\t25\t-1\t\n5\t1\t2\t8\t3\t1\t400\t2365\t118\t25\t0.000000\tEDEGINO\n5\t1\t2\t8\t3\t2\t544\t2366\t156\t20\t0.000000\tDAVTABASE\n5\t1\t2\t8\t3\t3\t709\t2366\t114\t20\t96.423630\tSYSTEM\n5\t1\t2\t8\t3\t4\t833\t2367\t149\t19\t96.423630\tCONCEPTS\n4\t1\t2\t8\t4\t0\t400\t2398\t671\t34\t-1\t\n5\t1\t2\t8\t4\t1\t400\t2411\t118\t21\t0.000000\t(6OKEWZ:\n5\t1\t2\t8\t4\t2\t545\t2410\t222\t22\t24.903168\tKUNDAMENTAL\n5\t1\t2\t8\t4\t3\t776\t2411\t64\t21\t94.162468\tWEB\n5\t1\t2\t8\t4\t4\t849\t2398\t222\t34\t87.964043\tPROGRAMMING\n4\t1\t2\t8\t5\t0\t400\t2452\t812\t46\t-1\t\n5\t1\t2\t8\t5\t1\t400\t2455\t117\t43\t0.000000\t(DDESI4\n5\t1\t2\t8\t5\t2\t544\t2455\t203\t25\t93.003731\tINFORMATION\n5\t1\t2\t8\t5\t3\t756\t2455\t114\t22\t95.931198\tSYSTEM\n5\t1\t2\t8\t5\t4\t882\t2455\t143\t25\t94.725639\tANALYSIS\n5\t1\t2\t8\t5\t5\t1035\t2455\t61\t22\t92.179527\tAND\n5\t1\t2\t8\t5\t6\t1105\t2452\t107\t28\t65.649971\tDESICIN\n4\t1\t2\t8\t6\t0\t400\t2499\t478\t29\t-1\t\n5\t1\t2\t8\t6\t1\t400\t2499\t117\t29\t18.591454\tMIGIMDIT)\n5\t1\t2\t8\t6\t2\t544\t2500\t122\t27\t47.851723\tENGLISH\n5\t1\t2\t8\t6\t3\t676\t2502\t56\t20\t91.140579\tTOR\n5\t1\t2\t8\t6\t4\t743\t2501\t135\t25\t94.914078\tBUSINESS\n3\t1\t2\t9\t0\t0\t694\t2546\t364\t29\t-1\t\n4\t1\t2\t9\t1\t0\t694\t2546\t364\t29\t-1\t\n5\t1\t2\t9\t1\t1\t694\t2546\t72\t21\t0.000000\tGPS\n5\t1\t2\t9\t1\t2\t774\t2546\t54\t21\t0.000000\t793)\n5\t1\t2\t9\t1\t3\t897\t2546\t61\t24\t37.616348\tGPA\n5\t1\t2\t9\t1\t4\t970\t2546\t68\t29\t49.187603\t4957)\n5\t1\t2\t9\t1\t5\t1057\t2556\t1\t4\t81.381760\t|\n3\t1\t2\t10\t0\t0\t529\t2583\t557\t122\t-1\t\n4\t1\t2\t10\t1\t0\t641\t2583\t445\t44\t-1\t\n5\t1\t2\t10\t1\t1\t641\t2591\t53\t23\t96.084991\t2nd\n5\t1\t2\t10\t1\t2\t704\t2592\t138\t23\t72.338715\tSemester.\n5\t1\t2\t10\t1\t3\t852\t2592\t80\t24\t93.323494\tYear,\n5\t1\t2\t10\t1\t4\t940\t2583\t146\t44\t92.844971\t2025-2026\n4\t1\t2\t10\t2\t0\t529\t2628\t435\t73\t-1\t\n5\t1\t2\t10\t2\t1\t529\t2628\t1\t39\t74.115433\t|\n5\t1\t2\t10\t2\t2\t535\t2639\t7\t62\t24.433395\t|\n5\t1\t2\t10\t2\t3\t563\t2637\t199\t50\t20.332535\tela\n5\t1\t2\t10\t2\t4\t770\t2635\t39\t30\t37.552029\tIC)\n5\t1\t2\t10\t2\t5\t826\t2640\t48\t30\t0.000000\tNET\n5\t1\t2\t10\t2\t6\t878\t2638\t86\t33\t0.000000\tAVOURC\n4\t1\t2\t10\t3\t0\t540\t2682\t243\t23\t-1\t\n5\t1\t2\t10\t3\t1\t540\t2682\t243\t38\t62.835587\tCYBERSEQURITY\n2\t1\t3\t0\t0\t0\t519\t2768\t345\t142\t-1\t\n3\t1\t3\t1\t0\t0\t524\t2768\t330\t142\t-1\t\n4\t1\t3\t1\t1\t0\t530\t2768\t154\t48\t-1\t\n5\t1\t3\t1\t1\t1\t530\t2803\t1\t13\t96.209290\t|\n5\t1\t3\t1\t1\t2\t540\t2768\t16\t48\t52.370625\tif\n5\t1\t3\t1\t1\t3\t563\t2796\t55\t27\t25.035927\tNIM]\n5\t1\t3\t1\t1\t4\t676\t2774\t8\t21\t61.304409\ti\n4\t1\t3\t1\t2\t0\t519\t2790\t345\t89\t-1\t\n5\t1\t3\t1\t2\t1\t519\t2808\t7\t27\t80.784439\t|\n5\t1\t3\t1\t2\t2\t544\t2803\t85\t61\t32.203674\tDATA,\n5\t1\t3\t1\t2\t3\t628\t2791\t62\t73\t23.371971\ti\n5\t1\t3\t1\t2\t4\t692\t2822\t44\t22\t59.111420\t1A!\n5\t1\t3\t1\t2\t5\t730\t2790\t134\t89\t0.000000\tfearon\n4\t1\t3\t1\t3\t0\t572\t2845\t181\t65\t-1\t\n5\t1\t3\t1\t3\t1\t572\t2848\t85\t62\t0.000000\trUaM\n5\t1\t3\t1\t3\t2\t664\t2845\t89\t50\t39.526138\tKCION\n2\t1\t4\t0\t0\t0\t688\t2967\t173\t90\t-1\t\n3\t1\t4\t1\t0\t0\t688\t2967\t137\t82\t-1\t\n4\t1\t4\t1\t1\t0\t688\t2967\t82\t62\t-1\t\n5\t1\t4\t1\t1\t1\t688\t2967\t58\t62\t29.389313\taa\n5\t1\t4\t1\t1\t2\t746\t2987\t3\t24\t32.805397\t|\n5\t1\t4\t1\t1\t3\t763\t2976\t7\t11\t34.346710\t\\}\n4\t1\t4\t1\t2\t0\t692\t2980\t169\t77\t-1\t\n5\t1\t4\t1\t2\t1\t692\t2997\t100\t60\t35.176613\taul\n5\t1\t4\t1\t2\t2\t787\t2980\t74\t73\t57.768639\tall\n2\t1\t5\t0\t0\t0\t659\t3020\t208\t78\t-1\t\n3\t1\t5\t1\t0\t0\t659\t3020\t208\t78\t-1\t\n4\t1\t5\t1\t1\t0\t659\t3020\t208\t78\t-1\t\n5\t1\t5\t1\t1\t1\t659\t3020\t24\t78\t76.599274\tst\n5\t1\t5\t1\t1\t2\t698\t3040\t127\t46\t43.954330\tSetnester\n5\t1\t5\t1\t1\t3\t839\t3045\t28\t37\t27.160492\tiy:\n2\t1\t6\t0\t0\t0\t685\t3158\t449\t122\t-1\t\n3\t1\t6\t1\t0\t0\t685\t3158\t438\t107\t-1\t\n4\t1\t6\t1\t1\t0\t818\t3158\t254\t75\t-1\t\n5\t1\t6\t1\t1\t1\t818\t3185\t81\t32\t22.261536\tBMH\n5\t1\t6\t1\t1\t2\t896\t3168\t50\t63\t35.675835\tMi\n5\t1\t6\t1\t1\t3\t952\t3158\t120\t75\t19.840317\tOne\n4\t1\t6\t1\t2\t0\t685\t3208\t449\t72\t-1\t\n5\t1\t6\t1\t2\t1\t685\t3208\t130\t70\t26.976936\tCHING\n5\t1\t6\t1\t2\t2\t806\t3224\t44\t30\t29.079102\tGaN\n5\t1\t6\t1\t2\t3\t849\t3218\t53\t47\t15.828201\tALE\n5\t1\t6\t1\t2\t4\t904\t3232\t76\t33\t16.918472\tAST\n5\t1\t6\t1\t2\t5\t982\t3229\t62\t47\t61.027988\tists\n5\t1\t6\t1\t2\t6\t1040\t3217\t77\t47\t51.041260\tTRE!\n5\t1\t6\t1\t2\t7\t1116\t3239\t18\t41\t83.539337\t|\n2\t1\t7\t0\t0\t0\t931\t3265\t91\t15\t-1\t\n3\t1\t7\t1\t0\t0\t931\t3265\t91\t15\t-1\t\n4\t1\t7\t1\t1\t0\t931\t3265\t91\t15\t-1\t\n5\t1\t7\t1\t1\t1\t931\t3265\t1\t15\t87.073395\t|\n5\t1\t7\t1\t1\t2\t999\t3267\t23\t13\t52.936981\tHII}\n2\t1\t8\t0\t0\t0\t516\t3252\t607\t236\t-1\t\n3\t1\t8\t1\t0\t0\t522\t3252\t596\t236\t-1\t\n4\t1\t8\t1\t1\t0\t687\t3252\t250\t68\t-1\t\n5\t1\t8\t1\t1\t1\t687\t3265\t35\t55\t39.647976\tNI\n5\t1\t8\t1\t1\t2\t747\t3260\t81\t52\t0.000000\tHAWN\n5\t1\t8\t1\t1\t3\t833\t3252\t40\t60\t0.000000\tINE\n5\t1\t8\t1\t1\t4\t898\t3281\t39\t40\t0.000000\tIl|\n4\t1\t8\t1\t2\t0\t683\t3306\t440\t74\t-1\t\n5\t1\t8\t1\t2\t1\t683\t3310\t173\t70\t9.116249\tAMAIA\n5\t1\t8\t1\t2\t2\t880\t3314\t45\t62\t39.950562\tHt\n5\t1\t8\t1\t2\t3\t920\t3312\t97\t64\t14.551010\tray\n5\t1\t8\t1\t2\t4\t1026\t3306\t64\t54\t85.143181\tAND\n5\t1\t8\t1\t2\t5\t1116\t3328\t7\t16\t50.194710\tI\n4\t1\t8\t1\t3\t0\t516\t3319\t335\t89\t-1\t\n5\t1\t8\t1\t3\t1\t522\t3360\t1\t13\t79.108734\t|\n5\t1\t8\t1\t3\t2\t516\t3319\t211\t88\t7.377792\teset\n5\t1\t8\t1\t3\t3\t844\t3360\t7\t48\t95.015778\t|\n4\t1\t8\t1\t4\t0\t527\t3388\t501\t84\t-1\t\n5\t1\t8\t1\t4\t1\t527\t3395\t39\t42\t51.457718\tIh\n5\t1\t8\t1\t4\t2\t710\t3393\t83\t79\t9.188217\tsill\n5\t1\t8\t1\t4\t3\t791\t3393\t18\t60\t34.429230\ti\n5\t1\t8\t1\t4\t4\t880\t3394\t58\t61\t30.783493\tGA\n5\t1\t8\t1\t4\t5\t970\t3410\t26\t30\t51.768181\ta\n5\t1\t8\t1\t4\t6\t1015\t3388\t13\t68\t67.286674\t|\n4\t1\t8\t1\t5\t0\t684\t3441\t253\t47\t-1\t\n5\t1\t8\t1\t5\t1\t684\t3456\t7\t31\t36.270683\t|\n5\t1\t8\t1\t5\t2\t887\t3441\t18\t46\t49.700203\t|\n5\t1\t8\t1\t5\t3\t936\t3472\t1\t16\t76.906136\t|\n2\t1\t9\t0\t0\t0\t544\t3480\t437\t99\t-1\t\n3\t1\t9\t1\t0\t0\t544\t3480\t437\t99\t-1\t\n4\t1\t9\t1\t1\t0\t544\t3480\t437\t99\t-1\t\n5\t1\t9\t1\t1\t1\t544\t3480\t62\t64\t58.388325\tHot\n5\t1\t9\t1\t1\t2\t622\t3512\t16\t16\t40.308601\tMt\n5\t1\t9\t1\t1\t3\t662\t3488\t236\t91\t43.073574\ttarda\n5\t1\t9\t1\t1\t4\t888\t3504\t49\t47\t11.889610\tji\n5\t1\t9\t1\t1\t5\t952\t3504\t29\t29\t57.718323\t18\n2\t1\t10\t0\t0\t0\t614\t3532\t297\t116\t-1\t\n3\t1\t10\t1\t0\t0\t614\t3532\t297\t116\t-1\t\n4\t1\t10\t1\t1\t0\t614\t3532\t297\t70\t-1\t\n5\t1\t10\t1\t1\t1\t614\t3551\t8\t24\t10.776382\tH\n5\t1\t10\t1\t1\t2\t652\t3551\t72\t50\t39.325096\tHsia\n5\t1\t10\t1\t1\t3\t727\t3558\t35\t32\t29.801399\tie\n5\t1\t10\t1\t1\t4\t775\t3532\t71\t70\t29.801399\taba:\n5\t1\t10\t1\t1\t5\t850\t3553\t61\t45\t27.666252\tae\n4\t1\t10\t1\t2\t0\t686\t3576\t210\t72\t-1\t\n5\t1\t10\t1\t2\t1\t686\t3579\t130\t69\t0.000000\taint\n5\t1\t10\t1\t2\t2\t802\t3576\t93\t70\t40.201981\tali\n5\t1\t10\t1\t2\t3\t883\t3623\t13\t7\t0.793373\tbs\n2\t1\t11\t0\t0\t0\t2004\t3648\t258\t197\t-1\t\n3\t1\t11\t1\t0\t0\t2004\t3648\t258\t197\t-1\t\n4\t1\t11\t1\t1\t0\t2074\t3648\t188\t197\t-1\t\n5\t1\t11\t1\t1\t1\t2074\t3654\t89\t190\t0.000000\tM\n5\t1\t11\t1\t1\t2\t2172\t3648\t38\t170\t29.719498\ti\n5\t1\t11\t1\t1\t3\t2197\t3677\t65\t168\t64.846176\tut\n4\t1\t11\t1\t2\t0\t2004\t3697\t127\t146\t-1\t\n5\t1\t11\t1\t2\t1\t2004\t3697\t127\t146\t11.395500\tHe\n2\t1\t12\t0\t0\t0\t0\t0\t3072\t4096\t-1\t\n3\t1\t12\t1\t0\t0\t0\t0\t3072\t4096\t-1\t\n4\t1\t12\t1\t1\t0\t0\t0\t3072\t4096\t-1\t\n5\t1\t12\t1\t1\t1\t0\t0\t3072\t4096\t95.000000\t \n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "4"
+          ],
+          "text": "Transcript )\n\nWOE CALCULUS 4\n\n8026202) LINEAR ALGEBRN\n(RDEG TOL (BUSINESS FUNDAMENTALS FOR INFORMATICN\n(EDKGS0S: PROBLEM SOLVING AND COMPUTER PROGRAMMING |\nW6d2899; CHARM SCHOOL\nQ0644DI7 FOUNDATION ENGLISET |\n§O504MI8 FOUNDATION ENGLISH Z,\n\nGPS:4.00 — GPA= 4.00\n\n2nd Semester, Year, 2024-2025\n\n(OZ6201 CALCULLIS2\nD6026203 COMPUTER PROGRAMMING\n(MDZ6205 INTRODUCTION 'TO MARKETING\n(MDEEDU PROBABILITY AND STATISTICS\nHO0B41D07 DIGITAL CITIZEN\n90592033. LAW FOR NEW GENERATION\n\nGPS:350 “GPA: 3.72\n\nIst Semester, Year. 2025-2026\n\nIMINZ6206 DATA ANALYTICS AND PROGRAMMING\n{MIDEGNOO: DISCRETE MATHEMATICS\nEDEGINO DAVTABASE SYSTEM CONCEPTS\n(6OKEWZ: KUNDAMENTAL WEB PROGRAMMING\n(DDESI4 INFORMATION SYSTEM ANALYSIS AND DESICIN\nMIGIMDIT) ENGLISH TOR BUSINESS\n\nGPS 793) GPA 4957) |\n\n2nd Semester. Year, 2025-2026\n| | ela IC) NET AVOURC\nCYBERSEQURITY\n\n| if NIM] i\n| DATA, i 1A! fearon\nrUaM KCION\n\naa | \\}\naul all\n\nst Setnester iy:\n\nBMH Mi One\nCHING GaN ALE AST ists TRE! |\n\n| HII}\n\nNI HAWN INE Il|\nAMAIA Ht ray AND I\n| eset |\nIh sill i GA a |\n| | |\n\nHot Mt tarda ji 18\n\nH Hsia ie aba: ae\naint ali bs\n\nM i ut\nHe\n\n"
+        }
+      ]
+    },
+    {
+      "image": "f77ae849-219a-4fdd-a811-7fc96cfa9f80.jpg",
+      "correct": 0,
+      "total": 150,
+      "accuracy": 0.0,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 0,
+            "total": 6,
+            "edits": 87,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 0,
+            "total": 2,
+            "edits": 6,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 0,
+            "total": 19,
+            "edits": 61,
+            "chars": 61,
+            "hallucinated": 0
+          },
+          "course": {
+            "correct": 0,
+            "total": 122,
+            "edits": 1033,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 0,
+          "fn": 32,
+          "fp": 0
+        }
+      },
+      "result": {
+        "engine": "tesseract",
+        "processing_seconds": 39.794,
+        "record": {
+          "format_id": "bachelor_th",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": null,
+            "name": null,
+            "student_id": null,
+            "date_of_birth": null,
+            "admis_date": null,
+            "degree": null,
+            "grad_date": null,
+            "grad_reason": null,
+            "program": null,
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": null,
+            "cumulative_gpa": null,
+            "semesters": []
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 3,
+          "warnings": 3,
+          "course_count": 0,
+          "issues": [
+            {
+              "path": "header_detail.student_id",
+              "code": "invalid_student_id",
+              "message": "รหัสนักศึกษาต้องเป็นตัวเลข 8 หลัก",
+              "severity": "error"
+            },
+            {
+              "path": "header_detail.name",
+              "code": "missing_field",
+              "message": "ไม่พบชื่อ-สกุล",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "header_detail.program",
+              "code": "missing_field",
+              "message": "ไม่พบหลักสูตร",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_semesters",
+              "message": "ไม่พบภาคการศึกษา",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters",
+              "code": "missing_courses",
+              "message": "ไม่พบรายวิชา",
+              "severity": "error"
+            }
+          ]
+        }
+      },
+      "ocr_sources": [
+        {
+          "command": [
+            "tesseract",
+            "orientation-0.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "\\ of 1\n\n=-\n\n+ @\n\nial\n\nranscript )\n\n(Unoffi\n\nPhoto\n\n67070124\n\nstudent ID\n\n2024\n\nAdmission\n\npate of\n\nN\n\nGaant\n\n4\n\npakaphor\n\n1 Phothivort\n\npate ol\n\nf Graduation\n\nYeuu\n\nName Mt\n\nAugust\n\n4, 2005\n\ni\n\npare of Birth\n\nor of Sctence\n\nDegree Bache!\n\ness A\n\nnalts\n\n.\n\nck\n\nand Bust\n\n=\n\n2924-202\n\nis\n\nneater\n\nCAL\n\nCuLUs |\n\ne202\n\nLGEBRA\n\nLINEAR A!\n\nINFOR?\n\n262802\n\nNOA\n\nAMENTALS FOR\n\nPROG\n\nRAMMING\n\ngaonero ®\n\nystNess FU\n\n1 COMPUTER\n\nSOLVING AN\n\nR860\n\n5 PROBLEM\n\nscnoot\n\n9958299\n\n99 CHARM\n\nSVENGLISH 1\n\nyOUNDATI\n\nISH?\n\nopUATOT\n\nJON ENC\n\n4.00\n\n‘gqos4n08, FOUND:\n\na\n\nPA\n\nps 4.00\n\n2925\n\npu Semester Xen 20242008\n\na\\\n\n8\n\ncuLt\n\nNG\n\nganrez01 CAL\n\nROGRAM\n\nA\n\n‘06028205\n\nCOMPUTER FI\n\nNTO MARKE\n\nING\n\ngnTRODU\n\nTION\n\n‘ogn26ztis\n\nsry ANDST\n\narisTics\n\nBy\n\npROBABIL\n\nogons00!\n\nnL CTIZE\n\n90681007\n\npict\n\nGENERATION\n\nGPA: 3-72\n\n9068208\n\n33 LAW FOR!\n\nGps:350\n\nN\n\nx\n\n1925-2026\n\nBr\n\nPROGRAM\n\nuymics AN\n\nBr\n\n9075206 DATA ANAL\n\nATHEM\n\nAric\n\nBy\n\n‘qasanoe DISC\n\nRete\n\nSE SYSTE\n\nsi CONCERTS\n\n8\n\nganeemo D/\n\nATABA\n\nGRAMMING\n\nFUNDA!\n\nMENTAL WEB PRC\n\nA\n\nALYSIS AD\n\n1) DESIGN\n\nane 302\n\nLATION SYSTEM\n\nAAN\n\nonn6304\n\ninFORM:\n\nSINESS\n\nENGLISH FOR BUS\n\n‘90544017\n\nors\n\n333\n\nGPa 357\n\n8\n\n2nd Semester.\n\nYear, 2025-2028\n\nORKS\n\nETON TONE\n\nBr\n\noqgze204 INTRODY\n\ncxBERSECURITY\n\nrt\n\nSNOSOL DATABAS!\n\n5. SYSTEMS:\n\nty\n\n‘onn26207\n\nTASCIENCE\n\n‘onozsmme FUND:\n\nJAMENTALS OF ©\n\n‘\n\nZATION\n\ngeozean >)\n\nLATA YISUAI\n\nA\n\nAON\n\nSystems\n\niy\n\n‘oan2g210, OPTIMIZAT\n\nENT INFORMATION\n\n‘paonsio2 MM\n\nNAGENI\n\n[AND ALGORITHMS\n\nDATA STRUCT\n\nURES\n\nn0g630)\n\nGps: 364\n\nGPA 359\n\nut Semester, Year, 2028-2024\n\n‘onneztt\n\npyriset\n\nD MACHINE LEARNING\n\nRENOUSING\n\noane02)\n\n2 DATAWAS\n\nOPMENT\n\n‘onneszan INTELAIGH\n\nEN SYSTEM DEVE\n\nsravoTuRe\n\n1SEY INFRAS\n\n“ong\n\n2, LOUD TCHNO\n\nqooignas, INVEST\n\nMENT PLANNING\n\n{4cinsn COMMU\n\nNCATION AND\n\nwonanmez, eC SS\n\nPRESENTATION,\n\nary\n\nGHA: 358\n\nPall ger of ern earn #\n\nCnautative PAS A58\n\nly\n\ni\n\ni\n\nrasscript Closed\n\nMt\n\nih\n\n‘check\n\nin Kise\n\n00\n\naN\n\nSagncenanned\n\nLO rere\n\n‘his document\n\n(py wostigial teaser\n\nLAN\n\nGS\n\ni\n\n[Bate tases\n\n&y\n\ng\n\na\n\n~~ G\n\nAny\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-90.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "=\n\n—=\n\nfom\n\nle\n\n%@\n\n\\\n\n\\i\n\nA\n\no!\n\nS\n\n\\§\n\n26\n\nie\n\n——<—\n\nAS\n\ne\n\n2\n\n2\n\nRg\n\na3\n\nA\n\na8\n\n'\n\ngee\n\n38\n\nhe\n\n238\n\nfo}\n\n288\n\nt=\n\na\n\nSt\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-180.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "3¢\n\n4\n\n7°)\n\nLe)\n\n=:\n\ny\n\nGS)\n\nparent sie\n\n&\n\n©\n\nost\n\nSe\n\niM\n\nSc AD\n\ncil\n\nspre gests\n\nSam\n\nPRON\n\nKeyport\n\ni\n\ni\n\nHH\n\ni\n\npose) wise\n\nfen (van\n\nanreyenen\n\n‘an cpm vps een TOPE\n\n449\n\nee vt)\n\nNOUV ANaSE\n\ni\n\ngang ZYONVIOH\n\nany NOUN:\n\nSand TNO\n\n784900\n\nONIN Id\n\nLNANESIAN\n\nava\n\nsory, zramzON0\n\na\n\nPAL oeNasyasaN\n\n1 AORHIONH!\n\nNe\n\nsorraunt, ovzo700\n\niN\n\nAWAty TIAA WOLSAS Y\n\naavnyand 2\n\n92000\n\nNnscrOH\"\n\nspurs ANN\n\nrw crartany 11292000\n\naS HT\n\nFree eNT\n\npoe Sd\n\neen Va.\n\nsoos\n\ngantry\n\nny Sam\n\nigrans VING\n\nawa\n\nSyNVIN, 20199090)\n\n“a\n\nCBISASNC\n\nuvWwoant AN\n\nSuiwAwtao n1292000)\n\nv\n\nNouyarvnst\n\nyar Boe8z0\n\nv\n\n4 anesz0\n\n140 STINT\n\nevant\n\neS\n\nats V2\n\npoane0\n\nM\n\nSWISAS.\n\n4gynVviNe TOSON\n\nAPA\n\nEAHAD\n\na\n\nACOUINS 19292090\n\nStor\n\naN 08\n\nUNO\n\nan\n\n0\n\n3,\n\nSA SERTIS POL\n\naur see\n\nsce\n\nsd\n\nwei vad\n\nove908\n\nSsanisi\n\n391 BOS HSTIONT\n\nor on00\n\nNo\n\nAON\n\nxy SISA\n\nAYN ISAS\n\nzac 0090\n\nnora OX\n\nyinawvannt\n\na\n\nONIN\n\nanigoaa aN\n\nag asvave\n\nyet 0c 90090\n\nsiaxoNoo\n\nwats!\n\n“a\n\nre)\n\nasic 00098000\n\n“a\n\nSOUS\n\nyvive\n\n3 pozaz038\n\nNY SOULATON\n\net\n\nwa\n\naNd\n\n2 3K\n\naes BT\n\n¥\n\nwre set\n\noss :Sd2\n\nrs: VED\n\n+ ee0zTene\n\nNOLLYSANSD\n\nan BOs NY\n\nmun\n\nsxoict LOOLeaE\n\nyoos000\n\na\n\nsGny Al\n\nsya yEOW\n\nsoust\n\njOUINT\n\n52000)\n\nate)\n\n¥\n\nsaan OL NC\n\naati\n\n<p so2200\n\nON\n\nyevunoud\n\niva rea\n\na\n\nmn\n\n\\e\n\n8\n\nearn TEK ST\n\n207\n\na7 Sd\n\noor\n\nvd\n\nsara NOLLYEIN!\n\np03 gonv¥ans\n\nust\n\n19078908\n\nOUNENTOL\n\nTRSTIONS\n\nyi) 6868S\n\n{QOH WAY\n\n110d\n\ns soxgn0n®\n\nNY\n\naNLNTOS WH\n\n101nno\n\nyarnawor a\n\noN\n\n14 SSaNIsns\n\nNHN\n\nyanowd\n\nya SVE\n\nnan\n\nanc\")\n\noan\n\naaa\n\nyavanel\n\n\\\n\nyD one 20%)\n\n1 sr1ny\n\naS BL\n\npad\n\nqe\n\nx\n\npnb aSeNOD\n\nreso\n\n700\n\nays we\n\n.\n\nsng put\n\nwav | at\n\nspares\n\ngous\n\n16 30 391\n\n?\n\need aaa.\n\nyung J? aed\n\n“gusts. asHn0?\n\n002\n\nyyy\n\namu,\n\nar |\n\n49 Jo Wed\n\noqdeava\n\nss\n\nN\n\nvopenp®\n\nasoampodd\n\nyo aed\n\nyoxsstypV\n\n202\n\nqy 1s9pOS\n\nyeroL0L9\n\novoud\n\nyoun )\n\nsuet,\n\nret\n\n( yd459\n\n=\n\ner\n\n43° |\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "orientation-270.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "11"
+          ],
+          "text": "ze\n\neé\n\nti\n\nfe)\n\nfe)\n\nran\n\nBe\n\n4%\n\n28\n\ntt\n\n\\\n\nEe\n\nZF\n\n‘\n\nret\n\n2\n\na\n\n3\n\nz |\n\ne|\n\nLi\n\n12\n\nHil\n\n>\n\net\n\nral\n\nat\n\nB.\n\n——\n\ni\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            "6"
+          ],
+          "text": "~. Bas\n\\ | \\ | s \\\n_ + Bll pot te\n“ wa |\n( Unofficial rranscript )\n|\nPhoto\n|\n:\n, | Student {D g7070124 oo aan\npointe wht Pahaphor phothivor aun of sdnetasies 024\npare of Binh | Sugeel”™ a pate of Graduation N/A\npone’ hac hows int of SKtence\nLiha can y it Le i ae ale\n\\ COURSE HATS att sore tat Sl aero ee mn | |\neT a <cceaier, ens, BO2A-287S\n11 Naan | oR us 4 Wh |\n(meen Latuntt ALG / n | )\nQBDKHIO BINS LINOAM ENT ALS FOR INFORMAT! wy : s |\nMOneIS pecan EM SOLN ING AnD € OMPUTER PROF RAMMING ; N\nMinpsZyee CHARM SOMGOL 4 >\nAOGAsINT SOUNDATION ENGLISH ! 4/14) | |\nqopdanos KOUNDATION ENGLISH 2 1 4 5\nops. 4.00 CPA : 4.00 Be :\nQaneB201 CALCULUS 2 4 A\ngn26203 COMPUTER pROCRAMMING 4 is |\nan26205 INTRODUCTION +0) MARKETING 8 ‘ | |\nyanseodt pROBABILITY AND ST aristTics 8 A | |\ngosarnaT DIGITAL CITIZEN 8 %\nggeaz033 LAN FOR NEW GENERATION a) BS\nGPs - 3.50 CPA-3-72\nsou Semester. Yeae, 2025-2028 )\naeozena DATA ANALYTICS AND PROGRAMMING a i\npansamo DISCRETE SAATHEMATICS a |N/A\nQaABEMa DATABASE SYSTEM CONCERTS 4 //\\// Be\nanbex02 FUNDAMENTAL WEB PROGRAMMING 4 ))/\\)//BA\nqanna3os INFORMATION SySTEM ANALYSIS AND ESIGN a fh\nqopadnl? ENGLISH POR BUSINESS HM\nops: 3.33 GRA) B57\ngud Semester Year, 2025-2026\nunenens INTRODUCTION TY ET WORKS AHP m4),\nCXBERSECURETY\nganzszo7 NOSQLDAT ABASE SY STEMS )//\\.\n(OZEZOB UINDADSEDTE ALS BE A Man hy | HM\npanz62I9 IAT) Lense nIony By\nmmn26e0 orriMmiZaTiott aH BN\npanne noz DASNY (ARORMARION I EMT NH\nMUGS} DAA SRT RES AA LCV TAN a) 4\noss 6h) PHT\nist Semester: Nour, 2026/2021\ngangezie Av Ae MARIMINE 9 ARTI) i\nwaineri2 Si LL WAREMAUSHY i\nqanegean TELAT Gays DEY AEH y\nAmunneaZ ME HAMANN A AEE RAGE RUC %\nin 028 ANVEST MENT PLANING i\nWaysanron2,/ MANEATIS LLYANALINNGH NA ONS ANH 4\n| ) | WREST NTO \\\nA I Prove pyasbvce of RxAA eas AY Ae i ii a\na — Tks Wocanneah hn an ftinial CRASSA | iN mT nm sami |\n! | Le CE Wl\namecege*\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "page-1.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "~. Bas\n| |       \\        |    ๑    \\\n           2 + Bll pot te\nม ไฟ        wa |\n( Unofficial  rranscript )\n|\nPhoto\n|\n|\n|   |                     Student 1เว  แร0ย10124                   ซด ศ์ 4\nพลล  พ เฉ แล 0แห่ห1!                           เม of ล4300  024\npare of Binh 8 7 a                                 pate of Graduation N/A\n|     (เพลย  เหอ of แท6๐\nตพตบศศณ์ฑ์                                       y                          it             Le i ae  ale |\n|                COURSE 4ซาย             แฟ sore tat  แพก        | ปไชรร 5 ร        |         |\nฑ์[เล ระตอโซน. 2024:2923                                                                                                                                                |                    |\nแนแตอ oR us 4                            Wh                                            |        |\n(meen เงพยนท ALG                              /    ต                                                     |          |\nแฮบ1 BINS แนเบงหลก ALS FOR 160โหดราก ทง      ง   :                                  |       |\nพ085 เงาร แพนาเพไษซ์ AnD € OMPUTER PROF RAMMING     ว    ด                                                  |          |\nเง7298 CHARM ๑60(21                         4   5                                          |        |\nฉู0644101 งบรตล2 ENGLISH 1                       4 1 58                                                 |         |\nอู6(4005 แอบพบ1พ ENGLISH 2                       1 4    5                                                    |          |\nops. 4.00   CPA : 4.00              Be                                                    |         |\nเล่0987ม1 CALCULUS 2                        4   A\nเห76203 COMPUTER pROCRAMMING                   4   is                                            |\nลู076705 INTRODUCTION +0) MARKETING               8   8                                        |        |\nเดตธนิ01 pROBABILITY AND ST aristTics                  8   A                                               |         |\nงธงพตรี DIGITAL CITIZEN                           8   นู                                                        |\nฉูตูต42033 LAN FOR NEW GENERATION                 4 ! BS                                                 ก\nGPs - 3.50   CPA-3-72                                                            |\nรร                                    |                               |\nแล07ธ6 DATA ANALYTICS AND PROGRAMMING            3   i                                                   |\nอองแฮเยด DISCRETE เครารชาเค165                   4 0 8*                                                |\nถูคูถตธรต์น DATABASE SYSTEM CONCERTS                4 8”\nต6อตธะ02 FUNDAMENTAL WEB PROGRAMMING            3 ! 8ฯ\nถูสูตธด4 INFORMATION SySTEM ANALYSIS AND ESIGN       a   fh\nจูด17 ENGLISH POR BUSINESS                  ส | | 09\nops: 3.33   GRA) 3.57\ngud Semester Year, 2025-2026\nก6075214 INTRODUCTION TY ET WORKS AHP             4 ชี\nCXBERSECURETY\nหะ6207 NOSQLDAT มณาลบ SY STEMS                     1\n(ด026708 แบพเมตพรด9105 เล Man hy              ศู   ผ่   |\nเพอะ8908 วภร ยเบบ1ว0                    “1 ผา\nเกว2ย#1ป ๓ฑาแหน7ลาร4                           4 | BN\nเพงน102 DASNY แพ)              แผ\nMUGS} DAA SRT RES AA ผลยแมห7          ผู | ต1\nแล อฒ PHT\nเฉ Semester: Nour, 2026/2021\nแฮก06213 Av Ae นนา! ARTI)                                                      i\nเคก6912 007ห1 แมผดแห่ว9น                    i\nพลยมแก TELAT เลล                                              \"\nเห647 9ห7 หบาแผงบเค |ห้1 แง                                  %\nแดแรณะย เผยพะขอษา PLANING                         i                                                                   |\nเห7 กอาห  (แมผาเตช ANH                            4\n|        )              | หแลแบทหลาห                                                                                                                                                                                                      |\nพ Prove ผดนะ of นเตษาท Ae                                       |  |   [| | |\nสดศลก    เม       Tks แผตแฟ hn เเ[คอ1 แลก ห1          |   | mT ฑา| ฑา| |\n|    |  แพแย เพพพลนินิ  [ญู\n๑๒ณิก”๕990\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "ะ๕10 |\n\n( Unofficial Transcript )\n\nPhoto\n\nE7070) 24\n2024\nไน\n\nStudent {D\nพลล  พ เฉ แล 0แห่ห1!                          7 ญ่ AN\n|          , 4 7005\ntate | pith  asst แเย                                                       “4     gal\nDate of Graduation  |\n(พ  หลพห ๐[แห๐                                                y\n\nคศา\n\nTITLE\n\nค669ยศ\"ๆ\n\nแบนน 1\n\nจ แบบะเหน“\n\nเงเพนพบ wt\nAN\n\nเค96   CM,\n\nเบ2\nOSIM)\nเถพ\nga Ct ARM\nPOUND Ni\n\nATION\n\nCHRIS\nAMMING\n\nALS POR INF\npROGK\n\npe COMPUTE โจ้.\n\nเพนน\nแบจใน5 เฟ\nPOR EM Ky NIN LNG\n\nSOMMOL\n\n“Cy ENG sri 1\n\nLish 2\n\nเก\n44001\n\nฉ่844006    poe             ON ENG\n\nเพทว\nps : 4.00      GPA: 4.00\n\n๐\n\nCALCUL Ass 2\ncomput ERP\n{NTR onuct ไกม\nเฉดตธ001  pROBABILITY AND\ngoa 1 007  ก1๐1ร4 CInzEN\nฉูตู๒42033  LAW FO NEW GENERATION\n55:3 50       GPA   3.72\n\nเฉ095701\nเห256203\nดู25705\n\nROG RAMMING\nTOM ARKETING\nSTAT istics\n\nไจ้. Ayn  AND? ROG RAMMING\nEMATICS\n\n( QNCEFTS\n\n075706  เจ A\nถูต000     ระเช เวไจนว\nสตตธรดไน    DATAB ASE SY STEM\nส0แอ02   FUNDAMEN AL WES PROGRAMMING\nqannasos  {INFORMATION sySTEM AM ALY SIS AM\nฉู0644017   ENGLISH FOR BUSINESS\nGPS: 3,33      GPA  3.57\ngud Semester Year, 2025-2026\nเหนร  (NTROBYCTION TO METIS แน0\nCXBERSECK (พธ1ห์\nวค207 MOSQL DATABASE\nผมนเพร4 SAE DH Hole\n\nBU ALL), TOM\n\n41] เวธร10ฟ\n\nHAN                                                                                  Syst bMe\n(เต26208     หบพมน                                                                    i\nเห025909     WAT A Wh\nตลถก26810   เงฑามนคา 10014\nOHH HZ     pip DAE   เวต1ห เพ ยง8\nUES BEY   DAA SERS VANES แนบ PS เบ11หห7\nเสญู\n\n(069 : 3.64\nour, 2026-2021\n\ngeupezit   แหง MACMINE 5 บพนัน9\nเคก96912   เดา พห มมลม า86\nจคล0674บ0  พ AMY แพวา7777 วะ\nเหน6242  KN แปด Ke แพง 8ษ์\nเหล  เพยธาหร PLS\n“หห44042  \"ก   AW SIM PAA  (หหแพน DNS ห19\n\n| หแรแบท MN ทพ่\nเซ MH       AUP i) B.89\n\nAN พๆ\nPRUNE NR\n\nHy Mi cco ดทททะ RAM เนน\nแน แนผด“ ฟิ\nเน เซ.\n\n|       Hi)      พจ\nว1111/ |  ผ่ยศ\n\nมมม แมมมมมมมมน%ม1\nPe TTT\naks แผ่เนตะค\n\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "header.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "x w+\n\nt          - ng  ee) | | 1 | ๐ไว7 (e) | (2\n\n—— Unofficial Transcript )\n| Photo |\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "footer.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "6"
+          ],
+          "text": "เหเล0ล40  ไหด้ 1ดจา\nEVV VARY et  CED VAMOS Vig) “1 WAFERS แนหม\nเพพน\"47นิ2ก  Nyy E> 1พ1 PLATS                                         |\n(เหน่น44042  “ทาห แฟบ หหห TW Wb INA)                      รี\nหแพะแต DONO,\nGit      ทบพ)\n/                 /แนนค แนนปหล el (6น6 «แห| 1ไช้\n/                        ทศพน  ฟิ                                                                                                                                           |\n/       ตทพ    ศศ    (ลา เล                                                                                                               |\n|      (แนศ์ AM)        บพ                                                                                                                               |               [|\n/    ) แทพ Wy          |)                       (เม่ม ARS KANNAN                                                                                                      |          |\nบ   นต์ต1นรนอห1 เซ แลวน                     nak แผ่ะเนคยเฟ เล แลฟม[1601 แซแห 1.                                     |            แพ\nBE.       Q   Search                                               |      cr       fai)                     —                           ๑+\nเน เพ                                                ul                        |\nHi) il i     eu                            _        aie      4                    ¢ )\nเฉม08           we                                         +             =:\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "issued.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "7"
+          ],
+          "text": ""
+        },
+        {
+          "command": [
+            "tesseract",
+            "left.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "( โญท|\n\nเจกก 1เว\nDate of Advi\nprac\n\nDate of Gt\n\nแนน  si yor\n\n| Date lant August 4, 200\n\nAik 6 ฒแหท6๐0\nอก Busitiess เจห\n\nProg ตอล0\n6ด แลตศศ แลจอท\nNi}                              os 4เซาล\nmom     jy  i แม eee TI\n|    |          Apt Set Ta Sexes   พไซ ‘your, 2024-2025\n\nเพล?ช่ป แบบเนบห\n\nเคยะแว7 1 wnt it eg\n\nเบ01   BUSINESS | UNDAMEN TAS < POR INEORM ATION\nะพ KUN INS AND COMP rER PROG RAMMING\n\n(TER pROGRAMM LING\n\nDUCTION TOM ARKETING\nst? ATISTICS\n\nqanzs20S  COMP\nตง06705  เผาลว\nแพงตธ001  PROBABIL งกะ AND\nง41007  pIGITAL CITIZEN\n3 LAW FOR NE    » GENERATION\n35      GPA: 3.72\n\nist semester. Year, 2025- -2026\nแล025206 DATA ANALYTICS AND PROG RAMMING\npansama DISC RETE MATHE MATICS\nสูดตธ์เต DAT ABABSESYSTE 34 CONCEPTS\nMANGERE  FUNDAMENTAL WEB PROGR AMING\nเย  INFORMATION SYSTEM ANAL ysis AD DE SiGh\n\nจ0544017   ENGLISH F FOR BUSINESS\n\nGPA | 3.57\n\nก076204   เพ เพวด\n(จธา51 บตญ์ ร\n1ไหด6907  [| เฉ ABABE Sysv Ee\n(ฉก028908   หบพแน epee Pat i HOE  DHT Sele เทเจต\nเพหก025203   เพจง 1 เภา3ให\nเตกวยล1ป  ๓ชาาพนด1104\nMann oz     pipe AGEMENT  เพชาด) 1ให aa # ล\nIDG A)   DAs 4กรอยาบ 85 แนด ห 4ย1ห7\nGd} 5.64       เสญู\nแะ 226-2027\n\nisi Semester, ป          ค\nพหง แนแผ่619 ณ์\n\nARENAS, AIS Hy                          |\nSNS, iy DY, TWAIN EH\n( แพห8) แบเหหน\n\n(ค06713\nเบ กผาด\nAvo nun) MARIN\nแลหบ  แบหน 1 จ”\"\nES THAT เรกแพนปน |\n\nonan   Ave\n|)         เน  Hill\n\nPy iii) พยนหง หห7\n\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "right.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "Photo\n\nE7070 \\24\n«sion    2024\nเมลทดเห  NIA\n\n)\n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4",
+            "tsv"
+          ],
+          "text": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n1\t1\t0\t0\t0\t0\t0\t0\t3072\t4096\t-1\t\n2\t1\t1\t0\t0\t0\t1381\t346\t365\t102\t-1\t\n3\t1\t1\t1\t0\t0\t1381\t346\t365\t102\t-1\t\n4\t1\t1\t1\t1\t0\t1381\t346\t365\t102\t-1\t\n5\t1\t1\t1\t1\t1\t1381\t411\t31\t37\t36.967354\tะ\n5\t1\t1\t1\t1\t2\t1413\t346\t333\t98\t34.040245\t๕10\n5\t1\t1\t1\t1\t3\t1697\t342\t47\t110\t89.406250\t|\n2\t1\t2\t0\t0\t0\t932\t672\t677\t153\t-1\t\n3\t1\t2\t1\t0\t0\t932\t672\t677\t153\t-1\t\n4\t1\t2\t1\t1\t0\t932\t672\t677\t153\t-1\t\n5\t1\t2\t1\t1\t1\t932\t769\t18\t56\t86.027962\t(\n5\t1\t2\t1\t1\t2\t966\t720\t278\t94\t83.843002\tUnofficial\n5\t1\t2\t1\t1\t3\t1262\t683\t310\t82\t84.702675\tTranscript\n5\t1\t2\t1\t1\t4\t1590\t672\t19\t57\t92.612854\t)\n2\t1\t3\t0\t0\t0\t2423\t835\t133\t44\t-1\t\n3\t1\t3\t1\t0\t0\t2423\t835\t133\t44\t-1\t\n4\t1\t3\t1\t1\t0\t2423\t835\t133\t44\t-1\t\n5\t1\t3\t1\t1\t1\t2423\t835\t133\t44\t94.740677\tPhoto\n2\t1\t4\t0\t0\t0\t1563\t1082\t183\t157\t-1\t\n3\t1\t4\t1\t0\t0\t1563\t1082\t183\t157\t-1\t\n4\t1\t4\t1\t1\t0\t1563\t1082\t168\t48\t-1\t\n5\t1\t4\t1\t1\t1\t1563\t1088\t120\t42\t7.789848\tE7070)\n5\t1\t4\t1\t1\t2\t1697\t1082\t34\t31\t95.064354\t24\n4\t1\t4\t1\t2\t0\t1670\t1144\t76\t38\t-1\t\n5\t1\t4\t1\t2\t1\t1670\t1144\t76\t38\t85.593384\t2024\n4\t1\t4\t1\t3\t0\t1726\t1215\t17\t24\t-1\t\n5\t1\t4\t1\t3\t1\t1726\t1215\t17\t24\t63.166832\tไน\n2\t1\t5\t0\t0\t0\t107\t1115\t1618\t350\t-1\t\n3\t1\t5\t1\t0\t0\t107\t1115\t1618\t350\t-1\t\n4\t1\t5\t1\t1\t0\t1298\t1115\t190\t52\t-1\t\n5\t1\t5\t1\t1\t1\t1298\t1126\t130\t41\t81.974716\tStudent\n5\t1\t5\t1\t1\t2\t1444\t1115\t44\t32\t80.665375\t{D\n4\t1\t5\t1\t2\t0\t107\t1166\t1520\t172\t-1\t\n5\t1\t5\t1\t2\t1\t107\t1303\t26\t35\t89.255745\tพ\n5\t1\t5\t1\t2\t2\t136\t1308\t17\t26\t51.837353\tล\n5\t1\t5\t1\t2\t3\t160\t1303\t41\t29\t47.007607\tล\n5\t1\t5\t1\t2\t4\t254\t1282\t45\t32\t64.744759\tพ\n5\t1\t5\t1\t2\t5\t322\t1269\t51\t36\t37.526321\tเฉ\n5\t1\t5\t1\t2\t6\t410\t1262\t70\t43\t22.415924\tแล\n5\t1\t5\t1\t2\t7\t502\t1247\t61\t33\t55.113567\t0\n5\t1\t5\t1\t2\t8\t566\t1232\t46\t52\t44.881401\tแห่\n5\t1\t5\t1\t2\t9\t611\t1243\t26\t20\t74.611450\tห\n5\t1\t5\t1\t2\t10\t641\t1236\t40\t21\t52.246517\t1!\n5\t1\t5\t1\t2\t11\t1306\t1201\t60\t30\t29.638290\t7\n5\t1\t5\t1\t2\t12\t1399\t1182\t33\t37\t64.197495\tญ่\n5\t1\t5\t1\t2\t13\t1456\t1166\t171\t44\t51.075218\tAN\n4\t1\t5\t1\t3\t0\t239\t1300\t371\t55\t-1\t\n5\t1\t5\t1\t3\t1\t239\t1351\t1\t4\t96.547516\t|\n5\t1\t5\t1\t3\t2\t469\t1325\t1\t3\t21.889900\t,\n5\t1\t5\t1\t3\t3\t495\t1296\t18\t48\t92.520332\t4\n5\t1\t5\t1\t3\t4\t532\t1300\t78\t33\t90.362503\t7005\n4\t1\t5\t1\t4\t0\t118\t1216\t1607\t181\t-1\t\n5\t1\t5\t1\t4\t1\t118\t1364\t74\t33\t32.308403\ttate\n5\t1\t5\t1\t4\t2\t204\t1348\t31\t37\t10.154114\t|\n5\t1\t5\t1\t4\t3\t248\t1339\t82\t40\t0.000000\tpith\n5\t1\t5\t1\t4\t4\t367\t1323\t111\t41\t47.994480\tasst\n5\t1\t5\t1\t4\t5\t494\t1313\t11\t29\t87.289314\tแ\n5\t1\t5\t1\t4\t6\t516\t1308\t47\t36\t76.850922\tเย\n5\t1\t5\t1\t4\t7\t1466\t1248\t30\t9\t23.715408\t“4\n5\t1\t5\t1\t4\t8\t1571\t1216\t154\t33\t53.700851\tgal\n4\t1\t5\t1\t5\t0\t1315\t1232\t364\t65\t-1\t\n5\t1\t5\t1\t5\t1\t1315\t1268\t78\t29\t80.401077\tDate\n5\t1\t5\t1\t5\t2\t1407\t1251\t34\t34\t95.846436\tof\n5\t1\t5\t1\t5\t3\t1455\t1233\t198\t46\t81.905518\tGraduation\n5\t1\t5\t1\t5\t4\t1677\t1232\t2\t16\t89.657753\t|\n4\t1\t5\t1\t6\t0\t118\t1272\t1267\t193\t-1\t\n5\t1\t5\t1\t6\t1\t118\t1424\t124\t41\t24.576454\t(พ\n5\t1\t5\t1\t6\t2\t273\t1408\t24\t32\t84.853302\tห\n5\t1\t5\t1\t6\t3\t302\t1415\t26\t20\t86.826706\tล\n5\t1\t5\t1\t6\t4\t336\t1396\t76\t35\t41.843361\tพ\n5\t1\t5\t1\t6\t5\t379\t1392\t35\t55\t36.393494\tห\n5\t1\t5\t1\t6\t6\t428\t1385\t29\t31\t61.194298\t๐\n5\t1\t5\t1\t6\t7\t472\t1380\t101\t30\t39.605835\t[แห\n5\t1\t5\t1\t6\t8\t581\t1377\t13\t18\t48.775154\t๐\n5\t1\t5\t1\t6\t9\t1378\t1272\t7\t17\t0.618935\ty\n2\t1\t6\t0\t0\t0\t209\t1515\t133\t22\t-1\t\n3\t1\t6\t1\t0\t0\t209\t1515\t133\t22\t-1\t\n4\t1\t6\t1\t1\t0\t209\t1515\t133\t22\t-1\t\n5\t1\t6\t1\t1\t1\t209\t1518\t89\t19\t46.856083\tค\n5\t1\t6\t1\t1\t2\t301\t1515\t41\t8\t9.698700\tศา\n2\t1\t7\t0\t0\t0\t1933\t1317\t96\t32\t-1\t\n3\t1\t7\t1\t0\t0\t1933\t1317\t96\t32\t-1\t\n4\t1\t7\t1\t1\t0\t1933\t1317\t96\t32\t-1\t\n5\t1\t7\t1\t1\t1\t1933\t1317\t96\t32\t44.259018\tTITLE\n2\t1\t8\t0\t0\t0\t134\t1533\t74\t14\t-1\t\n3\t1\t8\t1\t0\t0\t134\t1533\t74\t14\t-1\t\n4\t1\t8\t1\t1\t0\t134\t1533\t74\t14\t-1\t\n5\t1\t8\t1\t1\t1\t134\t1540\t14\t7\t31.307671\tค\n5\t1\t8\t1\t1\t2\t151\t1536\t28\t11\t48.383633\t669\n5\t1\t8\t1\t1\t3\t185\t1526\t17\t28\t37.565098\tยศ\"\n5\t1\t8\t1\t1\t4\t204\t1533\t4\t3\t54.537804\tๆ\n2\t1\t9\t0\t0\t0\t369\t1629\t309\t149\t-1\t\n3\t1\t9\t1\t0\t0\t369\t1629\t126\t35\t-1\t\n4\t1\t9\t1\t1\t0\t369\t1629\t126\t35\t-1\t\n5\t1\t9\t1\t1\t1\t369\t1635\t57\t29\t88.789291\tแบ\n5\t1\t9\t1\t1\t2\t420\t1628\t20\t40\t59.255524\tน\n5\t1\t9\t1\t1\t3\t438\t1632\t37\t22\t27.789520\tน\n5\t1\t9\t1\t1\t4\t486\t1629\t9\t19\t54.508495\t1\n3\t1\t9\t2\t0\t0\t424\t1667\t163\t37\t-1\t\n4\t1\t9\t2\t1\t0\t424\t1667\t163\t37\t-1\t\n5\t1\t9\t2\t1\t1\t424\t1686\t8\t18\t46.513882\tจ\n5\t1\t9\t2\t1\t2\t446\t1677\t45\t25\t69.062309\tแบ\n5\t1\t9\t2\t1\t3\t500\t1675\t19\t21\t16.879311\tบะ\n5\t1\t9\t2\t1\t4\t525\t1669\t36\t24\t59.976997\tเห\n5\t1\t9\t2\t1\t5\t564\t1667\t23\t21\t54.400719\tน“\n3\t1\t9\t3\t0\t0\t516\t1703\t162\t75\t-1\t\n4\t1\t9\t3\t1\t0\t516\t1703\t157\t38\t-1\t\n5\t1\t9\t3\t1\t1\t516\t1719\t49\t22\t47.686977\tเง\n5\t1\t9\t3\t1\t2\t543\t1706\t31\t39\t50.429031\tเพ\n5\t1\t9\t3\t1\t3\t575\t1717\t13\t17\t27.828232\tน\n5\t1\t9\t3\t1\t4\t592\t1714\t15\t17\t60.182228\tพ\n5\t1\t9\t3\t1\t5\t611\t1710\t20\t20\t33.470619\tบ\n5\t1\t9\t3\t1\t6\t638\t1703\t35\t24\t68.423035\twt\n4\t1\t9\t3\t2\t0\t639\t1753\t39\t25\t-1\t\n5\t1\t9\t3\t2\t1\t639\t1753\t39\t25\t55.975517\tAN\n2\t1\t10\t0\t0\t0\t164\t1644\t199\t47\t-1\t\n3\t1\t10\t1\t0\t0\t164\t1644\t199\t47\t-1\t\n4\t1\t10\t1\t1\t0\t164\t1644\t199\t47\t-1\t\n5\t1\t10\t1\t1\t1\t164\t1665\t41\t26\t43.291721\tเค\n5\t1\t10\t1\t1\t2\t212\t1654\t75\t30\t39.914139\t96\n5\t1\t10\t1\t1\t3\t312\t1644\t51\t26\t51.157852\tCM,\n2\t1\t11\t0\t0\t0\t172\t1703\t323\t212\t-1\t\n3\t1\t11\t1\t0\t0\t172\t1703\t323\t212\t-1\t\n4\t1\t11\t1\t1\t0\t172\t1703\t122\t35\t-1\t\n5\t1\t11\t1\t1\t1\t172\t1714\t47\t24\t46.925308\tเบ\n5\t1\t11\t1\t1\t2\t220\t1703\t74\t29\t3.777206\t2\n4\t1\t11\t1\t2\t0\t181\t1753\t118\t34\t-1\t\n5\t1\t11\t1\t2\t1\t181\t1753\t118\t34\t29.934570\tOSIM)\n4\t1\t11\t1\t3\t0\t189\t1800\t122\t35\t-1\t\n5\t1\t11\t1\t3\t1\t189\t1811\t47\t24\t44.954449\tเถ\n5\t1\t11\t1\t3\t2\t238\t1800\t73\t30\t31.282104\tพ\n4\t1\t11\t1\t4\t0\t293\t1835\t163\t40\t-1\t\n5\t1\t11\t1\t4\t1\t293\t1853\t26\t22\t75.122223\tga\n5\t1\t11\t1\t4\t2\t346\t1844\t28\t24\t68.737106\tCt\n5\t1\t11\t1\t4\t3\t381\t1835\t75\t28\t20.275780\tARM\n4\t1\t11\t1\t5\t0\t356\t1879\t139\t36\t-1\t\n5\t1\t11\t1\t5\t1\t356\t1885\t101\t30\t79.902435\tPOUND\n5\t1\t11\t1\t5\t2\t463\t1879\t32\t23\t88.741585\tNi\n2\t1\t12\t0\t0\t0\t930\t1661\t108\t27\t-1\t\n3\t1\t12\t1\t0\t0\t930\t1661\t108\t27\t-1\t\n4\t1\t12\t1\t1\t0\t930\t1661\t108\t27\t-1\t\n5\t1\t12\t1\t1\t1\t930\t1661\t108\t27\t20.128181\tATION\n2\t1\t13\t0\t0\t0\t868\t1673\t264\t59\t-1\t\n3\t1\t13\t1\t0\t0\t868\t1673\t264\t59\t-1\t\n4\t1\t13\t1\t1\t0\t868\t1673\t71\t26\t-1\t\n5\t1\t13\t1\t1\t1\t868\t1673\t71\t26\t30.463722\tCHRIS\n4\t1\t13\t1\t2\t0\t1005\t1702\t127\t30\t-1\t\n5\t1\t13\t1\t2\t1\t1005\t1702\t127\t30\t75.870445\tAMMING\n2\t1\t14\t0\t0\t0\t684\t1681\t314\t66\t-1\t\n3\t1\t14\t1\t0\t0\t684\t1681\t314\t66\t-1\t\n4\t1\t14\t1\t1\t0\t684\t1681\t180\t40\t-1\t\n5\t1\t14\t1\t1\t1\t684\t1698\t54\t23\t94.901283\tALS\n5\t1\t14\t1\t1\t2\t748\t1688\t58\t26\t42.119541\tPOR\n5\t1\t14\t1\t1\t3\t817\t1681\t47\t24\t80.001175\tINF\n4\t1\t14\t1\t2\t0\t894\t1716\t104\t31\t-1\t\n5\t1\t14\t1\t2\t1\t894\t1716\t104\t31\t41.550629\tpROGK\n2\t1\t15\t0\t0\t0\t682\t1725\t204\t47\t-1\t\n3\t1\t15\t1\t0\t0\t682\t1725\t204\t47\t-1\t\n4\t1\t15\t1\t1\t0\t682\t1725\t204\t47\t-1\t\n5\t1\t15\t1\t1\t1\t682\t1752\t40\t20\t81.108490\tpe\n5\t1\t15\t1\t1\t2\t735\t1733\t118\t32\t60.408928\tCOMPUTE\n5\t1\t15\t1\t1\t3\t861\t1725\t25\t35\t31.568588\tโจ้.\n2\t1\t16\t0\t0\t0\t323\t1686\t403\t244\t-1\t\n3\t1\t16\t1\t0\t0\t323\t1686\t302\t129\t-1\t\n4\t1\t16\t1\t1\t0\t323\t1686\t99\t32\t-1\t\n5\t1\t16\t1\t1\t1\t323\t1686\t99\t32\t45.082260\tเพ\n5\t1\t16\t1\t1\t2\t375\t1682\t12\t43\t31.352058\tน\n5\t1\t16\t1\t1\t3\t386\t1686\t36\t31\t40.367580\tน\n4\t1\t16\t1\t2\t0\t332\t1725\t179\t43\t-1\t\n5\t1\t16\t1\t2\t1\t332\t1742\t37\t26\t91.769913\tแบ\n5\t1\t16\t1\t2\t2\t372\t1741\t16\t22\t38.212452\tจ\n5\t1\t16\t1\t2\t3\t390\t1735\t39\t25\t26.065147\tใน\n5\t1\t16\t1\t2\t4\t432\t1732\t41\t22\t37.865417\t5\n5\t1\t16\t1\t2\t5\t484\t1725\t27\t22\t57.282715\tเฟ\n4\t1\t16\t1\t3\t0\t339\t1761\t286\t54\t-1\t\n5\t1\t16\t1\t3\t1\t339\t1785\t86\t30\t12.751236\tPOR\n5\t1\t16\t1\t3\t2\t437\t1778\t43\t25\t12.751236\tEM\n5\t1\t16\t1\t3\t3\t491\t1772\t49\t23\t49.355923\tKy\n5\t1\t16\t1\t3\t4\t550\t1769\t13\t19\t17.623734\tNIN\n5\t1\t16\t1\t3\t5\t574\t1761\t51\t24\t26.651283\tLNG\n3\t1\t16\t2\t0\t0\t468\t1819\t113\t33\t-1\t\n4\t1\t16\t2\t1\t0\t468\t1819\t113\t33\t-1\t\n5\t1\t16\t2\t1\t1\t468\t1819\t113\t33\t23.228348\tSOMMOL\n3\t1\t16\t3\t0\t0\t496\t1854\t220\t43\t-1\t\n4\t1\t16\t3\t1\t0\t496\t1854\t220\t43\t-1\t\n5\t1\t16\t3\t1\t1\t496\t1872\t58\t25\t40.284885\t“Cy\n5\t1\t16\t3\t1\t2\t565\t1862\t72\t28\t0.000000\tENG\n5\t1\t16\t3\t1\t3\t648\t1854\t48\t25\t0.000000\tsri\n5\t1\t16\t3\t1\t4\t711\t1854\t5\t18\t96.737892\t1\n3\t1\t16\t4\t0\t0\t637\t1901\t89\t29\t-1\t\n4\t1\t16\t4\t1\t0\t637\t1901\t89\t29\t-1\t\n5\t1\t16\t4\t1\t1\t637\t1904\t67\t26\t26.903679\tLish\n5\t1\t16\t4\t1\t2\t717\t1901\t9\t19\t94.420227\t2\n2\t1\t17\t0\t0\t0\t200\t1857\t125\t77\t-1\t\n3\t1\t17\t1\t0\t0\t200\t1857\t125\t77\t-1\t\n4\t1\t17\t1\t1\t0\t200\t1857\t81\t30\t-1\t\n5\t1\t17\t1\t1\t1\t200\t1857\t81\t30\t33.446945\tเก\n4\t1\t17\t1\t2\t0\t207\t1900\t118\t34\t-1\t\n5\t1\t17\t1\t2\t1\t207\t1900\t118\t34\t6.354736\t44001\n2\t1\t18\t0\t0\t0\t215\t1914\t419\t68\t-1\t\n3\t1\t18\t1\t0\t0\t215\t1914\t419\t68\t-1\t\n4\t1\t18\t1\t1\t0\t215\t1914\t419\t68\t-1\t\n5\t1\t18\t1\t1\t1\t215\t1959\t30\t23\t21.264893\tฉ่\n5\t1\t18\t1\t1\t2\t246\t1948\t90\t30\t31.143951\t844006\n5\t1\t18\t1\t1\t3\t364\t1938\t49\t25\t57.112366\tpoe\n5\t1\t18\t1\t1\t4\t504\t1921\t58\t24\t34.758492\tON\n5\t1\t18\t1\t1\t5\t574\t1914\t60\t24\t87.693604\tENG\n2\t1\t19\t0\t0\t0\t418\t1926\t474\t63\t-1\t\n3\t1\t19\t1\t0\t0\t418\t1926\t474\t63\t-1\t\n4\t1\t19\t1\t1\t0\t418\t1926\t85\t30\t-1\t\n5\t1\t19\t1\t1\t1\t418\t1933\t48\t23\t58.180801\tเพ\n5\t1\t19\t1\t1\t2\t474\t1931\t5\t14\t79.404144\tท\n5\t1\t19\t1\t1\t3\t480\t1926\t23\t23\t25.261124\tว\n4\t1\t19\t1\t2\t0\t541\t1930\t351\t59\t-1\t\n5\t1\t19\t1\t2\t1\t541\t1966\t47\t23\t59.680901\tps\n5\t1\t19\t1\t2\t2\t601\t1982\t3\t1\t61.709862\t:\n5\t1\t19\t1\t2\t3\t619\t1956\t50\t25\t82.241997\t4.00\n5\t1\t19\t1\t2\t4\t750\t1940\t58\t25\t74.752289\tGPA:\n5\t1\t19\t1\t2\t5\t841\t1930\t51\t25\t76.576698\t4.00\n2\t1\t20\t0\t0\t0\t531\t1972\t20\t20\t-1\t\n3\t1\t20\t1\t0\t0\t531\t1972\t20\t20\t-1\t\n4\t1\t20\t1\t1\t0\t531\t1972\t20\t20\t-1\t\n5\t1\t20\t1\t1\t1\t531\t1972\t20\t20\t89.470734\t๐\n2\t1\t21\t0\t0\t0\t265\t2072\t685\t304\t-1\t\n3\t1\t21\t1\t0\t0\t265\t2070\t685\t306\t-1\t\n4\t1\t21\t1\t1\t0\t388\t2072\t182\t37\t-1\t\n5\t1\t21\t1\t1\t1\t388\t2078\t111\t31\t86.206024\tCALCUL\n5\t1\t21\t1\t1\t2\t507\t2072\t40\t23\t16.287041\tAss\n5\t1\t21\t1\t1\t3\t559\t2070\t11\t19\t16.287041\t2\n4\t1\t21\t1\t2\t0\t395\t2116\t189\t40\t-1\t\n5\t1\t21\t1\t2\t1\t395\t2123\t121\t33\t37.131180\tcomput\n5\t1\t21\t1\t2\t2\t522\t2116\t62\t26\t27.051003\tERP\n4\t1\t21\t1\t3\t0\t405\t2160\t227\t44\t-1\t\n5\t1\t21\t1\t3\t1\t405\t2177\t67\t27\t93.454544\t{NTR\n5\t1\t21\t1\t3\t2\t476\t2165\t98\t30\t37.070099\tonuct\n5\t1\t21\t1\t3\t3\t579\t2161\t33\t22\t52.798649\tไก\n5\t1\t21\t1\t3\t4\t614\t2160\t18\t18\t87.592384\tม\n4\t1\t21\t1\t4\t0\t265\t2201\t422\t72\t-1\t\n5\t1\t21\t1\t4\t1\t265\t2232\t30\t41\t47.357712\tเฉ\n5\t1\t21\t1\t4\t2\t296\t2244\t15\t20\t60.717922\tด\n5\t1\t21\t1\t4\t3\t314\t2240\t14\t22\t23.131439\tต\n5\t1\t21\t1\t4\t4\t327\t2232\t16\t41\t84.200180\tธ\n5\t1\t21\t1\t4\t5\t343\t2232\t39\t41\t84.441559\t001\n5\t1\t21\t1\t4\t6\t413\t2209\t196\t42\t91.271317\tpROBABILITY\n5\t1\t21\t1\t4\t7\t625\t2201\t62\t32\t95.460663\tAND\n4\t1\t21\t1\t5\t0\t275\t2250\t393\t64\t-1\t\n5\t1\t21\t1\t5\t1\t275\t2288\t58\t26\t0.000000\tgoa\n5\t1\t21\t1\t5\t2\t337\t2287\t8\t19\t0.000000\t1\n5\t1\t21\t1\t5\t3\t351\t2281\t40\t23\t10.051575\t007\n5\t1\t21\t1\t5\t4\t421\t2276\t19\t21\t71.942818\tก\n5\t1\t21\t1\t5\t5\t442\t2274\t9\t21\t65.625481\t1\n5\t1\t21\t1\t5\t6\t455\t2273\t16\t20\t81.393990\t๐\n5\t1\t21\t1\t5\t7\t475\t2270\t12\t21\t87.021179\t1\n5\t1\t21\t1\t5\t8\t486\t2262\t21\t41\t60.796200\tร\n5\t1\t21\t1\t5\t9\t506\t2266\t27\t22\t31.214119\t4\n5\t1\t21\t1\t5\t10\t550\t2250\t118\t32\t41.193485\tCInzEN\n4\t1\t21\t1\t6\t0\t278\t2281\t569\t88\t-1\t\n5\t1\t21\t1\t6\t1\t278\t2327\t14\t42\t83.009735\tฉ\n5\t1\t21\t1\t6\t2\t291\t2327\t14\t42\t67.434128\tู\n5\t1\t21\t1\t6\t3\t304\t2327\t16\t42\t64.818031\tตู\n5\t1\t21\t1\t6\t4\t320\t2327\t11\t42\t43.612228\t๒\n5\t1\t21\t1\t6\t5\t331\t2331\t71\t27\t89.846001\t42033\n5\t1\t21\t1\t6\t6\t429\t2321\t64\t26\t93.886482\tLAW\n5\t1\t21\t1\t6\t7\t506\t2314\t57\t24\t71.316986\tFO\n5\t1\t21\t1\t6\t8\t572\t2305\t66\t24\t81.842285\tNEW\n5\t1\t21\t1\t6\t9\t650\t2281\t197\t41\t96.347610\tGENERATION\n4\t1\t21\t1\t7\t0\t595\t2317\t355\t59\t-1\t\n5\t1\t21\t1\t7\t1\t595\t2346\t97\t30\t50.951424\t55:3\n5\t1\t21\t1\t7\t2\t701\t2341\t30\t23\t92.481506\t50\n5\t1\t21\t1\t7\t3\t811\t2327\t57\t24\t87.737320\tGPA\n5\t1\t21\t1\t7\t4\t898\t2317\t52\t25\t94.003944\t3.72\n2\t1\t22\t0\t0\t0\t241\t2095\t136\t126\t-1\t\n3\t1\t22\t1\t0\t0\t241\t2095\t136\t126\t-1\t\n4\t1\t22\t1\t1\t0\t241\t2095\t117\t32\t-1\t\n5\t1\t22\t1\t1\t1\t241\t2105\t29\t22\t24.520157\tเฉ\n5\t1\t22\t1\t1\t2\t272\t2095\t86\t32\t48.307995\t095701\n4\t1\t22\t1\t2\t0\t249\t2142\t121\t32\t-1\t\n5\t1\t22\t1\t2\t1\t249\t2151\t30\t23\t88.180649\tเห\n5\t1\t22\t1\t2\t2\t287\t2138\t83\t42\t30.752312\t256203\n4\t1\t22\t1\t3\t0\t256\t2188\t121\t33\t-1\t\n5\t1\t22\t1\t3\t1\t256\t2196\t45\t25\t31.809227\tดู\n5\t1\t22\t1\t3\t2\t304\t2188\t73\t28\t35.141754\t25705\n2\t1\t23\t0\t0\t0\t588\t2092\t287\t125\t-1\t\n3\t1\t23\t1\t0\t0\t588\t2092\t287\t125\t-1\t\n4\t1\t23\t1\t1\t0\t588\t2092\t215\t42\t-1\t\n5\t1\t23\t1\t1\t1\t588\t2109\t61\t25\t93.547379\tROG\n5\t1\t23\t1\t1\t2\t654\t2092\t149\t34\t87.760849\tRAMMING\n4\t1\t23\t1\t2\t0\t642\t2132\t233\t43\t-1\t\n5\t1\t23\t1\t2\t1\t642\t2148\t76\t27\t88.441422\tTOM\n5\t1\t23\t1\t2\t2\t724\t2132\t151\t33\t91.227806\tARKETING\n4\t1\t23\t1\t3\t0\t696\t2179\t171\t38\t-1\t\n5\t1\t23\t1\t3\t1\t696\t2191\t72\t26\t93.783119\tSTAT\n5\t1\t23\t1\t3\t2\t773\t2179\t94\t29\t59.271851\tistics\n2\t1\t24\t0\t0\t0\t565\t2404\t465\t100\t-1\t\n3\t1\t24\t1\t0\t0\t565\t2404\t465\t100\t-1\t\n4\t1\t24\t1\t1\t0\t565\t2404\t465\t79\t-1\t\n5\t1\t24\t1\t1\t1\t565\t2453\t16\t20\t78.703842\tไจ\n5\t1\t24\t1\t1\t2\t580\t2449\t3\t34\t56.842461\t้\n5\t1\t24\t1\t1\t3\t582\t2449\t7\t34\t88.556030\t.\n5\t1\t24\t1\t1\t4\t592\t2439\t121\t30\t0.000000\tAyn\n5\t1\t24\t1\t1\t5\t727\t2428\t85\t27\t93.654800\tAND?\n5\t1\t24\t1\t1\t6\t817\t2420\t59\t25\t89.633583\tROG\n5\t1\t24\t1\t1\t7\t881\t2404\t149\t34\t96.353821\tRAMMING\n4\t1\t24\t1\t2\t0\t702\t2473\t132\t31\t-1\t\n5\t1\t24\t1\t2\t1\t702\t2473\t132\t31\t88.565399\tEMATICS\n2\t1\t25\t0\t0\t0\t765\t2513\t155\t35\t-1\t\n3\t1\t25\t1\t0\t0\t765\t2513\t155\t35\t-1\t\n4\t1\t25\t1\t1\t0\t765\t2513\t155\t35\t-1\t\n5\t1\t25\t1\t1\t1\t765\t2528\t11\t20\t63.533295\t(\n5\t1\t25\t1\t1\t2\t786\t2513\t134\t31\t80.914337\tQNCEFTS\n2\t1\t26\t0\t0\t0\t307\t2455\t757\t523\t-1\t\n3\t1\t26\t1\t0\t0\t307\t2455\t757\t523\t-1\t\n4\t1\t26\t1\t1\t0\t307\t2455\t257\t45\t-1\t\n5\t1\t26\t1\t1\t1\t307\t2469\t120\t31\t43.188240\t075706\n5\t1\t26\t1\t1\t2\t453\t2460\t55\t25\t11.907692\tเจ\n5\t1\t26\t1\t1\t3\t546\t2455\t18\t20\t0.000000\tA\n4\t1\t26\t1\t2\t0\t316\t2486\t384\t64\t-1\t\n5\t1\t26\t1\t2\t1\t316\t2511\t33\t39\t48.449638\tถู\n5\t1\t26\t1\t2\t2\t348\t2522\t20\t22\t0.000000\tต\n5\t1\t26\t1\t2\t3\t375\t2515\t59\t26\t34.193771\t000\n5\t1\t26\t1\t2\t4\t461\t2506\t60\t24\t45.981239\tระ\n5\t1\t26\t1\t2\t5\t529\t2499\t51\t25\t75.908035\tเช\n5\t1\t26\t1\t2\t6\t585\t2497\t19\t21\t44.925865\tเว\n5\t1\t26\t1\t2\t7\t613\t2493\t47\t20\t50.688240\tไจ\n5\t1\t26\t1\t2\t8\t665\t2489\t13\t19\t55.078350\tน\n5\t1\t26\t1\t2\t9\t682\t2486\t18\t21\t39.983559\tว\n4\t1\t26\t1\t3\t0\t324\t2531\t430\t68\t-1\t\n5\t1\t26\t1\t3\t1\t324\t2573\t30\t21\t49.140011\tส\n5\t1\t26\t1\t3\t2\t356\t2572\t14\t20\t78.138718\tต\n5\t1\t26\t1\t3\t3\t371\t2569\t15\t22\t47.087791\tต\n5\t1\t26\t1\t3\t4\t385\t2560\t23\t39\t62.000984\tธร\n5\t1\t26\t1\t3\t5\t407\t2566\t13\t22\t73.756027\tด\n5\t1\t26\t1\t3\t6\t421\t2564\t22\t20\t55.441402\tไน\n5\t1\t26\t1\t3\t7\t469\t2551\t101\t29\t19.064636\tDATAB\n5\t1\t26\t1\t3\t8\t575\t2544\t52\t23\t78.087029\tASE\n5\t1\t26\t1\t3\t9\t637\t2539\t34\t23\t78.087029\tSY\n5\t1\t26\t1\t3\t10\t676\t2531\t78\t27\t96.174805\tSTEM\n4\t1\t26\t1\t4\t0\t332\t2550\t688\t95\t-1\t\n5\t1\t26\t1\t4\t1\t332\t2619\t30\t21\t40.782543\tส\n5\t1\t26\t1\t4\t2\t363\t2617\t15\t20\t77.031960\t0\n5\t1\t26\t1\t4\t3\t378\t2605\t29\t40\t25.438057\tแอ\n5\t1\t26\t1\t4\t4\t413\t2609\t38\t24\t22.066284\t02\n5\t1\t26\t1\t4\t5\t478\t2583\t182\t46\t49.303459\tFUNDAMEN\n5\t1\t26\t1\t4\t6\t669\t2583\t35\t22\t95.289406\tAL\n5\t1\t26\t1\t4\t7\t713\t2576\t67\t23\t77.664627\tWES\n5\t1\t26\t1\t4\t8\t790\t2550\t230\t42\t67.649475\tPROGRAMMING\n4\t1\t26\t1\t5\t0\t336\t2595\t687\t95\t-1\t\n5\t1\t26\t1\t5\t1\t336\t2652\t122\t38\t16.479431\tqannasos\n5\t1\t26\t1\t5\t2\t485\t2627\t207\t47\t50.697025\t{INFORMATION\n5\t1\t26\t1\t5\t3\t702\t2617\t118\t31\t49.950127\tsySTEM\n5\t1\t26\t1\t5\t4\t832\t2612\t39\t22\t80.954910\tAM\n5\t1\t26\t1\t5\t5\t877\t2605\t55\t23\t16.745796\tALY\n5\t1\t26\t1\t5\t6\t937\t2599\t42\t23\t16.745796\tSIS\n5\t1\t26\t1\t5\t7\t992\t2595\t31\t20\t67.664009\tAM\n4\t1\t26\t1\t6\t0\t349\t2662\t486\t68\t-1\t\n5\t1\t26\t1\t6\t1\t349\t2711\t6\t13\t70.652054\tฉ\n5\t1\t26\t1\t6\t2\t360\t2708\t8\t22\t85.672325\tู\n5\t1\t26\t1\t6\t3\t372\t2699\t92\t29\t47.948387\t0644017\n5\t1\t26\t1\t6\t4\t494\t2684\t125\t31\t96.085533\tENGLISH\n5\t1\t26\t1\t6\t5\t628\t2677\t56\t24\t90.811508\tFOR\n5\t1\t26\t1\t6\t6\t695\t2662\t140\t32\t93.782692\tBUSINESS\n4\t1\t26\t1\t7\t0\t656\t2689\t349\t56\t-1\t\n5\t1\t26\t1\t7\t1\t656\t2720\t71\t25\t63.173618\tGPS:\n5\t1\t26\t1\t7\t2\t739\t2712\t50\t24\t77.337357\t3,33\n5\t1\t26\t1\t7\t3\t868\t2698\t56\t24\t90.852417\tGPA\n5\t1\t26\t1\t7\t4\t954\t2689\t51\t24\t88.008972\t3.57\n4\t1\t26\t1\t8\t0\t609\t2725\t455\t77\t-1\t\n5\t1\t26\t1\t8\t1\t609\t2770\t51\t28\t64.272263\tgud\n5\t1\t26\t1\t8\t2\t678\t2758\t125\t44\t58.668221\tSemester\n5\t1\t26\t1\t8\t3\t823\t2725\t82\t55\t84.785782\tYear,\n5\t1\t26\t1\t8\t4\t919\t2729\t145\t39\t90.371567\t2025-2026\n4\t1\t26\t1\t9\t0\t374\t2782\t663\t84\t-1\t\n5\t1\t26\t1\t9\t1\t374\t2845\t20\t21\t67.305588\tเห\n5\t1\t26\t1\t9\t2\t404\t2843\t14\t20\t72.216011\tน\n5\t1\t26\t1\t9\t3\t420\t2837\t71\t25\t2.388008\tร\n5\t1\t26\t1\t9\t4\t518\t2813\t221\t40\t19.060982\t(NTROBYCTION\n5\t1\t26\t1\t9\t5\t753\t2807\t34\t22\t69.958969\tTO\n5\t1\t26\t1\t9\t6\t797\t2789\t165\t36\t41.303970\tMETIS\n5\t1\t26\t1\t9\t7\t976\t2784\t39\t22\t90.031250\tแน\n5\t1\t26\t1\t9\t8\t1018\t2782\t19\t21\t74.488403\t0\n4\t1\t26\t1\t10\t0\t524\t2856\t240\t40\t-1\t\n5\t1\t26\t1\t10\t1\t524\t2863\t162\t33\t29.387344\tCXBERSECK\n5\t1\t26\t1\t10\t2\t693\t2860\t23\t20\t32.221649\t(พ\n5\t1\t26\t1\t10\t3\t719\t2858\t9\t19\t61.936584\tธ\n5\t1\t26\t1\t10\t4\t730\t2857\t15\t19\t42.190094\t1\n5\t1\t26\t1\t10\t5\t748\t2856\t16\t18\t47.161945\tห์\n4\t1\t26\t1\t11\t0\t436\t2897\t360\t52\t-1\t\n5\t1\t26\t1\t11\t1\t436\t2930\t12\t19\t51.732803\tว\n5\t1\t26\t1\t11\t2\t453\t2928\t10\t20\t40.621357\tค\n5\t1\t26\t1\t11\t3\t464\t2925\t40\t21\t37.048038\t207\n5\t1\t26\t1\t11\t4\t533\t2915\t91\t27\t58.088074\tMOSQL\n5\t1\t26\t1\t11\t5\t639\t2897\t157\t33\t61.700535\tDATABASE\n4\t1\t26\t1\t12\t0\t620\t2923\t369\t55\t-1\t\n5\t1\t26\t1\t12\t1\t620\t2950\t99\t28\t19.783081\tผม\n5\t1\t26\t1\t12\t2\t653\t2936\t9\t46\t77.090752\tน\n5\t1\t26\t1\t12\t3\t662\t2950\t44\t28\t52.705887\tเพ\n5\t1\t26\t1\t12\t4\t728\t2957\t3\t10\t59.764679\tร\n5\t1\t26\t1\t12\t5\t731\t2944\t50\t21\t49.179226\t4\n5\t1\t26\t1\t12\t6\t788\t2940\t33\t21\t26.185272\tSAE\n5\t1\t26\t1\t12\t7\t835\t2932\t82\t24\t22.114502\tDH\n5\t1\t26\t1\t12\t8\t925\t2923\t64\t25\t39.368919\tHole\n2\t1\t27\t0\t0\t0\t668\t2984\t195\t36\t-1\t\n3\t1\t27\t1\t0\t0\t668\t2984\t195\t36\t-1\t\n4\t1\t27\t1\t1\t0\t668\t2984\t195\t36\t-1\t\n5\t1\t27\t1\t1\t1\t668\t3000\t35\t20\t0.000000\tBU\n5\t1\t27\t1\t1\t2\t708\t2992\t84\t24\t0.000000\tALL),\n5\t1\t27\t1\t1\t3\t798\t2984\t65\t24\t38.447208\tTOM\n2\t1\t28\t0\t0\t0\t1024\t2577\t151\t35\t-1\t\n3\t1\t28\t1\t0\t0\t1024\t2577\t151\t35\t-1\t\n4\t1\t28\t1\t1\t0\t1024\t2577\t151\t35\t-1\t\n5\t1\t28\t1\t1\t1\t1024\t2592\t29\t20\t42.008453\t41]\n5\t1\t28\t1\t1\t2\t1063\t2586\t30\t22\t74.714706\tเว\n5\t1\t28\t1\t1\t3\t1101\t2584\t20\t20\t39.865059\tธร\n5\t1\t28\t1\t1\t4\t1123\t2580\t28\t22\t69.968018\t10\n5\t1\t28\t1\t1\t5\t1156\t2577\t19\t21\t41.883598\tฟ\n2\t1\t29\t0\t0\t0\t389\t2883\t744\t297\t-1\t\n3\t1\t29\t1\t0\t0\t389\t2883\t744\t290\t-1\t\n4\t1\t29\t1\t1\t0\t389\t2883\t550\t71\t-1\t\n5\t1\t29\t1\t1\t1\t389\t2931\t45\t23\t63.283775\tHAN\n5\t1\t29\t1\t1\t2\t804\t2889\t71\t26\t12.411484\tSyst\n5\t1\t29\t1\t1\t3\t879\t2883\t60\t24\t0.000000\tbMe\n4\t1\t29\t1\t2\t0\t398\t2917\t649\t87\t-1\t\n5\t1\t29\t1\t2\t1\t398\t2965\t29\t39\t38.636063\t(เต\n5\t1\t29\t1\t2\t2\t433\t2965\t82\t39\t33.636719\t26208\n5\t1\t29\t1\t2\t3\t541\t2964\t13\t21\t79.957817\tห\n5\t1\t29\t1\t2\t4\t557\t2961\t18\t21\t92.148232\tบ\n5\t1\t29\t1\t2\t5\t577\t2956\t10\t36\t80.602486\tพ\n5\t1\t29\t1\t2\t6\t586\t2960\t11\t20\t79.244873\tม\n5\t1\t29\t1\t2\t7\t599\t2960\t20\t18\t79.640068\tน\n5\t1\t29\t1\t2\t8\t991\t2922\t9\t19\t4.277382\ti\n4\t1\t29\t1\t3\t0\t402\t3001\t265\t49\t-1\t\n5\t1\t29\t1\t3\t1\t402\t3011\t32\t39\t63.138081\tเห\n5\t1\t29\t1\t3\t2\t436\t3015\t87\t25\t43.384842\t025909\n5\t1\t29\t1\t3\t3\t550\t3008\t52\t23\t43.545498\tWAT\n5\t1\t29\t1\t3\t4\t610\t3005\t19\t22\t65.012474\tA\n5\t1\t29\t1\t3\t5\t637\t3001\t30\t22\t65.323204\tWh\n4\t1\t29\t1\t4\t0\t414\t3038\t350\t50\t-1\t\n5\t1\t29\t1\t4\t1\t414\t3066\t16\t22\t34.843338\tต\n5\t1\t29\t1\t4\t2\t429\t3055\t16\t39\t71.672302\tล\n5\t1\t29\t1\t4\t3\t444\t3065\t14\t20\t57.364597\tถก\n5\t1\t29\t1\t4\t4\t460\t3059\t71\t29\t42.014309\t26810\n5\t1\t29\t1\t4\t5\t555\t3056\t21\t19\t4.510384\tเง\n5\t1\t29\t1\t4\t6\t579\t3050\t39\t22\t75.529564\tฑา\n5\t1\t29\t1\t4\t7\t621\t3049\t20\t20\t30.754021\tม\n5\t1\t29\t1\t4\t8\t647\t3048\t8\t18\t48.729473\tน\n5\t1\t29\t1\t4\t9\t663\t3043\t44\t23\t30.730354\tคา\n5\t1\t29\t1\t4\t10\t714\t3038\t50\t22\t22.756454\t10014\n4\t1\t29\t1\t5\t0\t422\t3051\t711\t80\t-1\t\n5\t1\t29\t1\t5\t1\t422\t3105\t73\t26\t18.526230\tOHH\n5\t1\t29\t1\t5\t2\t500\t3101\t39\t23\t12.122589\tHZ\n5\t1\t29\t1\t5\t3\t565\t3094\t65\t24\t33.115128\tpip\n5\t1\t29\t1\t5\t4\t634\t3083\t109\t30\t1.260796\tDAE\n5\t1\t29\t1\t5\t5\t784\t3076\t55\t22\t41.839676\tเว\n5\t1\t29\t1\t5\t6\t843\t3069\t75\t25\t77.758041\tต\n5\t1\t29\t1\t5\t7\t925\t3066\t7\t22\t40.395008\t1\n5\t1\t29\t1\t5\t8\t940\t3066\t16\t19\t67.056580\tห\n5\t1\t29\t1\t5\t9\t963\t3063\t27\t20\t65.156624\tเพ\n5\t1\t29\t1\t5\t10\t1038\t3054\t68\t22\t0.000000\tยง\n5\t1\t29\t1\t5\t11\t1107\t3051\t26\t19\t23.358238\t8\n4\t1\t29\t1\t6\t0\t430\t3096\t693\t84\t-1\t\n5\t1\t29\t1\t6\t1\t430\t3149\t71\t24\t32.818954\tUES\n5\t1\t29\t1\t6\t2\t510\t3141\t34\t39\t35.956505\tBEY\n5\t1\t29\t1\t6\t3\t573\t3136\t78\t24\t34.637947\tDAA\n5\t1\t29\t1\t6\t4\t658\t3128\t85\t25\t0.000000\tSERS\n5\t1\t29\t1\t6\t5\t749\t3120\t97\t26\t48.785572\tVANES\n5\t1\t29\t1\t6\t6\t858\t3113\t61\t23\t72.424988\tแน\n5\t1\t29\t1\t6\t7\t899\t3106\t16\t36\t51.331940\tบ\n5\t1\t29\t1\t6\t8\t928\t3110\t47\t20\t45.195789\tPS\n5\t1\t29\t1\t6\t9\t981\t3103\t47\t22\t42.005543\tเบ\n5\t1\t29\t1\t6\t10\t1030\t3099\t35\t21\t17.871445\t11\n5\t1\t29\t1\t6\t11\t1072\t3098\t7\t19\t52.406765\tห\n5\t1\t29\t1\t6\t12\t1086\t3096\t19\t21\t59.476810\tห\n5\t1\t29\t1\t6\t13\t1109\t3096\t14\t18\t70.701385\t7\n4\t1\t29\t1\t7\t0\t938\t3143\t136\t29\t-1\t\n5\t1\t29\t1\t7\t1\t938\t3150\t72\t22\t91.529732\tเส\n5\t1\t29\t1\t7\t2\t1023\t3143\t51\t23\t44.215698\tญู\n2\t1\t30\t0\t0\t0\t730\t3161\t398\t70\t-1\t\n3\t1\t30\t1\t0\t0\t730\t3161\t398\t70\t-1\t\n4\t1\t30\t1\t1\t0\t730\t3161\t131\t30\t-1\t\n5\t1\t30\t1\t1\t1\t730\t3168\t56\t23\t27.839783\t(069\n5\t1\t30\t1\t1\t2\t795\t3172\t5\t12\t23.473572\t:\n5\t1\t30\t1\t1\t3\t811\t3161\t50\t24\t80.708603\t3.64\n4\t1\t30\t1\t2\t0\t884\t3183\t244\t48\t-1\t\n5\t1\t30\t1\t2\t1\t884\t3201\t84\t30\t61.168232\tour,\n5\t1\t30\t1\t2\t2\t977\t3183\t151\t33\t74.881493\t2026-2021\n2\t1\t31\t0\t0\t0\t454\t3241\t724\t277\t-1\t\n3\t1\t31\t1\t0\t0\t454\t3241\t724\t277\t-1\t\n4\t1\t31\t1\t1\t0\t454\t3241\t560\t64\t-1\t\n5\t1\t31\t1\t1\t1\t454\t3277\t113\t28\t19.016205\tgeupezit\n5\t1\t31\t1\t1\t2\t597\t3269\t58\t24\t44.906902\tแห\n5\t1\t31\t1\t1\t3\t662\t3265\t51\t22\t55.315445\tง\n5\t1\t31\t1\t1\t4\t722\t3253\t131\t27\t0.000000\tMACMINE\n5\t1\t31\t1\t1\t5\t866\t3252\t6\t19\t53.973053\t5\n5\t1\t31\t1\t1\t6\t881\t3247\t41\t21\t51.948311\tบ\n5\t1\t31\t1\t1\t7\t922\t3241\t71\t23\t38.122757\tพนัน\n5\t1\t31\t1\t1\t8\t1009\t3249\t5\t9\t26.862610\t9\n4\t1\t31\t1\t2\t0\t462\t3292\t443\t56\t-1\t\n5\t1\t31\t1\t2\t1\t462\t3326\t29\t22\t76.711075\tเค\n5\t1\t31\t1\t2\t2\t492\t3326\t13\t18\t65.131752\tก\n5\t1\t31\t1\t2\t3\t508\t3319\t68\t25\t73.569908\t96912\n5\t1\t31\t1\t2\t4\t604\t3312\t52\t22\t37.648994\tเดา\n5\t1\t31\t1\t2\t5\t639\t3307\t13\t33\t62.615494\tพ\n5\t1\t31\t1\t2\t6\t665\t3311\t17\t18\t38.650749\tห\n5\t1\t31\t1\t2\t7\t689\t3308\t18\t19\t65.053833\tม\n5\t1\t31\t1\t2\t8\t720\t3304\t26\t21\t48.521080\tม\n5\t1\t31\t1\t2\t9\t746\t3301\t57\t22\t37.815918\tลม\n5\t1\t31\t1\t2\t10\t809\t3296\t39\t22\t91.658356\tา\n5\t1\t31\t1\t2\t11\t857\t3292\t48\t22\t30.099655\t86\n4\t1\t31\t1\t3\t0\t469\t3329\t497\t67\t-1\t\n5\t1\t31\t1\t3\t1\t469\t3370\t7\t20\t57.766830\tจ\n5\t1\t31\t1\t3\t2\t482\t3368\t22\t24\t50.385815\tค\n5\t1\t31\t1\t3\t3\t506\t3366\t21\t20\t43.032383\tล\n5\t1\t31\t1\t3\t4\t528\t3363\t42\t20\t47.088402\t0674\n5\t1\t31\t1\t3\t5\t569\t3357\t6\t39\t43.471283\tบ\n5\t1\t31\t1\t3\t6\t574\t3361\t11\t18\t79.356575\t0\n5\t1\t31\t1\t3\t7\t608\t3352\t75\t25\t47.243866\tพ\n5\t1\t31\t1\t3\t8\t689\t3344\t108\t26\t58.609768\tAMY\n5\t1\t31\t1\t3\t9\t806\t3341\t33\t21\t55.285294\tแพ\n5\t1\t31\t1\t3\t10\t843\t3340\t15\t18\t40.492638\tว\n5\t1\t31\t1\t3\t11\t857\t3329\t10\t37\t48.609909\tา\n5\t1\t31\t1\t3\t12\t866\t3333\t53\t23\t56.193573\t7777\n5\t1\t31\t1\t3\t13\t930\t3331\t18\t20\t71.568581\tว\n5\t1\t31\t1\t3\t14\t951\t3331\t15\t18\t74.216110\tะ\n4\t1\t31\t1\t4\t0\t476\t3367\t559\t63\t-1\t\n5\t1\t31\t1\t4\t1\t476\t3410\t28\t20\t76.435928\tเห\n5\t1\t31\t1\t4\t2\t507\t3407\t22\t21\t49.477062\tน\n5\t1\t31\t1\t4\t3\t535\t3403\t57\t23\t45.324791\t6242\n5\t1\t31\t1\t4\t4\t614\t3394\t101\t25\t27.858955\tKN\n5\t1\t31\t1\t4\t5\t723\t3385\t105\t25\t41.254288\tแป\n5\t1\t31\t1\t4\t6\t766\t3378\t16\t36\t45.979721\tด\n5\t1\t31\t1\t4\t7\t859\t3376\t61\t24\t26.844398\tKe\n5\t1\t31\t1\t4\t8\t930\t3373\t39\t21\t53.101082\tแพ\n5\t1\t31\t1\t4\t9\t960\t3369\t14\t35\t48.200813\tง\n5\t1\t31\t1\t4\t10\t980\t3367\t27\t23\t57.390308\t8\n5\t1\t31\t1\t4\t11\t1008\t3367\t27\t21\t53.967091\tษ์\n4\t1\t31\t1\t5\t0\t485\t3419\t479\t57\t-1\t\n5\t1\t31\t1\t5\t1\t485\t3453\t57\t23\t68.183159\tเห\n5\t1\t31\t1\t5\t2\t544\t3449\t57\t23\t26.266037\tล\n5\t1\t31\t1\t5\t3\t626\t3441\t31\t25\t83.102226\tเพ\n5\t1\t31\t1\t5\t4\t659\t3440\t27\t24\t79.744202\tย\n5\t1\t31\t1\t5\t5\t687\t3424\t64\t35\t4.974129\tธา\n5\t1\t31\t1\t5\t6\t755\t3431\t36\t24\t47.075378\tห\n5\t1\t31\t1\t5\t7\t796\t3432\t7\t19\t41.853180\tร\n5\t1\t31\t1\t5\t8\t818\t3419\t146\t29\t57.555077\tPLS\n4\t1\t31\t1\t6\t0\t490\t3446\t688\t72\t-1\t\n5\t1\t31\t1\t6\t1\t490\t3497\t26\t21\t60.760540\t“ห\n5\t1\t31\t1\t6\t2\t516\t3495\t19\t22\t52.912067\tห\n5\t1\t31\t1\t6\t3\t538\t3488\t70\t27\t28.991364\t44042\n5\t1\t31\t1\t6\t4\t630\t3481\t91\t27\t50.464859\t\"ก\n5\t1\t31\t1\t6\t5\t756\t3476\t14\t20\t32.767166\tAW\n5\t1\t31\t1\t6\t6\t780\t3473\t23\t24\t21.480377\tSIM\n5\t1\t31\t1\t6\t7\t811\t3472\t24\t19\t11.061256\tPAA\n5\t1\t31\t1\t6\t8\t852\t3465\t51\t24\t61.585026\t(ห\n5\t1\t31\t1\t6\t9\t920\t3463\t15\t20\t81.251297\tห\n5\t1\t31\t1\t6\t10\t935\t3458\t51\t25\t30.018486\tแพ\n5\t1\t31\t1\t6\t11\t987\t3457\t18\t21\t63.942715\tน\n5\t1\t31\t1\t6\t12\t1012\t3450\t94\t27\t43.573601\tDNS\n5\t1\t31\t1\t6\t13\t1116\t3446\t39\t26\t68.722534\tห\n5\t1\t31\t1\t6\t14\t1160\t3446\t18\t19\t44.872089\t19\n2\t1\t32\t0\t0\t0\t627\t3512\t486\t75\t-1\t\n3\t1\t32\t1\t0\t0\t627\t3512\t486\t75\t-1\t\n4\t1\t32\t1\t1\t0\t627\t3512\t226\t41\t-1\t\n5\t1\t32\t1\t1\t1\t627\t3536\t1\t3\t83.498917\t|\n5\t1\t32\t1\t1\t2\t640\t3528\t14\t21\t88.249405\tห\n5\t1\t32\t1\t1\t3\t657\t3521\t52\t28\t38.651890\tแร\n5\t1\t32\t1\t1\t4\t710\t3520\t37\t33\t47.250885\tแบ\n5\t1\t32\t1\t1\t5\t750\t3520\t9\t20\t12.795067\tท\n5\t1\t32\t1\t1\t6\t774\t3515\t45\t25\t40.789532\tMN\n5\t1\t32\t1\t1\t7\t825\t3516\t8\t16\t40.240936\tท\n5\t1\t32\t1\t1\t8\t836\t3512\t17\t20\t35.927383\tพ่\n4\t1\t32\t1\t2\t0\t818\t3535\t295\t52\t-1\t\n5\t1\t32\t1\t2\t1\t818\t3549\t55\t38\t45.445007\tเซ\n5\t1\t32\t1\t2\t2\t882\t3558\t18\t13\t52.063126\tMH\n5\t1\t32\t1\t2\t3\t980\t3539\t57\t26\t33.504089\tAUP\n5\t1\t32\t1\t2\t4\t1049\t3544\t3\t15\t6.536606\ti)\n5\t1\t32\t1\t2\t5\t1062\t3535\t51\t22\t0.000000\tB.89\n2\t1\t33\t0\t0\t0\t969\t3315\t219\t71\t-1\t\n3\t1\t33\t1\t0\t0\t969\t3315\t219\t71\t-1\t\n4\t1\t33\t1\t1\t0\t969\t3315\t172\t34\t-1\t\n5\t1\t33\t1\t1\t1\t969\t3319\t128\t30\t33.717171\tAN\n5\t1\t33\t1\t1\t2\t1110\t3317\t19\t20\t95.758751\tพ\n5\t1\t33\t1\t1\t3\t1135\t3315\t6\t20\t33.650520\tๆ\n4\t1\t33\t1\t2\t0\t1036\t3354\t152\t32\t-1\t\n5\t1\t33\t1\t2\t1\t1036\t3359\t105\t27\t44.884140\tPRUNE\n5\t1\t33\t1\t2\t2\t1147\t3354\t41\t23\t23.471344\tNR\n2\t1\t34\t0\t0\t0\t611\t3624\t487\t123\t-1\t\n3\t1\t34\t1\t0\t0\t611\t3624\t487\t123\t-1\t\n4\t1\t34\t1\t1\t0\t611\t3624\t487\t76\t-1\t\n5\t1\t34\t1\t1\t1\t611\t3677\t13\t6\t48.732346\tHy\n5\t1\t34\t1\t1\t2\t642\t3646\t31\t50\t46.152122\tMi\n5\t1\t34\t1\t1\t3\t698\t3640\t30\t60\t46.287342\tcco\n5\t1\t34\t1\t1\t4\t746\t3645\t14\t38\t36.280285\tด\n5\t1\t34\t1\t1\t5\t761\t3640\t31\t60\t23.878410\tทท\n5\t1\t34\t1\t1\t6\t792\t3644\t47\t36\t27.912987\tทะ\n5\t1\t34\t1\t1\t7\t848\t3630\t102\t37\t0.000000\tRAM\n5\t1\t34\t1\t1\t8\t958\t3624\t140\t34\t49.919861\tเน\n5\t1\t34\t1\t1\t9\t1083\t3618\t17\t44\t74.362122\tน\n4\t1\t34\t1\t2\t0\t733\t3671\t296\t44\t-1\t\n5\t1\t34\t1\t2\t1\t733\t3693\t46\t22\t46.558502\tแน\n5\t1\t34\t1\t2\t2\t805\t3685\t36\t22\t88.569878\tแน\n5\t1\t34\t1\t2\t3\t842\t3677\t120\t37\t13.327576\tผด“\n5\t1\t34\t1\t2\t4\t980\t3671\t49\t24\t56.883472\tฟิ\n4\t1\t34\t1\t3\t0\t853\t3708\t210\t39\t-1\t\n5\t1\t34\t1\t3\t1\t853\t3718\t122\t29\t31.561546\tเน\n5\t1\t34\t1\t3\t2\t982\t3708\t81\t36\t24.960373\tเซ.\n2\t1\t35\t0\t0\t0\t902\t3832\t252\t57\t-1\t\n3\t1\t35\t1\t0\t0\t902\t3832\t276\t57\t-1\t\n4\t1\t35\t1\t1\t0\t902\t3832\t252\t52\t-1\t\n5\t1\t35\t1\t1\t1\t902\t3872\t16\t12\t57.910202\t|\n5\t1\t35\t1\t1\t2\t985\t3842\t14\t34\t53.643753\tHi)\n5\t1\t35\t1\t1\t3\t1052\t3853\t8\t5\t49.331264\tพ\n5\t1\t35\t1\t1\t4\t1070\t3832\t84\t27\t50.186543\tจ\n4\t1\t35\t1\t2\t0\t924\t3864\t168\t25\t-1\t\n5\t1\t35\t1\t2\t1\t924\t3886\t2\t2\t28.079170\tว\n5\t1\t35\t1\t2\t2\t942\t3868\t70\t21\t3.769798\t1111/\n5\t1\t35\t1\t2\t3\t1007\t3864\t10\t29\t35.810760\t|\n5\t1\t35\t1\t2\t4\t1012\t3868\t22\t9\t49.924568\tผ่\n5\t1\t35\t1\t2\t5\t1036\t3864\t56\t13\t37.684113\tยศ\n2\t1\t36\t0\t0\t0\t1179\t3804\t362\t84\t-1\t\n3\t1\t36\t1\t0\t0\t1179\t3804\t362\t84\t-1\t\n4\t1\t36\t1\t1\t0\t1184\t3804\t287\t44\t-1\t\n5\t1\t36\t1\t1\t1\t1184\t3844\t29\t4\t66.404984\tม\n5\t1\t36\t1\t1\t2\t1221\t3825\t23\t20\t46.108200\tม\n5\t1\t36\t1\t1\t3\t1243\t3820\t18\t35\t66.145767\tม\n5\t1\t36\t1\t1\t4\t1264\t3821\t49\t21\t45.804485\tแม\n5\t1\t36\t1\t1\t5\t1320\t3824\t9\t14\t38.687000\tม\n5\t1\t36\t1\t1\t6\t1333\t3824\t11\t13\t96.620132\tม\n5\t1\t36\t1\t1\t7\t1347\t3821\t13\t14\t93.851547\tม\n5\t1\t36\t1\t1\t8\t1361\t3821\t10\t13\t64.693321\tม\n5\t1\t36\t1\t1\t9\t1376\t3820\t11\t14\t74.622032\tม\n5\t1\t36\t1\t1\t10\t1391\t3820\t11\t12\t60.133423\tม\n5\t1\t36\t1\t1\t11\t1407\t3818\t10\t14\t29.266228\tม\n5\t1\t36\t1\t1\t12\t1422\t3816\t10\t15\t46.415344\tน\n5\t1\t36\t1\t1\t13\t1435\t3804\t12\t42\t35.412964\t%\n5\t1\t36\t1\t1\t14\t1446\t3813\t14\t17\t51.247948\tม\n5\t1\t36\t1\t1\t15\t1462\t3808\t9\t21\t26.504524\t1\n4\t1\t36\t1\t2\t0\t1179\t3826\t252\t52\t-1\t\n5\t1\t36\t1\t2\t1\t1179\t3852\t87\t22\t34.537903\tPe\n5\t1\t36\t1\t2\t2\t1356\t3826\t75\t52\t43.826336\tTTT\n4\t1\t36\t1\t3\t0\t1368\t3861\t173\t27\t-1\t\n5\t1\t36\t1\t3\t1\t1368\t3865\t57\t23\t27.888199\taks\n5\t1\t36\t1\t3\t2\t1430\t3861\t111\t27\t42.486797\tแผ่\n5\t1\t36\t1\t3\t3\t1480\t3857\t25\t38\t56.561043\tเน\n5\t1\t36\t1\t3\t4\t1504\t3857\t12\t38\t83.463943\tต\n5\t1\t36\t1\t3\t5\t1516\t3857\t15\t38\t87.068642\tะ\n5\t1\t36\t1\t3\t6\t1530\t3857\t15\t38\t45.748024\tค\n2\t1\t37\t0\t0\t0\t0\t0\t3072\t4096\t-1\t\n3\t1\t37\t1\t0\t0\t0\t0\t3072\t4096\t-1\t\n4\t1\t37\t1\t1\t0\t0\t0\t3072\t4096\t-1\t\n5\t1\t37\t1\t1\t1\t0\t0\t3072\t4096\t95.000000\t \n"
+        },
+        {
+          "command": [
+            "tesseract",
+            "full.png",
+            "stdout",
+            "-l",
+            "tha+eng",
+            "--psm",
+            "4"
+          ],
+          "text": "ะ๕10 |\n\n( Unofficial Transcript )\n\nPhoto\n\nE7070) 24\n2024\nไน\n\nStudent {D\nพลล  พ เฉ แล 0แห่ห1!                          7 ญ่ AN\n|          , 4 7005\ntate | pith  asst แเย                                                       “4     gal\nDate of Graduation  |\n(พ  หลพห ๐[แห๐                                                y\n\nคศา\n\nTITLE\n\nค669ยศ\"ๆ\n\nแบนน 1\n\nจ แบบะเหน“\n\nเงเพนพบ wt\nAN\n\nเค96   CM,\n\nเบ2\nOSIM)\nเถพ\nga Ct ARM\nPOUND Ni\n\nATION\n\nCHRIS\nAMMING\n\nALS POR INF\npROGK\n\npe COMPUTE โจ้.\n\nเพนน\nแบจใน5 เฟ\nPOR EM Ky NIN LNG\n\nSOMMOL\n\n“Cy ENG sri 1\n\nLish 2\n\nเก\n44001\n\nฉ่844006    poe             ON ENG\n\nเพทว\nps : 4.00      GPA: 4.00\n\n๐\n\nCALCUL Ass 2\ncomput ERP\n{NTR onuct ไกม\nเฉดตธ001  pROBABILITY AND\ngoa 1 007  ก1๐1ร4 CInzEN\nฉูตู๒42033  LAW FO NEW GENERATION\n55:3 50       GPA   3.72\n\nเฉ095701\nเห256203\nดู25705\n\nROG RAMMING\nTOM ARKETING\nSTAT istics\n\nไจ้. Ayn  AND? ROG RAMMING\nEMATICS\n\n( QNCEFTS\n\n075706  เจ A\nถูต000     ระเช เวไจนว\nสตตธรดไน    DATAB ASE SY STEM\nส0แอ02   FUNDAMEN AL WES PROGRAMMING\nqannasos  {INFORMATION sySTEM AM ALY SIS AM\nฉู0644017   ENGLISH FOR BUSINESS\nGPS: 3,33      GPA  3.57\ngud Semester Year, 2025-2026\nเหนร  (NTROBYCTION TO METIS แน0\nCXBERSECK (พธ1ห์\nวค207 MOSQL DATABASE\nผมนเพร4 SAE DH Hole\n\nBU ALL), TOM\n\n41] เวธร10ฟ\n\nHAN                                                                                  Syst bMe\n(เต26208     หบพมน                                                                    i\nเห025909     WAT A Wh\nตลถก26810   เงฑามนคา 10014\nOHH HZ     pip DAE   เวต1ห เพ ยง8\nUES BEY   DAA SERS VANES แนบ PS เบ11หห7\nเสญู\n\n(069 : 3.64\nour, 2026-2021\n\ngeupezit   แหง MACMINE 5 บพนัน9\nเคก96912   เดา พห มมลม า86\nจคล0674บ0  พ AMY แพวา7777 วะ\nเหน6242  KN แปด Ke แพง 8ษ์\nเหล  เพยธาหร PLS\n“หห44042  \"ก   AW SIM PAA  (หหแพน DNS ห19\n\n| หแรแบท MN ทพ่\nเซ MH       AUP i) B.89\n\nAN พๆ\nPRUNE NR\n\nHy Mi cco ดทททะ RAM เนน\nแน แนผด“ ฟิ\nเน เซ.\n\n|       Hi)      พจ\nว1111/ |  ผ่ยศ\n\nมมม แมมมมมมมมน%ม1\nPe TTT\naks แผ่เนตะค\n\n"
+        }
+      ]
+    }
+  ],
+  "images": 4,
+  "correct": 2,
+  "total": 600,
+  "accuracy": 0.0033333333333333335,
+  "matrix": {
+    "header": {
+      "correct": 0,
+      "total": 24,
+      "hallucinated": 0,
+      "accuracy": 0.0
+    },
+    "footer": {
+      "correct": 0,
+      "total": 4,
+      "hallucinated": 0,
+      "accuracy": 0.0
+    },
+    "summary": {
+      "correct": 0,
+      "total": 8,
+      "hallucinated": 0,
+      "accuracy": 0.0
+    },
+    "semester": {
+      "correct": 2,
+      "total": 76,
+      "hallucinated": 0,
+      "accuracy": 0.02631578947368421
+    },
+    "course": {
+      "correct": 0,
+      "total": 488,
+      "hallucinated": 0,
+      "accuracy": 0.0
+    }
+  },
+  "rows": {
+    "tp": 0,
+    "fn": 128,
+    "fp": 1
+  },
+  "row_precision": 0.0,
+  "row_recall": 0.0,
+  "row_f1": 0.0,
+  "mean_seconds": 29.494999999999997
+}

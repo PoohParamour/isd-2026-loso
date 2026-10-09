@@ -1,0 +1,1080 @@
+{
+  "evaluation": "same-document camera-angle evaluation; not independent document generalization",
+  "images": 2,
+  "correct": 250,
+  "total": 295,
+  "accuracy": 0.847457627118644,
+  "rows": {
+    "tp": 58,
+    "fn": 4,
+    "fp": 3
+  },
+  "row_f1": 0.943089430894309,
+  "critical": {
+    "student_id": {
+      "correct": 2,
+      "total": 2
+    },
+    "course_id": {
+      "correct": 57,
+      "total": 62
+    },
+    "grade": {
+      "correct": 27,
+      "total": 49
+    },
+    "gpa": {
+      "correct": 8,
+      "total": 11
+    },
+    "gps": {
+      "correct": 5,
+      "total": 9
+    },
+    "cumulative_gpa": {
+      "correct": 1,
+      "total": 2
+    }
+  },
+  "mean_seconds": 19.8755,
+  "model_sha256": null,
+  "details": [
+    {
+      "image": "peam_photo2.HEIC",
+      "angle": 2,
+      "correct": 123,
+      "total": 150,
+      "accuracy": 0.82,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 5,
+            "total": 6,
+            "edits": 2,
+            "chars": 87,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 0,
+            "total": 1,
+            "edits": 10,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 1,
+            "total": 2,
+            "edits": 4,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 16,
+            "total": 19,
+            "edits": 12,
+            "chars": 61,
+            "hallucinated": 1
+          },
+          "course": {
+            "correct": 101,
+            "total": 122,
+            "edits": 99,
+            "chars": 1033,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 28,
+          "fn": 4,
+          "fp": 3
+        }
+      },
+      "critical": {
+        "student_id": {
+          "correct": 1,
+          "total": 1
+        },
+        "course_id": {
+          "correct": 27,
+          "total": 32
+        },
+        "grade": {
+          "correct": 16,
+          "total": 26
+        },
+        "gpa": {
+          "correct": 4,
+          "total": 5
+        },
+        "gps": {
+          "correct": 2,
+          "total": 4
+        },
+        "cumulative_gpa": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "result": {
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": "Mr.",
+            "name": "Pakaphon Phothivom",
+            "student_id": "67070124",
+            "date_of_birth": "2005-08-04",
+            "admis_date": null,
+            "degree": "Bachelor of Science",
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Science and Business Analytics",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": 78,
+            "cumulative_gpa": null,
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 1,
+                "GPA": "4.00",
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026200",
+                    "subject_name": "CALCULUS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026202",
+                    "subject_name": "LINEAR ALGEBRA",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066101",
+                    "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066303",
+                    "subject_name": "PRORBI-EM. SOLVING AND COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "90642999",
+                    "subject_name": "CHARM SCHOOL",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644007",
+                    "subject_name": "FOUNDATION ENGLISH 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644008",
+                    "subject_name": "FOUNDATION ENGLISH 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": "3.72",
+                "GPS": "3.50",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026201",
+                    "subject_name": "CALCULUS 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026203",
+                    "subject_name": "COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "96026205",
+                    "subject_name": "INTRODUCTION TO MARKETING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "06066001",
+                    "subject_name": "PROBABILITY AND STATISTICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "90641007",
+                    "subject_name": "DIGITAL CITIZEN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026206",
+                    "subject_name": "DATA ANALYTICS AND PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066000",
+                    "subject_name": "DISCRETE MATHEMATICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066300",
+                    "subject_name": "DATABASE SYSTEM CONCEPTS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066302",
+                    "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066304",
+                    "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "90644017",
+                    "subject_name": "ENGLISH FOR BUSINESS GPS + 3.33 GPA 23.57",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": "3.59",
+                "GPS": "3.64",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "006026204",
+                    "subject_name": "INTRODUCTION TO NETWORKS AND CYBERSECURITY",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b"
+                  },
+                  {
+                    "subject_id": "06026207",
+                    "subject_name": "NOSQL DATABASE SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06026208",
+                    "subject_name": "FUNDAMENTALS OF DATA SCIENCE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026209",
+                    "subject_name": "DATA VISUALIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  },
+                  {
+                    "subject_id": "06026210",
+                    "subject_name": "OPTIMIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066301",
+                    "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "b+"
+                  }
+                ]
+              },
+              {
+                "year": 2569,
+                "sem_num": 1,
+                "GPA": "3.59",
+                "GPS": "0.00",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06626211",
+                    "subject_name": "APPLIED MACHINE LEARNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026212",
+                    "subject_name": "DATA WAREHOUSING",
+                    "type": null,
+                    "credit": null,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026240",
+                    "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026242",
+                    "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90643026",
+                    "subject_name": "INVESTMENT PLANNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644042",
+                    "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": null,
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 2,
+          "warnings": 1,
+          "course_count": 31,
+          "issues": [
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters[3].subject[0].subject_id",
+              "code": "invalid_subject_id",
+              "message": "รหัสวิชาต้องเป็นตัวเลข 8 หลัก",
+              "severity": "error"
+            },
+            {
+              "path": "transcript_detail.semesters[4].subject[1].credit",
+              "code": "invalid_credit",
+              "message": "หน่วยกิตต้องเป็นจำนวนเต็ม 0-30",
+              "severity": "error"
+            }
+          ]
+        },
+        "processing_seconds": 19.735,
+        "ocr_text": "Unofficial Transcript\nName Mr. Pakaphon Phothivom\nStudent ID 67070124\nDate of Birth August 4, 2005\nDate of Admission 2024\nDegree Bachelor of Science\nDate of Graduation N/A\nProgram Data Science and Business Analytics\nTotal number of credit earned: 78\nCumulative CPA: 3.59\nDate Issued: Somtember 20, 2026 This doc: ment is unoffk al transcript.\nCOURSE TITLE\nIst Semester, Year, 2024-2025\n06026200 CALCULUS 1 3 A\n06026202 LINEAR ALGEBRA 3 A\n06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 A\n06066303 PRORBI-EM. SOLVING AND COMPUTER PROGRAMMING 3 A\n90642999 CHARM SCHOOL 3 ?\n90644007 FOUNDATION ENGLISH 1 3 ?\n90644008 FOUNDATION ENGLISH 2 3 ?\nGPS =: 4.00 GPA : 4.00\n2nd Semester, Year, 2024-2025\n06026201 CALCULUS 2 3 A\n06026203 COMPUTER PROGRAMMING 3 B\n96026205 INTRODUCTION TO MARKETING 3 B\n06066001 PROBABILITY AND STATISTICS 3 A\n90641007 DIGITAL CITIZEN 3 ?\n90642033 LAW FOR NEW GENERATION 3 ?\nGPS : 3.50 GPA : 3.72\nIst Semester. Year, 2025-2026\n06026206 DATA ANALYTICS AND PROGRAMMING 3 A\n06066000 DISCRETE MATHEMATICS 3 ?\n06066300 DATABASE SYSTEM CONCEPTS 3 ?\n06066302 FUNDAMENTAL WEB PROGRAMMING 3 ?\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 B\n90644017 ENGLISH FOR BUSINESS 3 C+\nGPS + 3.33 GPA 23.57\n2nd Semester, Year, 2025-2026\n006026204 INTRODUCTION TO NETWORKS AND 3 B\nCYBERSECURITY\n06026207 NOSQL DATABASE SYSTEMS 3 B+\n06026208 FUNDAMENTALS OF DATA SCIENCE 3 A\n06026209 DATA VISUALIZATION 3 B+\n06026210 OPTIMIZATION 3 A\n06066102) MANAGEMENT INFORMATION SYSTEMS\n06066301 DATA STRUCTURES AND ALGORITHMS 3 B+\nGPS : 3.64 GPA : 3.59\nIst Semester. Year. 2026-2027\n06626211 APPLIED MACHINE LEARNING 3\n06026212. DATA WAREHOUSING\n06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n90643026 INVESTMENT PLANNING 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS :- GPA : 3.59\n_ UTreeescript Closed ————————————————\nhoeckhed by\na COX% Rmx xxx NAALAAAKAKAK)\nNS ind\nPate Issued: Scpiember 20, 2026 This doc:\nCOURSE TITLE\nal transcript.",
+        "body_text": "COURSE TITLE\nIst Semester, Year, 2024-2025\n06026200 CALCULUS 1 3 A\n06026202 LINEAR ALGEBRA 3 A\n06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 A\n06066303 PRORBI-EM. SOLVING AND COMPUTER PROGRAMMING 3 A\n90642999 CHARM SCHOOL 3 ?\n90644007 FOUNDATION ENGLISH 1 3 ?\n90644008 FOUNDATION ENGLISH 2 3 ?\nGPS =: 4.00 GPA : 4.00\n2nd Semester, Year, 2024-2025\n06026201 CALCULUS 2 3 A\n06026203 COMPUTER PROGRAMMING 3 B\n96026205 INTRODUCTION TO MARKETING 3 B\n06066001 PROBABILITY AND STATISTICS 3 A\n90641007 DIGITAL CITIZEN 3 ?\n90642033 LAW FOR NEW GENERATION 3 ?\nGPS : 3.50 GPA : 3.72\nIst Semester. Year, 2025-2026\n06026206 DATA ANALYTICS AND PROGRAMMING 3 A\n06066000 DISCRETE MATHEMATICS 3 ?\n06066300 DATABASE SYSTEM CONCEPTS 3 ?\n06066302 FUNDAMENTAL WEB PROGRAMMING 3 ?\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 B\n90644017 ENGLISH FOR BUSINESS 3 C+\nGPS + 3.33 GPA 23.57\n2nd Semester, Year, 2025-2026\n006026204 INTRODUCTION TO NETWORKS AND 3 B\nCYBERSECURITY\n06026207 NOSQL DATABASE SYSTEMS 3 B+\n06026208 FUNDAMENTALS OF DATA SCIENCE 3 A\n06026209 DATA VISUALIZATION 3 B+\n06026210 OPTIMIZATION 3 A\n06066102) MANAGEMENT INFORMATION SYSTEMS\n06066301 DATA STRUCTURES AND ALGORITHMS 3 B+\nGPS : 3.64 GPA : 3.59\nIst Semester. Year. 2026-2027\n06626211 APPLIED MACHINE LEARNING 3\n06026212. DATA WAREHOUSING\n06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n90643026 INVESTMENT PLANNING 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS :- GPA : 3.59\n_ UTreeescript Closed ————————————————\nhoeckhed by\na COX% Rmx xxx NAALAAAKAKAK)\nNS ind\nPate Issued: Scpiember 20, 2026 This doc:\nCOURSE TITLE\nal transcript."
+      },
+      "errors": [
+        {
+          "field": "header_detail.name",
+          "truth": "Pakaphon Phothivorn",
+          "pred": "Pakaphon Phothivom"
+        },
+        {
+          "field": "footer_detail.updated_at",
+          "truth": "2026-09-20",
+          "pred": null
+        },
+        {
+          "field": "transcript_detail.cumulative_gpa",
+          "truth": "3.59",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].GPS",
+          "truth": "4.00",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[3].subject_name",
+          "truth": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+          "pred": "PRORBI-EM. SOLVING AND COMPUTER PROGRAMMING"
+        },
+        {
+          "field": "semesters[0].subject[4].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[5].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[6].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[1].subject[2].subject_id",
+          "truth": "06026205",
+          "pred": "96026205"
+        },
+        {
+          "field": "semesters[1].subject[4].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[1].subject[5].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].GPA",
+          "truth": "3.57",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].GPS",
+          "truth": "3.33",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].subject[1].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].subject[2].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].subject[3].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].subject[5].subject_name",
+          "truth": "ENGLISH FOR BUSINESS",
+          "pred": "ENGLISH FOR BUSINESS GPS + 3.33 GPA 23.57"
+        },
+        {
+          "field": "semesters[3].subject[0].subject_id",
+          "truth": "06026204",
+          "pred": "006026204"
+        },
+        {
+          "field": "semesters[3].subject[5].subject_id",
+          "truth": "06066102",
+          "pred": "06066301"
+        },
+        {
+          "field": "semesters[3].subject[5].subject_name",
+          "truth": "MANAGEMENT INFORMATION SYSTEMS",
+          "pred": "DATA STRUCTURES AND ALGORITHMS"
+        },
+        {
+          "field": "semesters[3].subject[5].grade_earn",
+          "truth": "A",
+          "pred": "b+"
+        },
+        {
+          "field": "semesters[3].subject[6].subject_id",
+          "truth": "06066301",
+          "pred": null
+        },
+        {
+          "field": "semesters[3].subject[6].subject_name",
+          "truth": "DATA STRUCTURES AND ALGORITHMS",
+          "pred": null
+        },
+        {
+          "field": "semesters[3].subject[6].credit",
+          "truth": 3,
+          "pred": null
+        },
+        {
+          "field": "semesters[3].subject[6].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[4].subject[0].subject_id",
+          "truth": "06026211",
+          "pred": "06626211"
+        },
+        {
+          "field": "semesters[4].subject[1].credit",
+          "truth": 3,
+          "pred": null
+        }
+      ]
+    },
+    {
+      "image": "pooh_photo2.HEIC",
+      "angle": 2,
+      "correct": 127,
+      "total": 145,
+      "accuracy": 0.8758620689655172,
+      "score": {
+        "categories": {
+          "header": {
+            "correct": 6,
+            "total": 6,
+            "edits": 0,
+            "chars": 88,
+            "hallucinated": 0
+          },
+          "footer": {
+            "correct": 1,
+            "total": 1,
+            "edits": 0,
+            "chars": 10,
+            "hallucinated": 0
+          },
+          "summary": {
+            "correct": 2,
+            "total": 2,
+            "edits": 0,
+            "chars": 6,
+            "hallucinated": 0
+          },
+          "semester": {
+            "correct": 19,
+            "total": 23,
+            "edits": 13,
+            "chars": 74,
+            "hallucinated": 1
+          },
+          "course": {
+            "correct": 99,
+            "total": 113,
+            "edits": 34,
+            "chars": 999,
+            "hallucinated": 0
+          }
+        },
+        "rows": {
+          "tp": 30,
+          "fn": 0,
+          "fp": 0
+        }
+      },
+      "critical": {
+        "student_id": {
+          "correct": 1,
+          "total": 1
+        },
+        "course_id": {
+          "correct": 30,
+          "total": 30
+        },
+        "grade": {
+          "correct": 11,
+          "total": 23
+        },
+        "gpa": {
+          "correct": 4,
+          "total": 6
+        },
+        "gps": {
+          "correct": 3,
+          "total": 5
+        },
+        "cumulative_gpa": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "result": {
+        "record": {
+          "format_id": "bachelor_en",
+          "header_detail": {
+            "uni_name": null,
+            "uni_address": null,
+            "faculty_name": null,
+            "prename": "Mr.",
+            "name": "Pattarapol Petcharat",
+            "student_id": "67070127",
+            "date_of_birth": "2005-01-09",
+            "admis_date": null,
+            "degree": "Bachelor of Science",
+            "grad_date": null,
+            "grad_reason": null,
+            "program": "Data Science and Business Analytics",
+            "major": null,
+            "honor": 0
+          },
+          "transcript_detail": {
+            "master_comprehensive": null,
+            "master_thesis": null,
+            "master_qualify": null,
+            "total_credits_earned": 69,
+            "cumulative_gpa": "2.42",
+            "semesters": [
+              {
+                "year": 2567,
+                "sem_num": 1,
+                "GPA": null,
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026200",
+                    "subject_name": "CALCULUS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066101",
+                    "subject_name": "BUSINESS FUNDAMENTALS FOR INFORMATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066303",
+                    "subject_name": "PROBLEM SOLVING AND COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642999",
+                    "subject_name": "CHARM SCHOOL",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90644007",
+                    "subject_name": "FOUNDATION ENGLISH 1 GPS + 2.17 GPA ¢ 2.47",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  }
+                ]
+              },
+              {
+                "year": 2567,
+                "sem_num": 2,
+                "GPA": "1.88",
+                "GPS": "1.70",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026201",
+                    "subject_name": "CALCULUS 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d"
+                  },
+                  {
+                    "subject_id": "06026203",
+                    "subject_name": "COMPUTER PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d+"
+                  },
+                  {
+                    "subject_id": "06026205",
+                    "subject_name": "INTRODUCTION TO MARKETING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066001",
+                    "subject_name": "PROBABILITY AND STATISTICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "d"
+                  },
+                  {
+                    "subject_id": "90641007",
+                    "subject_name": "DIGITAL CITIZEN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90642033",
+                    "subject_name": "LAW FOR NEW GENERATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644008",
+                    "subject_name": "FOUNDATION ENGLISH 2",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 1,
+                "GPA": "31.95",
+                "GPS": "2.17",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06066300",
+                    "subject_name": "DATABASE SYSTEM CONCEPTS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066302",
+                    "subject_name": "FUNDAMENTAL WEB PROGRAMMING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06066304",
+                    "subject_name": "INFORMATION SYSTEM ANALYSIS AND DESIGN",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 2,
+                "GPA": "2.35",
+                "GPS": "3.08",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026204",
+                    "subject_name": "INTRODUCTION TO NETWORKS AND CYBERSECURITY",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06026207",
+                    "subject_name": "NOSQL DATABASE SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "c+"
+                  },
+                  {
+                    "subject_id": "06026208",
+                    "subject_name": "FUNDAMENTALS OF DATA SCLENCE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06026209",
+                    "subject_name": "DATA VISUALIZATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066102",
+                    "subject_name": "MANAGEMENT INFORMATION SYSTEMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "a"
+                  },
+                  {
+                    "subject_id": "06066301",
+                    "subject_name": "DATA STRUCTURES AND ALGORITHMS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2568,
+                "sem_num": 3,
+                "GPA": "2.42",
+                "GPS": null,
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "90642888",
+                    "subject_name": "IN LOVE & IN LIFE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": "s"
+                  },
+                  {
+                    "subject_id": "90643023",
+                    "subject_name": "TECHNOPRENEURS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              },
+              {
+                "year": 2569,
+                "sem_num": 1,
+                "GPA": "2.42",
+                "GPS": "0.00",
+                "pass_reason": null,
+                "subject": [
+                  {
+                    "subject_id": "06026211",
+                    "subject_name": "APPLIED MACHINE LEARNING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026212",
+                    "subject_name": "DATA WAREHOUSING",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026240",
+                    "subject_name": "INTELLIGENT SYSTEM DEVELOPMENT",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026242",
+                    "subject_name": "CLOUD TECHNOLOGY INFRASTRUCTURE",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06026261",
+                    "subject_name": "SPECIAL TOPICS IN DATA SCIENCE AND BUSINESS ANALYTICS 1",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "06066000",
+                    "subject_name": "DISCRETE MATHEMATICS",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  },
+                  {
+                    "subject_id": "90644042",
+                    "subject_name": "PROFESSIONAL COMMUNICATION AND PRESENTATION",
+                    "type": null,
+                    "credit": 3,
+                    "grade_earn": null
+                  }
+                ]
+              }
+            ]
+          },
+          "footer_detail": {
+            "updated_at": "2026-09-21",
+            "by": {
+              "by_signature": null,
+              "by_position": null,
+              "by_reg": null
+            }
+          }
+        },
+        "validation": {
+          "needs_review": true,
+          "errors": 0,
+          "warnings": 2,
+          "course_count": 30,
+          "issues": [
+            {
+              "path": "header_detail.faculty_name",
+              "code": "missing_field",
+              "message": "ไม่พบคณะ",
+              "severity": "warning"
+            },
+            {
+              "path": "transcript_detail.semesters[2].GPA",
+              "code": "invalid_gpa",
+              "message": "GPA ต้องอยู่ระหว่าง 0.00-4.00",
+              "severity": "warning"
+            }
+          ]
+        },
+        "processing_seconds": 20.016,
+        "ocr_text": "Unofficial Transcript\nName Mr. Pattarapol Petcharat\nStudent ID 67070127\nDate of Birth January 9, 2005\nDate of Admission 2024\nDegree Bachelor of Science\nDate of Graduation N/A\nProgram Data Science and Business Analytics\n\nTotal number of credit earned: 69\nCumulative GPA: 2.42\nTranscript Closed —————_——______\nChecked by\nDate Issued: September 21, 2026 This doct\nCumulative GPA: 2.42\n' Date Issued: September 21, 2026 This doct nent is unoffic al transcript.\nCOURSE TITLE\nIst Semester, Year, 2024-2025\n06026200 CALCULUS 1 3 ?\n06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 ?\n06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 ?\n90642999 CHARM SCHOOL 3 S\n90644007 FOUNDATION ENGLISH 1 3 s\nGPS + 2.17 GPA ¢ 2.47\n2nd Semester, Year, 2024-2025\n06026201 CALCULUS 2 3 D\n06026203 COMPUTER PROGRAMMING 3 D+\n06026205 INTRODUCTION TO MARKETING 3 ?\n06066001 PROBABILITY AND STATISTICS 3 D\n90641007 DIGITAL CITIZEN 3 ?\n90642033 LAW FOR NEW GENERATION 3 ?\n90644008 FOUNDATION ENGLISH 2 3 ?\nGPS : 1.70 GPA : 1.88\nAst Semester, Year, 2025-2026\n06066300 DATABASE SYSTEM CONCEPTS 3 ?\n06066302 FUNDAMENTAL WEB PROGRAMMING 3 C+\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 ?\nGPS : 2.17 GPA 31.95\n2nd Semester. Year. 2025-2026\n06026204 INTRODUCTION TO NETWORKS AND 3 C+\nCYBERSECURITY\n06026207 NOSQL DATABASE SYSTEMS 3 C+\n06026208 FUNDAMENTALS OF DATA SCLENCE 3 A\n06026209 DATA VISUALIZATION 3 ?\n06066102 MANAGEMENT INFORMATION SYSTEMS 3 A\n06066301 DATA STRUCTURES AND ALGORITHMS 3 ?\nGPS : 3.08 GPA : 2.35\n3rd Semester. Year. 2025-2026\n90642888 IN LOVE & IN LIFE 3 S\n90643023 TECHNOPRENEURS 3 ?\nGPS = 3.50 GPA : 2.42\nist Semester, Year, 2026-2027\n06026211 APPLIED MACHINE LEARNING 3\n06026212 DATA WAREHOUSING 3\n06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n06026261 SPECIAL TOPICS IN DATA SCIENCE AND 3\nBUSINESS ANALYTICS 1\n06066000 DISCRETE MATHEMATICS 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS : - GPA : 2.42\n(Xx XXXXXXXXX XXXXXXXXXXXXX)\n——— — -- — a : _ 7\nCOURSE TITLE\nal transcript.",
+        "body_text": "COURSE TITLE\nIst Semester, Year, 2024-2025\n06026200 CALCULUS 1 3 ?\n06066101 BUSINESS FUNDAMENTALS FOR INFORMATION 3 ?\n06066303 PROBLEM SOLVING AND COMPUTER PROGRAMMING 3 ?\n90642999 CHARM SCHOOL 3 S\n90644007 FOUNDATION ENGLISH 1 3 s\nGPS + 2.17 GPA ¢ 2.47\n2nd Semester, Year, 2024-2025\n06026201 CALCULUS 2 3 D\n06026203 COMPUTER PROGRAMMING 3 D+\n06026205 INTRODUCTION TO MARKETING 3 ?\n06066001 PROBABILITY AND STATISTICS 3 D\n90641007 DIGITAL CITIZEN 3 ?\n90642033 LAW FOR NEW GENERATION 3 ?\n90644008 FOUNDATION ENGLISH 2 3 ?\nGPS : 1.70 GPA : 1.88\nAst Semester, Year, 2025-2026\n06066300 DATABASE SYSTEM CONCEPTS 3 ?\n06066302 FUNDAMENTAL WEB PROGRAMMING 3 C+\n06066304 INFORMATION SYSTEM ANALYSIS AND DESIGN 3 ?\nGPS : 2.17 GPA 31.95\n2nd Semester. Year. 2025-2026\n06026204 INTRODUCTION TO NETWORKS AND 3 C+\nCYBERSECURITY\n06026207 NOSQL DATABASE SYSTEMS 3 C+\n06026208 FUNDAMENTALS OF DATA SCLENCE 3 A\n06026209 DATA VISUALIZATION 3 ?\n06066102 MANAGEMENT INFORMATION SYSTEMS 3 A\n06066301 DATA STRUCTURES AND ALGORITHMS 3 ?\nGPS : 3.08 GPA : 2.35\n3rd Semester. Year. 2025-2026\n90642888 IN LOVE & IN LIFE 3 S\n90643023 TECHNOPRENEURS 3 ?\nGPS = 3.50 GPA : 2.42\nist Semester, Year, 2026-2027\n06026211 APPLIED MACHINE LEARNING 3\n06026212 DATA WAREHOUSING 3\n06026240 INTELLIGENT SYSTEM DEVELOPMENT 3\n06026242 CLOUD TECHNOLOGY INFRASTRUCTURE 3\n06026261 SPECIAL TOPICS IN DATA SCIENCE AND 3\nBUSINESS ANALYTICS 1\n06066000 DISCRETE MATHEMATICS 3\n90644042 PROFESSIONAL COMMUNICATION AND 3\nPRESENTATION\nGPS : - GPA : 2.42\n(Xx XXXXXXXXX XXXXXXXXXXXXX)\n——— — -- — a : _ 7\nCOURSE TITLE\nal transcript."
+      },
+      "errors": [
+        {
+          "field": "semesters[0].GPA",
+          "truth": "2.17",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].GPS",
+          "truth": "2.17",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[0].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[1].grade_earn",
+          "truth": "C+",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[2].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[0].subject[4].subject_name",
+          "truth": "FOUNDATION ENGLISH 1",
+          "pred": "FOUNDATION ENGLISH 1 GPS + 2.17 GPA ¢ 2.47"
+        },
+        {
+          "field": "semesters[1].subject[2].grade_earn",
+          "truth": "D+",
+          "pred": null
+        },
+        {
+          "field": "semesters[1].subject[4].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[1].subject[5].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[1].subject[6].grade_earn",
+          "truth": "S",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].GPA",
+          "truth": "1.95",
+          "pred": "31.95"
+        },
+        {
+          "field": "semesters[2].subject[0].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[2].subject[2].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[3].subject[2].subject_name",
+          "truth": "FUNDAMENTALS OF DATA SCIENCE",
+          "pred": "FUNDAMENTALS OF DATA SCLENCE"
+        },
+        {
+          "field": "semesters[3].subject[3].grade_earn",
+          "truth": "B+",
+          "pred": null
+        },
+        {
+          "field": "semesters[3].subject[5].grade_earn",
+          "truth": "C",
+          "pred": null
+        },
+        {
+          "field": "semesters[4].GPS",
+          "truth": "3.50",
+          "pred": null
+        },
+        {
+          "field": "semesters[4].subject[1].grade_earn",
+          "truth": "B+",
+          "pred": null
+        }
+      ]
+    }
+  ]
+}

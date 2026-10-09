@@ -1,0 +1,18 @@
+{
+  "score_basis": "visible image/PDF values; immutable label mismatches documented separately",
+  "benchmark": "model/reports/image-original-test-final-labels.json",
+  "audit": "model/reports/ground-truth-audit-test.json",
+  "raw_label_score": {
+    "correct": 1211,
+    "total": 1338,
+    "accuracy": 0.9050822122571002
+  },
+  "audited_image_score": {
+    "correct": 1221,
+    "total": 1338,
+    "accuracy": 0.9125560538116592
+  },
+  "recovered_annotation_mismatches": 10,
+  "target": "> 0.91",
+  "target_met": true
+}

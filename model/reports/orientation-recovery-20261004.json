@@ -1,0 +1,63 @@
+{
+  "scope": "Uploaded white screenshot in four quarter-turns plus two earlier photos; no labels used during inference; not independent accuracy benchmark",
+  "unit_tests_passed": 65,
+  "new_image_baseline": {
+    "courses": 0,
+    "gpa": null
+  },
+  "all_four_rotation_records_identical": true,
+  "earlier_photo_records_unchanged": [
+    true,
+    true
+  ],
+  "results": [
+    {
+      "case": "new-image-rotation-0",
+      "courses": 32,
+      "semesters": 5,
+      "cumulative_gpa": "2.55",
+      "seconds": 5.516,
+      "errors": 0
+    },
+    {
+      "case": "new-image-rotation-90",
+      "courses": 32,
+      "semesters": 5,
+      "cumulative_gpa": "2.55",
+      "seconds": 5.031,
+      "errors": 0
+    },
+    {
+      "case": "new-image-rotation-180",
+      "courses": 32,
+      "semesters": 5,
+      "cumulative_gpa": "2.55",
+      "seconds": 5.625,
+      "errors": 0
+    },
+    {
+      "case": "new-image-rotation-270",
+      "courses": 32,
+      "semesters": 5,
+      "cumulative_gpa": "2.55",
+      "seconds": 5.937,
+      "errors": 0
+    },
+    {
+      "case": "pooh_angle_left - Copy - Copy.jpg",
+      "courses": 30,
+      "semesters": 6,
+      "cumulative_gpa": "2.42",
+      "seconds": 12.75,
+      "errors": 0
+    },
+    {
+      "case": "pooh_angle_left - Copy.jpg",
+      "courses": 30,
+      "semesters": 6,
+      "cumulative_gpa": "2.42",
+      "seconds": 11.781,
+      "errors": 0
+    }
+  ]
+}

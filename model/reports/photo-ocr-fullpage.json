@@ -1,0 +1,173 @@
+{
+  "note": "Same two source documents used for training; not a held-out document test",
+  "results": [
+    {
+      "source": "pooh",
+      "model": "installed_fast",
+      "psm": 6,
+      "correct": 6,
+      "total": 145,
+      "field_accuracy": 0.0414,
+      "courses_detected": 8,
+      "row_matches": {
+        "tp": 6,
+        "fn": 24,
+        "fp": 2
+      }
+    },
+    {
+      "source": "pooh",
+      "model": "installed_fast",
+      "psm": 11,
+      "correct": 7,
+      "total": 145,
+      "field_accuracy": 0.0483,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 30,
+        "fp": 0
+      }
+    },
+    {
+      "source": "pooh",
+      "model": "trainable_best",
+      "psm": 6,
+      "correct": 26,
+      "total": 145,
+      "field_accuracy": 0.1793,
+      "courses_detected": 15,
+      "row_matches": {
+        "tp": 10,
+        "fn": 20,
+        "fp": 5
+      }
+    },
+    {
+      "source": "pooh",
+      "model": "trainable_best",
+      "psm": 11,
+      "correct": 3,
+      "total": 145,
+      "field_accuracy": 0.0207,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 30,
+        "fp": 0
+      }
+    },
+    {
+      "source": "pooh",
+      "model": "photo_finetuned",
+      "psm": 6,
+      "correct": 33,
+      "total": 145,
+      "field_accuracy": 0.2276,
+      "courses_detected": 19,
+      "row_matches": {
+        "tp": 15,
+        "fn": 15,
+        "fp": 4
+      }
+    },
+    {
+      "source": "pooh",
+      "model": "photo_finetuned",
+      "psm": 11,
+      "correct": 4,
+      "total": 145,
+      "field_accuracy": 0.0276,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 30,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "installed_fast",
+      "psm": 6,
+      "correct": 3,
+      "total": 150,
+      "field_accuracy": 0.02,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "installed_fast",
+      "psm": 11,
+      "correct": 0,
+      "total": 150,
+      "field_accuracy": 0.0,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "trainable_best",
+      "psm": 6,
+      "correct": 6,
+      "total": 150,
+      "field_accuracy": 0.04,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "trainable_best",
+      "psm": 11,
+      "correct": 0,
+      "total": 150,
+      "field_accuracy": 0.0,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "photo_finetuned",
+      "psm": 6,
+      "correct": 3,
+      "total": 150,
+      "field_accuracy": 0.02,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    },
+    {
+      "source": "doc",
+      "model": "photo_finetuned",
+      "psm": 11,
+      "correct": 0,
+      "total": 150,
+      "field_accuracy": 0.0,
+      "courses_detected": 0,
+      "row_matches": {
+        "tp": 0,
+        "fn": 32,
+        "fp": 0
+      }
+    }
+  ]
+}
