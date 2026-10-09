@@ -693,7 +693,7 @@ export default function Workspace() {
                               <th className="px-3 py-4 font-normal">ชื่อรายวิชา</th>
                               <th className="px-3 py-4 font-normal w-[90px]">หน่วยกิต</th>
                               <th className="px-3 py-4 font-normal w-[80px]">เกรด</th>
-                              <th className="px-3 py-4 font-normal w-[90px]">สถานะ</th>
+                              <th className="px-3 py-4 font-normal w-[110px]">สถานะ</th>
                               <th className="relative px-3 py-4 font-normal w-[44px]"><span className="sr-only">ลบ</span></th>
                             </tr>
                           </thead>
@@ -725,7 +725,7 @@ export default function Workspace() {
                                     <td className="px-1 py-2"><EditInput label="หน่วยกิต" value={course.credit} inputMode="numeric" maxLength={2} flagged={flagged(cp + ".credit")} onChange={v => setCourse(s, r, "credit", v)} className="text-center" /></td>
                                     <td className="px-1 py-2"><EditInput label="เกรด" value={course.grade_earn} maxLength={2} placeholder="—" flagged={flagged(cp + ".grade_earn")} onChange={v => setCourse(s, r, "grade_earn", v)} className="text-center font-semibold uppercase" /></td>
                                     <td className="px-3 py-2">
-                                      <span title={rowIssues.map(issue => issue.message).join("\n") || undefined} className={`inline-flex items-center h-[26px] px-3 border rounded-[13px] text-[10px] ${rowIssues.length ? "border-amber-200 bg-amber-50 text-[#A96519]" : "border-[#E7E4DE] text-[#3E8D67]"}`}>
+                                      <span title={rowIssues.map(issue => issue.message).join("\n") || undefined} className={`inline-flex items-center whitespace-nowrap h-[26px] px-3 border rounded-[13px] text-[10px] ${rowIssues.length ? "border-amber-200 bg-amber-50 text-[#A96519]" : "border-[#E7E4DE] text-[#3E8D67]"}`}>
                                         {rowIssues.length ? "ตรวจสอบ" : "ผ่าน"}
                                       </span>
                                     </td>
