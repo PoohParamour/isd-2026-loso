@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "model/data/manifest.json"
 OUTPUT = ROOT / "model/data/course_catalog.json"
 

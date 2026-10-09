@@ -6,7 +6,7 @@ Each stage is wrapped by an exclusive timer (its time excludes the stages it cal
 Run inside the backend image from the repository root (mount the current code, data and an output folder):
 
     mkdir -p out
-    docker run --rm --entrypoint python -v "$PWD/out:/work/out" -v "$PWD/model/profile_steps.py:/work/profile_steps.py:ro" \
+    docker run --rm --entrypoint python -v "$PWD/out:/work/out" -v "$PWD/model/tools/profile_steps.py:/work/profile_steps.py:ro" \
         -v "$PWD/data_transcript:/work/data_transcript:ro" -v "$PWD/model:/app/model:ro" \
         <backend-image> /work/profile_steps.py
 

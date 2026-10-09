@@ -4,7 +4,7 @@ import tempfile
 from pathlib import Path
 
 from model.course_catalog import apply_course_catalog
-from model.train_course_catalog import build_catalog
+from model.tools.train_course_catalog import build_catalog
 
 
 class CourseCatalogTests(unittest.TestCase):

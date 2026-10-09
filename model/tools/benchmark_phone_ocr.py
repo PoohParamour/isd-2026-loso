@@ -18,7 +18,7 @@ from model.phone_table import read_phone_table
 from model.photo_geometry import straighten_photo
 from model.validate import validate_record
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def evaluate(

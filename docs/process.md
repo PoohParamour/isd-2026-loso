@@ -2,6 +2,8 @@
 
 อัปเดต: 2026-10-07
 
+> หมายเหตุ (2026-10-09): ไฟล์ถูกย้ายมาไว้ที่ `docs/` และสคริปต์ใน `model/` แยกเป็น `model/tools/` (วัดผล/ฝึก) กับ `model/tests/` (เทสต์) บันทึกด้านล่างที่อ้างตำแหน่งเดิม เช่น `model/benchmark.py`, `model/test_*.py`, `process.md` ให้อ่านเป็นตำแหน่งใหม่ตามนี้ ผังโครงสร้างปัจจุบันอยู่ที่ [STRUCTURE.md](STRUCTURE.md)
+
 ## Reports review — 2026-10-07
 
 - ตามคำขอผู้ใช้ อ่านรายงานทั้งหมดใน `model/reports` และ aggregate reports ใน `model/runs`: รวม 89 ไฟล์ (JSON 81, CSV 6, Markdown 2). JSON อ่านได้ครบ; ตรวจ accuracy เทียบ correct/total 1,854 จุด, CSV 6 ไฟล์เทียบ report คู่กัน และ totals ที่มี details ไม่พบ mismatch ในรายการที่ตรวจ. ไม่รัน OCR/training/benchmark ใหม่และไม่แก้รายงานเดิม

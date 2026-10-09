@@ -62,8 +62,21 @@ docker compose run --rm --no-deps -v "$PWD/ไฟล์ของคุณ.pdf:/t
 | ถ่ายรูปด้วยกล้องไม่ได้ | เบราว์เซอร์เปิดกล้องสดได้เฉพาะ `localhost` หรือ HTTPS และต้องอนุญาตกล้อง ถ้าไม่ได้จะเปิดตัวเลือกถ่ายภาพของอุปกรณ์แทน |
 
 ### โครงสร้างโปรเจกต์
+อธิบายละเอียดทุกโฟลเดอร์และไฟล์ที่ [docs/STRUCTURE.md](docs/STRUCTURE.md)
+
 | โฟลเดอร์/ไฟล์ | คืออะไร |
 |---|---|
+| `web/` | หน้าเว็บ (Next.js 16 + Tailwind CSS 4) |
+| `backend/` | API (FastAPI) และฐานข้อมูล SQLite |
+| `model/` | pipeline OCR (`extract.py`, `validate.py` ...) · `tools/` สคริปต์วัดผล/ฝึก · `tests/` เทสต์ · `reports/` ผลทดสอบ |
+| `Code.py` | จุดเริ่มสำหรับอ่านไฟล์เดียวจากบรรทัดคำสั่ง |
+| `docs/` | โจทย์ (`P1_OCR_Prompt.md`), บันทึกงานและผลทดสอบ (`process.md`), สไลด์นำเสนอ (`presentation/`) |
+| `data/`, `ground_truth_new/` | ฐานข้อมูลตัวอย่างและเฉลยภาพถ่ายมือถือ |
+| `data_transcript/`, `ground_truth_transcript/` | ข้อมูลทดสอบและเฉลย (ไม่อยู่ใน git) |
+
+รันเทสต์: `python -m pytest model backend` (ต้องติดตั้ง `pip install -r backend/requirements.txt pytest` และ Tesseract/Poppler บนเครื่อง)
+
+---|---|
 | `web/` | หน้าเว็บ (Next.js 16 + Tailwind CSS 4) |
 | `backend/` | API (FastAPI) และฐานข้อมูล SQLite |
 | `model/` | pipeline OCR (`extract.py`), ตัวตรวจ (`validate.py`), สคริปต์วัดผล (`benchmark*.py`) และรายงานผล (`reports/`) |

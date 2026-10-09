@@ -16,8 +16,8 @@ from pathlib import Path
 
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
-from evaluate import evaluate_one
-from extract import ROOT, parse
+from model.evaluate import evaluate_one
+from model.extract import ROOT, parse
 
 
 PREPROCESSORS = ("original", "autocontrast", "threshold", "sharpen")

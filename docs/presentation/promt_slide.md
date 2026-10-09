@@ -220,8 +220,8 @@ AI ต้องเปิดอ่านก่อนเขียนสไลด�
 
 | ไฟล์ | ใช้ยืนยันอะไร |
 |---|---|
-| `process.md` | Decision Log, ตารางผลทดสอบ, checkpoint ล่าสุด (วันที่ 2026-10-07), cost-benefit, ข้อจำกัด |
-| `P1_OCR_Prompt.md` | โจทย์ เกณฑ์ให้คะแนน (rubric) และกำหนดส่ง |
+| `docs/process.md` | Decision Log, ตารางผลทดสอบ, checkpoint ล่าสุด (วันที่ 2026-10-07), cost-benefit, ข้อจำกัด |
+| `docs/P1_OCR_Prompt.md` | โจทย์ เกณฑ์ให้คะแนน (rubric) และกำหนดส่ง |
 | `README.MD` | รายชื่อสมาชิกและรหัสนักศึกษา |
 | `model/extract.py` | ขั้นตอนจริงของ pipeline (ฟังก์ชัน `extract`, `read_document`, `text_is_usable`) |
 | `model/validate.py` | กฎ validation |

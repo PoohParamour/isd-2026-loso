@@ -9,3 +9,4 @@ backend/*.db
 model/runs
 model/saved_models
 **/__pycache__
+docs

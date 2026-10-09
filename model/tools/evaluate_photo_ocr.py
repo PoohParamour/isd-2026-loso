@@ -8,17 +8,12 @@ from pathlib import Path
 
 from PIL import Image
 
-try:
-    from model.evaluate import evaluate_one
-    from model.extract import parse
-    from model.train_photo_ocr import align
-except ModuleNotFoundError:
-    from evaluate import evaluate_one
-    from extract import parse
-    from train_photo_ocr import align
+from model.evaluate import evaluate_one
+from model.extract import parse
+from model.tools.train_photo_ocr import align
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 TESSERACT = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 MODELS = (
     ("installed_fast", Path(r"C:\Program Files\Tesseract-OCR\tessdata"), "eng"),

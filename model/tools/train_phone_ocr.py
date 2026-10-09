@@ -23,10 +23,10 @@ import pypdfium2
 from PIL import Image, ImageOps
 from pillow_heif import register_heif_opener
 
-from model.train_photo_ocr import executable, run, score
+from model.tools.train_photo_ocr import executable, run, score
 
 register_heif_opener()
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SCALE = 3.2
 
 

@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
 
-const ROOT = path.resolve(import.meta.dirname, "..");
+const ROOT = path.resolve(import.meta.dirname, "..", "..");
 const OLLAMA = process.env.OLLAMA_HOST || "http://127.0.0.1:11434";
 const OCR_MODEL = process.env.VLM_OCR_MODEL || "scb10x/typhoon-ocr1.5-3b";
 const TEXT_MODEL = process.env.VLM_TEXT_MODEL || "qwen3:4b";

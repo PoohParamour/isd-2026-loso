@@ -21,7 +21,7 @@ import pypdfium2
 from PIL import Image, ImageOps
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 PAIRS = (("pooh", "1.jpg"), ("doc", "2.png"))
 INPUT = ROOT / "data_transcript/input_new"
 LABELS = ROOT / "ground_truth_new"

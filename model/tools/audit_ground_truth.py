@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-from extract import ROOT, extract
+from model.extract import ROOT, extract
 
 
 def main() -> None:

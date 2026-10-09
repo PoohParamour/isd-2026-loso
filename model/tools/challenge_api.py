@@ -9,8 +9,8 @@ import time
 import urllib.request
 from pathlib import Path
 
-from evaluate import evaluate_one
-from extract import ROOT
+from model.evaluate import evaluate_one
+from model.extract import ROOT
 
 
 def main() -> None:

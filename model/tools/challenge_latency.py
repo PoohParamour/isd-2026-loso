@@ -8,8 +8,8 @@ import statistics
 import time
 from pathlib import Path
 
-from evaluate import evaluate_one
-from extract import ROOT, extract
+from model.evaluate import evaluate_one
+from model.extract import ROOT, extract
 
 
 def main() -> None:

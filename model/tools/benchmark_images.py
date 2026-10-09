@@ -9,8 +9,8 @@ import re
 import statistics
 from pathlib import Path
 
-from evaluate import evaluate_one, flatten, norm
-from extract import ROOT, extract
+from model.evaluate import evaluate_one, flatten, norm
+from model.extract import ROOT, extract
 
 
 def main() -> None:

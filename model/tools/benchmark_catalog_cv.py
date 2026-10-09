@@ -13,9 +13,9 @@ from pathlib import Path
 from model import extract as extractor
 from model.course_catalog import apply_course_catalog
 from model.evaluate import evaluate_one
-from model.train_course_catalog import build_catalog
+from model.tools.train_course_catalog import build_catalog
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def main() -> None:

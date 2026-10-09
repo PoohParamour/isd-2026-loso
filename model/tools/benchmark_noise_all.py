@@ -6,8 +6,8 @@ import collections
 import json
 from pathlib import Path
 
-from evaluate import evaluate_one
-from extract import ROOT, extract
+from model.evaluate import evaluate_one
+from model.extract import ROOT, extract
 
 
 IMAGE_ROOT = ROOT / "all/Lab5_transcript_dataset/images/augmented"
