@@ -1,3 +1,11 @@
 data_transcript/
 ground_truth_transcript/
 all/
+# Python / macOS junk
+__pycache__/
+*.pyc
+.DS_Store
+
+# Debug output and old lab work
+tmp/
+lab10_fastapi/
