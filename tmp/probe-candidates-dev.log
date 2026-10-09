@@ -1,9 +1,0 @@
-﻿71010001_aug4_perspective bachelor_th
-body rows 2 terms 2 correct 21 row {'tp': 2, 'fn': 10, 'fp': 0} validation {'needs_review': False, 'errors': 0, 'warnings': 0, 'course_count': 2, 'issues': []}
-full rows 0 terms 1 correct 12 row {'tp': 0, 'fn': 12, 'fp': 0} validation {'needs_review': True, 'errors': 1, 'warnings': 0, 'course_count': 0, 'issues': [{'path': 'transcript_detail.semesters', 'code': 'missing_courses', 'message': 'ไม่พบรายวิชา', 'severity': 'error'}]}
-71010009_aug4_perspective bachelor_th
-body rows 0 terms 14 correct 61 row {'tp': 0, 'fn': 60, 'fp': 0} validation {'needs_review': True, 'errors': 1, 'warnings': 0, 'course_count': 0, 'issues': [{'path': 'transcript_detail.semesters', 'code': 'missing_courses', 'message': 'ไม่พบรายวิชา', 'severity': 'error'}]}
-full rows 3 terms 16 correct 16 row {'tp': 3, 'fn': 57, 'fp': 0} validation {'needs_review': False, 'errors': 0, 'warnings': 0, 'course_count': 3, 'issues': []}
-71010009_aug3_blur_contrast bachelor_th
-body rows 19 terms 11 correct 37 row {'tp': 13, 'fn': 47, 'fp': 6} validation {'needs_review': False, 'errors': 0, 'warnings': 0, 'course_count': 19, 'issues': []}
-full rows 3 terms 12 correct 17 row {'tp': 3, 'fn': 57, 'fp': 0} validation {'needs_review': False, 'errors': 0, 'warnings': 0, 'course_count': 3, 'issues': []}
