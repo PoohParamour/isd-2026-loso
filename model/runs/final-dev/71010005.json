@@ -1,0 +1,91 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.06,
+  "record": {
+    "format_id": "bachelor_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะวิศวกรรมศาสตร์",
+      "prename": "นางสาว",
+      "name": "วศ5 วิศวกรรมศาสตร์5",
+      "student_id": "71010005",
+      "date_of_birth": "2000-04-08",
+      "admis_date": "2018-08-06",
+      "degree": "วิทยาศาสตรบัณฑิต",
+      "grad_date": null,
+      "grad_reason": "n/a(ลาออก 1 / 2561)",
+      "program": "การจัดการวิศวกรรมและเทคโนโลยี (หลักสูตรนานาชาติ)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 18,
+      "cumulative_gpa": "2.75",
+      "semesters": [
+        {
+          "year": 2561,
+          "sem_num": 1,
+          "GPA": "2.75",
+          "GPS": "2.75",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "13006006",
+              "subject_name": "พีชคณิตเชิงเส้น",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "13006007",
+              "subject_name": "แคลคูลัส 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "13006109",
+              "subject_name": "PROGRAMMING FOR MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d"
+            },
+            {
+              "subject_id": "13006204",
+              "subject_name": "ภาษาอังกฤษพื้นฐาน 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "13006301",
+              "subject_name": "ตรรกศาสตร์เบื้องต้น",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "13006402",
+              "subject_name": "เศรษฐศาสตร์เบื้องต้น",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}

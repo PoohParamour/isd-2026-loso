@@ -1,0 +1,184 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.014,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "College of Materials Innovation and Technology",
+      "prename": "Mr.",
+      "name": "Graduatemit5 Materials Innovation and Technology5",
+      "student_id": "74106005",
+      "date_of_birth": "1998-11-26",
+      "admis_date": "2021-08-02",
+      "degree": "Master of Science",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "Nanoscience and Nanotechnology",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 27,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017001",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017081",
+              "subject_name": "SEMINAR 1",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017100",
+              "subject_name": "RESEARCH METHODOLOGY AND ETHICS IN NANOTECHNOLOGY",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017101",
+              "subject_name": "QUANTUM THEORY FOR NANOSCIENCE",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017410",
+              "subject_name": "MATERIALS CHARACTERIZATION AND TESTING",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017001",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017082",
+              "subject_name": "SEMINAR 2",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017102",
+              "subject_name": "MATERIALS SCIENCE AND NANOMATERIALS",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017103",
+              "subject_name": "FUNDAMENTAL THERMODYNAMICS FOR NANOSCIENCE",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "10017409",
+              "subject_name": "NANOELECTRONICS",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017001",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "10017001",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "i"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": null,
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": null,
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

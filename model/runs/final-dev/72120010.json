@@ -1,0 +1,481 @@
+{
+  "engine": "tesseract",
+  "processing_seconds": 5.781,
+  "record": {
+    "format_id": "bachelor_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "KMITL Business School",
+      "prename": "Miss",
+      "name": "Kbs10 KMITL Business School10",
+      "student_id": "72120010",
+      "date_of_birth": "2000-06-11",
+      "admis_date": "2019-08-05",
+      "degree": "Bachelor of Science",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "Business and Managerial Economics",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 145,
+      "cumulative_gpa": "2.61",
+      "semesters": [
+        {
+          "year": 2562,
+          "sem_num": 1,
+          "GPA": "2.58",
+          "GPS": "2.58",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026141",
+              "subject_name": "INTRODUCTION TO MICROECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "14026142",
+              "subject_name": "INTRODUCTION TO MACROECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "90101007",
+              "subject_name": "INTRODUCTION TO MATHEMATICAL ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "90201001",
+              "subject_name": "FOUNDATION ENGLISH 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "90307004",
+              "subject_name": "LANGUAGE IN THAI SOCIETY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "90402008",
+              "subject_name": "INTRODUCTION TO WORKING AND SOCIAL WELFARE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            }
+          ]
+        },
+        {
+          "year": 2562,
+          "sem_num": 2,
+          "GPA": "2.58",
+          "GPS": "2.58",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026143",
+              "subject_name": "MICROECONOMICS FOR BUSINESS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d"
+            },
+            {
+              "subject_id": "14026144",
+              "subject_name": "MACROECONOMICS FOR BUSINESS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026146",
+              "subject_name": "MATHEMATICS FOR ECONOMISTS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "90101002",
+              "subject_name": "MATHEMATICS IN DAILY LIFE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "90201002",
+              "subject_name": "FOUNDATION ENGLISH 2",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "90402009",
+              "subject_name": "INTRODUCTION TO PRINCIPLES OF LAWS IN DAILY LIFE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2563,
+          "sem_num": 1,
+          "GPA": "2.53",
+          "GPS": "2.42",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026101",
+              "subject_name": "PRINCIPLES OF ACCOUNTING",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "14026104",
+              "subject_name": "PRINCIPLES OF MARKETING",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026105",
+              "subject_name": "ORGANIZATION AND MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "14026147",
+              "subject_name": "QUANTITATIVE ANALYSIS FOR BUSINESS ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "90201035",
+              "subject_name": "WRITING AND SPEAKING IN THE PROFESSIONS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "90302011",
+              "subject_name": "PSYCHOLOGY OF THINKING",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            }
+          ]
+        },
+        {
+          "year": 2563,
+          "sem_num": 2,
+          "GPA": "2.46",
+          "GPS": "2.25",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026107",
+              "subject_name": "PRODUCTION AND OPERATIONS MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "14026114",
+              "subject_name": "COMPUTER AND INFORMATION APPLICATIONS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "14026145",
+              "subject_name": "BUSINESS TAX",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "14026148",
+              "subject_name": "STATISTICS FOR ECONOMISTS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026150",
+              "subject_name": "INTRODUCTION TO INDUSTRIAL ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "90595002",
+              "subject_name": "ENGLISH FOR COMMUNICATION",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 1,
+          "GPA": "2.45",
+          "GPS": "2.43",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026103",
+              "subject_name": "BUSINESS FINANCE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14026108",
+              "subject_name": "HUMAN RESOURCE MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026151",
+              "subject_name": "ENVIRONMENTAL MANAGEMENT FOR BUSINESS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "14026153",
+              "subject_name": "STATISTIC PACKAGES FOR DATA ANALYSIS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "14026154",
+              "subject_name": "BUSINESS ECONOMICS RESEARCH",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "14026241",
+              "subject_name": "AGRIBUSINESS ECONOMICS AND FOOD",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026345",
+              "subject_name": "PROJECT FEASIBILITY STUDY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "2.45",
+          "GPS": "2.43",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026107",
+              "subject_name": "PRODUCTION AND OPERATIONS MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14026115",
+              "subject_name": "BUSINESS AND COMMERCIAL LAWS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14026149",
+              "subject_name": "INTRODUCTION TO ECONOMIETRICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "14026152",
+              "subject_name": "MONEY AND BANKING ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14026155",
+              "subject_name": "BUSINESS PLANNING",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026156",
+              "subject_name": "SEMINAR IN BUSINESS ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14026442",
+              "subject_name": "INTERNATIONAL MONETARY ECONOMICS Date of Issued: January 17, 2025 Date of Graduation : N/A",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "2.59",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026349",
+              "subject_name": "ECONOMICS OF SERVICE INDUSTRY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026351",
+              "subject_name": "SELECTED TOPICS IN INDUSTRIAL AND TECHNOLOGY ECONOMICS 2",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "14026449",
+              "subject_name": "SELECTED TOPICS IN INTERNATIONAL ECONOMICS 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026501",
+              "subject_name": "MARKETING PLANNING AND MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14026843",
+              "subject_name": "SPECIAL PROJECT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "90302013",
+              "subject_name": "PERSONALITY AND MENTAL HEALTH DEVELOPMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "2.60",
+          "GPS": "2.71",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "90591910",
+              "subject_name": "CHESS",
+              "type": null,
+              "credit": 2,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "90591911",
+              "subject_name": "TABLE TENNIS",
+              "type": null,
+              "credit": 2,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "90592004",
+              "subject_name": "CONTEMPORARY CULTURE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "c"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "2.61",
+          "GPS": "3.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "90201020",
+              "subject_name": "ENGLISH FOR INDUSTRY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": "2.61",
+          "GPS": "3.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14026346",
+              "subject_name": "INFORMATION AND COMMUNICATION TECHNOLOGY ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            }
+          ]
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "2.61",
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

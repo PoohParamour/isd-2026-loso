@@ -1,0 +1,190 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.015,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "Faculty of Medicine",
+      "prename": "Mr.",
+      "name": "Graduatemed1 Medicine1",
+      "student_id": "74166001",
+      "date_of_birth": "1995-11-01",
+      "admis_date": "2022-01-10",
+      "degree": "Master of Science",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "Health Technology Development (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 41,
+      "cumulative_gpa": "3.94",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "4.00",
+          "GPS": "4.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "17017002",
+              "subject_name": "BASIC PROGRAMMING",
+              "type": "cr",
+              "credit": 2,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "17017003",
+              "subject_name": "THEORY AND METHODOLOGY OF SCIENCE",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "17017004",
+              "subject_name": "MEDICAL TECHNOLOGIES IN DIGITAL HEALTHCARE TRANSFORMATION",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "17017009",
+              "subject_name": "ARTIFICIAL INTELLIGENCE FOR HEALTHCARE",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "3.92",
+          "GPS": "3.83",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "17017005",
+              "subject_name": "COGNITIVE SCIENCE",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "17017110",
+              "subject_name": "DATA SCIENCE, MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "17017117",
+              "subject_name": "MEDICAL IMAGING",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "3.93",
+          "GPS": "4.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "17017114",
+              "subject_name": "INNOVATIVE DIAGNOSIS AND THERAPEUTICS",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "17017801",
+              "subject_name": "SEMINAR 1",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "17017802",
+              "subject_name": "SEMINAR 2",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "17017901",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "3.94",
+          "GPS": "4.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "17017101",
+              "subject_name": "ADVANCED MOLECULAR BIOLOGY TECHNIQUES",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "17017803",
+              "subject_name": "SEMINAR 3",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "17017901",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": null,
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "3.94",
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

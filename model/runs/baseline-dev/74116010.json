@@ -1,0 +1,118 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.014,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "College of Advanced Manufacturing Innovation",
+      "prename": "Mr.",
+      "name": "Graduateami10 Advanced Manufacturing Innovation10",
+      "student_id": "74116010",
+      "date_of_birth": "1998-12-26",
+      "admis_date": "2022-01-10",
+      "degree": "Master of Engineering",
+      "grad_date": "2023-11-14",
+      "grad_reason": null,
+      "program": "Advanced Manufacturing System Engineering (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 36,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "12017031",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "12017231",
+              "subject_name": "RESEARCH METHODOLOGY FOR MANUFACTURING PROCESS",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "12017031",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "12017131",
+              "subject_name": "SEMINAR",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "12017031",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "12017031",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

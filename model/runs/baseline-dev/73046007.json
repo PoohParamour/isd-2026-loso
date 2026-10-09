@@ -1,0 +1,203 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.015,
+  "record": {
+    "format_id": "graduate_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะเทคโนโลยีการเกษตร",
+      "prename": "นาย",
+      "name": "บัณฑิตกษ7 เทคโนโลยีการเกษตร7",
+      "student_id": "73046007",
+      "date_of_birth": "1998-04-07",
+      "admis_date": "2021-01-11",
+      "degree": "วิทยาศาสตรมหาบัณฑิต",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "วิทยาศาสตร์การประมง",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 30,
+      "cumulative_gpa": "3.29",
+      "semesters": [
+        {
+          "year": 2563,
+          "sem_num": 2,
+          "GPA": "3.00",
+          "GPS": "3.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04086109",
+              "subject_name": "โรคสัตว์น้ำ",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "04087306",
+              "subject_name": "การใช้ประโยชน์ทรัพยากรประมงอย่างยั่งยืน",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 1,
+          "GPA": "3.00",
+          "GPS": "3.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04086107",
+              "subject_name": "คุณภาพน้ำเพื่อการประมง",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "c+"
+            },
+            {
+              "subject_id": "04087301",
+              "subject_name": "สัมมนา 1",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "04087438",
+              "subject_name": "ระเบียบวิธีวิจัยทางการประมงและทรัพยากรทางน้ำ",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "3.10",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087440",
+              "subject_name": "ผลิตภัณฑ์จากทรัพยากรทางน้ำเพื่อการประมง",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "3.25",
+          "GPS": "4.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087122",
+              "subject_name": "สัมมนา 2",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "04087302",
+              "subject_name": "สัมมนา 2",
+              "type": "cr",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "04087305",
+              "subject_name": "ปัญหาพิเศษ",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "3.29",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087663",
+              "subject_name": "โภชนเภสัชและสารออกฤทธิ์ ทางชีวภาพจากทรัพยากรในแหล่งน้ำ",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "3.29",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087512",
+              "subject_name": "วิทยานิพนธ์",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": "3.29",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087512",
+              "subject_name": "วิทยานิพนธ์",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "3.29",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04087512",
+              "subject_name": "วิทยานิพนธ์",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "i"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-15",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}

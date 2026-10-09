@@ -1,0 +1,105 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.149,
+  "record": {
+    "format_id": "bachelor_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะสถาปัตยกรรมศาสตร์",
+      "prename": "นางสาว",
+      "name": "สถ5 สถาปัตยกรรม ศิลปะและการออกแบบ5",
+      "student_id": "71020005",
+      "date_of_birth": "1997-12-23",
+      "admis_date": "2018-08-06",
+      "degree": "ศิลปกรรมศาสตรบัณฑิต",
+      "grad_date": null,
+      "grad_reason": "n/a(ลาออก 1 / 2561)",
+      "program": "การออกแบบสนเทศสามมิติ",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 0,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2561,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "02366051",
+              "subject_name": "ประวัติศาสตร์ศิลปะและการออกแบบ",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "02366053",
+              "subject_name": "วิจิตรศิลป์ 1 : จิตรกรรมและภาพพิมพ์",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "02366055",
+              "subject_name": "มิติสัมพันธ์และการเขียนแบบ",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "02366064",
+              "subject_name": "การออกแบบสนเทศสามมิติ 1:การรับรู้ด้วยการมอง",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "02366070",
+              "subject_name": "ปฏิบัติการออกแบบสนเทศสาม มิติ1:สื่อเชิงศิลป์",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90591001",
+              "subject_name": "เรารัก สจล.",
+              "type": null,
+              "credit": 2,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90591002",
+              "subject_name": "กีฬาและนันทนาการ",
+              "type": null,
+              "credit": 1,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90595001",
+              "subject_name": "ภาษาอังกฤษพื้นฐาน",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}

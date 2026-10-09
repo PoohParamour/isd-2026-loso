@@ -1,0 +1,132 @@
+{
+  "split": "dev",
+  "batch_size": 12,
+  "batch_total_seconds": 7.202,
+  "mean_seconds_per_document": 0.6,
+  "median_seconds_per_document": 0.031,
+  "max_seconds_per_document": 4.019,
+  "bonus_latency_target_met": true,
+  "exact_field_accuracy": 0.9657097288676236,
+  "documents": [
+    {
+      "id": "71010001",
+      "group": "bachelor",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.073,
+      "correct": 72,
+      "total": 73,
+      "accuracy": 0.9863013698630136
+    },
+    {
+      "id": "71010005",
+      "group": "bachelor",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.043,
+      "correct": 44,
+      "total": 45,
+      "accuracy": 0.9777777777777777
+    },
+    {
+      "id": "71010009",
+      "group": "bachelor",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.047,
+      "correct": 287,
+      "total": 307,
+      "accuracy": 0.9348534201954397
+    },
+    {
+      "id": "72100002",
+      "group": "bachelor",
+      "language": "en",
+      "engine": "tesseract",
+      "seconds_with_comparison": 1.527,
+      "correct": 55,
+      "total": 57,
+      "accuracy": 0.9649122807017544
+    },
+    {
+      "id": "72100006",
+      "group": "bachelor",
+      "language": "en",
+      "engine": "tesseract",
+      "seconds_with_comparison": 1.392,
+      "correct": 47,
+      "total": 49,
+      "accuracy": 0.9591836734693877
+    },
+    {
+      "id": "72100009",
+      "group": "bachelor",
+      "language": "en",
+      "engine": "tesseract",
+      "seconds_with_comparison": 4.019,
+      "correct": 262,
+      "total": 272,
+      "accuracy": 0.9632352941176471
+    },
+    {
+      "id": "73036003",
+      "group": "graduate",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.019,
+      "correct": 106,
+      "total": 106,
+      "accuracy": 1.0
+    },
+    {
+      "id": "73036011",
+      "group": "graduate",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.018,
+      "correct": 104,
+      "total": 104,
+      "accuracy": 1.0
+    },
+    {
+      "id": "73046003",
+      "group": "graduate",
+      "language": "th",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.016,
+      "correct": 35,
+      "total": 36,
+      "accuracy": 0.9722222222222222
+    },
+    {
+      "id": "74116006",
+      "group": "graduate",
+      "language": "en",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.016,
+      "correct": 77,
+      "total": 79,
+      "accuracy": 0.9746835443037974
+    },
+    {
+      "id": "74116010",
+      "group": "graduate",
+      "language": "en",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.015,
+      "correct": 60,
+      "total": 62,
+      "accuracy": 0.967741935483871
+    },
+    {
+      "id": "74126003",
+      "group": "graduate",
+      "language": "en",
+      "engine": "pdf_text",
+      "seconds_with_comparison": 0.016,
+      "correct": 62,
+      "total": 64,
+      "accuracy": 0.96875
+    }
+  ]
+}

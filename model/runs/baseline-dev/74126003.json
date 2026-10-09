@@ -1,0 +1,114 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.016,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": null,
+      "prename": "Mr.",
+      "name": "Graduatekbs3 KMITL Business School3",
+      "student_id": "74126003",
+      "date_of_birth": "1997-08-06",
+      "admis_date": "2021-08-02",
+      "degree": "Master of Business Administration",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "Industrial Business Administration (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 21,
+      "cumulative_gpa": "3.64",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 1,
+          "GPA": "3.67",
+          "GPS": "3.67",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097001",
+              "subject_name": "INTEGRATED BUSINESS MANAGEMENT",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "14097101",
+              "subject_name": "MARKETING MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097102",
+              "subject_name": "STRATEGIC OPERATIONS MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097104",
+              "subject_name": "RESEARCH METHODOLOGY OF INDUSTRIAL BUSINESS",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "3.64",
+          "GPS": "3.63",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097103",
+              "subject_name": "INDUSTRIAL ORGANIZATION AND HUMAN RESOURCE MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097106",
+              "subject_name": "FINANCIAL MANAGEMENT AND MANAGERIAL ACCOUNTING",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097214",
+              "subject_name": "CREATIVE THINKING, INNOVATION AND DIGITAL ENTREPRENEURSHIP",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097222",
+              "subject_name": "SUPPLY CHAIN AND LOGISTICS MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

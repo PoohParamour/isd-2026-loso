@@ -1,0 +1,142 @@
+{
+  "engine": "tesseract",
+  "processing_seconds": 3.017,
+  "record": {
+    "format_id": "bachelor_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "KMITL Business School",
+      "prename": "Miss",
+      "name": "Kbs2 KMITL Business School2",
+      "student_id": "72120002",
+      "date_of_birth": "2000-07-06",
+      "admis_date": "2019-08-05",
+      "degree": "Bachelor of Business Administration",
+      "grad_date": null,
+      "grad_reason": "n/a(Retired in Semester 2 / 2019)",
+      "program": "Business Administration (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 36,
+      "cumulative_gpa": "1.00",
+      "semesters": [
+        {
+          "year": 2562,
+          "sem_num": 1,
+          "GPA": "1.25",
+          "GPS": "1.25",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14036110",
+              "subject_name": "PRINCIPLES OF ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d"
+            },
+            {
+              "subject_id": "14036119",
+              "subject_name": "FUNDAMENTALS OF MANAGING TECHNOLOGY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14036906",
+              "subject_name": "COMPUTER IN DAILY LIFE",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14036923",
+              "subject_name": "GENERAL BUSINESS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d"
+            },
+            {
+              "subject_id": "14036946",
+              "subject_name": "THE WORLD TODAY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14036964",
+              "subject_name": "ENGLISH FOR BUSINESS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d"
+            }
+          ]
+        },
+        {
+          "year": 2562,
+          "sem_num": 2,
+          "GPA": "1.00",
+          "GPS": "0.75",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14036104",
+              "subject_name": "INTERNATIONAL MARKETING MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "14036111",
+              "subject_name": "MANAGERIAL ECONOMICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "14036112",
+              "subject_name": "PRINCIPLES OF MANAGEMENT",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "d+"
+            },
+            {
+              "subject_id": "14036905",
+              "subject_name": "MATHEMETICS IN BUSINESS AND INDUSTRY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "14036921",
+              "subject_name": "ECONOMY OF ASIAN COUNTRIES",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14036968",
+              "subject_name": "ENGLISH FOR PROFESSIONAL PRESENTATION",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

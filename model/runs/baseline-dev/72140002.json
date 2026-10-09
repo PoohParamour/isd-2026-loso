@@ -1,0 +1,98 @@
+{
+  "engine": "tesseract",
+  "processing_seconds": 1.915,
+  "record": {
+    "format_id": "bachelor_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "International Academy of Aviation Industry",
+      "prename": "Mr.",
+      "name": "Aai2 International Academy of Aviation Industry2",
+      "student_id": "72140002",
+      "date_of_birth": "2000-11-25",
+      "admis_date": "2019-08-05",
+      "degree": "Bachelor of Engineering",
+      "grad_date": null,
+      "grad_reason": "n/a(Retired in Semester 1 / 2019)",
+      "program": "Aeronautical Engineering and Commercial Pilot (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 21,
+      "cumulative_gpa": "0.50",
+      "semesters": [
+        {
+          "year": 2562,
+          "sem_num": 1,
+          "GPA": "0.50",
+          "GPS": "0.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "15006101",
+              "subject_name": "CONTEMPORARY SCIENCE AND TECHNOLOGY",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "15006201",
+              "subject_name": "FOUNDATION ENGLISH",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "15006304",
+              "subject_name": "SPORTS SCIENCE FOR HEALTH",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "15016401",
+              "subject_name": "PHYSICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "15016402",
+              "subject_name": "MATHEMATICS 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "15016501",
+              "subject_name": "ENGINEERING MATERIALS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            },
+            {
+              "subject_id": "15016502",
+              "subject_name": "ENGINEERING DRAWING",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "f"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.034,
+  "record": {
+    "format_id": "graduate_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะวิทยาศาสตร์",
+      "prename": "นาย",
+      "name": "บัณฑิตวท4 วิทยาศาสตร์4",
+      "student_id": "73056004",
+      "date_of_birth": "1996-01-05",
+      "admis_date": "2020-08-03",
+      "degree": "วิทยาศาสตรมหาบัณฑิต",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "วิทยาการข้อมูลและการวิเคราะห์",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 0,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2563,
+          "sem_num": 1,
+          "GPA": null,
+          "GPS": null,
+          "pass_reason": "leaveofabsence",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-15",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}

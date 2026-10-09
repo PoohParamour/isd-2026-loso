@@ -1,0 +1,98 @@
+{
+  "engine": "tesseract",
+  "processing_seconds": 1.75,
+  "record": {
+    "format_id": "bachelor_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "College of Nanotechnology",
+      "prename": "Mr.",
+      "name": "Mit6 Materials Innovation and Technology6",
+      "student_id": "72100006",
+      "date_of_birth": "2000-07-17",
+      "admis_date": "2019-08-05",
+      "degree": "Bachelor of Engineering",
+      "grad_date": null,
+      "grad_reason": "n/a(Resigned in Semester 1 / 2019)",
+      "program": "Nanomaterial Engineering",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 0,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2562,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "90201001",
+              "subject_name": "FOUNDATION ENGLISH 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90304001",
+              "subject_name": "LIBRARY USAGE AND INFORMATION",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "92596100",
+              "subject_name": "ENGINEERING WORKSHOP AND DRAWING",
+              "type": null,
+              "credit": 1,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "92596101",
+              "subject_name": "ENGINEERING MATHEMATICS",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "92596103",
+              "subject_name": "PHYSICS 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "92596111",
+              "subject_name": "PHYSICS LABORATORY 1",
+              "type": null,
+              "credit": 1,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "92596113",
+              "subject_name": "CHEMISTRY LABORATORY",
+              "type": null,
+              "credit": 1,
+              "grade_earn": "-"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "split": "test",
+  "documents": 12,
+  "failures": [],
+  "engines": {
+    "pdf_text": 9,
+    "tesseract": 3
+  },
+  "mean_seconds": 0.5884166666666667,
+  "median_seconds": 0.033,
+  "max_seconds": 3.614
+}

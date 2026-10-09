@@ -1,0 +1,161 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.017,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": null,
+      "prename": "Mr.",
+      "name": "Graduatekbs11 KMITL Business School11",
+      "student_id": "74126011",
+      "date_of_birth": "1989-11-30",
+      "admis_date": "2022-01-10",
+      "degree": "Master of Business Administration",
+      "grad_date": "2024-04-23",
+      "grad_reason": null,
+      "program": "Industrial Business Administration (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 36,
+      "cumulative_gpa": "3.69",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "3.83",
+          "GPS": "3.83",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097103",
+              "subject_name": "INDUSTRIAL ORGANIZATION AND HUMAN RESOURCE MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "14097106",
+              "subject_name": "FINANCIAL MANAGEMENT AND MANAGERIAL ACCOUNTING",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097222",
+              "subject_name": "SUPPLY CHAIN AND LOGISTICS MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "3.75",
+          "GPS": "3.67",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097101",
+              "subject_name": "MARKETING MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097105",
+              "subject_name": "GLOBAL STRATEGIC MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097107",
+              "subject_name": "DIGITAL INNOVATION FOR INDUSTRIAL BUSINESS",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "3.69",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097001",
+              "subject_name": "INTEGRATED BUSINESS MANAGEMENT",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "14097102",
+              "subject_name": "STRATEGIC OPERATIONS MANAGEMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097104",
+              "subject_name": "RESEARCH METHODOLOGY OF INDUSTRIAL BUSINESS",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14097602",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "3.69",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14097602",
+              "subject_name": "THESIS",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": "3.69",
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

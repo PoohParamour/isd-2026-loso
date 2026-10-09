@@ -1,0 +1,185 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.016,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": null,
+      "prename": "Mr.",
+      "name": "Graduatekbs7 KMITL Business School7",
+      "student_id": "74126007",
+      "date_of_birth": "1995-10-29",
+      "admis_date": "2022-01-10",
+      "degree": "Doctor of Philosophy",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "Industrial Business Administration (International Program)",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 78,
+      "cumulative_gpa": "3.50",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "3.50",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138102",
+              "subject_name": "ADVANCED QUANTITATIVE RESEARCH METHODS",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "14138214",
+              "subject_name": "NEW PRODUCT AND SERVICES DEVELOPMENT",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "14138301",
+              "subject_name": "DOCTORAL SEMINAR 1",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "3.50",
+          "GPS": "3.50",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138001",
+              "subject_name": "ADVANCED INTEGRATED BUSINESS MANAGEMENT",
+              "type": "nc",
+              "credit": 3,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "14138101",
+              "subject_name": "PHILOSOPHY OF ADVANCED RESEARCH METHODOLOGY",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14138103",
+              "subject_name": "ADVANCED INDUSTRIAL BUSINESS ADMINISTRATION",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "14138302",
+              "subject_name": "DOCTORAL SEMINAR 2",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "3.50",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138303",
+              "subject_name": "DOCTORAL SEMINAR 3",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "14138602",
+              "subject_name": "DOCTORAL THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "3.50",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138601",
+              "subject_name": "DOCTORAL THESIS",
+              "type": "cr",
+              "credit": 48,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": "3.50",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138602",
+              "subject_name": "DOCTORAL THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "3.50",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "14138306",
+              "subject_name": "DOCTORAL SEMINAR 6",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            },
+            {
+              "subject_id": "14138602",
+              "subject_name": "DOCTORAL THESIS",
+              "type": "cr",
+              "credit": 9,
+              "grade_earn": "i"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "Asst.Prof. Dr. Test Surname",
+        "by_position": "Director",
+        "by_reg": "KMITL Registration and Educational Service Office"
+      }
+    }
+  }
+}

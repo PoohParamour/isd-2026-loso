@@ -1,0 +1,77 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.033,
+  "record": {
+    "format_id": "graduate_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะเทคโนโลยีการเกษตร",
+      "prename": "นาย",
+      "name": "บัณฑิตกษ3 เทคโนโลยีการเกษตร3",
+      "student_id": "73046003",
+      "date_of_birth": "1997-06-03",
+      "admis_date": "2021-01-11",
+      "degree": "วิทยาศาสตรมหาบัณฑิต",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "พัฒนาการเกษตรและการจัดการทรัพยากร",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 0,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2563,
+          "sem_num": 2,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "04097616",
+              "subject_name": "การศึกษาเชิงวิเคราะห์เกษตรอาเซียน",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": null
+            },
+            {
+              "subject_id": "04097703",
+              "subject_name": "การบริหารการพัฒนาการเกษตร",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": null
+            },
+            {
+              "subject_id": "04097705",
+              "subject_name": "เทคโนโลยีสารสนเทศทางด้านพัฒนา การเกษตรและการจัดการทรัพยากร",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": null
+            },
+            {
+              "subject_id": "04097707",
+              "subject_name": "การจัดการธุรกิจเกษตร",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": null
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-15",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}

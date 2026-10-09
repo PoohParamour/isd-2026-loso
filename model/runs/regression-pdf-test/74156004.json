@@ -1,0 +1,197 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.016,
+  "record": {
+    "format_id": "graduate_en",
+    "header_detail": {
+      "uni_name": "KING MONGKUT'S INSTITUTE OF TECHNOLOGY LADKRABANG",
+      "uni_address": "Chalongkrung Road, Ladkrabang, Bangkok 10520, THAILAND",
+      "faculty_name": "schoolofliberalarts",
+      "prename": "Miss",
+      "name": "Graduatela4 Liberal Arts4",
+      "student_id": "74156004",
+      "date_of_birth": "1975-12-07",
+      "admis_date": "2022-01-10",
+      "degree": "masterofarts",
+      "grad_date": null,
+      "grad_reason": null,
+      "program": "appliedlinguistics-englishforprofessionalpurposes",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": "pass",
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 36,
+      "cumulative_gpa": "3.33",
+      "semesters": [
+        {
+          "year": 2564,
+          "sem_num": 2,
+          "GPA": "3.00",
+          "GPS": "3.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "16127021",
+              "subject_name": "appliedlinguistics",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "c"
+            },
+            {
+              "subject_id": "16127024",
+              "subject_name": "advancedintegratedenglishlanguageskillsforprofessionalpurposes",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "16127025",
+              "subject_name": "englishforprofessionalpurposes",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "16127064",
+              "subject_name": "englishphoneticsandworkplacecommunication",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 1,
+          "GPA": "3.13",
+          "GPS": "3.25",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "16127022",
+              "subject_name": "researchmethodology",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "16127023",
+              "subject_name": "researchwriting",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "16127058",
+              "subject_name": "languagetestingandassessment",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b"
+            },
+            {
+              "subject_id": "16127063",
+              "subject_name": "currenttrendsinenglishforprofessionalpurposes",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            }
+          ]
+        },
+        {
+          "year": 2565,
+          "sem_num": 2,
+          "GPA": "3.33",
+          "GPS": "3.75",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "16127021",
+              "subject_name": "appliedlinguistics",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "16127053",
+              "subject_name": "businesswritingforworkplacecommunication",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "a"
+            },
+            {
+              "subject_id": "16127056",
+              "subject_name": "ENGLISH FOR SCIENCE AND TECHNOLOGY",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "16127057",
+              "subject_name": "englishlanguageteachingmethodologyandmaterialdesign",
+              "type": "cr",
+              "credit": 3,
+              "grade_earn": "b+"
+            },
+            {
+              "subject_id": "16127101",
+              "subject_name": "seminarinenglishforprofessionalpurposes",
+              "type": "nc",
+              "credit": 1,
+              "grade_earn": "s"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 1,
+          "GPA": "3.33",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "16127012",
+              "subject_name": "independentstudy",
+              "type": "cr",
+              "credit": 6,
+              "grade_earn": "i"
+            }
+          ]
+        },
+        {
+          "year": 2566,
+          "sem_num": 2,
+          "GPA": null,
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        },
+        {
+          "year": 2567,
+          "sem_num": 1,
+          "GPA": "3.33",
+          "GPS": null,
+          "pass_reason": "maintain",
+          "subject": []
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-16",
+      "by": {
+        "by_signature": "asst.prof.dr.testsurname",
+        "by_position": "director",
+        "by_reg": "kmitlregistrationandeducationserviceoffice"
+      }
+    }
+  },
+  "validation": {
+    "needs_review": false,
+    "errors": 0,
+    "warnings": 0,
+    "course_count": 14,
+    "issues": []
+  }
+}

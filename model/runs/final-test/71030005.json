@@ -1,0 +1,98 @@
+{
+  "engine": "pdf_text",
+  "processing_seconds": 0.08,
+  "record": {
+    "format_id": "bachelor_th",
+    "header_detail": {
+      "uni_name": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "uni_address": "เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพฯ 10520",
+      "faculty_name": "คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี",
+      "prename": "นาย",
+      "name": "คอ5 ครุศาสตร์อุตสาหกรรมและเทคโนโลยี5",
+      "student_id": "71030005",
+      "date_of_birth": "1996-09-04",
+      "admis_date": "2018-08-06",
+      "degree": "เทคโนโลยีบัณฑิต",
+      "grad_date": null,
+      "grad_reason": "n/a(ลาออก 1 / 2561)",
+      "program": "เทคโนโลยีชีวภาพทางการเกษตร",
+      "major": null,
+      "honor": 0
+    },
+    "transcript_detail": {
+      "master_comprehensive": null,
+      "master_thesis": null,
+      "master_qualify": null,
+      "total_credits_earned": 0,
+      "cumulative_gpa": "0.00",
+      "semesters": [
+        {
+          "year": 2561,
+          "sem_num": 1,
+          "GPA": "0.00",
+          "GPS": "0.00",
+          "pass_reason": null,
+          "subject": [
+            {
+              "subject_id": "03606221",
+              "subject_name": "เคมีทางการเกษตร",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "03606222",
+              "subject_name": "ชีววิทยาทางการเกษตร",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "03606223",
+              "subject_name": "จุลชีววิทยาทางการเกษตร",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "03606701",
+              "subject_name": "เทคโนโลยีชีวภาพทางการเกษตร 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "03606709",
+              "subject_name": "การวิเคราะห์คุณภาพผลิตผลทางการเกษตร 1",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90101002",
+              "subject_name": "คณิตศาสตร์ในชีวิตประจำวัน",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            },
+            {
+              "subject_id": "90201024",
+              "subject_name": "ภาษาอังกฤษเพื่อการประกอบอาชีพ",
+              "type": null,
+              "credit": 3,
+              "grade_earn": "-"
+            }
+          ]
+        }
+      ]
+    },
+    "footer_detail": {
+      "updated_at": "2025-01-17",
+      "by": {
+        "by_signature": "ผู้ช่วยศาสตราจารย์ ดร.ทดสอบ นามสกุล",
+        "by_position": "ผู้อำนวยการ",
+        "by_reg": "สำนักทะเบียนและบริการการศึกษา"
+      }
+    }
+  }
+}
