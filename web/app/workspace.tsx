@@ -25,6 +25,7 @@ type SavedDocument = { document_id: string; filename: string; created_at: string
 type Notice = { text: string; tone: "info" | "success" | "error" };
 
 const PAGE_RATIO = 210 / 297; // A4 portrait, width / height
+const GROUP_NAME = "loso"; // default name of the exported answer file
 const MAX_UPLOAD = 20 * 1024 * 1024;
 const ALLOWED = [".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".heic", ".heif"];
 const ACCEPT = ALLOWED.join(",") + ",image/heic,image/heif";
@@ -55,6 +56,22 @@ const formatDate = (iso: string) => {
   const date = new Date(iso);
   return isNaN(date.getTime()) ? "—" : date.toLocaleString("th-TH", { dateStyle: "medium", timeStyle: "short" });
 };
+
+// Keeps file names safe on every OS and falls back to the group name.
+function safeFileName(name: string, fallback: string) {
+  const cleaned = name.replace(/\.json$/i, "").replace(/[\\/:*?"<>|]+/g, "").trim();
+  return (cleaned || fallback) + ".json";
+}
+
+function downloadJson(fileName: string, data: unknown) {
+  const blob = new Blob([JSON.stringify(data, null, 2) + "\n"], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 const errorText = (error: unknown) => (error instanceof Error ? error.message : String(error));
 
@@ -201,6 +218,9 @@ export default function Workspace() {
 
   const [showJsonEditor, setShowJsonEditor] = useState(false);
   const [editor, setEditor] = useState("");
+  const [edits, setEdits] = useState<Record<number, string>>({});
+  const [exportName, setExportName] = useState(GROUP_NAME);
+  const [exportShape, setExportShape] = useState<"records" | "withNames">("records");
   const [guideOpen, setGuideOpen] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -289,18 +309,18 @@ export default function Workspace() {
   function select(index: number) {
     goUpload();
     setSelected(index);
-    setEditor(JSON.stringify(results[index].record, null, 2));
+    setEditor(edits[index] ?? JSON.stringify(results[index].record, null, 2));
     setNotice(null);
   }
 
   function resetUpload() {
-    setResults([]); setSelected(0); setSaved({}); setEditor(""); setNotice(null); setShowJsonEditor(false);
+    setResults([]); setSelected(0); setSaved({}); setEdits({}); setEditor(""); setNotice(null); setShowJsonEditor(false);
   }
 
   async function extractAll(filesToExtract: File[]) {
     if (!filesToExtract.length) return;
     goUpload();
-    setExtracting(true); setNotice(null); setResults([]); setSelected(0); setSaved({}); setShowJsonEditor(false);
+    setExtracting(true); setNotice(null); setResults([]); setSelected(0); setSaved({}); setEdits({}); setShowJsonEditor(false);
     const next: Extraction[] = [];
     try {
       for (let i = 0; i < filesToExtract.length; i++) {
@@ -352,6 +372,7 @@ export default function Workspace() {
 
   function updateEditor(value: string) {
     setEditor(value);
+    setEdits(previous => ({ ...previous, [selected]: value }));
     // Edits after saving mean the stored copy is outdated.
     setSaved(previous => { const next = { ...previous }; delete next[selected]; return next; });
   }
@@ -420,8 +441,43 @@ export default function Workspace() {
     updateRecord(draft => { draft.transcript_detail?.semesters?.splice(s, 1); });
   }
 
+  // Result of one file as the user left it (their edits included), in the same shape as the ground-truth files.
+  function exportRecord(index: number): RecordData | null {
+    const item = results[index];
+    if (!item || item.error) return null;
+    try {
+      const copy = JSON.parse(index === selected ? editor : (edits[index] ?? JSON.stringify(item.record))) as RecordData;
+      delete copy.format_id;
+      return copy;
+    } catch { return null; }
+  }
+
+  const exportable = results.map((_, index) => index).filter(index => exportRecord(index) !== null);
+
+  function exportOne(index: number, fileName: string) {
+    const data = exportRecord(index);
+    if (!data) { setNotice({ text: "JSON ของไฟล์นี้ไม่ถูกต้อง แก้ใน JSON editor ก่อนดาวน์โหลด", tone: "error" }); return; }
+    downloadJson(fileName, data);
+    setNotice({ text: "ดาวน์โหลด " + fileName + " แล้ว", tone: "success" });
+  }
+
+  function exportAll() {
+    const name = safeFileName(exportName, GROUP_NAME);
+    const rows = exportable.map(index => ({ filename: results[index].filename, data: exportRecord(index) as RecordData }));
+    const skipped = results.length - rows.length;
+    // One file → the record itself; several files → a list in upload order.
+    const payload = rows.length === 1 ? rows[0].data
+      : exportShape === "withNames" ? rows.map(row => ({ filename: row.filename, ...row.data }))
+      : rows.map(row => row.data);
+    downloadJson(name, payload);
+    setNotice({ text: "ดาวน์โหลด " + name + " แล้ว (" + rows.length + " ฉบับ" + (skipped ? " · ข้าม " + skipped + " ไฟล์ที่อ่านไม่สำเร็จ" : "") + ")", tone: skipped ? "info" : "success" });
+  }
+
   function formatJson() {
-    if (record) setEditor(JSON.stringify(record, null, 2));
+    if (!record) return;
+    const text = JSON.stringify(record, null, 2);
+    setEditor(text);
+    setEdits(previous => ({ ...previous, [selected]: text }));
   }
 
   async function search(event?: React.FormEvent) {
@@ -784,6 +840,34 @@ export default function Workspace() {
                     <dt>เวลาประมวลผล</dt><dd className="text-right text-[#292825]">{current.processing_seconds.toFixed(2)} วินาที</dd>
                   </dl>
                   {rechecking && <div className="mt-4 text-[11px] text-[#716F6A]">กำลังตรวจข้อมูลที่แก้ไขใหม่...</div>}
+                </div>
+
+                <div className="bg-white border border-[#E7E4DE] rounded-[22px] p-6 shadow-sm">
+                  <div className="text-[14px] font-semibold mb-1">ส่งออกผลลัพธ์เป็นไฟล์ JSON</div>
+                  <div className="text-[12px] text-[#716F6A] mb-4 leading-relaxed">ได้ตามค่าที่ตรวจแก้แล้ว · รูปแบบเดียวกับไฟล์เฉลย (ไม่มีคีย์ format_id)</div>
+                  <label className="block text-[11px] text-[#716F6A]">
+                    ชื่อไฟล์ (ไม่ต้องใส่ .json)
+                    <EditInput label="ชื่อไฟล์ที่ส่งออก" value={exportName} onChange={setExportName} placeholder={GROUP_NAME} className="mt-1 !h-[40px] text-[14px]" />
+                  </label>
+                  {exportable.length > 1 && (
+                    <label className="block text-[11px] text-[#716F6A] mt-3">
+                      รูปแบบไฟล์รวม ({exportable.length} ฉบับ)
+                      <select value={exportShape} onChange={e => setExportShape(e.target.value as "records" | "withNames")} className="mt-1 block w-full h-[40px] px-3 bg-white border border-[#E7E4DE] rounded-[12px] text-[13px] text-[#292825] focus:outline-none focus:border-[#F47721]">
+                        <option value="records">รายการผลลัพธ์ล้วน เรียงตามลำดับไฟล์</option>
+                        <option value="withNames">รายการ มี filename กำกับแต่ละผล</option>
+                      </select>
+                    </label>
+                  )}
+                  <div className="flex flex-col gap-2 mt-4">
+                    <button onClick={exportAll} disabled={exportable.length === 0} className="h-[44px] rounded-[14px] bg-[#F47721] text-white text-[13px] font-medium hover:bg-orange-600 disabled:opacity-50">
+                      {exportable.length > 1 ? "ดาวน์โหลดทั้ง " + exportable.length + " ฉบับ เป็น 1 ไฟล์" : "ดาวน์โหลด " + safeFileName(exportName, GROUP_NAME)}
+                    </button>
+                    {exportable.length > 1 && exportRecord(selected) && (
+                      <button onClick={() => exportOne(selected, safeFileName(current.filename.replace(/\.[^.]+$/, ""), GROUP_NAME))} className="h-[44px] rounded-[14px] border border-[#E7E4DE] text-[13px] hover:bg-slate-50">
+                        ดาวน์โหลดเฉพาะไฟล์นี้ ({safeFileName(current.filename.replace(/\.[^.]+$/, ""), GROUP_NAME)})
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 <div className="bg-white border border-[#E7E4DE] rounded-[18px] p-6 shadow-sm">
