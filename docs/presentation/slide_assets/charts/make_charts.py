@@ -171,17 +171,17 @@ b += f'<text x="70" y="810" font-size="24" style="fill:{GRAY}">ภาพมื�
 page("s14_weak", "ยังอ่านภาพเบลอ/มืด/เอียงแรงไม่ดี ต่ำกว่าเป้า 91%", "กลุ่มภาพที่ยังไม่ผ่านเป้า (exact field accuracy)", b, "ที่มา: model/reports/augmented-dev-deskew-full-20261004.json, peam-angles-after-20261004.json, phone-all-final-20261007.json")
 
 # B4 — phone training results
-items = [("ไม่ฝึก (มุม 2 ตรวจ)", 84.75, RED, "250/295"), ("ฝึกแล้ว (มุม 2 ตรวจ)", 97.63, ORANGE, "288/295 · เอกสารชุดเดียวกัน"),
-         ("มุม 3 ครั้งแรก", 85.42, RED, "252/295 · ก่อนแก้ geometry"), ("มุม 3 หลังแก้ geometry", 97.29, ORANGE, "287/295 · reused"), ("ทั้ง 6 ภาพ", 97.29, ORANGE, "861/885")]
+items = [("ก่อนฝึก (มุม 2)", 84.75, RED, "250/295"), ("หลังฝึก (มุม 2)", 97.63, ORANGE, "288/295 · เอกสารเดียวกับที่ฝึก"),
+         ("มุม 3 ผลครั้งแรก", 85.42, RED, "252/295 · ก่อนแก้การตรวจขอบกระดาษ"), ("มุม 3 หลังแก้", 97.29, ORANGE, "287/295 · ทดสอบซ้ำ"), ("ทั้ง 6 ภาพ", 97.29, ORANGE, "861/885")]
 b = hbars(items, 30, 235, 520, 700, 112, 100, pct, target=91, font=28, gap=0.30)
-b += legend([(ORANGE, "ผ่านเป้า แต่เอกสารชุดเดียวกับที่ฝึก"), (RED, "ต่ำกว่าเป้า")], 70, 818, 700)
-page("b04_phone", "ฝึกเพิ่มช่วยได้จริง แต่ทุกผลวัดบนเอกสารชุดเดียวกัน", "ภาพมือถือ HEIC 6 ภาพ (2 เอกสาร × 3 มุม) · exact field accuracy · ใช้ตัวอ่านเดียวกัน", b, "ที่มา: model/reports/phone-training-summary-20261007.json")
+b += legend([(ORANGE, "ผ่านเป้า แต่เอกสารชุดเดียวกับที่ฝึก"), (RED, "ต่ำกว่าเป้า 91%")], 70, 818, 700)
+page("b04_phone", "ฝึก OCR เพิ่มแล้วอ่านแม่นขึ้น แต่ยังทดสอบกับเอกสารชุดเดิมเท่านั้น", "ภาพมือถือ 6 ภาพ (2 เอกสาร × 3 มุม) · ความแม่นยำระดับฟิลด์ (exact field accuracy)", b, "ที่มา: model/reports/phone-training-summary-20261007.json")
 
 # B5 — overfit protection
-items = [("Noise dev · catalog รวมเอกสารนั้น", 94.42, "#9A978F", "in-sample · 1184/1254"), ("Noise dev · กันเอกสารออกจาก catalog", 92.11, GREEN, "document-held-out · 1155/1254"),
-         ("ภาพต้นฉบับ dev 35 ฉบับ · กันเอกสารออก", 92.11, GREEN, "document-held-out · 4192/4551")]
-b = hbars(items, 30, 250, 640, 600, 150, 100, pct, target=91, font=27, gap=0.40)
-b += f'<text x="70" y="760" font-size="30" font-weight="700" style="fill:{GREEN}">กันเอกสารออกจาก catalog ทั้งฉบับ ผลลดลง 2.3 จุด (94.42 → 92.11)</text>'
-b += f'<text x="70" y="806" font-size="23" style="fill:{GRAY}">ยังไม่ใช่ holdout อิสระของทั้งระบบ เพราะ parser เคยปรับบนชุด dev</text>'
-page("b05_overfit", "กัน catalog ออกทั้งฉบับ ผลลดลงเพียง 2.3 จุด", "ผลของ course catalog ต่อความแม่นยำ: แบบรวมเอกสารที่วัดเข้า catalog เทียบกับแบบกันออก", b, "ที่มา: model/reports/noise-dev-term-fix.json, noise-dev-catalog-held-out.json, original-dev-catalog-held-out-all.json")
+items = [("ภาพ noise · catalog มีเอกสารที่วัดอยู่ด้วย", 94.42, "#9A978F", "1184/1254"), ("ภาพ noise · ตัดเอกสารที่วัดออกจาก catalog", 92.11, GREEN, "1155/1254"),
+         ("ภาพต้นฉบับ 35 ฉบับ · ตัดเอกสารที่วัดออก", 92.11, GREEN, "4192/4551")]
+b = hbars(items, 30, 250, 700, 560, 150, 100, pct, target=91, font=26, gap=0.40)
+b += f'<text x="70" y="760" font-size="30" font-weight="700" style="fill:{GREEN}">ตัดเอกสารที่วัดออกจาก catalog ผลลดลงแค่ 2.3 จุด (94.42 → 92.11)</text>'
+b += f'<text x="70" y="806" font-size="23" style="fill:{GRAY}">ยังไม่ใช่การทดสอบกับเอกสารใหม่จริงๆ เพราะกฎซ่อมเคยปรับบนชุด dev</text>'
+page("b05_overfit", "ตัดเอกสารที่วัดออกจาก catalog แล้ว ผลลดลงแค่ 2.3 จุด", "catalog = พจนานุกรมรหัสวิชา/ชื่อวิชาที่ใช้ซ่อมข้อความ OCR · ความแม่นยำระดับฟิลด์", b, "ที่มา: model/reports/noise-dev-term-fix.json, noise-dev-catalog-held-out.json, original-dev-catalog-held-out-all.json")
 print("generated")
