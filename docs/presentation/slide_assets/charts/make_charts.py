@@ -1,9 +1,9 @@
-"""สร้างกราฟสำหรับสไลด์ S4, S7, S8, S9, S11, S12, S13, S14 และ B4, B5 (ตัวเลขมาจาก model/reports/ ตามที่ระบุใน footnote ของแต่ละกราฟ)
+"""สร้างกราฟสำหรับสไลด์ S4, S7, S8, S9, S11, S12, S13, S14 และ B4, B5, B7 (ตัวเลขมาจาก model/reports/ ตามที่ระบุใน footnote ของแต่ละกราฟ)
 
 ขั้นตอน:
     python3 make_charts.py          # สร้างไฟล์ .html (SVG) ข้างสคริปต์
     # เรนเดอร์เป็น PNG 3200x1800 ด้วย Chrome (ภาษาไทยแสดงถูกต้อง) ตัวอย่างสำหรับ macOS:
-    for n in s04_routes s07_deskew s08_tuning s09_cer s11_split s12_accuracy s13_stages s14_weak b04_phone b05_overfit; do
+    for n in s04_routes s07_deskew s08_tuning s09_cer s11_split s12_accuracy s13_stages s14_weak b04_phone b05_overfit b07_er; do
       "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
         --force-device-scale-factor=2 --window-size=1600,900 --virtual-time-budget=6000 \
         --screenshot="$n.png" "file://$PWD/$n.html"
@@ -184,4 +184,41 @@ b = hbars(items, 30, 250, 700, 560, 150, 100, pct, target=91, font=26, gap=0.40)
 b += f'<text x="70" y="760" font-size="30" font-weight="700" style="fill:{GREEN}">ตัดเอกสารที่วัดออกจาก catalog ผลลดลงแค่ 2.3 จุด (94.42 → 92.11)</text>'
 b += f'<text x="70" y="806" font-size="23" style="fill:{GRAY}">ยังไม่ใช่การทดสอบกับเอกสารใหม่จริงๆ เพราะกฎซ่อมเคยปรับบนชุด dev</text>'
 page("b05_overfit", "ตัดเอกสารที่วัดออกจาก catalog แล้ว ผลลดลงแค่ 2.3 จุด", "catalog = พจนานุกรมรหัสวิชา/ชื่อวิชาที่ใช้ซ่อมข้อความ OCR · ความแม่นยำระดับฟิลด์", b, "ที่มา: model/reports/noise-dev-term-fix.json, noise-dev-catalog-held-out.json, original-dev-catalog-held-out-all.json")
+
+# B7 — ER diagram (horizontal, 16:9)
+TABLES = [
+    ("students", "นักศึกษา", [("student_id", "text", "PK"), ("prename", "text", ""), ("name", "text", ""), ("degree", "text", ""), ("faculty_name", "text", ""), ("program", "text", "")]),
+    ("documents", "เอกสารที่บันทึก", [("document_id", "text", "PK"), ("student_id", "text", "FK"), ("filename", "text", ""), ("format_id", "text", ""), ("engine", "text", ""), ("processing_seconds", "real", ""), ("created_at", "text", ""), ("record_json", "text", "")]),
+    ("semesters", "ภาคการศึกษา", [("semester_id", "int", "PK"), ("document_id", "text", "FK"), ("semester_index", "int", ""), ("academic_year", "text", ""), ("semester_number", "text", ""), ("gpa", "text", ""), ("gps", "text", ""), ("pass_reason", "text", "")]),
+    ("course_results", "ผลรายวิชา", [("result_id", "int", "PK"), ("semester_id", "int", "FK"), ("row_index", "int", ""), ("subject_id", "text", ""), ("subject_name", "text", ""), ("subject_type", "text", ""), ("credit", "text", ""), ("grade", "text", "")]),
+]
+RELS = ["1 นักศึกษา มีหลายเอกสาร", "1 เอกสาร มีหลายภาค", "1 ภาค มีหลายรายวิชา"]
+bw, gap, x0, top, hh, rh = 340, 60, 30, 215, 74, 47
+b = ""
+for i, (name, th, cols) in enumerate(TABLES):
+    x = x0 + i * (bw + gap)
+    h = hh + len(cols) * rh + 12
+    b += f'<rect x="{x}" y="{top}" width="{bw}" height="{h}" rx="14" fill="#fff" stroke="{LGRAY}" stroke-width="3"/>'
+    b += f'<path d="M{x},{top+14} a14,14 0 0 1 14,-14 h{bw-28} a14,14 0 0 1 14,14 v{hh-14} h-{bw} z" fill="{ORANGE}"/>'
+    b += f'<text x="{x+bw/2}" y="{top+34}" font-size="28" font-weight="700" text-anchor="middle" style="stroke:none;fill:#fff">{name}</text>'
+    b += f'<text x="{x+bw/2}" y="{top+62}" font-size="22" text-anchor="middle" style="stroke:none;fill:#fff">{th}</text>'
+    for j, (c, t, key) in enumerate(cols):
+        y = top + hh + 6 + j * rh
+        if key:
+            kc = DARK if key == "PK" else GREEN
+            b += f'<rect x="{x+14}" y="{y+8}" width="44" height="30" rx="6" fill="{kc}"/><text x="{x+36}" y="{y+30}" font-size="19" font-weight="700" text-anchor="middle" style="stroke:none;fill:#fff">{key}</text>'
+        b += f'<text x="{x+68}" y="{y+32}" font-size="22" font-weight="{700 if key else 400}" style="stroke:none">{c}</text>'
+        b += f'<text x="{x+bw-16}" y="{y+32}" font-size="19" text-anchor="end" style="stroke:none;fill:{GRAY}">{t}</text>'
+        if j < len(cols) - 1: b += f'<line x1="{x+10}" y1="{y+rh-3}" x2="{x+bw-10}" y2="{y+rh-3}" stroke="{LGRAY}" stroke-width="1.5"/>'
+for i in range(3):
+    xa = x0 + i * (bw + gap) + bw; xb = xa + gap
+    ya = top + hh + 6 + 0 * rh + 23; yb = top + hh + 6 + 1 * rh + 23
+    xm = (xa + xb) / 2
+    b += f'<polyline points="{xa},{ya} {xm},{ya} {xm},{yb} {xb},{yb}" fill="none" stroke="{DARK}" stroke-width="3.5"/>'
+    b += f'<circle cx="{xa+10}" cy="{ya}" r="0" fill="{DARK}"/><text x="{xa+8}" y="{ya-12}" font-size="22" font-weight="700" style="stroke:none">1</text>'
+    b += f'<line x1="{xb}" y1="{yb}" x2="{xb-22}" y2="{yb-14}" stroke="{DARK}" stroke-width="3.5"/><line x1="{xb}" y1="{yb}" x2="{xb-22}" y2="{yb+14}" stroke="{DARK}" stroke-width="3.5"/><line x1="{xb}" y1="{yb}" x2="{xb-22}" y2="{yb}" stroke="{DARK}" stroke-width="3.5"/>'
+    b += f'<text x="{xb-4}" y="{yb+42}" font-size="22" font-weight="700" text-anchor="end" style="stroke:none">N</text>'
+b += legend([(DARK, "PK = คีย์หลัก"), (GREEN, "FK = คีย์อ้างอิง (foreign key)")], 70, 745, 330)
+b += f'<text x="70" y="800" font-size="23" style="fill:{GRAY}">ลบเอกสาร → ภาคและรายวิชาถูกลบตาม (cascade) · index: course_results(subject_id), documents(student_id)</text>'
+page("b07_er", "ฐานข้อมูล: นักศึกษา 1 คน มีหลายเอกสาร → หลายภาค → หลายรายวิชา", "SQLite 4 ตาราง · foreign key เปิดใช้ (PRAGMA foreign_keys = ON)", b, "ที่มา: backend/app/database.py")
 print("generated")
