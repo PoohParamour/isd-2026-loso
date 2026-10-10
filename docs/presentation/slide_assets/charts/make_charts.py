@@ -1,9 +1,9 @@
-"""สร้างกราฟสำหรับสไลด์ S4, S7, S8, S9, S11, S12, S13, S14 (ตัวเลขมาจาก model/reports/ ตามที่ระบุใน footnote ของแต่ละกราฟ)
+"""สร้างกราฟสำหรับสไลด์ S4, S7, S8, S9, S11, S12, S13, S14 และ B4, B5 (ตัวเลขมาจาก model/reports/ ตามที่ระบุใน footnote ของแต่ละกราฟ)
 
 ขั้นตอน:
     python3 make_charts.py          # สร้างไฟล์ .html (SVG) ข้างสคริปต์
     # เรนเดอร์เป็น PNG 3200x1800 ด้วย Chrome (ภาษาไทยแสดงถูกต้อง) ตัวอย่างสำหรับ macOS:
-    for n in s04_routes s07_deskew s08_tuning s09_cer s11_split s12_accuracy s13_stages s14_weak; do
+    for n in s04_routes s07_deskew s08_tuning s09_cer s11_split s12_accuracy s13_stages s14_weak b04_phone b05_overfit; do
       "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
         --force-device-scale-factor=2 --window-size=1600,900 --virtual-time-budget=6000 \
         --screenshot="$n.png" "file://$PWD/$n.html"
@@ -169,4 +169,19 @@ items = [("ภาพเบลอ / คอนทราสต์ต่ำ", 57.18,
 b = hbars(items, 30, 235, 600, 700, 130, 100, pct, target=91, font=29, gap=0.38)
 b += f'<text x="70" y="810" font-size="24" style="fill:{GRAY}">ภาพมือถือ: ผิด 24/885 ฟิลด์ — ชื่อวิชา 13 · วันที่ 4 · เกรด 3 · ชื่อคน 2 · คำนำหน้า 1 · รหัสวิชา 1</text>'
 page("s14_weak", "ยังอ่านภาพเบลอ/มืด/เอียงแรงไม่ดี ต่ำกว่าเป้า 91%", "กลุ่มภาพที่ยังไม่ผ่านเป้า (exact field accuracy)", b, "ที่มา: model/reports/augmented-dev-deskew-full-20261004.json, peam-angles-after-20261004.json, phone-all-final-20261007.json")
+
+# B4 — phone training results
+items = [("ไม่ฝึก (มุม 2 ตรวจ)", 84.75, RED, "250/295"), ("ฝึกแล้ว (มุม 2 ตรวจ)", 97.63, ORANGE, "288/295 · เอกสารชุดเดียวกัน"),
+         ("มุม 3 ครั้งแรก", 85.42, RED, "252/295 · ก่อนแก้ geometry"), ("มุม 3 หลังแก้ geometry", 97.29, ORANGE, "287/295 · reused"), ("ทั้ง 6 ภาพ", 97.29, ORANGE, "861/885")]
+b = hbars(items, 30, 235, 520, 700, 112, 100, pct, target=91, font=28, gap=0.30)
+b += legend([(ORANGE, "ผ่านเป้า แต่เอกสารชุดเดียวกับที่ฝึก"), (RED, "ต่ำกว่าเป้า")], 70, 818, 700)
+page("b04_phone", "ฝึกเพิ่มช่วยได้จริง แต่ทุกผลวัดบนเอกสารชุดเดียวกัน", "ภาพมือถือ HEIC 6 ภาพ (2 เอกสาร × 3 มุม) · exact field accuracy · ใช้ตัวอ่านเดียวกัน", b, "ที่มา: model/reports/phone-training-summary-20261007.json")
+
+# B5 — overfit protection
+items = [("Noise dev · catalog รวมเอกสารนั้น", 94.42, "#9A978F", "in-sample · 1184/1254"), ("Noise dev · กันเอกสารออกจาก catalog", 92.11, GREEN, "document-held-out · 1155/1254"),
+         ("ภาพต้นฉบับ dev 35 ฉบับ · กันเอกสารออก", 92.11, GREEN, "document-held-out · 4192/4551")]
+b = hbars(items, 30, 250, 640, 600, 150, 100, pct, target=91, font=27, gap=0.40)
+b += f'<text x="70" y="760" font-size="30" font-weight="700" style="fill:{GREEN}">กันเอกสารออกจาก catalog ทั้งฉบับ ผลลดลง 2.3 จุด (94.42 → 92.11)</text>'
+b += f'<text x="70" y="806" font-size="23" style="fill:{GRAY}">ยังไม่ใช่ holdout อิสระของทั้งระบบ เพราะ parser เคยปรับบนชุด dev</text>'
+page("b05_overfit", "กัน catalog ออกทั้งฉบับ ผลลดลงเพียง 2.3 จุด", "ผลของ course catalog ต่อความแม่นยำ: แบบรวมเอกสารที่วัดเข้า catalog เทียบกับแบบกันออก", b, "ที่มา: model/reports/noise-dev-term-fix.json, noise-dev-catalog-held-out.json, original-dev-catalog-held-out-all.json")
 print("generated")
